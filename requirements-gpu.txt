@@ -1,0 +1,4 @@
+# Requirements for GPU environments (Google Colab T4 / Kaggle T4x2 / Linux)
+-r requirements.txt
+vllm>=0.6.0
+flash-attn>=2.5.0; sys_platform == 'linux'

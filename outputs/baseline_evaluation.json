@@ -1,0 +1,12 @@
+{
+  "final_score": 99.99999999999999,
+  "n_samples": 1545,
+  "avg_score": 1.0,
+  "hash_match_rate": 1.0,
+  "type_counts": {
+    "scored": 1434,
+    "oos_correct": 111
+  },
+  "n_perfect": 1545,
+  "n_failing": 0
+}

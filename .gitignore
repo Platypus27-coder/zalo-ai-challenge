@@ -1,0 +1,31 @@
+# Data (Do not push 1.1GB competition audio/data to GitHub)
+train+public_test/
+data/
+*.zip
+*.tar.gz
+
+# Outputs & Artifacts
+outputs/checkpoints/
+outputs/submissions/*.jsonl
+outputs/transcripts/
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+
+# Mac / Windows artifacts
+.DS_Store
+__MACOSX/
+Thumbs.db
+
+# IDE & Configs
+.vscode/
+.idea/
+.env

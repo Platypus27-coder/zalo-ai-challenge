@@ -1,0 +1,836 @@
+{
+  "samples": {
+    "total_samples": 1545,
+    "output_types": {
+      "execute": 1217,
+      "oos": 111,
+      "ask_missing_info": 217
+    },
+    "output_type_pct": {
+      "execute": "78.8%",
+      "oos": "7.2%",
+      "ask_missing_info": "14.0%"
+    },
+    "installed_apps_top20": {
+      "contacts": 887,
+      "calendar": 871,
+      "reminders": 871,
+      "chat_ott": 691,
+      "smart_home": 659,
+      "weather": 634,
+      "notes": 557,
+      "ewallet": 549,
+      "tasks": 543,
+      "phone": 529,
+      "ride_hailing": 507,
+      "alarm": 493,
+      "banking": 489,
+      "food_delivery": 457,
+      "sms": 426,
+      "email": 368,
+      "gold_price": 355,
+      "music": 350,
+      "tv": 346,
+      "medication": 345
+    },
+    "used_apps_top20": {
+      "smart_home": 285,
+      "contacts": 244,
+      "bill_payment": 225,
+      "sys": 217,
+      "banking": 210,
+      "calendar": 202,
+      "chat_ott": 187,
+      "reminders": 133,
+      "alarm": 96,
+      "food_delivery": 96,
+      "ewallet": 91,
+      "sms": 85,
+      "weather": 78,
+      "tasks": 68,
+      "door_lock": 65,
+      "learning": 61,
+      "ride_hailing": 59,
+      "maps": 54,
+      "email": 51,
+      "household_chores": 51
+    },
+    "tool_calls_top30": {
+      "contacts.search": 234,
+      "sys.ask_missing_info": 217,
+      "smart_home.light_set": 126,
+      "reminders.create": 115,
+      "bill_payment.list_bills": 112,
+      "smart_home.get_status": 107,
+      "calendar.list_events": 105,
+      "bill_payment.pay": 104,
+      "chat_ott.list_chats": 94,
+      "banking.transfer": 82,
+      "sms.send": 79,
+      "alarm.create": 78,
+      "chat_ott.send_message": 69,
+      "banking.get_balance": 62,
+      "weather.get_forecast": 60,
+      "banking.list_beneficiaries": 57,
+      "ride_hailing.book": 44,
+      "ewallet.get_balance": 44,
+      "tasks.add": 40,
+      "smart_home.climate_set": 39,
+      "calendar.create_event": 39,
+      "calendar.update_event": 36,
+      "phone.call": 36,
+      "ewallet.transfer": 33,
+      "gold_price.get_price": 33,
+      "bike_rental.reserve": 33,
+      "notes.create": 32,
+      "door_lock.set_lock": 30,
+      "household_chores.assign": 30,
+      "subscriptions.cancel": 29
+    },
+    "trace_length_distribution": {
+      "0": 111,
+      "1": 369,
+      "2": 428,
+      "3": 359,
+      "4": 161,
+      "5": 107,
+      "6": 10
+    },
+    "trace_length_stats": {
+      "min": 0,
+      "max": 6,
+      "avg": 2.291909385113269,
+      "median": 2
+    },
+    "common_chains_top20": {
+      "sys.ask_missing_info": 60,
+      "bill_payment.list_bills → bill_payment.pay → bill_payment.pay": 24,
+      "reminders.create": 23,
+      "bill_payment.list_bills → banking.get_balance → banking.list_beneficiaries → banking.transfer → banking.transfer": 22,
+      "contacts.search → sys.ask_missing_info": 21,
+      "bill_payment.list_bills → ewallet.get_balance → bill_payment.pay → contacts.search → sms.send": 21,
+      "smart_home.get_status → smart_home.light_set → smart_home.climate_set": 19,
+      "alarm.create → contacts.search → sys.ask_missing_info": 18,
+      "chat_ott.list_chats → food_delivery.list_restaurants → food_delivery.get_menu → food_delivery.place_order": 18,
+      "smart_home.get_status → smart_home.light_set → contacts.search → sys.ask_missing_info": 17,
+      "calendar.list_events → ride_hailing.book → reminders.create": 17,
+      "contacts.search → alarm.create → sys.ask_missing_info": 17,
+      "calendar.list_events → calendar.update_event → alarm.create → contacts.search → sms.send": 16,
+      "smart_home.get_status → smart_home.light_set → smart_home.light_set": 15,
+      "gold_price.get_price → banking.get_balance → banking.list_beneficiaries → banking.transfer": 14,
+      "smart_home.get_status → smart_home.light_set → smart_home.light_set → smart_home.climate_set": 14,
+      "chat_ott.list_chats → chat_ott.send_message": 13,
+      "weather.get_forecast": 12,
+      "notes.create": 11,
+      "bill_payment.list_bills → ewallet.get_balance → bill_payment.pay": 10
+    },
+    "history": {
+      "distribution": {
+        "no_history": 527,
+        "has_history": 1018
+      },
+      "length_distribution": {
+        "0": 527,
+        "4": 267,
+        "2": 288,
+        "10": 76,
+        "6": 137,
+        "8": 81,
+        "12": 41,
+        "20": 47,
+        "22": 35,
+        "18": 33,
+        "24": 13
+      },
+      "max_length": 24
+    },
+    "read_write_patterns_top20": {
+      "W": 246,
+      "RW": 177,
+      "WW": 168,
+      "RWW": 131,
+      "R": 63,
+      "WWW": 62,
+      "meta": 60,
+      "RRW": 57,
+      "Rmeta": 51,
+      "WRW": 49,
+      "RRRW": 43,
+      "RRWRW": 41,
+      "WRmeta": 29,
+      "RRRWW": 24,
+      "RWWW": 22,
+      "Wmeta": 21,
+      "RWRW": 19,
+      "WWWW": 19,
+      "RWRmeta": 18,
+      "RWmeta": 18
+    },
+    "apps_per_request": {
+      "0": 171,
+      "1": 659,
+      "2": 512,
+      "3": 145,
+      "4": 57,
+      "5": 1
+    },
+    "audio_text_length": {
+      "min": 12,
+      "max": 296,
+      "avg": 97.31974110032363
+    },
+    "code_switching": {
+      "samples_with_english": 1482,
+      "pct": "95.9%"
+    }
+  },
+  "catalog": {
+    "total_apps": 46,
+    "app_groups": {
+      "home": 8,
+      "planning": 5,
+      "communication": 6,
+      "finance": 5,
+      "information": 7,
+      "mobility": 3,
+      "food": 1,
+      "travel": 1,
+      "shopping": 2,
+      "media": 3,
+      "health": 2,
+      "personal": 2,
+      "control": 1
+    },
+    "total_tools": 147,
+    "tools_per_app": {
+      "smart_home": 6,
+      "home_security": 4,
+      "door_lock": 3,
+      "robot_vacuum": 3,
+      "appliances": 3,
+      "home_energy": 2,
+      "alarm": 4,
+      "reminders": 4,
+      "calendar": 4,
+      "notes": 3,
+      "tasks": 3,
+      "contacts": 3,
+      "phone": 2,
+      "sms": 2,
+      "chat_ott": 5,
+      "email": 6,
+      "video_meeting": 3,
+      "banking": 5,
+      "ewallet": 4,
+      "bill_payment": 3,
+      "loyalty": 3,
+      "weather": 2,
+      "gold_price": 1,
+      "fuel_price": 1,
+      "lottery": 2,
+      "exchange_rate": 2,
+      "news": 3,
+      "calculator": 2,
+      "maps": 3,
+      "food_delivery": 5,
+      "ride_hailing": 4,
+      "flights": 5,
+      "shopping_list": 4,
+      "package_tracking": 3,
+      "music": 4,
+      "tv": 4,
+      "podcast_radio": 4,
+      "medication": 4,
+      "fitness": 3,
+      "learning": 4,
+      "bike_rental": 2,
+      "home_automation": 3,
+      "household_chores": 2,
+      "library": 2,
+      "subscriptions": 2,
+      "sys": 1
+    },
+    "tool_kinds": {
+      "read": 62,
+      "write": 84,
+      "meta": 1
+    },
+    "xref_params": [
+      {
+        "tool": "smart_home.light_set",
+        "param": "device_id",
+        "ref": "smart_home.devices"
+      },
+      {
+        "tool": "smart_home.fan_set",
+        "param": "device_id",
+        "ref": "smart_home.devices"
+      },
+      {
+        "tool": "smart_home.climate_set",
+        "param": "device_id",
+        "ref": "smart_home.devices"
+      },
+      {
+        "tool": "smart_home.switch_set",
+        "param": "device_id",
+        "ref": "smart_home.devices"
+      },
+      {
+        "tool": "smart_home.scene_run",
+        "param": "scene_id",
+        "ref": "smart_home.scenes"
+      },
+      {
+        "tool": "home_security.acknowledge_alert",
+        "param": "alert_id",
+        "ref": "home_security.alerts"
+      },
+      {
+        "tool": "door_lock.set_lock",
+        "param": "lock_id",
+        "ref": "door_lock.locks"
+      },
+      {
+        "tool": "door_lock.grant_guest_code",
+        "param": "lock_id",
+        "ref": "door_lock.locks"
+      },
+      {
+        "tool": "appliances.start_cycle",
+        "param": "appliance_id",
+        "ref": "appliances.appliances"
+      },
+      {
+        "tool": "appliances.stop",
+        "param": "appliance_id",
+        "ref": "appliances.appliances"
+      },
+      {
+        "tool": "alarm.update",
+        "param": "alarm_id",
+        "ref": "alarm.alarms"
+      },
+      {
+        "tool": "alarm.delete",
+        "param": "alarm_id",
+        "ref": "alarm.alarms"
+      },
+      {
+        "tool": "reminders.complete",
+        "param": "reminder_id",
+        "ref": "reminders.reminders"
+      },
+      {
+        "tool": "reminders.delete",
+        "param": "reminder_id",
+        "ref": "reminders.reminders"
+      },
+      {
+        "tool": "calendar.update_event",
+        "param": "event_id",
+        "ref": "calendar.events"
+      },
+      {
+        "tool": "calendar.cancel_event",
+        "param": "event_id",
+        "ref": "calendar.events"
+      },
+      {
+        "tool": "notes.append",
+        "param": "note_id",
+        "ref": "notes.notes"
+      },
+      {
+        "tool": "tasks.complete",
+        "param": "task_id",
+        "ref": "tasks.tasks"
+      },
+      {
+        "tool": "contacts.get",
+        "param": "contact_id",
+        "ref": "contacts.contacts"
+      },
+      {
+        "tool": "contacts.update",
+        "param": "contact_id",
+        "ref": "contacts.contacts"
+      },
+      {
+        "tool": "phone.call",
+        "param": "contact_id",
+        "ref": "contacts.contacts"
+      },
+      {
+        "tool": "sms.send",
+        "param": "contact_id",
+        "ref": "contacts.contacts"
+      },
+      {
+        "tool": "sms.read_recent",
+        "param": "contact_id",
+        "ref": "contacts.contacts"
+      },
+      {
+        "tool": "chat_ott.read_chat",
+        "param": "chat_id",
+        "ref": "chat_ott.chats"
+      },
+      {
+        "tool": "chat_ott.send_message",
+        "param": "chat_id",
+        "ref": "chat_ott.chats"
+      },
+      {
+        "tool": "chat_ott.send_location",
+        "param": "chat_id",
+        "ref": "chat_ott.chats"
+      },
+      {
+        "tool": "chat_ott.call",
+        "param": "chat_id",
+        "ref": "chat_ott.chats"
+      },
+      {
+        "tool": "email.read",
+        "param": "email_id",
+        "ref": "email.emails"
+      },
+      {
+        "tool": "email.reply",
+        "param": "email_id",
+        "ref": "email.emails"
+      },
+      {
+        "tool": "email.archive",
+        "param": "email_id",
+        "ref": "email.emails"
+      },
+      {
+        "tool": "video_meeting.join",
+        "param": "meeting_id",
+        "ref": "video_meeting.meetings"
+      },
+      {
+        "tool": "banking.list_transactions",
+        "param": "account_id",
+        "ref": "banking.accounts"
+      },
+      {
+        "tool": "banking.transfer",
+        "param": "from_account_id",
+        "ref": "banking.accounts"
+      },
+      {
+        "tool": "banking.transfer",
+        "param": "beneficiary_id",
+        "ref": "banking.beneficiaries"
+      },
+      {
+        "tool": "banking.open_savings",
+        "param": "from_account_id",
+        "ref": "banking.accounts"
+      },
+      {
+        "tool": "ewallet.transfer",
+        "param": "contact_id",
+        "ref": "contacts.contacts"
+      },
+      {
+        "tool": "bill_payment.pay",
+        "param": "bill_id",
+        "ref": "bill_payment.bills"
+      },
+      {
+        "tool": "news.save",
+        "param": "article_id",
+        "ref": "news.articles"
+      },
+      {
+        "tool": "maps.save_place",
+        "param": "place_id",
+        "ref": "maps.places"
+      },
+      {
+        "tool": "food_delivery.get_menu",
+        "param": "restaurant_id",
+        "ref": "food_delivery.restaurants"
+      },
+      {
+        "tool": "food_delivery.place_order",
+        "param": "restaurant_id",
+        "ref": "food_delivery.restaurants"
+      },
+      {
+        "tool": "food_delivery.cancel_order",
+        "param": "order_id",
+        "ref": "food_delivery.orders"
+      },
+      {
+        "tool": "ride_hailing.cancel",
+        "param": "ride_id",
+        "ref": "ride_hailing.rides"
+      },
+      {
+        "tool": "ride_hailing.get_ride",
+        "param": "ride_id",
+        "ref": "ride_hailing.rides"
+      },
+      {
+        "tool": "flights.book",
+        "param": "flight_id",
+        "ref": "flights.flights"
+      },
+      {
+        "tool": "flights.cancel",
+        "param": "booking_id",
+        "ref": "flights.bookings"
+      },
+      {
+        "tool": "flights.check_in",
+        "param": "booking_id",
+        "ref": "flights.bookings"
+      },
+      {
+        "tool": "shopping_list.remove",
+        "param": "item_id",
+        "ref": "shopping_list.items"
+      },
+      {
+        "tool": "shopping_list.check",
+        "param": "item_id",
+        "ref": "shopping_list.items"
+      },
+      {
+        "tool": "music.play",
+        "param": "track_id",
+        "ref": "music.tracks"
+      },
+      {
+        "tool": "music.play",
+        "param": "playlist_id",
+        "ref": "music.playlists"
+      },
+      {
+        "tool": "music.add_to_playlist",
+        "param": "track_id",
+        "ref": "music.tracks"
+      },
+      {
+        "tool": "music.add_to_playlist",
+        "param": "playlist_id",
+        "ref": "music.playlists"
+      },
+      {
+        "tool": "tv.record",
+        "param": "program_id",
+        "ref": "tv.programs"
+      },
+      {
+        "tool": "podcast_radio.play",
+        "param": "episode_id",
+        "ref": "podcast_radio.episodes"
+      },
+      {
+        "tool": "podcast_radio.subscribe",
+        "param": "show_id",
+        "ref": "podcast_radio.shows"
+      },
+      {
+        "tool": "podcast_radio.queue",
+        "param": "episode_id",
+        "ref": "podcast_radio.episodes"
+      },
+      {
+        "tool": "medication.log_taken",
+        "param": "schedule_id",
+        "ref": "medication.schedules"
+      },
+      {
+        "tool": "medication.remove",
+        "param": "schedule_id",
+        "ref": "medication.schedules"
+      },
+      {
+        "tool": "learning.enroll",
+        "param": "course_id",
+        "ref": "learning.courses"
+      },
+      {
+        "tool": "learning.schedule_lesson",
+        "param": "course_id",
+        "ref": "learning.courses"
+      },
+      {
+        "tool": "learning.log_progress",
+        "param": "course_id",
+        "ref": "learning.courses"
+      },
+      {
+        "tool": "bike_rental.reserve",
+        "param": "bike_id",
+        "ref": "bike_rental.bikes"
+      },
+      {
+        "tool": "home_automation.create_rule",
+        "param": "device_id",
+        "ref": "smart_home.devices"
+      },
+      {
+        "tool": "home_automation.delete_rule",
+        "param": "rule_id",
+        "ref": "home_automation.rules"
+      },
+      {
+        "tool": "household_chores.assign",
+        "param": "chore_id",
+        "ref": "household_chores.chores"
+      },
+      {
+        "tool": "library.reserve",
+        "param": "book_id",
+        "ref": "library.books"
+      },
+      {
+        "tool": "subscriptions.cancel",
+        "param": "subscription_id",
+        "ref": "subscriptions.subscriptions"
+      }
+    ],
+    "fuzzy_params": [
+      {
+        "tool": "home_security.get_camera",
+        "param": "location"
+      },
+      {
+        "tool": "door_lock.grant_guest_code",
+        "param": "label"
+      },
+      {
+        "tool": "alarm.create",
+        "param": "label"
+      },
+      {
+        "tool": "alarm.update",
+        "param": "label"
+      },
+      {
+        "tool": "reminders.create",
+        "param": "content"
+      },
+      {
+        "tool": "calendar.create_event",
+        "param": "title"
+      },
+      {
+        "tool": "calendar.create_event",
+        "param": "location"
+      },
+      {
+        "tool": "calendar.update_event",
+        "param": "title"
+      },
+      {
+        "tool": "calendar.update_event",
+        "param": "location"
+      },
+      {
+        "tool": "notes.create",
+        "param": "title"
+      },
+      {
+        "tool": "notes.create",
+        "param": "content"
+      },
+      {
+        "tool": "notes.append",
+        "param": "content"
+      },
+      {
+        "tool": "tasks.add",
+        "param": "title"
+      },
+      {
+        "tool": "sms.send",
+        "param": "content"
+      },
+      {
+        "tool": "chat_ott.send_message",
+        "param": "content"
+      },
+      {
+        "tool": "email.send",
+        "param": "subject"
+      },
+      {
+        "tool": "email.send",
+        "param": "body"
+      },
+      {
+        "tool": "email.create_draft",
+        "param": "subject"
+      },
+      {
+        "tool": "email.create_draft",
+        "param": "body"
+      },
+      {
+        "tool": "email.reply",
+        "param": "body"
+      },
+      {
+        "tool": "video_meeting.create",
+        "param": "title"
+      },
+      {
+        "tool": "banking.transfer",
+        "param": "note"
+      },
+      {
+        "tool": "ewallet.transfer",
+        "param": "note"
+      },
+      {
+        "tool": "weather.get_current",
+        "param": "location"
+      },
+      {
+        "tool": "weather.get_forecast",
+        "param": "location"
+      },
+      {
+        "tool": "calculator.calculate",
+        "param": "expression"
+      },
+      {
+        "tool": "maps.search_place",
+        "param": "near"
+      },
+      {
+        "tool": "maps.get_route",
+        "param": "origin"
+      },
+      {
+        "tool": "maps.get_route",
+        "param": "destination"
+      },
+      {
+        "tool": "maps.save_place",
+        "param": "label"
+      },
+      {
+        "tool": "food_delivery.place_order",
+        "param": "address"
+      },
+      {
+        "tool": "ride_hailing.get_quotes",
+        "param": "pickup"
+      },
+      {
+        "tool": "ride_hailing.get_quotes",
+        "param": "dropoff"
+      },
+      {
+        "tool": "ride_hailing.book",
+        "param": "pickup"
+      },
+      {
+        "tool": "ride_hailing.book",
+        "param": "dropoff"
+      },
+      {
+        "tool": "shopping_list.add",
+        "param": "name"
+      },
+      {
+        "tool": "package_tracking.schedule_pickup",
+        "param": "address"
+      },
+      {
+        "tool": "medication.add",
+        "param": "name"
+      },
+      {
+        "tool": "bike_rental.find_bikes",
+        "param": "near"
+      },
+      {
+        "tool": "home_automation.create_rule",
+        "param": "title"
+      }
+    ],
+    "xoneof_params": [
+      {
+        "tool": "contacts.update",
+        "groups": [
+          [
+            "phone"
+          ],
+          [
+            "email"
+          ]
+        ]
+      },
+      {
+        "tool": "phone.call",
+        "groups": [
+          [
+            "contact_id"
+          ],
+          [
+            "phone_number"
+          ]
+        ]
+      },
+      {
+        "tool": "sms.send",
+        "groups": [
+          [
+            "contact_id"
+          ],
+          [
+            "phone_number"
+          ]
+        ]
+      },
+      {
+        "tool": "ewallet.transfer",
+        "groups": [
+          [
+            "contact_id"
+          ],
+          [
+            "phone"
+          ]
+        ]
+      },
+      {
+        "tool": "music.play",
+        "groups": [
+          [
+            "track_id"
+          ],
+          [
+            "playlist_id"
+          ]
+        ]
+      },
+      {
+        "tool": "podcast_radio.play",
+        "groups": [
+          [
+            "episode_id"
+          ],
+          [
+            "station"
+          ]
+        ]
+      }
+    ]
+  },
+  "splits": {
+    "train": 1157,
+    "dev": 265,
+    "holdout": 123
+  }
+}

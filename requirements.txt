@@ -1,0 +1,23 @@
+# Core Data & Utility
+numpy>=1.24.0
+scipy>=1.10.0
+pandas>=2.0.0
+tqdm>=4.65.0
+jsonlines>=4.0.0
+pyyaml>=6.0
+requests>=2.31.0
+
+# Part A: Evaluation & ASR Metrics
+jiwer>=3.0.0
+
+# Part B: ASR & Audio
+faster-whisper>=1.0.0
+soundfile>=0.12.0
+librosa>=0.10.0
+
+# Part C: LLM & Inference
+torch>=2.1.0
+transformers>=4.45.0
+accelerate>=0.30.0
+sentencepiece>=0.2.0
+protobuf>=4.25.0

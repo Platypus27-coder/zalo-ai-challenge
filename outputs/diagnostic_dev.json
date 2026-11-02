@@ -1,0 +1,27 @@
+{
+  "split": "dev",
+  "total_evaluated": 265,
+  "perfect_score_count": 265,
+  "zero_score_count": 0,
+  "partial_score_count": 0,
+  "total_score": 265.0,
+  "avg_score": 1.0,
+  "error_categories": {},
+  "decision_matrix": {
+    "gold_execute -> pred_execute": 210,
+    "gold_oos -> pred_oos": 17,
+    "gold_ask -> pred_ask": 38
+  },
+  "tool_call_stats": {
+    "total_gold_calls": 593,
+    "total_pred_calls": 593,
+    "matched_calls": 593,
+    "unmatched_calls": 0,
+    "missed_calls": 0
+  },
+  "tool_failing_rank": {},
+  "param_exact_mismatches": {},
+  "param_fuzzy_failures": [],
+  "detailed_failures": [],
+  "final_score_scaled": 100.0
+}
