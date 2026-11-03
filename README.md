@@ -77,7 +77,8 @@ Open [notebooks/00_colab_drive_master.ipynb](file:///D:/code/.vscode/LifeMateAge
 3. Auto-symlink `outputs/checkpoints` and `outputs/submissions` to Google Drive (`/content/drive/MyDrive/LifeMate_Artifacts/`).
 4. All checkpoints and submission files persist permanently on Drive even if Colab disconnects.
 
-## Detailed Member Action Plans
-- **Lead / Member A**: Evaluation, Loss Attribution Matrix, State Diff, Submission Linter.
-- **Member B (ASR Specialist)**: [Plan_Member_B_ASR.md](file:///D:/code/.vscode/LifeMateAgent/Plan_Member_B_ASR.md)
-- **Member C (Agent LLM Specialist)**: [Plan_Member_C_Agent_LLM.md](file:///D:/code/.vscode/LifeMateAgent/Plan_Member_C_Agent_LLM.md)
+## Documentation & Strategy Plans
+- **Master Plan**: [MASTER_PLAN.md](MASTER_PLAN.md) — Toàn bộ chiến lược, toán học metric, kiến trúc v3, ma trận điểm mất, 8 thí nghiệm, timeline và quy chuẩn nộp bài.
+- **Lead / Member A**: Xem chi tiết phân công trong [MASTER_PLAN.md](MASTER_PLAN.md) (Evaluation, Loss Attribution Matrix, State Diff, Submission Linter).
+- **Member B (ASR Specialist)**: [Plan_Member_B_ASR.md](Plan_Member_B_ASR.md) — Kế hoạch hành động chi tiết mảng giọng nói & ASR.
+- **Member C (Agent LLM Specialist)**: [Plan_Member_C_Agent_LLM.md](Plan_Member_C_Agent_LLM.md) — Kế hoạch hành động chi tiết mảng Agent & Function Calling.
