@@ -44,9 +44,21 @@ def test_part_a_components():
     from src.part_a.validator import load_catalog, get_tool_specs, validate_call
     catalog = load_catalog(TRAIN_CATALOG)
     specs = get_tool_specs(catalog)
-    val = validate_call("smart_home.light_set", {"device_id": "light_1", "state": "on"}, specs)
+    val = validate_call("smart_home.light_set", {"device_id": "light_1", "power": "on"}, specs)
     assert val["ok"], f"Validation failed: {val}"
     print("✅ Pre-call schema validator functioning properly")
+
+    # 5. Check Submission Linter
+    from src.part_a.submission_linter import SubmissionLinter
+    linter = SubmissionLinter(split="dev")
+    assert len(linter.expected_samples) == 265, f"Expected 265 dev samples, got {len(linter.expected_samples)}"
+    print(f"✅ Submission Linter indexed {len(linter.expected_samples)} expected dev samples")
+
+    # 6. Check Loss Attributor
+    from src.part_a.loss_attribution import LossAttributor
+    attributor = LossAttributor(TRAIN_CATALOG)
+    assert attributor is not None
+    print("✅ Loss Attribution Matrix initialized successfully")
 
 
 def test_part_b_components():

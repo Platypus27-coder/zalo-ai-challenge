@@ -24,7 +24,10 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-from config import DATA_ROOT, PUBLIC_TEST_JSONL, PUBLIC_TEST_CATALOG, TRAIN_JSONL, TRAIN_CATALOG
+from config import (
+    DATA_ROOT, PUBLIC_TEST_JSONL, PUBLIC_TEST_CATALOG,
+    TRAIN_JSONL, TRAIN_CATALOG, SPLITS_DIR
+)
 from src.part_a.validator import load_catalog, get_tool_specs, validate_call
 
 
@@ -55,6 +58,14 @@ class SubmissionLinter:
                 if line:
                     item = json.loads(line)
                     samples[item["id"]] = item
+
+        if self.split in ("dev", "holdout"):
+            splits_file = SPLITS_DIR / "splits.json"
+            if splits_file.exists():
+                with open(splits_file, encoding="utf-8") as f:
+                    target_ids = set(json.load(f)["splits"].get(self.split, []))
+                samples = {k: v for k, v in samples.items() if k in target_ids}
+
         return samples
 
     def lint_file(self, submission_path: Path | str) -> dict[str, Any]:

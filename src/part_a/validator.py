@@ -22,6 +22,12 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from config import TRAIN_CATALOG
 
+# Try importing official zaic_tools validator for 100% exact parity with official scorer
+try:
+    from zaic_tools.validate import schema_error as zaic_schema_error
+except ImportError:
+    zaic_schema_error = None
+
 
 def load_catalog(catalog_path: Path = TRAIN_CATALOG) -> dict:
     """Load tools catalog."""
@@ -48,6 +54,13 @@ def validate_call(
     
     Returns: {"ok": True/False, "errors": [...]}
     """
+    # 0. If official zaic_tools validator is available, use it for 100% exact scorer parity
+    if zaic_schema_error is not None:
+        err = zaic_schema_error(name, arguments, tool_specs, allowed=installed_tools)
+        if err is not None:
+            return {"ok": False, "errors": [err]}
+        return {"ok": True, "errors": []}
+
     errors = []
     
     # 1. Tool name exists

@@ -1,0 +1,13 @@
+.git/
+.gitignore
+.vscode/
+outputs/
+notebooks/
+train+public_test/
+__MACOSX/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+*.ipynb

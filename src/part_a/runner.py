@@ -19,19 +19,31 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from config import (
     DATA_ROOT, TRAIN_JSONL, PUBLIC_TEST_JSONL,
     TRAIN_CATALOG, PUBLIC_TEST_CATALOG,
-    MAX_TIME_PER_SAMPLE, SUBMISSIONS_DIR
+    MAX_TIME_PER_SAMPLE, SUBMISSIONS_DIR, SPLITS_DIR
 )
 
 
 def load_samples(split: str = "train") -> list[dict]:
-    """Load samples from JSONL."""
-    jsonl_path = TRAIN_JSONL if split == "train" else PUBLIC_TEST_JSONL
+    """Load samples from JSONL, supporting train, dev, holdout, and public_test."""
+    if split in ("train", "dev", "holdout"):
+        jsonl_path = TRAIN_JSONL
+    else:
+        jsonl_path = PUBLIC_TEST_JSONL
+
     samples = []
     with open(jsonl_path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if line:
                 samples.append(json.loads(line))
+
+    if split in ("dev", "holdout"):
+        splits_file = SPLITS_DIR / "splits.json"
+        if splits_file.exists():
+            with open(splits_file, encoding="utf-8") as f:
+                split_ids = set(json.load(f)["splits"].get(split, []))
+            samples = [s for s in samples if s["id"] in split_ids]
+
     return samples
 
 
@@ -91,8 +103,10 @@ class PipelineRunner:
         self.max_time = max_time
         self.verbose = verbose
         
+        self.data_split = "train" if split in ("train", "dev", "holdout") else split
+
         # Add zaic_tools to path
-        split_dir = DATA_ROOT / split
+        split_dir = DATA_ROOT / self.data_split
         if str(split_dir) not in sys.path:
             sys.path.insert(0, str(split_dir))
     
@@ -117,11 +131,11 @@ class PipelineRunner:
             
             try:
                 # Create fresh ToolEnv for this sample
-                env = ToolEnv(self.split, sample_id, root=str(DATA_ROOT))
+                env = ToolEnv(self.data_split, sample_id, root=str(DATA_ROOT))
                 
                 # Step 1: ASR
                 if self.asr_fn:
-                    audio_path = DATA_ROOT / self.split / sample["audio"]
+                    audio_path = DATA_ROOT / self.data_split / sample["audio"]
                     transcript = self.asr_fn(str(audio_path), sample)
                 else:
                     # Fallback: use gold transcript (for baseline/debugging)
@@ -195,8 +209,11 @@ def run_gold_baseline(split: str = "train", sample_ids: list[str] | None = None)
     
     This should produce a perfect score and validates our ToolEnv + evaluator setup.
     """
+    data_split = "train" if split in ("train", "dev", "holdout") else split
+    split_dir = DATA_ROOT / data_split
+    if str(split_dir) not in sys.path:
+        sys.path.insert(0, str(split_dir))
     from zaic_tools import ToolEnv
-    
     samples = load_samples(split)
     if sample_ids:
         sample_ids_set = set(sample_ids)
@@ -206,7 +223,7 @@ def run_gold_baseline(split: str = "train", sample_ids: list[str] | None = None)
     
     for sample in samples:
         sample_id = sample["id"]
-        env = ToolEnv(split, sample_id, root=str(DATA_ROOT))
+        env = ToolEnv(data_split, sample_id, root=str(DATA_ROOT))
         
         # Replay gold tool calls
         gold_calls = sample.get("label", {}).get("tool_calls", [])
@@ -226,13 +243,13 @@ if __name__ == "__main__":
     import argparse
     
     parser = argparse.ArgumentParser(description="LifeMate Pipeline Runner")
-    parser.add_argument("--split", default="train", choices=["train", "public_test"])
+    parser.add_argument("--split", default="dev", choices=["train", "dev", "holdout", "public_test"])
     parser.add_argument("--gold-baseline", action="store_true", help="Run gold replay baseline")
     parser.add_argument("--max-samples", type=int, default=None, help="Limit number of samples")
     args = parser.parse_args()
     
     if args.gold_baseline:
-        print(f"Running gold baseline on {args.split}...")
+        print(f"Running gold baseline on '{args.split}'...")
         samples = load_samples(args.split)
         if args.max_samples:
             samples = samples[:args.max_samples]
@@ -242,17 +259,19 @@ if __name__ == "__main__":
         runner = PipelineRunner(split=args.split)
         output_path = runner.save_submission(results)
         
-        # Evaluate if on train split
-        if args.split == "train":
+        # Evaluate if on train/dev/holdout split
+        if args.split in ("train", "dev", "holdout"):
             from src.part_a.evaluator import (
                 load_catalog_fuzzy_params, evaluate_submission,
                 compute_gold_hashes_via_replay
             )
             
-            print("\nEvaluating gold baseline (should be ~100)...")
+            print(f"\nEvaluating gold baseline on '{args.split}' (expected: 100.0)...")
             fuzzy_params = load_catalog_fuzzy_params()
-            gold_hashes = compute_gold_hashes_via_replay(samples, args.split)
+            gold_hashes = compute_gold_hashes_via_replay(samples, "train")
             eval_result = evaluate_submission(results, samples, fuzzy_params, gold_hashes)
-            print(f"Final Score: {eval_result['final_score']:.2f}")
+            print(f"Final Score:     {eval_result['final_score']:.2f} / 100")
+            print(f"Hash Match Rate: {eval_result['hash_match_rate']:.2%}")
+            print(f"Type Counts:     {eval_result['type_counts']}")
             print(f"Hash Match Rate: {eval_result['hash_match_rate']:.2%}")
             print(f"Type Counts: {eval_result['type_counts']}")

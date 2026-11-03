@@ -1,6 +1,7 @@
-# Data (Do not push 1.1GB competition audio/data to GitHub)
+# Data & Models (Do not push large binaries to GitHub)
 train+public_test/
 data/
+models/
 *.zip
 *.tar.gz
 
@@ -8,6 +9,9 @@ data/
 outputs/checkpoints/
 outputs/submissions/*.jsonl
 outputs/transcripts/
+outputs/reports/
+outputs/*.json
+!outputs/splits/*.json
 *.log
 
 # Python cache
