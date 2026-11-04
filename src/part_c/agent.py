@@ -28,6 +28,7 @@ from .tool_filter import (
     load_catalog, get_all_tool_specs, filter_tools_for_sample,
     format_tools_for_prompt, format_tools_as_json_schema,
 )
+from .evidence_ledger import EvidenceLedger
 
 
 class BaseAgent:
@@ -84,6 +85,8 @@ class BaseAgent:
         context = sample.get("context", {})
         history = sample.get("history", [])
         
+        # Scoped Evidence Ledger per sample (§5.1 of Master Plan)
+        ledger = EvidenceLedger(sample)
         observations = []
         
         for step in range(self.max_steps):
@@ -135,6 +138,11 @@ class BaseAgent:
                         "call": {"name": name, "arguments": arguments},
                         "result": result,
                     })
+
+                    # Update Evidence Ledger & Invalidate state if write
+                    ledger.update_from_tool_result(name, arguments, result)
+                    if not name.startswith(("sys.", "weather.", "gold_price.", "fuel_price.")):
+                        ledger.invalidate_on_write(name, arguments)
                     
                     if self.verbose:
                         ok_str = "✓" if result.get("ok") else "✗"
@@ -229,7 +237,7 @@ class TransformersAgent(BaseAgent):
     
     def __init__(
         self,
-        model_name: str = "Qwen/Qwen2.5-3B-Instruct",
+        model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
         catalog_path: Path = TRAIN_CATALOG,
         device: str = "cuda",
         max_new_tokens: int = 512,
@@ -313,7 +321,7 @@ class VLLMAgent(BaseAgent):
     
     def __init__(
         self,
-        model_name: str = "Qwen/Qwen2.5-3B-Instruct",
+        model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
         catalog_path: Path = TRAIN_CATALOG,
         max_new_tokens: int = 512,
         max_steps: int = 10,

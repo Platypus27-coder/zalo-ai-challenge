@@ -28,8 +28,8 @@ Mọi giải pháp phải chạy **Offline 100%** trong Docker container trên c
 
 | Hạng mục | Quy định giới hạn | Phân tích & Giải pháp kỹ thuật |
 | :--- | :--- | :--- |
-| **Tổng tham số hệ thống** | **< 6.0B parameters** | Tổng kích thước của toàn bộ ASR + LLM + Router/Verifier (nếu có). |
-| **Giới hạn LLM** | **< 5.0B parameters** | Dùng dòng **Qwen2.5-3B-Instruct** (~3.09B params, bfloat16) hoặc tương đương. |
+| **Tổng tham số hệ thống** | **< 6.0B parameters** | Tổng kích thước toàn bộ hệ thống (ASR 0.81B + LLM 4.02B = **4.83B** < 6.0B). |
+| **Giới hạn LLM** | **< 5.0B parameters** | Dùng **Qwen3-4B-Instruct-2507** (4.02B params thực, bfloat16, Apache-2.0, non-thinking, native 256K). |
 | **Context Window** | **$\le 16,384$ tokens** | Lọc tool động theo `installed_apps` (giảm token prompt xuống < 2,000 tokens). |
 | **Phần cứng máy chấm** | **1x NVIDIA A30 (24GB VRAM)**<br>CPU 16-core Xeon Gold, 64GB RAM | Đủ nạp đồng thời 1 model ASR (~800M) và 1 model LLM (~3B) ở chuẩn FP16/BF16 không cần lượng tử hóa sâu. |
 | **Thời gian chạy (Latency)** | **$\le 30.0$ giây / mẫu** | Quá 30s hoặc crash tính 0 điểm. Mục tiêu P95 nội bộ: **$\le 25.0$ giây/mẫu**. |
@@ -151,7 +151,8 @@ $$\text{ROI} = \frac{\text{Điểm mất} \times \text{Tỷ lệ cứu được 
   * Benchmark âm học `asr_benchmark.py` và xuất file `transcripts_dev.json`.
   * Notebook thực nghiệm: `notebooks/01_asr_colab_kaggle.ipynb`.
 * **Thành viên C (Agent LLM & Reasoning Specialist):**
-  * Vòng lặp Agent `agent.py` dựa trên `Qwen/Qwen2.5-3B-Instruct` (Greedy decoding, `temp=0.0`).
+  * Vòng lặp Agent `agent.py` dựa trên `Qwen/Qwen3-4B-Instruct-2507` (Greedy decoding, `temp=0.0`, non-thinking).
+  * Chi tiết kế hoạch hành động chuyên sâu: xem [Plan_Member_C_Agent_LLM.md](Plan_Member_C_Agent_LLM.md).
   * Kỹ thuật prompt `prompt.py` và lọc tool động theo ngữ cảnh `tool_filter.py`.
   * Sổ bằng chứng `evidence_ledger.py` và bộ theo dõi tiến trình `task_tracker.py`.
   * Xuất file kết quả dự đoán `candidate_c_dev.jsonl`.

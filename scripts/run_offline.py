@@ -93,13 +93,13 @@ def run_offline_pipeline(
         asr = ASRModule(model_name=asr_load_path, device="cpu", compute_type="int8")
         asr.load()
 
-    # 4. Initialize Agent Module (Offline)
+    # 4. Initialize Agent Module (Offline with Fail-Fast)
     print(f"\n[3/4] Initializing Agent Module from '{llm_model_path}'...")
     from src.part_c.agent import create_agent
     llm_path_obj = Path(llm_model_path)
-    llm_load_path = str(llm_path_obj.resolve()) if llm_path_obj.exists() else "Qwen/Qwen2.5-3B-Instruct"
+    llm_load_path = str(llm_path_obj.resolve()) if llm_path_obj.exists() else "Qwen/Qwen3-4B-Instruct-2507"
     
-    # Try Transformers agent; fallback to rule agent if no GPU
+    # In competition offline mode, silent fallback to RuleAgent is strictly disabled
     try:
         agent = create_agent(
             mode="transformers",
@@ -111,12 +111,11 @@ def run_offline_pipeline(
             agent.load()
         print(f"  ✅ LLM Agent initialized from {llm_load_path}")
     except Exception as e:
-        print(f"  ⚠️ LLM Agent load failed ({e}), falling back to Rule-based Agent...")
-        agent = create_agent(
-            mode="rule",
-            catalog_path=catalog_path,
-            verbose=False
-        )
+        raise RuntimeError(
+            f"FATAL: Offline LLM Agent failed to load from '{llm_load_path}': {e}\n"
+            f"Per Member C audit: silent fallback to Rule Agent is prohibited to prevent 0-score disaster.\n"
+            f"Ensure model weights are pre-downloaded via `python scripts/download_models.py`."
+        ) from e
 
     # 5. Execute inference loop
     print(f"\n[4/4] Executing inference pipeline...")
@@ -198,9 +197,10 @@ def run_offline_pipeline(
     if lint_res["passed"]:
         print("  🎉 SUBMISSION LINTER PASSED (0 Critical Errors)!")
     else:
-        print(f"  ⚠️ Submission Linter Warning: {len(lint_res['critical_errors'])} errors detected.")
-        for err in lint_res["critical_errors"][:3]:
+        print(f"  ❌ CRITICAL: Submission Linter FAILED ({len(lint_res['critical_errors'])} errors):")
+        for err in lint_res["critical_errors"][:5]:
             print(f"     • {err}")
+        sys.exit(1)
 
 
 def main():
@@ -208,7 +208,7 @@ def main():
     parser.add_argument("--data-dir", required=True, help="Directory containing <split>.jsonl, catalog, and audio/")
     parser.add_argument("--output", default="submission.jsonl", help="Output submission.jsonl path")
     parser.add_argument("--whisper-model", default="models/whisper/large-v3-turbo")
-    parser.add_argument("--llm-model", default="models/llm/Qwen_Qwen2.5-3B-Instruct")
+    parser.add_argument("--llm-model", default="models/llm/Qwen_Qwen3-4B-Instruct-2507")
     parser.add_argument("--max-samples", type=int, default=None)
     args = parser.parse_args()
 

@@ -110,20 +110,25 @@ class ASRModule:
             text_parts.append(seg.text.strip())
         
         raw_text = " ".join(text_parts)
+        normalized_text = normalize_transcript(raw_text)
         inference_time = time.monotonic() - start
         
         return {
+            # Canonical names
             "raw_text": raw_text,
-            "normalized_text": normalize_transcript(raw_text),
+            "normalized_text": normalized_text,
+            # Aliases for 100% backwards and forwards compatibility
+            "raw_transcript": raw_text,
+            "normalized_transcript": normalized_text,
             "language": info.language if info else self.language,
             "duration": info.duration if info else 0,
             "inference_time": inference_time,
             "segments": segments,
         }
     
-    def __call__(self, audio_path: str, sample: dict | None = None) -> str:
+    def __call__(self, audio_path: str, sample: dict | None = None, context: dict | None = None) -> str:
         """Shortcut: transcribe and return normalized text."""
-        result = self.transcribe(audio_path, sample)
+        result = self.transcribe(audio_path, sample=sample, context=context)
         return result["normalized_text"]
 
 
@@ -148,9 +153,12 @@ class GoldTranscriptASR:
         if sample:
             text = sample.get("audio_text", "")
         
+        norm_text = normalize_transcript(text)
         return {
             "raw_text": text,
-            "normalized_text": normalize_transcript(text),
+            "normalized_text": norm_text,
+            "raw_transcript": text,
+            "normalized_transcript": norm_text,
             "language": "vi",
             "duration": 0,
             "inference_time": 0,

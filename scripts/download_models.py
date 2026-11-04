@@ -30,7 +30,7 @@ def download_whisper(target_dir: Path, model_name: str = "large-v3-turbo"):
         print("  💡 Tip: Install faster-whisper with `pip install faster-whisper` and ensure internet connection.")
 
 
-def download_llm(target_dir: Path, model_name: str = "Qwen/Qwen2.5-3B-Instruct"):
+def download_llm(target_dir: Path, model_name: str = "Qwen/Qwen3-4B-Instruct-2507"):
     print(f"\n[2/2] Downloading HuggingFace LLM '{model_name}'...")
     safe_name = model_name.replace("/", "_")
     llm_dir = target_dir / "llm" / safe_name
@@ -56,7 +56,7 @@ def main():
                         help="Target directory to store downloaded models")
     parser.add_argument("--whisper-model", default="large-v3-turbo",
                         help="Whisper model name (e.g. large-v3-turbo, medium)")
-    parser.add_argument("--llm-model", default="Qwen/Qwen2.5-3B-Instruct",
+    parser.add_argument("--llm-model", default="Qwen/Qwen3-4B-Instruct-2507",
                         help="LLM model repo ID")
     parser.add_argument("--only-whisper", action="store_true")
     parser.add_argument("--only-llm", action="store_true")
