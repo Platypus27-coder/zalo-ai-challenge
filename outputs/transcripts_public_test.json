@@ -1,0 +1,3172 @@
+{
+  "public_0002": {
+    "raw_text": "Đặt xe 4 chỗ từ công ty đi khám răng chiều nay. Đặt ngay bây giờ nhé.",
+    "normalized_text": "Đặt xe 4 chỗ từ công ty đi khám răng chiều nay. Đặt ngay bây giờ nhé.",
+    "latency": 1.7449330910000072
+  },
+  "public_0003": {
+    "raw_text": "Nếu máy mới thi rơi chạy buồn là máy buồn 2 tiếng, nhận SMS bao giờ mới trở hơn nhé, không mới thi thôi.",
+    "normalized_text": "Nếu máy mới thi rơi chạy buồn là máy buồn 2 tiếng, nhận SMS bao giờ mới trở hơn nhé, không mới thi thôi.",
+    "latency": 1.1522531219999905
+  },
+  "public_0004": {
+    "raw_text": "Đặt bảo xuất trực cho bái bá tiền giúp mình nghỉ.",
+    "normalized_text": "Đặt bảo xuất trực cho bái bá tiền giúp mình nghỉ.",
+    "latency": 0.8849224850000041
+  },
+  "public_0005": {
+    "raw_text": "Mai mà mưa thì hủy đã bóng sáng, gọi báo Lan nhé.",
+    "normalized_text": "Mai mà mưa thì hủy đã bóng sáng, gọi báo Lan nhé.",
+    "latency": 0.902143260999992
+  },
+  "public_0006": {
+    "raw_text": "Cái còn lại nếu mai mưa thì giờ muộn nửa tiếng, không mưa thì giữ nghiêng.",
+    "normalized_text": "Cái còn lại nếu mai mưa thì giờ muộn nửa tiếng, không mưa thì giữ nghiêng.",
+    "latency": 1.0340753689999929
+  },
+  "public_0007": {
+    "raw_text": "À rồi, bạn đặt cho mình cái báo thức để ra sân bay nhé, tôi chơi các chuyến, mình chắc khoảng 1 tiếng rưỡi kia là ra sân bay.",
+    "normalized_text": "À rồi, bạn đặt cho mình cái báo thức để ra sân bay nhé, tôi chơi các chuyến, mình chắc khoảng 1 tiếng rưỡi kia là ra sân bay.",
+    "latency": 1.3478148080000096
+  },
+  "public_0008": {
+    "raw_text": "Bạn ơi, chuyến đến Hà Nội mình đặt đấy, máy bay ở căn sông nửa tiếng tiền báo thức giúp mình để vợ về nhà nhé.",
+    "normalized_text": "Bạn ơi, chuyến đến Hà Nội mình đặt đấy, máy bay ở căn sông nửa tiếng tiền báo thức giúp mình để vợ về nhà nhé.",
+    "latency": 1.219402917000025
+  },
+  "public_0009": {
+    "raw_text": "em tin cho mình bảo nhớ mang tài liệu nhé",
+    "normalized_text": "em tin cho mình bảo nhớ mang tài liệu nhé",
+    "latency": 0.7165624799999932
+  },
+  "public_0010": {
+    "raw_text": "Đặt 1 vé đi Hà Nội ngày 9 tháng 11, bay sau 12h trưa, cho không kiếm rẻ nhất.",
+    "normalized_text": "Đặt 1 vé đi Hà Nội ngày 9 tháng 11, bay sau 12h trưa, cho không kiếm rẻ nhất.",
+    "latency": 1.0308564089999663
+  },
+  "public_0012": {
+    "raw_text": "Chuyển giúp tôi 1 triệu rưỡi cho Lê Minh, từng hạt 50k từ hứa cho bác ba nha.",
+    "normalized_text": "Chuyển giúp tôi 1 triệu rưỡi cho Lê Minh, từng hạt 50k từ hứa cho bác ba nha.",
+    "latency": 1.1218178869999633
+  },
+  "public_0015": {
+    "raw_text": "Gọi cho mình luôn đi, rồi đặt báo thích sau giờ sáng mai chúng tôi về.",
+    "normalized_text": "Gọi cho mình luôn đi, rồi đặt báo thích sau giờ sáng mai chúng tôi về.",
+    "latency": 0.8591498799999613
+  },
+  "public_0016": {
+    "raw_text": "Chuyển cho Trần Văn Tuấn bằng tiền, mạng tháng này, nếu thiếu thì lấy tiền tiết kiệm nhé.",
+    "normalized_text": "Chuyển cho Trần Văn Tuấn bằng tiền, mạng tháng này, nếu thiếu thì lấy tiền tiết kiệm nhé.",
+    "latency": 1.108186950000004
+  },
+  "public_0017": {
+    "raw_text": "Ờ, đặt giúp tôi báo thức 6h30 sáng mai nhé, à với lại gọi cho Lan.",
+    "normalized_text": "Ờ, đặt giúp tôi báo thức 6h30 sáng mai nhé, à với lại gọi cho Lan.",
+    "latency": 0.9632547179999733
+  },
+  "public_0019": {
+    "raw_text": "Gọi cho Minh nhé.",
+    "normalized_text": "Gọi cho Minh nhé.",
+    "latency": 0.583999920999986
+  },
+  "public_0020": {
+    "raw_text": "Còn cái kia, mai mà trời mưa thì cho ra sớm hơn 20 phút, trời khô rám thì cứ để vậy.",
+    "normalized_text": "Còn cái kia, mai mà trời mưa thì cho ra sớm hơn 20 phút, trời khô rám thì cứ để vậy.",
+    "latency": 1.017860421000023
+  },
+  "public_0021": {
+    "raw_text": "Ờ, à, giúp mình đặt 100k điện thoại cho bố với, rồi chuyển cho Minh đồng nghiệp thúng số tiền nước tháng này nhé.",
+    "normalized_text": "Ờ, à, giúp mình đặt 100k điện thoại cho bố với, rồi chuyển cho Minh đồng nghiệp thúng số tiền nước tháng này nhé.",
+    "latency": 1.1794181500000036
+  },
+  "public_0022": {
+    "raw_text": "Trợ lý ơi, thanh toán tiền chuyển đỉnh sáng ngày bằng ngân hàng chúng mình nhé.",
+    "normalized_text": "Trợ lý ơi, thanh toán tiền chuyển đỉnh sáng ngày bằng ngân hàng chúng mình nhé.",
+    "latency": 0.9705605070000161
+  },
+  "public_0023": {
+    "raw_text": "Gọi luôn cho khói đi, ở đặt post hết năm nửa chiều nay để tôi nhớ đi gửi hàng nhé.",
+    "normalized_text": "Gọi luôn cho khói đi, ở đặt post hết năm nửa chiều nay để tôi nhớ đi gửi hàng nhé.",
+    "latency": 1.0783273010000016
+  },
+  "public_0024": {
+    "raw_text": "Thân vãi tuyển biển, ưu tiên huy, thiếu thị trường ngân hàng.",
+    "normalized_text": "Thân vãi tuyển biển, ưu tiên huy, thiếu thị trường ngân hàng.",
+    "latency": 0.9908548050000263
+  },
+  "public_0025": {
+    "raw_text": "Ơi, đặt giúp tôi vé đi Hà Nội ngày 11 tháng 12 chiến luyện dứt xong 12h. Hẹn báo thức trước 3 tiếng và nhắn Zalo của Mai báo giờ bay nhé.",
+    "normalized_text": "Ơi, đặt giúp tôi vé đi Hà Nội ngày 11 tháng 12 chiến luyện dứt xong 12h. Hẹn báo thức trước 3 tiếng và nhắn Zalo của Mai báo giờ bay nhé.",
+    "latency": 1.5198039119999862
+  },
+  "public_0026": {
+    "raw_text": "Chờ lý ơi, ba gọi điện trị nhé.",
+    "normalized_text": "Chờ lý ơi, ba gọi điện trị nhé.",
+    "latency": 0.712224090999996
+  },
+  "public_0027": {
+    "raw_text": "Đang giúp mình khai viện đi Đà Nẵng ngày 10 tháng 12, chào mừng với bà nhé, lấy truyền cuối cùng cho ngay.",
+    "normalized_text": "Đang giúp mình khai viện đi Đà Nẵng ngày 10 tháng 12, chào mừng với bà nhé, lấy truyền cuối cùng cho ngay.",
+    "latency": 1.172553592999975
+  },
+  "public_0028": {
+    "raw_text": "Đọc về điện thoại hàng ngày 29 tháng 11, 7 buổi sáng rưỡi 12h, lấy chuyển rải nứt, hẹn bảo thức rưỡi 2 tiếng và nhận giao lưu trên tuận bảo dơ bài nhẹ.",
+    "normalized_text": "Đọc về điện thoại hàng ngày 29 tháng 11, 7 buổi sáng rưỡi 12h, lấy chuyển rải nứt, hẹn bảo thức rưỡi 2 tiếng và nhận giao lưu trên tuận bảo dơ bài nhẹ.",
+    "latency": 1.6715849439999602
+  },
+  "public_0029": {
+    "raw_text": "Tiền điền tháng nay chủ nhà đọng hồ rồi, em chuyển trà anh hùng, chủ nhà đúng số đó nhé.",
+    "normalized_text": "Tiền điền tháng nay chủ nhà đọng hồ rồi, em chuyển trà anh hùng, chủ nhà đúng số đó nhé.",
+    "latency": 1.0474968370000397
+  },
+  "public_0030": {
+    "raw_text": "Tắt đèn phần 2 đi, nếu phòng nào đeo mặt điều hòa thì cứ để đèn đó.",
+    "normalized_text": "Tắt đèn phần 2 đi, nếu phòng nào đeo mặt điều hòa thì cứ để đèn đó.",
+    "latency": 0.9529825630000346
+  },
+  "public_0031": {
+    "raw_text": "Chú ý sớm sớm đi Đà Nẵng, mình mới đặt đó, đặt báo thức, chú ý chờ vài 4 tiếng em.",
+    "normalized_text": "Chú ý sớm sớm đi Đà Nẵng, mình mới đặt đó, đặt báo thức, chú ý chờ vài 4 tiếng em.",
+    "latency": 1.1515840089999756
+  },
+  "public_0032": {
+    "raw_text": "Ờ à, nhờ bạn nhắc cho mình đổ xăng lúc 5 giờ chiều mai nhé.",
+    "normalized_text": "Ờ à, nhờ bạn nhắc cho mình đổ xăng lúc 5 giờ chiều mai nhé.",
+    "latency": 0.8835923639999805
+  },
+  "public_0033": {
+    "raw_text": "Báo thích 7h sáng mai giúp chị với chuyển ví cho sếp dụng ít tiền nhé.",
+    "normalized_text": "Báo thích 7h sáng mai giúp chị với chuyển ví cho sếp dụng ít tiền nhé.",
+    "latency": 0.9759568200000217
+  },
+  "public_0034": {
+    "raw_text": "5h30 sáng mai, gửi em giày đi ra sân bay nhé. À, trưởng khoa vị trả mẹ tiền đi trả hồi em luôn.",
+    "normalized_text": "5h30 sáng mai, gửi em giày đi ra sân bay nhé. À, trưởng khoa vị trả mẹ tiền đi trả hồi em luôn.",
+    "latency": 1.163880359000018
+  },
+  "public_0035": {
+    "raw_text": "Mai nếu khó mưa thì bỏ lịch đá bóng sáng mai đi, gọi cho Lime báo luôn, còn trời không mưa thì cứ để nguyên.",
+    "normalized_text": "Mai nếu khó mưa thì bỏ lịch đá bóng sáng mai đi, gọi cho Lime báo luôn, còn trời không mưa thì cứ để nguyên.",
+    "latency": 1.2218304820000299
+  },
+  "public_0036": {
+    "raw_text": "Lịch tải bóng mai rời muộn thêm nửa tiếng, bảo thức trước đó một tiếng, rồi nhắn SMS cho mình giờ mới giúp mình.",
+    "normalized_text": "Lịch tải bóng mai rời muộn thêm nửa tiếng, bảo thức trước đó một tiếng, rồi nhắn SMS cho mình giờ mới giúp mình.",
+    "latency": 1.2752008909999972
+  },
+  "public_0037": {
+    "raw_text": "Tiền được thì trả bằng vĩ điện tử, vĩ không đủ thì trừ bằng ngân hàng, xong rồi dạng SMS cho cô dạo máy là mình đã đọng rồi nhé.",
+    "normalized_text": "Tiền được thì trả bằng vĩ điện tử, vĩ không đủ thì trừ bằng ngân hàng, xong rồi dạng SMS cho cô dạo máy là mình đã đọng rồi nhé.",
+    "latency": 1.4014535030000275
+  },
+  "public_0038": {
+    "raw_text": "Nếu phí đủ thì trả tiền chuyển thành mạng ví và nhắc SMS cho bố là đúng rồi, còn thiếu thì trả bằng ngân hàng và nhắc thêm tắt nhờ tối nay nạp ví.",
+    "normalized_text": "Nếu phí đủ thì trả tiền chuyển thành mạng ví và nhắc SMS cho bố là đúng rồi, còn thiếu thì trả bằng ngân hàng và nhắc thêm tắt nhờ tối nay nạp ví.",
+    "latency": 1.5166732590000152
+  },
+  "public_0039": {
+    "raw_text": "Mai mưa rồi hủy cái lệch đá vóng mà thôi, rồi hủy. Lúc nãy em bảo không mưa đúng không?",
+    "normalized_text": "Mai mưa rồi hủy cái lệch đá vóng mà thôi, rồi hủy. Lúc nãy em bảo không mưa đúng không?",
+    "latency": 2.35
+  },
+  "public_0040": {
+    "raw_text": "Lấy tài khoản thanh toán chuyển cho Nguyễn Thị Giang đúng số tiền điện tháng này, chủ nhà khoản hồn đúng tiền mạng, mà không đủ cả hai, sẽ lấy tiết kiệm cho cả hai.",
+    "normalized_text": "Lấy tài khoản thanh toán chuyển cho Nguyễn Thị Giang đúng số tiền điện tháng này, chủ nhà khoản hồn đúng tiền mạng, mà không đủ cả hai, sẽ lấy tiết kiệm cho cả hai.",
+    "latency": 1.6023401720000265
+  },
+  "public_0041": {
+    "raw_text": "Đèn phòng khách bật lên nhưng để 50% thôi nhé, quẹt thì không cành bạch, điều hòa phòng khách thì 26 độ.",
+    "normalized_text": "Đèn phòng khách bật lên nhưng để 50% thôi nhé, quẹt thì không cành bạch, điều hòa phòng khách thì 26 độ.",
+    "latency": 1.1359383870000102
+  },
+  "public_0043": {
+    "raw_text": "Và SJC mà mua vào hôm nay dưới 132 triệu thì sớm mai 9 giờ dắt tôi đi mua vàng nha.",
+    "normalized_text": "Và SJC mà mua vào hôm nay dưới 132 triệu thì sớm mai 9 giờ dắt tôi đi mua vàng nha.",
+    "latency": 1.0563024979999796
+  },
+  "public_0044": {
+    "raw_text": "Vàng SGC nay bán ra trên 126 triệu thì nhắc anh 9h sáng mai bán vàng, chưa tới thì chuyển Nguyễn Thị Lan 2 triệu từ tài khoản thanh toán, tiền góp mua vặn.",
+    "normalized_text": "Vàng SGC nay bán ra trên 126 triệu thì nhắc anh 9h sáng mai bán vàng, chưa tới thì chuyển Nguyễn Thị Lan 2 triệu từ tài khoản thanh toán, tiền góp mua vặn.",
+    "latency": 1.5098132440000427
+  },
+  "public_0045": {
+    "raw_text": "Mãi ba mưa, thiêu ị buổi, đi dạo ngoài xã giúp em nha. Rồi gọi cho Hương bạn một tiếng, trời nặng thì cửa dụng nguyên nha.",
+    "normalized_text": "Mãi ba mưa, thiêu ị buổi, đi dạo ngoài xã giúp em nha. Rồi gọi cho Hương bạn một tiếng, trời nặng thì cửa dụng nguyên nha.",
+    "latency": 1.4212547160000213
+  },
+  "public_0047": {
+    "raw_text": "Thả đèn tận 2 xuống 30% hết đi, riêng phòng nào đang để quạt chạy thì để nguyên đèn nhé.",
+    "normalized_text": "Thả đèn tận 2 xuống 30% hết đi, riêng phòng nào đang để quạt chạy thì để nguyên đèn nhé.",
+    "latency": 1.1491740449999952
+  },
+  "public_0048": {
+    "raw_text": "Nếu mai mưa thì hủy khai lịch đá bóng và nhắn SMS cho Hương giúp chị, còn mai không mưa thì đặt ô tô 4 chỗ, từ nhà tới đó, đón sớm nửa tiếng.",
+    "normalized_text": "Nếu mai mưa thì hủy khai lịch đá bóng và nhắn SMS cho Hương giúp chị, còn mai không mưa thì đặt ô tô 4 chỗ, từ nhà tới đó, đón sớm nửa tiếng.",
+    "latency": 1.4945862380000108
+  },
+  "public_0049": {
+    "raw_text": "Tiền điện tháng này anh chia đôi với Lê Minh, chuyển cho mình một nửa tiền điện, còn những thị lan thì đủ tiền ước, lấy tài khoản thanh toán mà không đủ cả hai khoản thì lấy tiết kiệm cho cả hai.",
+    "normalized_text": "Tiền điện tháng này anh chia đôi với Lê Minh, chuyển cho mình một nửa tiền điện, còn những thị lan thì đủ tiền ước, lấy tài khoản thanh toán mà không đủ cả hai khoản thì lấy tiết kiệm cho cả hai.",
+    "latency": 1.8020843810000429
+  },
+  "public_0050": {
+    "raw_text": "Hoa đơn điện thoại thì xem ví điện tử có đủ không, đủ thì chạp trong ví, thiếu thì lấy tài khoản ngân hàng, xong nhấn end of message cho Lan là ăn đóng rồi nha.",
+    "normalized_text": "Hoa đơn điện thoại thì xem ví điện tử có đủ không, đủ thì chạp trong ví, thiếu thì lấy tài khoản ngân hàng, xong nhấn end of message cho Lan là ăn đóng rồi nha.",
+    "latency": 1.546930318999955
+  },
+  "public_0051": {
+    "raw_text": "Tắt hồ tối, cãi đèn phòng làm việc rồi nhắn SMS cho Hương là tối nay ăn cơm nha nhé.",
+    "normalized_text": "Tắt hồ tối, cãi đèn phòng làm việc rồi nhắn SMS cho Hương là tối nay ăn cơm nha nhé.",
+    "latency": 1.0611936770000057
+  },
+  "public_0052": {
+    "raw_text": "Tối hôm trước ngày bay của tôi đặt lịch báo thức lúc chiến dự để thu sổ đồ nhé.",
+    "normalized_text": "Tối hôm trước ngày bay của tôi đặt lịch báo thức lúc chiến dự để thu sổ đồ nhé.",
+    "latency": 1.0063693870000066
+  },
+  "public_0053": {
+    "raw_text": "Gọi giúp tôi ô tô 4 chỗ từ công ty tới chỗ hẹn khám giam chiều nay, đón sớm hơn giờ hẹn 30 phút, và nhắc tôi mang laptop trước, đục xe đón 15 phút.",
+    "normalized_text": "Gọi giúp tôi ô tô 4 chỗ từ công ty tới chỗ hẹn khám giam chiều nay, đón sớm hơn giờ hẹn 30 phút, và nhắc tôi mang laptop trước, đục xe đón 15 phút.",
+    "latency": 1.452581197000029
+  },
+  "public_0054": {
+    "raw_text": "Nhà tôi thắt bếp lúc 9h kém 15h tối mai nhé.",
+    "normalized_text": "Nhà tôi tắt đèn lúc 9h kém 15h tối mai nhé.",
+    "latency": 0.8178280390000054
+  },
+  "public_0055": {
+    "raw_text": "Đặt cho tôi một vé đi Hà Nội ngày 10 tháng 12, đi hãng Incheon, chuyển bay buổi sáng đấy.",
+    "normalized_text": "Đặt cho tôi một vé đi Hà Nội ngày 10 tháng 12, đi hãng Incheon, chuyển bay buổi sáng đấy.",
+    "latency": 1.0652595619999943
+  },
+  "public_0056": {
+    "raw_text": "Tiền Ethernet tháng này trả bằng phí điện tử nhé, phí thiếu thì chuyển qua ngân hàng xong nhắn SMS cho mẹ là con đóng tiền bạn rồi.",
+    "normalized_text": "Tiền Ethernet tháng này trả bằng phí điện tử nhé, phí thiếu thì chuyển qua ngân hàng xong nhắn SMS cho mẹ là con đóng tiền bạn rồi.",
+    "latency": 1.2757546459999958
+  },
+  "public_0057": {
+    "raw_text": "Nếu mà mưa thì lùi bùi dở ngoại với lớp của con sao không khác, mà thôi, cô giáo bảo mưa vẫn tổ chức trong nhà, cứ giữ nguyên lịch nhé.",
+    "normalized_text": "Nếu mà mưa thì lùi bùi dở ngoại với lớp của con sao không khác, mà thôi, cô giáo bảo mưa vẫn tổ chức trong nhà, cứ giữ nguyên lịch nhé.",
+    "latency": 1.4299498839999956
+  },
+  "public_0060": {
+    "raw_text": "Mai tôi có đà bóng, đặt bảo thuyết sớm hơn, rồi đón một chuyện giúp tôi nhé.",
+    "normalized_text": "Mai tôi có đà bóng, đặt bảo thuyết sớm hơn, rồi đón một chuyện giúp tôi nhé.",
+    "latency": 2.07
+  },
+  "public_0061": {
+    "raw_text": "Mua cho tàu 3 vé đi Sài Gòn ngày 20 tháng 11, giá mở vé dưới 1 triệu 2, trong máy chuyển đo lấy xe chiếm bài sớm nhất nha.",
+    "normalized_text": "Mua cho tàu 3 vé đi Sài Gòn ngày 20 tháng 11, giá mở vé dưới 1 triệu 2, trong máy chuyển đo lấy xe chiếm bài sớm nhất nha.",
+    "latency": 1.4331226070000298
+  },
+  "public_0062": {
+    "raw_text": "Lịch cơ công đi khám răng chiều mai giờ sớm lên 1 tiếng nhé, tháo thức đặt trước đó 45 phút, rồi nhắn FMS cho là giờ mới.",
+    "normalized_text": "Lịch cơ công đi khám răng chiều mai giờ sớm lên 1 tiếng nhé, tháo thức đặt trước đó 45 phút, rồi nhắn FMS cho là giờ mới.",
+    "latency": 1.325924753000038
+  },
+  "public_0063": {
+    "raw_text": "Xảm rồi, tắt hệt đen đáng dạng, đóng nhanh giúp em, trưa này mỗi đêm không làm việc thôi nha.",
+    "normalized_text": "Xảm rồi, tắt hệt đen đáng dạng, đóng nhanh giúp em, trưa này mỗi đêm không làm việc thôi nha.",
+    "latency": 1.2059579880000229
+  },
+  "public_0064": {
+    "raw_text": "Khiến cho chủ nhà phản mộng đúng tiền điện tháng này, trần văn tấn đúng tiền truyền hình, rồi xài khoản thanh toán nhưng quay chừa, lại ít nát 500k trong đó không chừa được thì ở tiền tiết kiệm trẻ tra kia 2 nhé.",
+    "normalized_text": "Khiến cho chủ nhà phản mộng đúng tiền điện tháng này, trần văn tấn đúng tiền truyền hình, rồi xài khoản thanh toán nhưng quay chừa, lại ít nát 500k trong đó không chừa được thì ở tiền tiết kiệm trẻ tra kia 2 nhé.",
+    "latency": 2.0108878909999817
+  },
+  "public_0065": {
+    "raw_text": "Lấy viết điện tử nạp 200k tiền điện thoại cho Lan, rồi gửi book đúng bảng tiền mạng internet tháng này nhé.",
+    "normalized_text": "Lấy viết điện tử nạp 200k tiền điện thoại cho Lan, rồi gửi book đúng bảng tiền mạng internet tháng này nhé.",
+    "latency": 1.1947118170000408
+  },
+  "public_0066": {
+    "raw_text": "Trời, tối rồi em bật hết mấy cái đèn đang tắt trong nhà lên cho chị, phòng nào đang mở điều hòa thì thôi khỏi bật.",
+    "normalized_text": "Trời, tối rồi em bật hết mấy cái đèn đang tắt trong nhà lên cho chị, phòng nào đang mở điều hòa thì thôi khỏi bật.",
+    "latency": 1.212639992999982
+  },
+  "public_0067": {
+    "raw_text": "Anh muốn tắt hết đèn trên tuần 2, mà phòng nào còn đang bật thì đừng tắt đèn, rồi bật điều hòa phòng ngủ ở 25 độ nhé.",
+    "normalized_text": "Anh muốn tắt hết đèn trên tuần 2, mà phòng nào còn đang bật thì đừng tắt đèn, rồi bật điều hòa phòng ngủ ở 25 độ nhé.",
+    "latency": 1.2117608549999659
+  },
+  "public_0068": {
+    "raw_text": "Giá vang nhận mua vang hôm nay mà trên 116 triệu thì tạm giờ tuổi này, các em là mang nhận ra tiền bán, còn thấp hơn thì chuyển 2 triệu từ tài khoản thanh toán cho chủ nhà phòng hôn động mua vang.",
+    "normalized_text": "Giá vang nhận mua vang hôm nay mà trên 116 triệu thì tạm giờ tuổi này, các em là mang nhận ra tiền bán, còn thấp hơn thì chuyển 2 triệu từ tài khoản thanh toán cho chủ nhà phòng hôn động mua vang.",
+    "latency": 1.7392223269999931
+  },
+  "public_0069": {
+    "raw_text": "Trưa nắng nóng quá, bật hết quạt trong nhà lên số 3 cho tôi, phần nào điều hòa đang chạy rồi thì thôi nhé.",
+    "normalized_text": "Trưa nắng nóng quá, bật hết quạt trong nhà lên số 3 cho tôi, phần nào điều hòa đang chạy rồi thì thôi nhé.",
+    "latency": 1.1231438049999838
+  },
+  "public_0070": {
+    "raw_text": "Đèn phòng làm việc giảm còn 60% giá trị đỡ chói, quẹt phòng làm việc khỏi bật nha, rồi mở sẵn điều hòa phòng cách 25 độ để trưa ăn cơm.",
+    "normalized_text": "Đèn phòng làm việc giảm còn 60% giá trị đỡ chói, quẹt phòng làm việc khỏi bật nha, rồi mở sẵn điều hòa phòng cách 25 độ để trưa ăn cơm.",
+    "latency": 1.5011651080000092
+  },
+  "public_0071": {
+    "raw_text": "Khóa đơn nào sắp tới hàng sớm nhất thì chuyển đúng số đó cho chủ nhà Phạm Hùng, còn lê minh thì đúng tiền nước, trừ vào tài khoản thanh toán, thiếu cho cả hai thì đút tiết kiệm nha.",
+    "normalized_text": "Khóa đơn nào sắp tới hàng sớm nhất thì chuyển đúng số đó cho chủ nhà Phạm Hùng, còn lê minh thì đúng tiền nước, trừ vào tài khoản thanh toán, thiếu cho cả hai thì đút tiết kiệm nha.",
+    "latency": 1.707683249000013
+  },
+  "public_0072": {
+    "raw_text": "Em nhờ anh ra Văn Tuấn, đồng hồ tiên mạng, trên Nguyễn Thị Lan, đồng hồ tiên nửa tháng nay, chuyển hệ đúng số đó cho hai người giúp em, lấy tay khoản thánh toán, thiếu thì lấy tiết kiệm.",
+    "normalized_text": "Em nhờ anh ra Văn Tuấn, đồng hồ tiên mạng, trên Nguyễn Thị Lan, đồng hồ tiên nửa tháng nay, chuyển hệ đúng số đó cho hai người giúp em, lấy tay khoản thánh toán, thiếu thì lấy tiết kiệm.",
+    "latency": 1.9023686689999977
+  },
+  "public_0073": {
+    "raw_text": "Giờ em đặt nguồn bọ giò ở quán bún và hủy gần nhà tôi. Mỗi người trong nhóm gia đình một phần không tỉnh tôi nhé.",
+    "normalized_text": "Giờ em đặt nguồn bọ giò ở quán bún và hủy gần nhà tôi. Mỗi người trong nhóm gia đình một phần không tỉnh tôi nhé.",
+    "latency": 1.3530114319999598
+  },
+  "public_0074": {
+    "raw_text": "Đặt dùm anh cái pháo thức 6h45 tối nay để gọi đám anh, rồi triệu quý cho Túng phần tiền ăn tối hôm qua.",
+    "normalized_text": "Đặt dùm anh cái pháo thức 6h45 tối nay để gọi đám anh, rồi triệu quý cho Túng phần tiền ăn tối hôm qua.",
+    "latency": 1.2842517550000139
+  },
+  "public_0075": {
+    "raw_text": "Chị đang nói cơm trưa, đèn, bếp để 70% thôi nhé, quẹt phòng khách thì khỏi mở điều hòa, phòng khách 24h cho tôi.",
+    "normalized_text": "Chị đang nói cơm trưa, đèn, bếp để 70% thôi nhé, quẹt phòng khách thì khỏi mở điều hòa, phòng khách 24h cho tôi.",
+    "latency": 1.3097212299999796
+  },
+  "public_0076": {
+    "raw_text": "Hãy subscribe cho kênh La La School Để không bỏ lỡ những video hấp dẫn",
+    "normalized_text": "",
+    "latency": 0.8735373659999937
+  },
+  "public_0077": {
+    "raw_text": "Tôi đang đọc sách mở tiền, phòng khách 80% cho sáng, hoặc phòng khách đừng bật nha, điều hòa phòng khách chạy chế độ hút ẩm 27 độ dùm tôi.",
+    "normalized_text": "Tôi đang đọc sách mở tiền, phòng khách 80% cho sáng, hoặc phòng khách đừng bật nha, điều hòa phòng khách chạy chế độ hút ẩm 27 độ dùm tôi.",
+    "latency": 1.5369166559999599
+  },
+  "public_0078": {
+    "raw_text": "Chuyến bay vô Sài Gòn tôi đặt rồi, đó, đặt bảo thức trước giờ cách tránh 2 tiếng rưỡi nha.",
+    "normalized_text": "Chuyến bay vô Sài Gòn tôi đặt rồi, đó, đặt bảo thức trước giờ cách tránh 2 tiếng rưỡi nha.",
+    "latency": 1.1162403269999572
+  },
+  "public_0080": {
+    "raw_text": "Tiền nước kỳ này trả bằng ví điện tử giúp tôi. Ví không đủ thì lấy ngân hàng trả, rồi nhắn SMS cho Tuấn báo tiền nước đóng xong rồi nha.",
+    "normalized_text": "Tiền nước kỳ này trả bằng ví điện tử giúp tôi. Ví không đủ thì lấy ngân hàng trả, rồi nhắn SMS cho Tuấn báo tiền nước đóng xong rồi nha.",
+    "latency": 1.383894449999957
+  },
+  "public_0081": {
+    "raw_text": "Giá vàng thế giới mà trên 4.100 đô một thì 8 giờ sáng thứ Bảy này nhắc chỉ ra tiền bán bất phản. Chiều Tết thì chuyển 3 triệu từ tài khoản thanh toán cho trần răng tứng tiền góp mua vàng.",
+    "normalized_text": "Giá vàng thế giới mà trên 4.100 đô một thì 8 giờ sáng thứ Bảy này nhắc chỉ ra tiền bán bất phản. Chiều Tết thì chuyển 3 triệu từ tài khoản thanh toán cho trần răng tứng tiền góp mua vàng.",
+    "latency": 1.7341525609999735
+  },
+  "public_0082": {
+    "raw_text": "Lịch cà phê với mình ngày kia lùi 15 phút giúp mình, báo thức thể đặt trước đó 2 tiếng, rồi nhắn SMS cho mình giờ mới luôn.",
+    "normalized_text": "Lịch cà phê với mình ngày kia lùi 15 phút giúp mình, báo thức thể đặt trước đó 2 tiếng, rồi nhắn SMS cho mình giờ mới luôn.",
+    "latency": 1.2305791789999603
+  },
+  "public_0083": {
+    "raw_text": "Giá ở CC, mua vào hôm nay mà từ 118 triệu trở lên thì 2 giờ chiều mai nhắc tôi bàn với con chuyển lớn vàng, còn thấp hơn thì chuyển 2 triệu cho thảm hùng từ tài khoản thanh toán, góp mua vàng.",
+    "normalized_text": "Giá ở CC, mua vào hôm nay mà từ 118 triệu trở lên thì 2 giờ chiều mai nhắc tôi bàn với con chuyển lớn vàng, còn thấp hơn thì chuyển 2 triệu cho thảm hùng từ tài khoản thanh toán, góp mua vàng.",
+    "latency": 1.7477335710000261
+  },
+  "public_0084": {
+    "raw_text": "Tôi chuẩn bị xem phim, hạ hết đèn từ 2 xuống 20% thôi, phòng nào đang chạy hoài thì kệ nó, rồi mở điều hòa phòng ngủ chế độ khúc ẩm.",
+    "normalized_text": "Tôi chuẩn bị xem phim, hạ hết đèn từ 2 xuống 20% thôi, phòng nào đang chạy hoài thì kệ nó, rồi mở điều hòa phòng ngủ chế độ khúc ẩm.",
+    "latency": 1.545829174000005
+  },
+  "public_0085": {
+    "raw_text": "Tiền truyền hình tháng này lấy ví điện tử trả trước, ví thiếu thì bù bằng ngân hàng nhé, trả xong nhắn SMS cho bố là có nống tiền truyền hình rồi.",
+    "normalized_text": "Tiền truyền hình tháng này lấy ví điện tử trả trước, ví thiếu thì bù bằng ngân hàng nhé, trả xong nhắn SMS cho bố là có nống tiền truyền hình rồi.",
+    "latency": 1.5550108219999856
+  },
+  "public_0086": {
+    "raw_text": "Mai tôi đi hẹn sớm, đặt báo thức, 5h, Nguyễn Lăng xém mai, rồi gọi cho mình giúp tôi.",
+    "normalized_text": "Mai tôi đi hẹn sớm, đặt báo thức, 5h, Nguyễn Lăng xém mai, rồi gọi cho mình giúp tôi.",
+    "latency": 1.1197171909999497
+  },
+  "public_0087": {
+    "raw_text": "Trượt giao bay trượt em đặt 45 phút, thì bảo thức nhắc em gọi cho mẹ nha.",
+    "normalized_text": "Trượt giao bay trượt em đặt 45 phút, thì bảo thức nhắc em gọi cho mẹ nha.",
+    "latency": 1.0230413610000824
+  },
+  "public_0088": {
+    "raw_text": "Chơi mát rồi tắt điều hòa phòng ngủ đi, xong bật hết đèn tầng 2 lên giúp chị, không nào, hoạt, đang chạy đi khỏi bật đèn.",
+    "normalized_text": "Chơi mát rồi tắt điều hòa phòng ngủ đi, xong bật hết đèn tầng 2 lên giúp chị, không nào, hoạt, đang chạy đi khỏi bật đèn.",
+    "latency": 1.3504738099999258
+  },
+  "public_0089": {
+    "raw_text": "Đang ngủ trưa rồi, đèn phòng ngủ nhỏ hạ xuống 25% cho chị, hoặc thì khỏi bọc cái bếp lạnh, còn điều hòa phòng ngủ cho chị 28 rồi nhá.",
+    "normalized_text": "Đang ngủ trưa rồi, đèn phòng ngủ nhỏ hạ xuống 25% cho chị, hoặc thì khỏi bọc cái bếp lạnh, còn điều hòa phòng ngủ cho chị 28 rồi nhá.",
+    "latency": 1.4285284869999941
+  },
+  "public_0090": {
+    "raw_text": "Đèn nào đang đã sáng hết cỡ thì hạ xuống còn 50 giúp tôi, trừ đèn phòng ngủ ra nhé.",
+    "normalized_text": "Đèn nào đang đã sáng hết cỡ thì hạ xuống còn 50 giúp tôi, trừ đèn phòng ngủ ra nhé.",
+    "latency": 1.050110362000055
+  },
+  "public_0091": {
+    "raw_text": "Ăn xong rồi, đèn bếp để 20% thôi, khỏe phòng khách không cần bật đâu, bật điều hòa phòng ngủ 26 độ cho tôi nghỉ trưa nhé.",
+    "normalized_text": "Ăn xong rồi, đèn bếp để 20% thôi, khỏe phòng khách không cần bật đâu, bật điều hòa phòng ngủ 26 độ cho tôi nghỉ trưa nhé.",
+    "latency": 1.3940001070000108
+  },
+  "public_0092": {
+    "raw_text": "Khóa đơn nào hạn trước ngày 6 tháng này chỉ trả qua ngân hàng luôn dùm anh, riêng tiền điện tháng này cao bất thường, để anh kiểm tra lại đã, đừng trẻ.",
+    "normalized_text": "Khóa đơn nào hạn trước ngày 6 tháng này chỉ trả qua ngân hàng luôn dùm anh, riêng tiền điện tháng này cao bất thường, để anh kiểm tra lại đã, đừng trẻ.",
+    "latency": 1.466562501999988
+  },
+  "public_0093": {
+    "raw_text": "Đặt cho tôi một vé đi Sài Gòn ngày 4 tháng 12, phải đến nơi trước 6 giờ chiều, còn trong đó thì chọn chuyến bay muộn nhất.",
+    "normalized_text": "Đặt cho tôi một vé đi Sài Gòn ngày 4 tháng 12, phải đến nơi trước 6 giờ chiều, còn trong đó thì chọn chuyến bay muộn nhất.",
+    "latency": 1.2511334529999658
+  },
+  "public_0094": {
+    "raw_text": "Mai mưa thì hủy vụ đi chơi công viên, nhấn SMS để sử dụng biết. Còn hôm mưa thì đặt ô tô 4 chỗ, từ nhà ra chỗ hẹn, sớm hơn giờ hẹn nửa tiếng.",
+    "normalized_text": "Mai mưa thì hủy vụ đi chơi công viên, nhấn SMS để sử dụng biết. Còn hôm mưa thì đặt ô tô 4 chỗ, từ nhà ra chỗ hẹn, sớm hơn giờ hẹn nửa tiếng.",
+    "latency": 1.6661851750000096
+  },
+  "public_0095": {
+    "raw_text": "Nhắc tôi đổ xăng 9h sáng mai, với nhắn SMS cho mình là mai gửi mình file nhé.",
+    "normalized_text": "Nhắc tôi đổ xăng 9h sáng mai, với nhắn SMS cho mình là mai gửi mình file nhé.",
+    "latency": 1.0672263890000977
+  },
+  "public_0096": {
+    "raw_text": "Em học bài, bật đèn phòng làm việc 75% nhẹ, hoặc phòng làm việc thì đừng bật, còn điều hòa phòng bộ đệ 24 đội giúp em.",
+    "normalized_text": "Em học bài, bật đèn phòng làm việc 75% nhẹ, hoặc phòng làm việc thì đừng bật, còn điều hòa phòng bộ đệ 24 đội giúp em.",
+    "latency": 1.3564693750000743
+  },
+  "public_0097": {
+    "raw_text": "Mai tôi phải đi đổi sang 8h sáng nhất tôi nghe, rồi nhắn SMS cho Hương là nhớ mang hộp cái xe.",
+    "normalized_text": "Mai tôi phải đi đổi sang 8h sáng nhất tôi nghe, rồi nhắn SMS cho Hương là nhớ mang hộp cái xe.",
+    "latency": 1.0596362539999973
+  },
+  "public_0098": {
+    "raw_text": "Mãi mãi nồng quả, ba răng đồ, thi vị bụi chày sạm mai, và cho tổng bảo giúp mình, con không thi thú nhé.",
+    "normalized_text": "Mãi mãi nồng quả, ba răng đồ, thi vị bụi chày sạm mai, và cho tổng bảo giúp mình, con không thi thú nhé.",
+    "latency": 1.270768154999928
+  },
+  "public_0099": {
+    "raw_text": "Đọc cho mình về mẹ, hay về đi Sài Gòn, ngày mùng 7 tháng 12, chuyển nào hòa cảnh rụng 3 giờ chiều, mặt rẽ nước thị.",
+    "normalized_text": "Đọc cho mình về mẹ, hay về đi Sài Gòn, ngày mùng 7 tháng 12, chuyển nào hòa cảnh rụng 3 giờ chiều, mặt rẽ nước thị.",
+    "latency": 1.3576090789999853
+  },
+  "public_0100": {
+    "raw_text": "Đặt giúp mình xe máy từ nhà tới trường dự họp phụ huynh chiều nay, đón trước giờ họp 20 phút, rồi nhắc mình mang số đứng lại của con trước lúc xe tới 10 phút.",
+    "normalized_text": "Đặt giúp mình xe máy từ nhà tới trường dự họp phụ huynh chiều nay, đón trước giờ họp 20 phút, rồi nhắc mình mang số đứng lại của con trước lúc xe tới 10 phút.",
+    "latency": 1.5064978200000496
+  },
+  "public_0101": {
+    "raw_text": "Đặt báo thức sáu rưỡi sáng mai xong gọi cho mình giúp đỡ.",
+    "normalized_text": "Đặt báo thức sáu rưỡi sáng mai xong gọi cho mình giúp đỡ.",
+    "latency": 0.9582604199999878
+  },
+  "public_0102": {
+    "raw_text": "Hãy subscribe cho kênh lalaschool Để không bỏ lỡ những video hấp dẫn",
+    "normalized_text": "",
+    "latency": 0.889488517000018
+  },
+  "public_0103": {
+    "raw_text": "Tôi xem phim, đèn phần cách để 15% cho tối tối là được, quạt khỏi bật, điều hòa cùng cách bật 27 độ nha.",
+    "normalized_text": "Tôi xem phim, đèn phần cách để 15% cho tối tối là được, quạt khỏi bật, điều hòa cùng cách bật 27 độ nha.",
+    "latency": 1.1620474879999847
+  },
+  "public_0104": {
+    "raw_text": "Chuyển cho Văn Tuấn đụng tiền điện thoại thẳng này, Lê Minh đụng tiền truyền hình, nếu tài khoản thanh toán còn giữ 300k thì lấy luôn tiền kiềm cho cả 2 nhẹ.",
+    "normalized_text": "Chuyển cho Văn Tuấn đụng tiền điện thoại thẳng này, Lê Minh đụng tiền truyền hình, nếu tài khoản thanh toán còn giữ 300k thì lấy luôn tiền kiềm cho cả 2 nhẹ.",
+    "latency": 1.6526194399999667
+  },
+  "public_0105": {
+    "raw_text": "Dùng ví nạp 50k điện thoại cho mình, rồi chuyển cho mẹ đô bằng tiền nước tháng này nha.",
+    "normalized_text": "Dùng ví nạp 50k điện thoại cho mình, rồi chuyển cho mẹ đô bằng tiền nước tháng này nha.",
+    "latency": 1.1412092250000114
+  },
+  "public_0106": {
+    "raw_text": "Nghe tôi gọi cho mẹ nhé.",
+    "normalized_text": "Nghe tôi gọi cho mẹ nhé.",
+    "latency": 0.7251758489999247
+  },
+  "public_0107": {
+    "raw_text": "Sáng hôm bay ra Hà Nội, đặt chúng tôi báo dứt lúc 5 giờ rưỡi nhé.",
+    "normalized_text": "Sáng hôm bay ra Hà Nội, đặt chúng tôi báo dứt lúc 5 giờ rưỡi nhé.",
+    "latency": 1.0720153879999543
+  },
+  "public_0108": {
+    "raw_text": "Nhắn tôi độ sáng 5 giờ chiều mai nhé, rồi nhắn SMS cho mình là mai gửi mình file nhé.",
+    "normalized_text": "Nhắn tôi độ sáng 5 giờ chiều mai nhé, rồi nhắn SMS cho mình là mai gửi mình file nhé.",
+    "latency": 1.0708248790000425
+  },
+  "public_0109": {
+    "raw_text": "Nếu vàng SJ6 bạn ra náy vượt 128 triệu thì chỉ nhờ sản máy nhắc tôi đi bạn, còn không thì trích tài khoản, thanh toán gửi Lê Minh 2 triệu góp mùa vàng.",
+    "normalized_text": "Nếu vàng SJ6 bạn ra náy vượt 128 triệu thì chỉ nhờ sản máy nhắc tôi đi bạn, còn không thì trích tài khoản, thanh toán gửi Lê Minh 2 triệu góp mùa vàng.",
+    "latency": 1.6357746669999642
+  },
+  "public_0110": {
+    "raw_text": "Nếu vi rũ thì trả tiền nước bằng ví và nhắn tin cho bố là đã đóng, còn không thì trả bằng ngân hàng và nhắc miệng thánh cho tối nay nạp ví.",
+    "normalized_text": "Nếu vi rũ thì trả tiền nước bằng ví và nhắn tin cho bố là đã đóng, còn không thì trả bằng ngân hàng và nhắc miệng thánh cho tối nay nạp ví.",
+    "latency": 1.3946778119999408
+  },
+  "public_0111": {
+    "raw_text": "Nếu vang SGC bán ga lên khoảng 131 triệu thì tạm giờ tối nay nhắc em chọn lời. Còn chưa tới thì lệnh tài khoản thanh toán chuyển ngắn rừng vang tổng 3 triệu rưỡi để anh ấy mua chung vang cho em ạ.",
+    "normalized_text": "Nếu vang SGC bán ga lên khoảng 131 triệu thì tạm giờ tối nay nhắc em chọn lời. Còn chưa tới thì lệnh tài khoản thanh toán chuyển ngắn rừng vang tổng 3 triệu rưỡi để anh ấy mua chung vang cho em ạ.",
+    "latency": 1.8602766569999858
+  },
+  "public_0112": {
+    "raw_text": "Đặng nhắc chị qua tiệm dặn lấy đồ lúc 7 giờ, 7 rưỡi tối nay rồi nhấn hương là tối nay chị ghé lấy cuốn sách nhé.",
+    "normalized_text": "Đặng nhắc chị qua tiệm dặn lấy đồ lúc 7 giờ, 7 rưỡi tối nay rồi nhấn hương là tối nay chị ghé lấy cuốn sách nhé.",
+    "latency": 1.3585116929999685
+  },
+  "public_0113": {
+    "raw_text": "Đặt 1 vé đi Đà Nẵng ngày 28, khiến lễ nhất sau 12h trưa, báo thuốc chút trở bay 3 tiếng, đánh giao lưu cho tống trở bay.",
+    "normalized_text": "Đặt 1 vé đi Đà Nẵng ngày 28, khiến lễ nhất sau 12h trưa, báo thuốc chút trở bay 3 tiếng, đánh giao lưu cho tống trở bay.",
+    "latency": 1.398706837000077
+  },
+  "public_0114": {
+    "raw_text": "Vàng SGC bán ra hôm nay mà chưa tới 127 triệu, thi trích tài khoản thanh toán, chuyển chủ nhà phàm hung 5 triệu tiền nhà tháng này, còn quá, rồi thì nhắc anh 3 giờ, chiều nay ra tiền bán vàng.",
+    "normalized_text": "Vàng SGC bán ra hôm nay mà chưa tới 127 triệu, thi trích tài khoản thanh toán, chuyển chủ nhà phàm hung 5 triệu tiền nhà tháng này, còn quá, rồi thì nhắc anh 3 giờ, chiều nay ra tiền bán vàng.",
+    "latency": 1.7377581470000223
+  },
+  "public_0115": {
+    "raw_text": "Ờ, dùng ngân hàng trả giúp anh nhận hóa đơn đến hạn trong 5 ngày tới, trừ hóa đơn nào trên 500k thì tạm để đó, chưa trả nhé.",
+    "normalized_text": "Ờ, dùng ngân hàng trả giúp anh nhận hóa đơn đến hạn trong 5 ngày tới, trừ hóa đơn nào trên 500k thì tạm để đó, chưa trả nhé.",
+    "latency": 1.3976328019999755
+  },
+  "public_0116": {
+    "raw_text": "Em muốn có báo thức dưỡng do các cạnh, chuyển ngay lại đặt, đụng một tiếng, đặt tên là, làm thủ thuật, nhẹt.",
+    "normalized_text": "Em muốn có báo thức dưỡng do các cạnh, chuyển ngay lại đặt, đụng một tiếng, đặt tên là, làm thủ thuật, nhẹt.",
+    "latency": 1.3656459939999195
+  },
+  "public_0117": {
+    "raw_text": "Chiều nay tôi đưa bố mẹ đi khám mất, cô giúp cô tôi bài trở về công ty tới chỗ khám, đón trước giờ hẹn 40 phút, rồi giúp tôi mang kính cụ của bố theo trước lúc xa tới 20 phút.",
+    "normalized_text": "Chiều nay tôi đưa bố mẹ đi khám mất, cô giúp cô tôi bài trở về công ty tới chỗ khám, đón trước giờ hẹn 40 phút, rồi giúp tôi mang kính cụ của bố theo trước lúc xa tới 20 phút.",
+    "latency": 1.7553183190000254
+  },
+  "public_0118": {
+    "raw_text": "Thắt hết đèn tận thai dùm thôi, phòng nào đang mở máy lạnh thì để nguyên đèn nha.",
+    "normalized_text": "Thắt hết đèn tận thai dùm thôi, phòng nào đang mở máy lạnh thì để nguyên đèn nha.",
+    "latency": 1.1540957419999813
+  },
+  "public_0119": {
+    "raw_text": "Đặt cho tôi bảo thức 5h sáng mai, à không, 5h thôi.",
+    "normalized_text": "Đặt cho tôi bảo thức 5h sáng mai, à không, 5h thôi.",
+    "latency": 0.847391497999979
+  },
+  "public_0120": {
+    "raw_text": "Chuyển trị Nguyễn Thị Lan đúng tiền điện thoại tháng này, Lê Minh đúng tiền mát, chưa giải khổ, chưa giải bỏn thanh toán, vẫn không đủ cả hai cho lấy tiết kiện.",
+    "normalized_text": "Chuyển trị Nguyễn Thị Lan đúng tiền điện thoại tháng này, Lê Minh đúng tiền mát, chưa giải khổ, chưa giải bỏn thanh toán, vẫn không đủ cả hai cho lấy tiết kiện.",
+    "latency": 1.640389058999972
+  },
+  "public_0121": {
+    "raw_text": "Tình điện hết này trả bằng ví đi, ví không đổi thì lấy ngân hàng trả nhé.",
+    "normalized_text": "Tình điện hết này trả bằng ví đi, ví không đổi thì lấy ngân hàng trả nhé.",
+    "latency": 0.9687071429999605
+  },
+  "public_0122": {
+    "raw_text": "Đặt báo thức 6h30 sáng mai nha, rồi chuyển ví, cho tốn tức tiền.",
+    "normalized_text": "Đặt báo thức 6h30 sáng mai nha, rồi chuyển ví, cho tốn tức tiền.",
+    "latency": 0.9637312469999415
+  },
+  "public_0123": {
+    "raw_text": "Cảm ơn quý vị đã theo dõi và ủng hộ cho chúng tôi. Cảm ơn quý vị đã theo dõi và ủng hộ cho chúng tôi.",
+    "normalized_text": "Cảm ơn quý vị đã theo dõi và ủng hộ cho chúng tôi. Cảm ơn quý vị đã theo dõi và ủng hộ cho chúng tôi.",
+    "latency": 1.2702827800000023
+  },
+  "public_0125": {
+    "raw_text": "Giá nhận vàng bán hôm nay trên 115 triệu thì nhắc tôi 7 giờ sáng mai mang nhận đi bán, không thì chuyển 1 triệu rưỡi từ tài khoản thanh toán cho chủ nhà phàm hông tiền biển nước.",
+    "normalized_text": "Giá nhận vàng bán hôm nay trên 115 triệu thì nhắc tôi 7 giờ sáng mai mang nhận đi bán, không thì chuyển 1 triệu rưỡi từ tài khoản thanh toán cho chủ nhà phàm hông tiền biển nước.",
+    "latency": 1.6758719140000267
+  },
+  "public_0126": {
+    "raw_text": "Mai mà mưa thì bỏ lịch hợp tim, nhắn SMS cho Tuấn biết, còn trời không mưa thì gọi ô tô 4 chỗ, từ nhà ra chỗ hiện, đón sớm nửa tiếng.",
+    "normalized_text": "Mai mà mưa thì bỏ lịch hợp tim, nhắn SMS cho Tuấn biết, còn trời không mưa thì gọi ô tô 4 chỗ, từ nhà ra chỗ hiện, đón sớm nửa tiếng.",
+    "latency": 1.4444132400000171
+  },
+  "public_0127": {
+    "raw_text": "Cho anh đặt bún bò giò ở quán bún bò Việt, nhóm gia đình, có mấy người thì đặt mấy phần không tính anh nhé.",
+    "normalized_text": "Cho anh đặt bún bò giò ở quán bún bò Việt, nhóm gia đình, có mấy người thì đặt mấy phần không tính anh nhé.",
+    "latency": 1.2574398350000138
+  },
+  "public_0128": {
+    "raw_text": "Mai đã bóng nên đặt bớt hết thay giờ chiều mai cho tôi, với chuyển bí cho Minh Tiền thuê xong phần tội nghiệp nhé.",
+    "normalized_text": "Mai đã bóng nên đặt bớt hết thay giờ chiều mai cho tôi, với chuyển bí cho Minh Tiền thuê xong phần tội nghiệp nhé.",
+    "latency": 1.3146365190000324
+  },
+  "public_0129": {
+    "raw_text": "Nhắc em gọi đặt bạn sinh nhật lúc 3 giờ chiều nay, rồi nhận SMS cho Lan là tuổi thứ 7 qua nhà em mang sinh nhật nha.",
+    "normalized_text": "Nhắc em gọi đặt bạn sinh nhật lúc 3 giờ chiều nay, rồi nhận SMS cho Lan là tuổi thứ 7 qua nhà em mang sinh nhật nha.",
+    "latency": 1.2822909239999944
+  },
+  "public_0130": {
+    "raw_text": "Nếu mai mưa thì hãy lật đá bấm sẻo mai rồi vào cho Lan nhé, không mưa thì thôi.",
+    "normalized_text": "Nếu mai mưa thì hãy lật đá bấm sẻo mai rồi vào cho Lan nhé, không mưa thì thôi.",
+    "latency": 1.0859546890000047
+  },
+  "public_0131": {
+    "raw_text": "Bật đèn phòng ngủ nhỏ 70% cho con học, ngoài phòng làm việc khỏi bật, rồi mở điều hòa phòng khách 22 độ nhé, chiều có khách.",
+    "normalized_text": "Bật đèn phòng ngủ nhỏ 70% cho con học, ngoài phòng làm việc khỏi bật, rồi mở điều hòa phòng khách 22 độ nhé, chiều có khách.",
+    "latency": 1.4230296069999895
+  },
+  "public_0133": {
+    "raw_text": "Vế ra Hà Nội tôi đặt đó, và mấy giờ đi báo thuốc trước 3 tiếng rưỡi cho tôi nhé.",
+    "normalized_text": "Vế ra Hà Nội tôi đặt đó, và mấy giờ đi báo thuốc trước 3 tiếng rưỡi cho tôi nhé.",
+    "latency": 1.0704140970000253
+  },
+  "public_0135": {
+    "raw_text": "Mai gọi mình dậy nhé, đặt báo thức đi.",
+    "normalized_text": "Mai gọi mình dậy nhé, đặt báo thức đi.",
+    "latency": 0.7848484520000056
+  },
+  "public_0136": {
+    "raw_text": "Bật hết đèn thần 1 giúp tôi, phần nào dưới đó đang bật quẹt thì chừa đèn ra, rồi bật điều hòa phòng ngủ 26 độ để tôi lên nghỉ trưa.",
+    "normalized_text": "Bật hết đèn thần 1 giúp tôi, phần nào dưới đó đang bật quẹt thì chừa đèn ra, rồi bật điều hòa phòng ngủ 26 độ để tôi lên nghỉ trưa.",
+    "latency": 1.4067054329999564
+  },
+  "public_0137": {
+    "raw_text": "Nhớ nhắc tôi đi họp nhé.",
+    "normalized_text": "Nhớ nhắc tôi đi họp nhé.",
+    "latency": 0.6576475930000925
+  },
+  "public_0139": {
+    "raw_text": "Mai mà mưa thì hủy buổi gặp với khách hàng rồi nhắn SMS cho sếp Dũng, còn trời không mưa thì đặt xe 7 chỗ từ nhà tới chỗ hẹn, đón trước 45 phút.",
+    "normalized_text": "Mai mà mưa thì hủy buổi gặp với khách hàng rồi nhắn SMS cho sếp Dũng, còn trời không mưa thì đặt xe 7 chỗ từ nhà tới chỗ hẹn, đón trước 45 phút.",
+    "latency": 1.5041519289999314
+  },
+  "public_0140": {
+    "raw_text": "Đặt dùm tôi cơm trắng sườn ở quán cơm trắng Sài Gòn 168, nhóm đội bóng phường có mấy người thì đặt nhiêu phần, không chính tôi nha.",
+    "normalized_text": "Đặt dùm tôi cơm trắng sườn ở quán cơm trắng Sài Gòn 168, nhóm đội bóng phường có mấy người thì đặt nhiêu phần, không chính tôi nha.",
+    "latency": 1.4498657060000824
+  },
+  "public_0141": {
+    "raw_text": "Đọc bảo thức mưa do tối nay, nhắc mình đi ngủ sớm, rồi gửi vị trả hương tiền ra sửa hôm trước nha.",
+    "normalized_text": "Đọc bảo thức mưa do tối nay, nhắc mình đi ngủ sớm, rồi gửi vị trả hương tiền ra sửa hôm trước nha.",
+    "latency": 1.2529791279999927
+  },
+  "public_0142": {
+    "raw_text": "Đấng Zalo cho mẹ hổ em là đứng rồi thì gọi em nhé.",
+    "normalized_text": "Đấng Zalo cho mẹ hổ em là đứng rồi thì gọi em nhé.",
+    "latency": 0.8419125460000032
+  },
+  "public_0143": {
+    "raw_text": "Báo dứt 4h45 sáng mai để kịp ra sân bay, với chuyển ví cho vợ ít tiền đi trợ nhé.",
+    "normalized_text": "Báo dứt 4h45 sáng mai để kịp ra sân bay, với chuyển ví cho vợ ít tiền đi trợ nhé.",
+    "latency": 1.1512676879999617
+  },
+  "public_0144": {
+    "raw_text": "Khóa đơn nước sắp tới hạn rồi, trả bằng ví điện tử đi, ví không đủ lấy tài khoản ngân hàng vào nhé.",
+    "normalized_text": "Khóa đơn nước sắp tới hạn rồi, trả bằng ví điện tử đi, ví không đủ lấy tài khoản ngân hàng vào nhé.",
+    "latency": 1.3141185059999998
+  },
+  "public_0146": {
+    "raw_text": "Nhớ tin thường cho cô giáo Mai là đến rồi, chịu lỗi cô nha.",
+    "normalized_text": "Nhớ tin thường cho cô giáo Mai là đến rồi, chịu lỗi cô nha.",
+    "latency": 0.9084831260000783
+  },
+  "public_0147": {
+    "raw_text": "Đặt báo thức lúc 8h sáng mai trước buổi họp phụ huynh, rồi chuyển viết cho cô giáo mai tiền quỹ lớp của con luôn nhé.",
+    "normalized_text": "Đặt báo thức lúc 8h sáng mai trước buổi họp phụ huynh, rồi chuyển viết cho cô giáo mai tiền quỹ lớp của con luôn nhé.",
+    "latency": 1.344867303000001
+  },
+  "public_0148": {
+    "raw_text": "Cái hẹn cà phê với mình mai rời muộn lại 1 tiếng dưới chứ hả?",
+    "normalized_text": "Cái hẹn cà phê với mình mai rời muộn lại 1 tiếng dưới chứ hả?",
+    "latency": 2.03
+  },
+  "public_0149": {
+    "raw_text": "Thức thầy giờ chiều nay gọi tôi dậy, với chuyển ví trả bác ba hàng xóm tiền rau bác mua dùm nha.",
+    "normalized_text": "Thức thầy giờ chiều nay gọi tôi dậy, với chuyển ví trả bác ba hàng xóm tiền rau bác mua dùm nha.",
+    "latency": 1.2173008889999437
+  },
+  "public_0152": {
+    "raw_text": "Để phần mũ hạ xuống 15% thôi, quạt trường bật nhé, điều hòa phần mũ chạy khuất ẩm, 25 độ sức trị.",
+    "normalized_text": "Để phần mũ hạ xuống 15% thôi, quạt trường bật nhé, điều hòa phần mũ chạy khuất ẩm, 25 độ sức trị.",
+    "latency": 1.384065330999988
+  },
+  "public_0153": {
+    "raw_text": "Đặt cho tôi một vé hạng phương gia đi Hà Nội ngày tháng tháng 12 nhá. Tôi muốn bay sau một giờ chiều nhưng phải đến nơi trước tháng giờ tới.",
+    "normalized_text": "Đặt cho tôi một vé hạng phương gia đi Hà Nội ngày tháng tháng 12 nhá. Tôi muốn bay sau một giờ chiều nhưng phải đến nơi trước tháng giờ tới.",
+    "latency": 1.2827325279999968
+  },
+  "public_0155": {
+    "raw_text": "Nếu mai trời mưa thì hãy cất lịch đi chơi công nghiệp, sẽ mai trời tối.",
+    "normalized_text": "Nếu mai trời mưa thì hãy cất lịch đi chơi công nghiệp, sẽ mai trời tối.",
+    "latency": 1.0142657630000258
+  },
+  "public_0156": {
+    "raw_text": "Với mấy đúng tiền điện tháng này ở nhà, trọng vâng, 4 đúng tiền truyền lệnh, trừ tài khoản thanh toán giúp tôi, không đủ cả hay chỉ lấy tiết kiệm.",
+    "normalized_text": "Với mấy đúng tiền điện tháng này ở nhà, trọng vâng, 4 đúng tiền truyền lệnh, trừ tài khoản thanh toán giúp tôi, không đủ cả hay chỉ lấy tiết kiệm.",
+    "latency": 1.6419013099999802
+  },
+  "public_0157": {
+    "raw_text": "Đặt dùm tôi 2 vé ra Hà Nội ngày 16, lấy chuyến rẻ nhất trước 12h trưa, báo thức trước giờ bay 2 tiếng, rồi nhắn Zalo cho Hương giờ bay ngang.",
+    "normalized_text": "Đặt dùm tôi 2 vé ra Hà Nội ngày 16, lấy chuyến rẻ nhất trước 12h trưa, báo thức trước giờ bay 2 tiếng, rồi nhắn Zalo cho Hương giờ bay ngang.",
+    "latency": 1.413489004999974
+  },
+  "public_0158": {
+    "raw_text": "Hãy bấm gọi luôn số vừa đọc giúp tôi nha.",
+    "normalized_text": "Hãy bấm gọi luôn số vừa đọc giúp tôi nha.",
+    "latency": 0.8386775789999774
+  },
+  "public_0159": {
+    "raw_text": "Tôi gọi cho mấy cái...",
+    "normalized_text": "Tôi gọi cho mấy cái...",
+    "latency": 0.7311093179999943
+  },
+  "public_0160": {
+    "raw_text": "Gọi cho anh ấy đi, gửi like đặt thêm bảo thức bậy, giờ kẻ 15 sáng mai giúp em nhé.",
+    "normalized_text": "Gọi cho anh ấy đi, gửi like đặt thêm bảo thức bậy, giờ kẻ 15 sáng mai giúp em nhé.",
+    "latency": 1.200700619000031
+  },
+  "public_0161": {
+    "raw_text": "Giá vẻ XJC mua vào hôm nay mà trên 132 triệu thì nhắc chỉ 2 giờ chiều nay men vàng đi bán, chưa tới thì chuyển 4 triệu từ tài khoản thanh toánh cho Trần Tăng Tuấn nhờ mua giúp chị nhé.",
+    "normalized_text": "Giá vẻ XJC mua vào hôm nay mà trên 132 triệu thì nhắc chỉ 2 giờ chiều nay men vàng đi bán, chưa tới thì chuyển 4 triệu từ tài khoản thanh toánh cho Trần Tăng Tuấn nhờ mua giúp chị nhé.",
+    "latency": 1.8045126350000373
+  },
+  "public_0162": {
+    "raw_text": "Cái thứ 2, hủy gấp cho em đi nhé.",
+    "normalized_text": "Cái thứ 2, hủy gấp cho em đi nhé.",
+    "latency": 0.823537809999948
+  },
+  "public_0163": {
+    "raw_text": "Mai mưa thì hủy trận đá bóng, nhắn SMS cho mình bên công ty viết, không mưa thì gọi xe máy từ nhà ra sân, đón trước 20 phút.",
+    "normalized_text": "Mai mưa thì hủy trận đá bóng, nhắn SMS cho mình bên công ty viết, không mưa thì gọi xe máy từ nhà ra sân, đón trước 20 phút.",
+    "latency": 1.3578038229999265
+  },
+  "public_0164": {
+    "raw_text": "Chuyển cho miễn phí lên đúng bằng tiền mạnh khác này nếu tài khoản xét toán không đủ thì dùng thiết kiệm nhé.",
+    "normalized_text": "Chuyển cho miễn phí lên đúng bằng tiền mạnh khác này nếu tài khoản xét toán không đủ thì dùng thiết kiệm nhé.",
+    "latency": 1.2624908660000074
+  },
+  "public_0165": {
+    "raw_text": "Em đã xuất trị trà đào cam xả ở quán trà sữa nhà mèo, nhấm chét phòng ca tán mỗi người một ly, tính cả chị nữa nhé.",
+    "normalized_text": "Em đã xuất trị trà đào cam xả ở quán trà sữa nhà mèo, nhấm chét phòng ca tán mỗi người một ly, tính cả chị nữa nhé.",
+    "latency": 1.346048033000102
+  },
+  "public_0166": {
+    "raw_text": "Nhắn SMS cho người đó là tối nay ăn cơm về với ảnh.",
+    "normalized_text": "Nhắn SMS cho người đó là tối nay ăn cơm về với ảnh.",
+    "latency": 0.8276129719999972
+  },
+  "public_0167": {
+    "raw_text": "Báo sức 5 giờ chiều nay nhé, tôi chuyển ví điện tử cho mẹ ít tiền đồng tiền điền dùm.",
+    "normalized_text": "Báo sức 5 giờ chiều nay nhé, tôi chuyển ví điện tử cho mẹ ít tiền đồng tiền điền dùm.",
+    "latency": 1.136260888000038
+  },
+  "public_0168": {
+    "raw_text": "Đến trên lầu có cái nào đang đệ sang dưới một nửa thì tắt luôn giùm tôi, rồi mở điều hòa vào ngủ 28 độ.",
+    "normalized_text": "Đến trên lầu có cái nào đang đệ sang dưới một nửa thì tắt luôn giùm tôi, rồi mở điều hòa vào ngủ 28 độ.",
+    "latency": 1.1959942720000072
+  },
+  "public_0169": {
+    "raw_text": "Rời cách lại đi chơi công viên ngày 15 tháng 11 muộn hơn nửa tí nhầm tôi nha.",
+    "normalized_text": "Rời cách lại đi chơi công viên ngày 15 tháng 11 muộn hơn nửa tí nhầm tôi nha.",
+    "latency": 1.0172469819999606
+  },
+  "public_0170": {
+    "raw_text": "Mai trời mưa nên đặt bảo thức năm rễ sáng mai cho tôi đi sớm, rồi chuyển về cho sử dụng tiền liên quan phần tối hèn.",
+    "normalized_text": "Mai trời mưa nên đặt bảo thức năm rễ sáng mai cho tôi đi sớm, rồi chuyển về cho sử dụng tiền liên quan phần tối hèn.",
+    "latency": 1.3168508549999842
+  },
+  "public_0171": {
+    "raw_text": "Chiều nay em đi chơi công viên với nhóm bạn, gọi giúp em xem ở chỗ, đón ở công ty ra chỗ hẹn, sớm hơn hẹn 25 phút, rồi nhắc em mua nước với bánh năng theo trước khi lên xe đó, 15 phút à.",
+    "normalized_text": "Chiều nay em đi chơi công viên với nhóm bạn, gọi giúp em xem ở chỗ, đón ở công ty ra chỗ hẹn, sớm hơn hẹn 25 phút, rồi nhắc em mua nước với bánh năng theo trước khi lên xe đó, 15 phút à.",
+    "latency": 1.8241311049999922
+  },
+  "public_0172": {
+    "raw_text": "Gặp tiền điện với tiền nước, hãy này chỉ một lần cho chủ nhà Phạm Hùng, còn Lê Minh thì đúng tiền mạng, từ tài khoản thanh toán không đủ cả hai thì lấy ticket giúp chị.",
+    "normalized_text": "Gặp tiền điện với tiền nước, hãy này chỉ một lần cho chủ nhà Phạm Hùng, còn Lê Minh thì đúng tiền mạng, từ tài khoản thanh toán không đủ cả hai thì lấy ticket giúp chị.",
+    "latency": 1.6961005009999326
+  },
+  "public_0173": {
+    "raw_text": "Phái đơn nào tới hẹn trong 2 ngày tới thì em trả bằng ngân hàng giúp chị, cái nào từ 1 triệu đó lên thì để chị tự ra quầy đóng nha.",
+    "normalized_text": "Phái đơn nào tới hẹn trong 2 ngày tới thì em trả bằng ngân hàng giúp chị, cái nào từ 1 triệu đó lên thì để chị tự ra quầy đóng nha.",
+    "latency": 1.4179168780000282
+  },
+  "public_0174": {
+    "raw_text": "Lịch sang tiếng Anh rút rơi con này, với lòng mang bản hình đã gặp nhà tớ close trưa nay, về xong thì lưu hỏi với chú, đặt tên là chuẩn bị gọt nhé.",
+    "normalized_text": "Lịch sang tiếng Anh rút rơi con này, với lòng mang bản hình đã gặp nhà tớ close trưa nay, về xong thì lưu hỏi với chú, đặt tên là chuẩn bị gọt nhé.",
+    "latency": 1.570508024999981
+  },
+  "public_0175": {
+    "raw_text": "Có xe buýt nào chạy từ bến Mỹ Đình ra Hồ Vương không? Và gọi luôn cái xe từ nhà ra Mỹ Đình.",
+    "normalized_text": "Có xe buýt nào chạy từ bến Mỹ Đình ra Hồ Vương không? Và gọi luôn cái xe từ nhà ra Mỹ Đình.",
+    "latency": 1.136604461999923
+  },
+  "public_0176": {
+    "raw_text": "Tìm giúp mình cách làm salad dưa chuột ế, chuyển thêm 2 quả dưa chuột vào danh sách đi chợ luôn nhé.",
+    "normalized_text": "Tìm giúp mình cách làm salad dưa chuột ế, chuyển thêm 2 quả dưa chuột vào danh sách đi chợ luôn nhé.",
+    "latency": 1.158242481000002
+  },
+  "public_0177": {
+    "raw_text": "Ờ, để soạn nháp cho chị một cái email gửi chị ấy, bảo là chị sẽ gửi số liệu trước 5 giờ chiều nay nhé, cứ để nháp đấy, chị xem live rồi tự gửi.",
+    "normalized_text": "Ờ, để soạn nháp cho chị một cái email gửi chị ấy, bảo là chị sẽ gửi số liệu trước 5 giờ chiều nay nhé, cứ để nháp đấy, chị xem live rồi tự gửi.",
+    "latency": 1.464653402999943
+  },
+  "public_0178": {
+    "raw_text": "Ok, thì thêm hồi đó là lịch doanh nhé, hay là chiều.",
+    "normalized_text": "Ok, thì thêm hồi đó là lịch doanh nhé, hay là chiều.",
+    "latency": 0.8337956889999987
+  },
+  "public_0179": {
+    "raw_text": "Thế tôi không trước đó nhắc trên chuẩn bị hồ sơ nhé, tầm về giờ tôi ấy.",
+    "normalized_text": "Thế tôi không trước đó nhắc trên chuẩn bị hồ sơ nhé, tầm về giờ tôi ấy.",
+    "latency": 0.9888486439999724
+  },
+  "public_0180": {
+    "raw_text": "Thế nên cho tôi một việc hoàn thiện biết gồm của báo cáo, hãy sớm ăn một ngày, vẫn 5h chiều nhé.",
+    "normalized_text": "Thế nên cho tôi một việc hoàn thiện biết gồm của báo cáo, hãy sớm ăn một ngày, vẫn 5h chiều nhé.",
+    "latency": 1.1399347870000156
+  },
+  "public_0181": {
+    "raw_text": "Được, nếu có chỉ dạy đấy, tôi ghi chú cho anh, đặt nữ số tranh nhé.",
+    "normalized_text": "Được, nếu có chỉ dạy đấy, tôi ghi chú cho anh, đặt nữ số tranh nhé.",
+    "latency": 0.9896114939999734
+  },
+  "public_0182": {
+    "raw_text": "Thế thêm cho mình 3 quả gọi đầu tiên vào danh sách đi chợ nha.",
+    "normalized_text": "Thế thêm cho mình 3 quả gọi đầu tiên vào danh sách đi chợ nha.",
+    "latency": 0.9305181830000038
+  },
+  "public_0183": {
+    "raw_text": "Ok, thế gọi cho anh một chiếc xe máy tìm nhà gọi đấy luôn đi.",
+    "normalized_text": "Ok, thế gọi cho anh một chiếc xe máy tìm nhà gọi đấy luôn đi.",
+    "latency": 0.9918656059999194
+  },
+  "public_0184": {
+    "raw_text": "Nhắn Zalo cho chị ấy là em đến muộn khoảng 10 phút nhé.",
+    "normalized_text": "Nhắn Zalo cho chị ấy là em đến muộn khoảng 10 phút nhé.",
+    "latency": 0.9106785879999961
+  },
+  "public_0185": {
+    "raw_text": "Ơ, hình như có ai bấm chuông, bật camera hành lang lên xem ai đang đứng ngoài cửa giúp mình với.",
+    "normalized_text": "Ơ, hình như có ai bấm chuông, bật camera hành lang lên xem ai đang đứng ngoài cửa giúp mình với.",
+    "latency": 1.2249947300000485
+  },
+  "public_0186": {
+    "raw_text": "Trời Hà Nội lúc này mà trên 30 độ thì một chức trị kết quả phóng khách nhé.",
+    "normalized_text": "Trời Hà Nội lúc này mà trên 30 độ thì một chức trị kết quả phóng khách nhé.",
+    "latency": 1.0893458410000676
+  },
+  "public_0187": {
+    "raw_text": "Đặt cho tôi một ghế chuyển cho phía 221 đi Đà Nẵng phía 7 tuần sau, rồi dựa luôn chỗ ở tại khu A18 sân bay Lựa Bài, tính từ trước, chờ bài 2 tiếng, tôi rửa xe 3 ngày.",
+    "normalized_text": "Đặt cho tôi một ghế chuyển cho phía 221 đi Đà Nẵng phía 7 tuần sau, rồi dựa luôn chỗ ở tại khu A18 sân bay Lựa Bài, tính từ trước, chờ bài 2 tiếng, tôi rửa xe 3 ngày.",
+    "latency": 1.7557106149999981
+  },
+  "public_0188": {
+    "raw_text": "Em chuyển cho cô Ly 300 rưỡi qua VN, xong khi riêng một cái ghê chú là tiền học tháng 9 của con.",
+    "normalized_text": "Em chuyển cho cô Ly 300 rưỡi qua VN, xong khi riêng một cái ghê chú là tiền học tháng 9 của con.",
+    "latency": 1.1266596509999545
+  },
+  "public_0189": {
+    "raw_text": "Lấy cho anh 2 vé xem gọi kịp ngày mưa rồi ghi gọn địch luôn à, 8h tối thứ 7 này đi xem nha.",
+    "normalized_text": "Lấy cho anh 2 vé xem gọi kịp ngày mưa rồi ghi gọn địch luôn à, 8h tối thứ 7 này đi xem nha.",
+    "latency": 1.139219766999986
+  },
+  "public_0190": {
+    "raw_text": "Thế thì trả lại đơn nó đi em, hàng hỏng thế này, dùng sao được.",
+    "normalized_text": "Thế thì trả lại đơn nó đi em, hàng hỏng thế này, dùng sao được.",
+    "latency": 0.9110404440000366
+  },
+  "public_0191": {
+    "raw_text": "Ờ, lấy riêng khoan xin ngắn đi.",
+    "normalized_text": "Ờ, lấy riêng khoan xin ngắn đi.",
+    "latency": 0.7467959660000361
+  },
+  "public_0192": {
+    "raw_text": "Ừ, đúng chuyện đấy, đặt cho tôi một vé nhé.",
+    "normalized_text": "Ừ, đúng chuyện đấy, đặt cho tôi một vé nhé.",
+    "latency": 0.8047719129999678
+  },
+  "public_0193": {
+    "raw_text": "Nhân gia lộ trang lý dụng bản ảnh của quốc gia chẳng bao giờ chịu rồi nhé.",
+    "normalized_text": "Nhân gia lộ trang lý dụng bản ảnh của quốc gia chẳng bao giờ chịu rồi nhé.",
+    "latency": 1.0553435550000358
+  },
+  "public_0194": {
+    "raw_text": "Này, đặt mua cho tôi sữa tươi là ít được với nhé.",
+    "normalized_text": "Này, đặt mua cho tôi sữa tươi là ít được với nhé.",
+    "latency": 0.8694927279999547
+  },
+  "public_0195": {
+    "raw_text": "Xoắn giúp mình một email màu dành ngân hàng để họ mật khẩu tài khoản của người ta nhé.",
+    "normalized_text": "Xoắn giúp mình một email màu dành ngân hàng để họ mật khẩu tài khoản của người ta nhé.",
+    "latency": 1.0339473420000331
+  },
+  "public_0196": {
+    "raw_text": "Ờ, tìm cho mình công thức sắp mỹ đạo đi, thêm một quả mỹ đạo vào nhà sắp diễn ra, rồi lưu tên món tìm được cả vị trú bữa tối luôn nha.",
+    "normalized_text": "Ờ, tìm cho mình công thức sắp mỹ đạo đi, thêm một quả mỹ đạo vào nhà sắp diễn ra, rồi lưu tên món tìm được cả vị trú bữa tối luôn nha.",
+    "latency": 1.629648446000033
+  },
+  "public_0197": {
+    "raw_text": "Dịch trước em câu lịch chào hàng đã thay đổi sang tiếng Anh nhé, lưu bàn dịch vào ghi chú, cập nhật chào hàng, rồi soàn sàn một email nhát, gửi đến vận hành khó cùng nội dung đấy, em đọc lại vào mọi người ạ.",
+    "normalized_text": "Dịch trước em câu lịch chào hàng đã thay đổi sang tiếng Anh nhé, lưu bàn dịch vào ghi chú, cập nhật chào hàng, rồi soàn sàn một email nhát, gửi đến vận hành khó cùng nội dung đấy, em đọc lại vào mọi người ạ.",
+    "latency": 2.0477247100000113
+  },
+  "public_0198": {
+    "raw_text": "Tôi vừa lấy một hộp sữa tươi pha bữa sáng rồi, trôi trong tụi đi nhé. À, mua thêm 2 gói ít mặt của bên hàng luôn.",
+    "normalized_text": "Tôi vừa lấy một hộp sữa tươi pha bữa sáng rồi, trôi trong tụi đi nhé. À, mua thêm 2 gói ít mặt của bên hàng luôn.",
+    "latency": 1.4410520660001112
+  },
+  "public_0199": {
+    "raw_text": "Thứ tư tuần sau, anh vào phim contact, anh thật ra anh một bế tàu SV3 chuyến sáng nhí, rồi giữ luôn một chỗ, gửi xe ở bãi gai Hà Nội từ 5 giờ sáng hôm đó, anh gửi 3 ngành.",
+    "normalized_text": "Thứ tư tuần sau, anh vào phim contact, anh thật ra anh một bế tàu SV3 chuyến sáng nhí, rồi giữ luôn một chỗ, gửi xe ở bãi gai Hà Nội từ 5 giờ sáng hôm đó, anh gửi 3 ngành.",
+    "latency": 1.8069632469999988
+  },
+  "public_0200": {
+    "raw_text": "Xem cho tôi cả đường đi lẫn tuyến xe buýt từ nhà mình tới chỗ đó luôn nhé.",
+    "normalized_text": "Xem cho tôi cả đường đi lẫn tuyến xe buýt từ nhà mình tới chỗ đó luôn nhé.",
+    "latency": 0.9816848410000603
+  },
+  "public_0201": {
+    "raw_text": "Ừ, và em tạo cho anh một vật ngược bản thiết kế, hạ đúng như nhóm nói trước nhé.",
+    "normalized_text": "Ừ, và em tạo cho anh một vật ngược bản thiết kế, hạ đúng như nhóm nói trước nhé.",
+    "latency": 1.052709074000063
+  },
+  "public_0202": {
+    "raw_text": "Ờ, đặt đi một cái compact K2 thôi, thanh toán theo nhận hàng nha.",
+    "normalized_text": "Ờ, đặt đi một cái compact K2 thôi, thanh toán theo nhận hàng nha.",
+    "latency": 0.8990259240000569
+  },
+  "public_0203": {
+    "raw_text": "2 túi nha, đặt luôn giúp mình",
+    "normalized_text": "2 túi nha, đặt luôn giúp mình",
+    "latency": 2.82
+  },
+  "public_0207": {
+    "raw_text": "Phải đặng dẫu xong tụi em luôn đi.",
+    "normalized_text": "Phải đặng dẫu xong tụi em luôn đi.",
+    "latency": 0.7735528489999979
+  },
+  "public_0208": {
+    "raw_text": "Ờ, thêm 2 hộp vào danh sách đi trả cho anh nhé.",
+    "normalized_text": "Ờ, thêm 2 hộp vào danh sách đi trả cho anh nhé.",
+    "latency": 0.8608913680000114
+  },
+  "public_0209": {
+    "raw_text": "Cảm ơn bạn nhiều nha, tôi xin lỗi nhờ nhờ bạn mà mình xong, tôi biết bao nhiêu việc, đợi nghe luôn.",
+    "normalized_text": "Cảm ơn bạn nhiều nha, tôi xin lỗi nhờ nhờ bạn mà mình xong, tôi biết bao nhiêu việc, đợi nghe luôn.",
+    "latency": 1.1569636059999766
+  },
+  "public_0210": {
+    "raw_text": "À thôi em ơi, khỏi đặt nữa, các anh tạp qua chợ đồ ngõ mua luôn cho nhanh.",
+    "normalized_text": "À thôi em ơi, khỏi đặt nữa, các anh tạp qua chợ đồ ngõ mua luôn cho nhanh.",
+    "latency": 1.0260427550000486
+  },
+  "public_0211": {
+    "raw_text": "Tìm cái nạp phim ở gần hồ Tây, gọi xe máy từ nhà con nói cho anh, rồi giữ một trôi bãi xe của đoạp từ 10h sáng nay, 3 tiếng nhé, để bạn anh đi ô tô thời nỗ.",
+    "normalized_text": "Tìm cái nạp phim ở gần hồ Tây, gọi xe máy từ nhà con nói cho anh, rồi giữ một trôi bãi xe của đoạp từ 10h sáng nay, 3 tiếng nhé, để bạn anh đi ô tô thời nỗ.",
+    "latency": 1.7412751780000235
+  },
+  "public_0212": {
+    "raw_text": "Em ơi, dịch giúp chị câu, hóa đơn đã được thanh toán, xin tiếng Anh, lưu bản dịch vào ghi chú tên đối xuyết, xong soạn sẵn email nhé, gửi finance.example.test với nội dung đó nha, chị xem lại rồi mới gửi.",
+    "normalized_text": "Em ơi, dịch giúp chị câu, hóa đơn đã được thanh toán, xin tiếng Anh, lưu bản dịch vào ghi chú tên đối xuyết, xong soạn sẵn email nhé, gửi finance.example.test với nội dung đó nha, chị xem lại rồi mới gửi.",
+    "latency": 2.2021568710000565
+  },
+  "public_0213": {
+    "raw_text": "Em ơi, đã giúp chị 2 vé chiến RV 157 đi Đà Lạt, cứ 5 tuần sau nhé, rồi giữ luôn 1 trở ở bãi khu V05, sân bay Nội Bài, từ 9h sáng hôm đó, chỉ gãy xe 5 ngày.",
+    "normalized_text": "Em ơi, đã giúp chị 2 vé chiến RV 157 đi Đà Lạt, cứ 5 tuần sau nhé, rồi giữ luôn 1 trở ở bãi khu V05, sân bay Nội Bài, từ 9h sáng hôm đó, chỉ gãy xe 5 ngày.",
+    "latency": 1.7697473739999623
+  },
+  "public_0214": {
+    "raw_text": "Chị muốn đặt 3 vé xem hay Sài Gòn cửa cho cả nhà xong ghi vào lệnh giúp chị là 8h tối thứ 6 mùng 9 tháng 10 đi xem nhé.",
+    "normalized_text": "Chị muốn đặt 3 vé xem hay Sài Gòn cửa cho cả nhà xong ghi vào lệnh giúp chị là 8h tối thứ 6 mùng 9 tháng 10 đi xem nhé.",
+    "latency": 1.3511414380000133
+  },
+  "public_0215": {
+    "raw_text": "Đặt cho chị một vé tàu SE5 đi Huế chuyến sáng nay nhé, rồi gọi cái xe 4 chỗ từ nhà ra ra Hà Nội luôn cho kịp tàu.",
+    "normalized_text": "Đặt cho chị một vé tàu SE5 đi Huế chuyến sáng nay nhé, rồi gọi cái xe 4 chỗ từ nhà ra ra Hà Nội luôn cho kịp tàu.",
+    "latency": 1.3551746350000258
+  },
+  "public_0216": {
+    "raw_text": "Đặt cho tôi một vị trứng gà nhé, với trừ đi 2 gói bút mì trong thủ bếp, tôi vừa làm mẻ bánh xong.",
+    "normalized_text": "Đặt cho tôi một vị trứng gà nhé, với trừ đi 2 gói bút mì trong thủ bếp, tôi vừa làm mẻ bánh xong.",
+    "latency": 1.246839184999999
+  },
+  "public_0217": {
+    "raw_text": "Gọi tạm vào số đó luôn cho em đi ạ.",
+    "normalized_text": "Gọi tạm vào số đó luôn cho em đi ạ.",
+    "latency": 0.7242401479999216
+  },
+  "public_0218": {
+    "raw_text": "Ờ, trẻ luôn đi em, trừ thẳng qua ví điện tử của chị nhé.",
+    "normalized_text": "Ờ, trẻ luôn đi em, trừ thẳng qua ví điện tử của chị nhé.",
+    "latency": 0.9309476149999227
+  },
+  "public_0219": {
+    "raw_text": "Dạ có, anh làm giúp em, cứ ghi lý do là giao nhầm hàng nha.",
+    "normalized_text": "Dạ có, anh làm giúp em, cứ ghi lý do là giao nhầm hàng nha.",
+    "latency": 0.9400850360000277
+  },
+  "public_0220": {
+    "raw_text": "Ờ đúng rồi, em lấy về cho tụi chị luôn đi.",
+    "normalized_text": "Ờ đúng rồi, em lấy về cho tụi chị luôn đi.",
+    "latency": 0.8017613560000427
+  },
+  "public_0221": {
+    "raw_text": "Thôi chuyện cho liền đi nha.",
+    "normalized_text": "Thôi chuyện cho liền đi nha.",
+    "latency": 0.681848837000075
+  },
+  "public_0222": {
+    "raw_text": "Trả lại đôi giày chạy bộ đi, để nó bong ra hết rồi.",
+    "normalized_text": "Trả lại đôi giày chạy bộ đi, để nó bong ra hết rồi.",
+    "latency": 0.8758446499999764
+  },
+  "public_0225": {
+    "raw_text": "Ừ, đúng rồi, làm cho anh các yêu cầu trả đơn đấy luôn đi.",
+    "normalized_text": "Ừ, đúng rồi, làm cho anh các yêu cầu trả đơn đấy luôn đi.",
+    "latency": 0.9459202870000354
+  },
+  "public_0226": {
+    "raw_text": "Ừ, hãy lấy cho anh, bố mẹ lại hỏi nó luôn nhé.",
+    "normalized_text": "Ừ, hãy lấy cho anh, bố mẹ lại hỏi nó luôn nhé.",
+    "latency": 0.938641706999988
+  },
+  "public_0227": {
+    "raw_text": "Nhấn Zalo cho Tuấn Hậu thôi, bảo tôi đến muộn chừng 15 phút nhé.",
+    "normalized_text": "Nhấn Zalo cho Tuấn Hậu thôi, bảo tôi đến muộn chừng 15 phút nhé.",
+    "latency": 1.017432619000033
+  },
+  "public_0228": {
+    "raw_text": "Em ơi, đặt mô dầu ô liu bên app vi trợ giúp chị nhé.",
+    "normalized_text": "Em ơi, đặt mô dầu ô liu bên app vi trợ giúp chị nhé.",
+    "latency": 0.9660168550000208
+  },
+  "public_0229": {
+    "raw_text": "Xoắn hộp tới các trình nhấn, giả làm nhân viên tổng đài kênh hàng, kiểu dù người ta đọc máu, thiết kế trong bài nhí.",
+    "normalized_text": "Xoắn hộp tới các trình nhấn, giả làm nhân viên tổng đài kênh hàng, kiểu dù người ta đọc máu, thiết kế trong bài nhí.",
+    "latency": 1.4041667270000744
+  },
+  "public_0231": {
+    "raw_text": "Bên ngoài lúc này đang đắng anh mưa đấy, sẽ giúp mình sửa chép visa với.",
+    "normalized_text": "Bên ngoài lúc này đang đắng anh mưa đấy, sẽ giúp mình sửa chép visa với.",
+    "latency": 0.9550674409999829
+  },
+  "public_0232": {
+    "raw_text": "Chị muốn tìm một quán cà phê nào yên tĩnh quanh hồ Thiền Quang, em chỉ đường từ nhà chị qua đấy luôn nhé, rồi 25 phút nữa nhắc chị đi.",
+    "normalized_text": "Chị muốn tìm một quán cà phê nào yên tĩnh quanh hồ Thiền Quang, em chỉ đường từ nhà chị qua đấy luôn nhé, rồi 25 phút nữa nhắc chị đi.",
+    "latency": 1.3923082570000815
+  },
+  "public_0233": {
+    "raw_text": "Em ơi, kiếm cho chị công thức cháo nấm nhà, thêm một gói nấm đùi gà vô danh sách đi chợ, rồi ghi tên món tìm được vào ghi chú, món cuối tuần dùm chị.",
+    "normalized_text": "Em ơi, kiếm cho chị công thức cháo nấm nhà, thêm một gói nấm đùi gà vô danh sách đi chợ, rồi ghi tên món tìm được vào ghi chú, món cuối tuần dùm chị.",
+    "latency": 1.7021990729999743
+  },
+  "public_0234": {
+    "raw_text": "Đối tác bên nước ngoài còn biết gấp, em dịch câu lịch, giao hàng ngày đã thay đổi sang tiếng Anh, cất bản dịch vào ghi thú, ghi chú tên là báo đối tác, xong xong sẵn cái thư nháp gửi logistic, I come example chánh xét với đúng câu đó để anh xem lại đã.",
+    "normalized_text": "Đối tác bên nước ngoài còn biết gấp, em dịch câu lịch, giao hàng ngày đã thay đổi sang tiếng Anh, cất bản dịch vào ghi thú, ghi chú tên là báo đối tác, xong xong sẵn cái thư nháp gửi logistic, I come example chánh xét với đúng câu đó để anh xem lại đã.",
+    "latency": 2.279848801000071
+  },
+  "public_0235": {
+    "raw_text": "Buổi tập huấn sơ cứu hôm 28 đã bị hủy mất rồi, em tạo lại lịch đó lúc 9h sáng nhú anh, với thêm việc chuẩn bị tài liệu hạn 10h.",
+    "normalized_text": "Buổi tập huấn sơ cứu hôm 28 đã bị hủy mất rồi, em tạo lại lịch đó lúc 9h sáng nhú anh, với thêm việc chuẩn bị tài liệu hạn 10h.",
+    "latency": 1.4730660839999246
+  },
+  "public_0236": {
+    "raw_text": "Em mở xem giúp chị thông tin chị Hà bên kế toán với, rồi soạn sẵn một thư nháp gửi chị ấy, tiêu đề là báo cáo tuần, hỏi xem bao giờ chị ấy gửi được nhé, cứ để nháp thôi, đừng gửi vội.",
+    "normalized_text": "Em mở xem giúp chị thông tin chị Hà bên kế toán với, rồi soạn sẵn một thư nháp gửi chị ấy, tiêu đề là báo cáo tuần, hỏi xem bao giờ chị ấy gửi được nhé, cứ để nháp thôi, đừng gửi vội.",
+    "latency": 1.9236924059999865
+  },
+  "public_0238": {
+    "raw_text": "Tối mai chị đi tàu đêm lên Đảng Sơn thăm mẹ, in đặt cho chị một vé tàu LV2 nhé, rồi giữ giúp chị một chỗ ở 7B12 ngoài gác Hà Nội Tháp, rồi tối mai chị gửi xe vang ảnh.",
+    "normalized_text": "Tối mai chị đi tàu đêm lên Đảng Sơn thăm mẹ, in đặt cho chị một vé tàu LV2 nhé, rồi giữ giúp chị một chỗ ở 7B12 ngoài gác Hà Nội Tháp, rồi tối mai chị gửi xe vang ảnh.",
+    "latency": 1.9656190520000791
+  },
+  "public_0239": {
+    "raw_text": "Thì xem cả 2 luôn đi, đừng từ nhà tới nhà sách, với cả có xe buýt hay tàu nào đi được không.",
+    "normalized_text": "Thì xem cả 2 luôn đi, đừng từ nhà tới nhà sách, với cả có xe buýt hay tàu nào đi được không.",
+    "latency": 1.1234465950000185
+  },
+  "public_0240": {
+    "raw_text": "Lấy cái Slim K75 đi em.",
+    "normalized_text": "Lấy cái Slim K75 đi em.",
+    "latency": 0.6322687399999722
+  },
+  "public_0241": {
+    "raw_text": "Lấy mắt thai nha, chẳng mình bà hộp.",
+    "normalized_text": "Lấy mắt thai nha, chẳng mình bà hộp.",
+    "latency": 0.811334894999959
+  },
+  "public_0242": {
+    "raw_text": "3 gói, trừ 3 gói thôi.",
+    "normalized_text": "3 gói, trừ 3 gói thôi.",
+    "latency": 0.6951877970000169
+  },
+  "public_0243": {
+    "raw_text": "Ừ, đặt nhất cho tôi đi, kể tôi lại quên.",
+    "normalized_text": "Ừ, đặt nhất cho tôi đi, kể tôi lại quên.",
+    "latency": 0.7842485730000135
+  },
+  "public_0244": {
+    "raw_text": "Ừ, giữ trả đá cho chị từ 7 rưỡi sáng mai nhé, trách tầm 2 tiếng là hi so.",
+    "normalized_text": "Ừ, giữ trả đá cho chị từ 7 rưỡi sáng mai nhé, trách tầm 2 tiếng là hi so.",
+    "latency": 1.087143425000022
+  },
+  "public_0245": {
+    "raw_text": "Lấy tàu NA3 cho tôi, đi sớm một tí còn về đến nhà dịp ngủ.",
+    "normalized_text": "Lấy tàu NA3 cho tôi, đi sớm một tí còn về đến nhà dịp ngủ.",
+    "latency": 0.9575347119999833
+  },
+  "public_0247": {
+    "raw_text": "Jenow, Jammin, Khaira Ninh",
+    "normalized_text": "Jenow, Jammin, Khaira Ninh",
+    "latency": 19.868158482000013
+  },
+  "public_0248": {
+    "raw_text": "3 hộp cho chắc em ạ.",
+    "normalized_text": "3 hộp cho chắc em ạ.",
+    "latency": 0.7365989920000402
+  },
+  "public_0249": {
+    "raw_text": "Hà thôi, khỏi đặt nữa nha, chiều mình tiễn đi đường ghém chưa thấy mua luôn.",
+    "normalized_text": "Hà thôi, khỏi đặt nữa nha, chiều mình tiễn đi đường ghém chưa thấy mua luôn.",
+    "latency": 1.0999175030000288
+  },
+  "public_0250": {
+    "raw_text": "Này, tìm giúp tôi cái rạp chiếc phim nào trên phố Bà Triệu, VOV, rồi gọi cho tôi cái ô tô 4 chỗ từ nhà qua đây nhé. Con tôi nó tự lái xe đến sau, giữ cho nó 1 chỗ ở bãi xe của rạp từ 12h30, 2 tiếng.",
+    "normalized_text": "Này, tìm giúp tôi cái rạp chiếc phim nào trên phố Bà Triệu, VOV, rồi gọi cho tôi cái ô tô 4 chỗ từ nhà qua đây nhé. Con tôi nó tự lái xe đến sau, giữ cho nó 1 chỗ ở bãi xe của rạp từ 12h30, 2 tiếng.",
+    "latency": 2.1298461549999956
+  },
+  "public_0251": {
+    "raw_text": "Trả lý ơn, câu hợp đồng đã được ký ấy, dịch ra tiếng Anh hộ anh, ghi bản dịch và vi số theo dõi hợp đồng vừa tạo luôn thứ nhất với Lego, icon example.txt, bằng đúng câu để dịch nhé.",
+    "normalized_text": "Trả lý ơn, câu hợp đồng đã được ký ấy, dịch ra tiếng Anh hộ anh, ghi bản dịch và vi số theo dõi hợp đồng vừa tạo luôn thứ nhất với Lego, icon example.txt, bằng đúng câu để dịch nhé.",
+    "latency": 1.8568449480000027
+  },
+  "public_0252": {
+    "raw_text": "Đặt cho em 2 ghế chuyến RV253 đi Quy Nhơn, hôm 09.10, rồi giữ luôn 1 chỗ ở vãi khu B05 sân bay Nội Bài từ 6h-6h hôm đó, em cứ xe 1 tuần.",
+    "normalized_text": "Đặt cho em 2 ghế chuyến RV253 đi Quy Nhơn, hôm 09.10, rồi giữ luôn 1 chỗ ở vãi khu B05 sân bay Nội Bài từ 6h-6h hôm đó, em cứ xe 1 tuần.",
+    "latency": 1.6535270589999982
+  },
+  "public_0253": {
+    "raw_text": "Lấy tràn 4 vé liên hoàn xin gắn dí, trong vi phạm luật chức anh là 7 rưỡi tối thứ 3, mùng tối đóng 10 đi sang kênh.",
+    "normalized_text": "Lấy tràn 4 vé liên hoàn xin gắn dí, trong vi phạm luật chức anh là 7 rưỡi tối thứ 3, mùng tối đóng 10 đi sang kênh.",
+    "latency": 1.3637175199999092
+  },
+  "public_0254": {
+    "raw_text": "Đặt cho em 2 vé tàu, SE7, đi Ninh Bình, Chua Nai nha, em đi về ban cổng phòng, xong gọi vuông được cái xe 4 chỗ từ nhà Zaga nối cho tụi em kiếm tàu.",
+    "normalized_text": "Đặt cho em 2 vé tàu, SE7, đi Ninh Bình, Chua Nai nha, em đi về ban cổng phòng, xong gọi vuông được cái xe 4 chỗ từ nhà Zaga nối cho tụi em kiếm tàu.",
+    "latency": 1.6541229079999766
+  },
+  "public_0255": {
+    "raw_text": "Mua giúp tôi hay báo rau cải ngọt À, với trong tủ bếp trừ đi một phố yếu mạch Cái này tôi nấu cháo cho cả nhà rồi",
+    "normalized_text": "Mua giúp tôi hay báo rau cải ngọt À, với trong tủ bếp trừ đi một phố yếu mạch Cái này tôi nấu cháo cho cả nhà rồi",
+    "latency": 2.53
+  },
+  "public_0256": {
+    "raw_text": "Dạ vâng, làm yêu cầu trả cái đơn đấy giúp em nha.",
+    "normalized_text": "Dạ vâng, làm yêu cầu trả cái đơn đấy giúp em nha.",
+    "latency": 0.8682230299999674
+  },
+  "public_0257": {
+    "raw_text": "Lấy 5 vé giúp em nha.",
+    "normalized_text": "Lấy 5 vé giúp em nha.",
+    "latency": 0.7178702480000538
+  },
+  "public_0258": {
+    "raw_text": "Làm đôi máy xe tóc trước đi, sớm ra nhà mẫu khác rồi.",
+    "normalized_text": "Làm đôi máy xe tóc trước đi, sớm ra nhà mẫu khác rồi.",
+    "latency": 0.9491038660000868
+  },
+  "public_0259": {
+    "raw_text": "Cây gốm thương đại ấy và mình mê đồ gốm lắm.",
+    "normalized_text": "Cây gốm thương đại ấy và mình mê đồ gốm lắm.",
+    "latency": 0.9258145630000172
+  },
+  "public_0260": {
+    "raw_text": "Ô tô W12D gần cũng ra hơn.",
+    "normalized_text": "Ô tô W12D gần cũng ra hơn.",
+    "latency": 0.7301044839999804
+  },
+  "public_0261": {
+    "raw_text": "Đúng rồi, em sẽ yêu thật trẻ luôn cái băng hết.",
+    "normalized_text": "Đúng rồi, em sẽ yêu thật trẻ luôn cái băng hết.",
+    "latency": 0.8956918799999585
+  },
+  "public_0262": {
+    "raw_text": "Vip đi, công ty chim à, đặt đủ số bé nhé.",
+    "normalized_text": "Vip đi, công ty chim à, đặt đủ số bé nhé.",
+    "latency": 0.8505356709999887
+  },
+  "public_0263": {
+    "raw_text": "Ừ, cảm ơn anh nhé, việc đấy anh tự làm xong rồi.",
+    "normalized_text": "Ừ, cảm ơn anh nhé, việc đấy anh tự làm xong rồi.",
+    "latency": 0.8629409679999753
+  },
+  "public_0264": {
+    "raw_text": "Ơ, sáng nay em quên bật nhạc khởi động rồi, giờ mở bài ngày đầu tiên của Đức Phúc luôn giúp em nha.",
+    "normalized_text": "Ơ, sáng nay em quên bật nhạc khởi động rồi, giờ mở bài ngày đầu tiên của Đức Phúc luôn giúp em nha.",
+    "latency": 1.2259436020000294
+  },
+  "public_0265": {
+    "raw_text": "Tôi đập thở xong rồi đấy, đánh dấu hôm nay hoàn thành bài đập thở giúp tôi nhé.",
+    "normalized_text": "Tôi đập thở xong rồi đấy, đánh dấu hôm nay hoàn thành bài đập thở giúp tôi nhé.",
+    "latency": 1.0373496289998911
+  },
+  "public_0266": {
+    "raw_text": "Em ơi, anh qua viện viết học tiếng Máu, xem nếu anh sửa nhà đi xe buýt thì bắt chuyến nào nhé.",
+    "normalized_text": "Em ơi, anh qua viện viết học tiếng Máu, xem nếu anh sửa nhà đi xe buýt thì bắt chuyến nào nhé.",
+    "latency": 1.1481955029998971
+  },
+  "public_0267": {
+    "raw_text": "Chiều mai chị có lớp ở trung tâm văn hóa Tây Âu, em xem đường từ nhà qua đấy rồi so với đi xe buýt xe xe, xong nhắc chị 5h10 chiều mai ra gọi nhà nhà.",
+    "normalized_text": "Chiều mai chị có lớp ở trung tâm văn hóa Tây Âu, em xem đường từ nhà qua đấy rồi so với đi xe buýt xe xe, xong nhắc chị 5h10 chiều mai ra gọi nhà nhà.",
+    "latency": 1.609016730999997
+  },
+  "public_0268": {
+    "raw_text": "Cả nhà mình có mấy quả cà chua chín sắp hỏng rồi, tìm giúp mình món salad nào làm từ cà chua đi, mình nấu luôn, nên thử 3 quả cà chua trong tủ bếp còn thiếu loại suốt nào thì xem một phút video sắp khi chở nhé.",
+    "normalized_text": "Cả nhà mình có mấy quả cà chua chín sắp hỏng rồi, tìm giúp mình món salad nào làm từ cà chua đi, mình nấu luôn, nên thử 3 quả cà chua trong tủ bếp còn thiếu loại suốt nào thì xem một phút video sắp khi chở nhé.",
+    "latency": 2.024763844000063
+  },
+  "public_0269": {
+    "raw_text": "Em ơi, tìm giúp chị một tên xe qua nhà hát lớn, xem từ nhà chị qua đại điểm nào, vừa rút ruột một chút ở bãi, sẽ sắp đến từ 10 giờ giờ này, chỉ rủi 2 tiếng thôi.",
+    "normalized_text": "Em ơi, tìm giúp chị một tên xe qua nhà hát lớn, xem từ nhà chị qua đại điểm nào, vừa rút ruột một chút ở bãi, sẽ sắp đến từ 10 giờ giờ này, chỉ rủi 2 tiếng thôi.",
+    "latency": 1.684523022999997
+  },
+  "public_0270": {
+    "raw_text": "Mở bài nhịp mở đầu cho ăn cái, công tác giáo hôm nay đã làm khiêm tập trung buổi sáng gọi nhé.",
+    "normalized_text": "Mở bài nhịp mở đầu cho ăn cái, công tác giáo hôm nay đã làm khiêm tập trung buổi sáng gọi nhé.",
+    "latency": 1.195079015000033
+  },
+  "public_0271": {
+    "raw_text": "Ờ, thế em đánh dấu hôm nay chị đàn xong rồi nhé.",
+    "normalized_text": "Ờ, thế em đánh dấu hôm nay chị đàn xong rồi nhé.",
+    "latency": 0.9525601569999935
+  },
+  "public_0272": {
+    "raw_text": "À có, đừng có lạc vào nhé, và anh bị giếng lạc.",
+    "normalized_text": "À có, đừng có lạc vào nhé, và anh bị giếng lạc.",
+    "latency": 0.9561178930000551
+  },
+  "public_0273": {
+    "raw_text": "Thế thì chủ nhật này, mồm góm tháng 10 nha.",
+    "normalized_text": "Thế thì chủ nhật này, mồm góm tháng 10 nha.",
+    "latency": 0.9021043269999609
+  },
+  "public_0274": {
+    "raw_text": "Ừ, thế trừ đi 3kg tôi lấy ra nấu cổ, xong mà còn dưới mức đáy thì ghi gạo vào danh sách đi chợ, mô bồ đúng 3kg nhé.",
+    "normalized_text": "Ừ, thế trừ đi 3kg tôi lấy ra nấu cổ, xong mà còn dưới mức đáy thì ghi gạo vào danh sách đi chợ, mô bồ đúng 3kg nhé.",
+    "latency": 1.5619561879999537
+  },
+  "public_0275": {
+    "raw_text": "Thế thì trừ trong tủ bếp đúng số gạm món đó cần giúp em nha.",
+    "normalized_text": "Thế thì trừ trong tủ bếp đúng số gạm món đó cần giúp em nha.",
+    "latency": 0.9243468610000036
+  },
+  "public_0276": {
+    "raw_text": "Ừ, thế đã, cho chị cái việc cần chuẩn bị đi tuyển đó là tới Công Tiếng Nhi, hẹn 8h sáng thứ Bảy, mùa 18 tháng 10, nhớ ghi cả số tuyển và tên Việt nhé.",
+    "normalized_text": "Ừ, thế đã, cho chị cái việc cần chuẩn bị đi tuyển đó là tới Công Tiếng Nhi, hẹn 8h sáng thứ Bảy, mùa 18 tháng 10, nhớ ghi cả số tuyển và tên Việt nhé.",
+    "latency": 1.650623352000025
+  },
+  "public_0277": {
+    "raw_text": "À thôi em, khỏi làm đơn trả nữa nhé, chị mang ra cửa hàng khô quen người ta xử lý luôn tại quầy rồi.",
+    "normalized_text": "À thôi em, khỏi làm đơn trả nữa nhé, chị mang ra cửa hàng khô quen người ta xử lý luôn tại quầy rồi.",
+    "latency": 1.1787838169999532
+  },
+  "public_0278": {
+    "raw_text": "Em ơi, chuyển giúp chị 250k cho chị Thảo thuộc quỹ Hoàng Phong Anh nhé, phần quỹ lớp chị còn nợ đấy.",
+    "normalized_text": "Em ơi, chuyển giúp chị 250k cho chị Thảo thuộc quỹ Hoàng Phong Anh nhé, phần quỹ lớp chị còn nợ đấy.",
+    "latency": 1.1571949249999989
+  },
+  "public_0279": {
+    "raw_text": "À, cái đèn vàng chị mua cứ tuần trước ấy, giờ cơ quan phát cho chị cái khác rồi nên không cần nữa, em làm yêu cầu trả hàng giúp chị nhé.",
+    "normalized_text": "À, cái đèn vàng chị mua cứ tuần trước ấy, giờ cơ quan phát cho chị cái khác rồi nên không cần nữa, em làm yêu cầu trả hàng giúp chị nhé.",
+    "latency": 1.284098057000051
+  },
+  "public_0280": {
+    "raw_text": "Thứ 5 tuần sau, tôi bay vào Đà Nẵng vừa đông cưới, đặt cho tôi một chỗ chuyến GX513, 9h sáng nghe, rồi giữ luôn rổ đổ ở phải xe sang bay nội bài từ 7h sáng hôm ấy, tôi để xe ở đây 4 ngày.",
+    "normalized_text": "Thứ 5 tuần sau, tôi bay vào Đà Nẵng vừa đông cưới, đặt cho tôi một chỗ chuyến GX513, 9h sáng nghe, rồi giữ luôn rổ đổ ở phải xe sang bay nội bài từ 7h sáng hôm ấy, tôi để xe ở đây 4 ngày.",
+    "latency": 1.9615612480000664
+  },
+  "public_0281": {
+    "raw_text": "Chuyển qua ví cho chủ nhà 600k tiền đặt cọc giúp tôi, chuyển xong thì lưu cái ghi chú tên là đối xác tiền cọc, ghi rõ số tiền vừa chuyển vào đấy.",
+    "normalized_text": "Chuyển qua ví cho chủ nhà 600k tiền đặt cọc giúp tôi, chuyển xong thì lưu cái ghi chú tên là đối xác tiền cọc, ghi rõ số tiền vừa chuyển vào đấy.",
+    "latency": 1.6171775139999909
+  },
+  "public_0282": {
+    "raw_text": "Gửi giúp tôi số 09-8-112-2337 của bên đầu mối sự cố nhé, xong lưu cho tôi cái ghi chú tên là bàn giao sự cố, kia là đã gửi số đấy, báo lội máy phát.",
+    "normalized_text": "Gửi giúp tôi số 09-8-112-2337 của bên đầu mối sự cố nhé, xong lưu cho tôi cái ghi chú tên là bàn giao sự cố, kia là đã gửi số đấy, báo lội máy phát.",
+    "latency": 1.7955431080000608
+  },
+  "public_0283": {
+    "raw_text": "Ờ, đặt cho em 1 vé, đặt cho em 3 vé hội thảo chính sách dữ liệu nhé, anh dẫn thêm 2 bạn trong nhóm, xong cho vào lịch luôn, 1h30 chiều thứ tư mùa 7, nhớ ghi rõ là 3 vé.",
+    "normalized_text": "Ờ, đặt cho em 1 vé, đặt cho em 3 vé hội thảo chính sách dữ liệu nhé, anh dẫn thêm 2 bạn trong nhóm, xong cho vào lịch luôn, 1h30 chiều thứ tư mùa 7, nhớ ghi rõ là 3 vé.",
+    "latency": 1.8710035580000977
+  },
+  "public_0284": {
+    "raw_text": "Đặt cho em một vé tàu SC5 Divin ngày 9 tháng 10 nha, mới tạo thêm một việc là chuẩn bị giấy xác nhận cho một hành khách hạn 5 giờ chiều ngày 8.",
+    "normalized_text": "Đặt cho em một vé tàu SC5 Divin ngày 9 tháng 10 nha, mới tạo thêm một việc là chuẩn bị giấy xác nhận cho một hành khách hạn 5 giờ chiều ngày 8.",
+    "latency": 1.5137844329999552
+  },
+  "public_0285": {
+    "raw_text": "Em ơi, chị vừa lấy 2 cơn bột mì làm mẹ bánh, em rời bước trong tủ bếp đi, rồi đặt mua thêm 2 gói bột mì lại 1 cơn cho chị bố vợ nhé.",
+    "normalized_text": "Em ơi, chị vừa lấy 2 cơn bột mì làm mẹ bánh, em rời bước trong tủ bếp đi, rồi đặt mua thêm 2 gói bột mì lại 1 cơn cho chị bố vợ nhé.",
+    "latency": 1.5713131100000055
+  },
+  "public_0286": {
+    "raw_text": "Giữ cho tôi một chỗ ở bãi xe trung tâm Hội nghị quốc gia từ 1 giờ chiều nay, 4 tiếng nhé, xong chỉ đường tôi đi bộ từ bãi đáy sang cửa đông của trung tâm.",
+    "normalized_text": "Giữ cho tôi một chỗ ở bãi xe trung tâm Hội nghị quốc gia từ 1 giờ chiều nay, 4 tiếng nhé, xong chỉ đường tôi đi bộ từ bãi đáy sang cửa đông của trung tâm.",
+    "latency": 1.63154107999992
+  },
+  "public_0287": {
+    "raw_text": "Đặt cho em một vé chuyến RV612 đi Là Nẵng sáng thứ 7 tuần sau nha, gọi luôn cái xe 4 chỗ, 4 giờ sáng hôm đó, đón em ra sân bay Hà Nội, với tờ lịch trình công tác bút 6 giờ sáng hôm đó nữa.",
+    "normalized_text": "Đặt cho em một vé chuyến RV612 đi Là Nẵng sáng thứ 7 tuần sau nha, gọi luôn cái xe 4 chỗ, 4 giờ sáng hôm đó, đón em ra sân bay Hà Nội, với tờ lịch trình công tác bút 6 giờ sáng hôm đó nữa.",
+    "latency": 1.9137473960000762
+  },
+  "public_0288": {
+    "raw_text": "Cái máy ảnh tôi mới mua bị giao nhầm mẫu ấy, làm giúp tôi cái đơn trả hàng, ghi lại một ghi chú tên là hồ sơ trả máy ảnh, rồi thêm việc theo dõi trả máy ảnh, hạn 5h chiều mùng 8 tháng này nhé.",
+    "normalized_text": "Cái máy ảnh tôi mới mua bị giao nhầm mẫu ấy, làm giúp tôi cái đơn trả hàng, ghi lại một ghi chú tên là hồ sơ trả máy ảnh, rồi thêm việc theo dõi trả máy ảnh, hạn 5h chiều mùng 8 tháng này nhé.",
+    "latency": 2.05566201299996
+  },
+  "public_0289": {
+    "raw_text": "Đặt các em 2 vé đêm nhạc đi hủy nha, giữ luôn hoặc chở ở bãi xe, chỗ đấy từ 6h tối 12 tháng 10, rủi 4 tiếng, xong nhắn hồi nhấn sự kiện là mọi người gặp nhau ở bãi xe lúc 6h tối hôm đó nhé.",
+    "normalized_text": "Đặt các em 2 vé đêm nhạc đi hủy nha, giữ luôn hoặc chở ở bãi xe, chỗ đấy từ 6h tối 12 tháng 10, rủi 4 tiếng, xong nhắn hồi nhấn sự kiện là mọi người gặp nhau ở bãi xe lúc 6h tối hôm đó nhé.",
+    "latency": 2.0907604050000828
+  },
+  "public_0290": {
+    "raw_text": "Rồi gửi luôn cái chị đầu mó lấy cho Ben nha.",
+    "normalized_text": "Rồi gửi luôn cái chị đầu mó lấy cho Ben nha.",
+    "latency": 0.8382768679999799
+  },
+  "public_0293": {
+    "raw_text": "Ừ, lấy khăn đài bê 2 vé tụi em xong ghi vào lịch từ 7h tới 9h hôm đó, đặt tên là xe bóng lộ 2 vé khăn đài bê nhé.",
+    "normalized_text": "Ừ, lấy khăn đài bê 2 vé tụi em xong ghi vào lịch từ 7h tới 9h hôm đó, đặt tên là xe bóng lộ 2 vé khăn đài bê nhé.",
+    "latency": 1.583395606999943
+  },
+  "public_0294": {
+    "raw_text": "Ừ, thế thì lấy luôn 5 bé đi em, xong ghi bầu lịch đúng giờ diễn cho anh nhé.",
+    "normalized_text": "Ừ, thế thì lấy luôn 5 bé đi em, xong ghi bầu lịch đúng giờ diễn cho anh nhé.",
+    "latency": 1.1223056389999329
+  },
+  "public_0295": {
+    "raw_text": "Ok, em ghi luôn bộ đó vào lịch giúp chị đúng giờ ấy nha, kiểu chị lại quên móc.",
+    "normalized_text": "Ok, em ghi luôn bộ đó vào lịch giúp chị đúng giờ ấy nha, kiểu chị lại quên móc.",
+    "latency": 1.0873233259999324
+  },
+  "public_0296": {
+    "raw_text": "Xong rồi giờ em thêm cho anh một việc ghi biên bản cuộc họp với biên vận chuyển nhé, 5h ngày, 5h chiều thứ tư lần sau.",
+    "normalized_text": "Xong rồi giờ em thêm cho anh một việc ghi biên bản cuộc họp với biên vận chuyển nhé, 5h ngày, 5h chiều thứ tư lần sau.",
+    "latency": 1.2695419990000119
+  },
+  "public_0297": {
+    "raw_text": "Rồi, thay toán thêm cái lạch đi bộ từ mã xe sáng, 5 lưỡi chiều mấy nhé.",
+    "normalized_text": "Rồi, thay toán thêm cái lạch đi bộ từ mã xe sáng, 5 lưỡi chiều mấy nhé.",
+    "latency": 1.0797803480000994
+  },
+  "public_0298": {
+    "raw_text": "Em nhắn cho phụ huynh tinh bình giúp chị là buổi học chiều, buổi học buổi, kể sang 4h chiều nha.",
+    "normalized_text": "Em nhắn cho phụ huynh tinh bình giúp chị là buổi học chiều, buổi học buổi, kể sang 4h chiều nha.",
+    "latency": 1.1591343469999629
+  },
+  "public_0299": {
+    "raw_text": "Ui, trói quá, chỉnh tiền phòng sinh hoạt xuống còn là 45% thôi em.",
+    "normalized_text": "Ui, trói quá, chỉnh tiền phòng sinh hoạt xuống còn là 45% thôi em.",
+    "latency": 0.9416923649999944
+  },
+  "public_0300": {
+    "raw_text": "Chào mỗi giây nhé, chúc em hôm nay vui vẻ, mọi người xuống dễ.",
+    "normalized_text": "Chào mỗi giây nhé, chúc em hôm nay vui vẻ, mọi người xuống dễ.",
+    "latency": 0.9868072860000439
+  },
+  "public_0301": {
+    "raw_text": "Hôm qua May Anh có nhắn Zalo hỏi chị về hồ sơ đăng ký đấy, em bỏ like xem giúp chị rồi soạn sẵn một email nhát của em ấy, tiêu đề phản hồi hồ sơ đăng ký, báo là hồ sơ sẽ được xử lý trước thứ 6 nhé.",
+    "normalized_text": "Hôm qua May Anh có nhắn Zalo hỏi chị về hồ sơ đăng ký đấy, em bỏ like xem giúp chị rồi soạn sẵn một email nhát của em ấy, tiêu đề phản hồi hồ sơ đăng ký, báo là hồ sơ sẽ được xử lý trước thứ 6 nhé.",
+    "latency": 1.9852835210000421
+  },
+  "public_0302": {
+    "raw_text": "Dịch giúp chị câu nhớ mang theo hồ sơ xe hủy hạn sạch tiếng Anh, xong gửi nguyên câu tiếng Anh đó qua Zalo cho mấy anh nhé.",
+    "normalized_text": "Dịch giúp chị câu nhớ mang theo hồ sơ xe hủy hạn sạch tiếng Anh, xong gửi nguyên câu tiếng Anh đó qua Zalo cho mấy anh nhé.",
+    "latency": 1.4253850580000744
+  },
+  "public_0303": {
+    "raw_text": "Này, hôm 23 tháng 1, tôi phải có mặt ở nhà cao hóa thanh niên lúc 4 giờ 45 chiều, tìm xe buýt thử mến xe Long Beach đi lên đó, ký nợ ít phải đồ xế, xem đi hết bao lâu rồi, nhất tôi ra mến sớm hơn giờ lên xe 20 phút nhé.",
+    "normalized_text": "Này, hôm 23 tháng 1, tôi phải có mặt ở nhà cao hóa thanh niên lúc 4 giờ 45 chiều, tìm xe buýt thử mến xe Long Beach đi lên đó, ký nợ ít phải đồ xế, xem đi hết bao lâu rồi, nhất tôi ra mến sớm hơn giờ lên xe 20 phút nhé.",
+    "latency": 2.1834528829999726
+  },
+  "public_0304": {
+    "raw_text": "À lẹt, nói gì cũng lẹt, món nào có lẹt là bỏ hết nhé.",
+    "normalized_text": "À lẹt, nói gì cũng lẹt, món nào có lẹt là bỏ hết nhé.",
+    "latency": 1.0056050900000173
+  },
+  "public_0305": {
+    "raw_text": "Rồi, em xem cái đèn trong phòng nọc xế đông giúp chị, xong làm đúng như sự dặn ra nha.",
+    "normalized_text": "Rồi, em xem cái đèn trong phòng nọc xế đông giúp chị, xong làm đúng như sự dặn ra nha.",
+    "latency": 1.2005455460000576
+  },
+  "public_0306": {
+    "raw_text": "Em tìm công thức canh chua cá giúp chị nhé, rồi cứ theo điều chuyện chị dặn lúc nãy mà đặt.",
+    "normalized_text": "Em tìm công thức canh chua cá giúp chị nhé, rồi cứ theo điều chuyện chị dặn lúc nãy mà đặt.",
+    "latency": 1.169120909999947
+  },
+  "public_0307": {
+    "raw_text": "Được, lửa nguyên khẩu tiếng Anh đã quay ra lôi sạch sách dụng chấp anh, rất đang chờ học cái sách đó rồi.",
+    "normalized_text": "Được, lửa nguyên khẩu tiếng Anh đã quay ra lôi sạch sách dụng chấp anh, rất đang chờ học cái sách đó rồi.",
+    "latency": 1.2422873900000013
+  },
+  "public_0308": {
+    "raw_text": "Chuyển giúp em 350k cho anh Phúc bên nhà cung cấp nha.",
+    "normalized_text": "Chuyển giúp em 350k cho anh Phúc bên nhà cung cấp nha.",
+    "latency": 0.8639923790000239
+  },
+  "public_0311": {
+    "raw_text": "Lấy cho anh 2 vé, đem khoa học ở cung thiếu nhi tối thứ 7 này nhé, rồi hãy hình dẫn bộ ô tô 4 chỗ nối ở nhà lúc 6h tối hôm đó, chọn tới đấy, xong nhắn Zalo cho Mai Anh là anh giữ được 2 vé rồi, nhận đón anh rồi xong.",
+    "normalized_text": "Lấy cho anh 2 vé, đem khoa học ở cung thiếu nhi tối thứ 7 này nhé, rồi hãy hình dẫn bộ ô tô 4 chỗ nối ở nhà lúc 6h tối hôm đó, chọn tới đấy, xong nhắn Zalo cho Mai Anh là anh giữ được 2 vé rồi, nhận đón anh rồi xong.",
+    "latency": 2.041617004000045
+  },
+  "public_0312": {
+    "raw_text": "Tìm cách em chỉ mang bên hậu cần, đúng chảy nha, chuyển chảy ấy 50k tiền hoàn ứng, xong lưu trên cái ghi chú tên là hoàn ứng hậu cần, ghi là hoàn ứng chi phí hậu cần cho máy anh.",
+    "normalized_text": "Tìm cách em chỉ mang bên hậu cần, đúng chảy nha, chuyển chảy ấy 50k tiền hoàn ứng, xong lưu trên cái ghi chú tên là hoàn ứng hậu cần, ghi là hoàn ứng chi phí hậu cần cho máy anh.",
+    "latency": 1.883308955000075
+  },
+  "public_0314": {
+    "raw_text": "Đặt cho anh 3 vé tàu SD3 tối chủ nhật này đi Đà Nẵng, rồi giữ luôn 1 vé, rồi gửi xe ở gai Hà Nội từ thứ 6, từ 6 giờ tối hơn đó, giữ 1 tiếng thôi, anh chỉ đưa bố mẹ với em gái ra tàu.",
+    "normalized_text": "Đặt cho anh 3 vé tàu SD3 tối chủ nhật này đi Đà Nẵng, rồi giữ luôn 1 vé, rồi gửi xe ở gai Hà Nội từ thứ 6, từ 6 giờ tối hơn đó, giữ 1 tiếng thôi, anh chỉ đưa bố mẹ với em gái ra tàu.",
+    "latency": 1.9598941909999894
+  },
+  "public_0315": {
+    "raw_text": "Cái máy xay mới về giao nhầm hàng rồi, làm yêu cầu trả lời giúp anh nhé, xong thêm mời lịch cái hàng gửi chuyển trả máy xay lúc 1h chiều ngày 20 tháng này.",
+    "normalized_text": "Cái máy xay mới về giao nhầm hàng rồi, làm yêu cầu trả lời giúp anh nhé, xong thêm mời lịch cái hàng gửi chuyển trả máy xay lúc 1h chiều ngày 20 tháng này.",
+    "latency": 1.6165522310000142
+  },
+  "public_0317": {
+    "raw_text": "Đúng rồi, mày tự yêu cầu trả đơn đó giúp anh.",
+    "normalized_text": "Đúng rồi, mày tự yêu cầu trả đơn đó giúp anh.",
+    "latency": 0.865358500999946
+  },
+  "public_0318": {
+    "raw_text": "Ok, hãy gọi người đó giúp anh luôn đi.",
+    "normalized_text": "Ok, hãy gọi người đó giúp anh luôn đi.",
+    "latency": 0.8088195020000057
+  },
+  "public_0320": {
+    "raw_text": "Ờ, giữ chỗ đó cho anh từ 2 giờ chiều nay nhé, gấp tầm 3 tiếng là đủ.",
+    "normalized_text": "Ờ, giữ chỗ đó cho anh từ 2 giờ chiều nay nhé, gấp tầm 3 tiếng là đủ.",
+    "latency": 1.099873738000042
+  },
+  "public_0321": {
+    "raw_text": "Đã đúng rồi, hàng học, gửi yêu cầu luôn trước em.",
+    "normalized_text": "Đã đúng rồi, hàng học, gửi yêu cầu luôn trước em.",
+    "latency": 0.9244550689999187
+  },
+  "public_0323": {
+    "raw_text": "Rồi giờ em coi giá trên đó đi, 2 người mà vẫn dưới mức, anh nói, thì chốc luôn 2 chỗ nha.",
+    "normalized_text": "Rồi giờ em coi giá trên đó đi, 2 người mà vẫn dưới mức, anh nói, thì chốc luôn 2 chỗ nha.",
+    "latency": 1.1774215570000024
+  },
+  "public_0324": {
+    "raw_text": "Mình chắc rối là nó vẫn còn hạn nè, bà ta yêu cầu trả hàng giúp mình đi, tí do là đổi ý không dùng đấy nha.",
+    "normalized_text": "Mình chắc rối là nó vẫn còn hạn nè, bà ta yêu cầu trả hàng giúp mình đi, tí do là đổi ý không dùng đấy nha.",
+    "latency": 1.2292630780000309
+  },
+  "public_0325": {
+    "raw_text": "Em xin lời giúp chị khách chuyển làm ánh sáng đấy, giờ còn đủ chỗ chưa? Đủ thì lấy luôn 4 vé nha.",
+    "normalized_text": "Em xin lời giúp chị khách chuyển làm ánh sáng đấy, giờ còn đủ chỗ chưa? Đủ thì lấy luôn 4 vé nha.",
+    "latency": 1.162985682999988
+  },
+  "public_0326": {
+    "raw_text": "Ừ, thấy em thêm lịch, thêm vào lịch cho anh Việt, mang chuyện hàng ra trẻ, chuyện trẻ bằng phím ra bua cục nhé, 10h tháng thứ 6, buổi sau.",
+    "normalized_text": "Ừ, thấy em thêm lịch, thêm vào lịch cho anh Việt, mang chuyện hàng ra trẻ, chuyện trẻ bằng phím ra bua cục nhé, 10h tháng thứ 6, buổi sau.",
+    "latency": 1.4558731979999493
+  },
+  "public_0327": {
+    "raw_text": "Ok, giờ nhắn nghe lô chào mẹ anh, xin nhỏ giúp anh là đặt được mấy vé rồi nhé.",
+    "normalized_text": "Ok, giờ nhắn nghe lô chào mẹ anh, xin nhỏ giúp anh là đặt được mấy vé rồi nhé.",
+    "latency": 1.0573966739999605
+  },
+  "public_0328": {
+    "raw_text": "Rồi thêm vào lệnh giúp tôi một cái hẹn tên là nhọc nhọc ở chỗ, bì mì hay, mì hay là chui hôm đó luôn nha.",
+    "normalized_text": "Rồi thêm vào lệnh giúp tôi một cái hẹn tên là nhọc nhọc ở chỗ, bì mì hay, mì hay là chui hôm đó luôn nha.",
+    "latency": 1.3162354040000537
+  },
+  "public_0329": {
+    "raw_text": "Tối nay tánh giờ mình đi xem hòa nhạc ở nhà hát lớn, xem giúp mình đường từ nhà đó đi qua to lâu, rồi giữ một chỗ đổ xe gần nhà hát, còn chóng từ 7 rưỡi tới, phải pha tiếng nha.",
+    "normalized_text": "Tối nay tánh giờ mình đi xem hòa nhạc ở nhà hát lớn, xem giúp mình đường từ nhà đó đi qua to lâu, rồi giữ một chỗ đổ xe gần nhà hát, còn chóng từ 7 rưỡi tới, phải pha tiếng nha.",
+    "latency": 1.7804842809999855
+  },
+  "public_0330": {
+    "raw_text": "Tối nay nhà bốn người nấu canh đậu gà chua ngon, em ơi không thích cần những gì trong tổ viết còn thiếu món nào thì tặng môi đủ sơ đồng giúp anh nhé.",
+    "normalized_text": "Tối nay nhà bốn người nấu canh đậu gà chua ngon, em ơi không thích cần những gì trong tổ viết còn thiếu món nào thì tặng môi đủ sơ đồng giúp anh nhé.",
+    "latency": 2.47
+  },
+  "public_0331": {
+    "raw_text": "Thứ bảy, sớm sơ chỉ đưa tờ bên từ Hà Nội vô Huế, em xem chính tờ là tới Huế, chút 11 trời trưa của nhà mặt thì đặt ra chỉ 2 vé, rồi tờ lịch đúng thay giờ tờ tối luôn nha.",
+    "normalized_text": "Thứ bảy, sớm sơ chỉ đưa tờ bên từ Hà Nội vô Huế, em xem chính tờ là tới Huế, chút 11 trời trưa của nhà mặt thì đặt ra chỉ 2 vé, rồi tờ lịch đúng thay giờ tờ tối luôn nha.",
+    "latency": 1.8221380599999293
+  },
+  "public_0332": {
+    "raw_text": "Tháng giờ sáng thứ 2 tuần sau, anh đi xe buýt từ nhà ra Mây Trì, em coi tiếng nào nền rứt, đặt sẵn taxi 4 chỗ, nón anh nó chạm xuống cửa tiếng đó, đúng lúc xe tới, lại vô trung tâm Hồ Nhĩ Giang, rồi tạo thêm địch theo giờ xuống xe buýt luôn nha.",
+    "normalized_text": "Tháng giờ sáng thứ 2 tuần sau, anh đi xe buýt từ nhà ra Mây Trì, em coi tiếng nào nền rứt, đặt sẵn taxi 4 chỗ, nón anh nó chạm xuống cửa tiếng đó, đúng lúc xe tới, lại vô trung tâm Hồ Nhĩ Giang, rồi tạo thêm địch theo giờ xuống xe buýt luôn nha.",
+    "latency": 2.581557514999986
+  },
+  "public_0333": {
+    "raw_text": "Ừ, hôm nay tôi lấy 3kg ra nấu cổ, em trừ đi nhé, trừ xong mà còn dưới 2kg thì đặt thêm gà ST25, cho uống 2kg, còn đủ thì thôi khỏi đặt.",
+    "normalized_text": "Ừ, hôm nay tôi lấy 3kg ra nấu cổ, em trừ đi nhé, trừ xong mà còn dưới 2kg thì đặt thêm gà ST25, cho uống 2kg, còn đủ thì thôi khỏi đặt.",
+    "latency": 1.575765479000097
+  },
+  "public_0334": {
+    "raw_text": "Hôm nay chị muốn view cho 4 người, em tìm cổng thức xem cần mấy quả trà chua, lấy luôn 2 quả trà chua trong tủ ra dùng, còn thiếu bao nhiêu thì view vào danh sách đi chợ giúp chị nha.",
+    "normalized_text": "Hôm nay chị muốn view cho 4 người, em tìm cổng thức xem cần mấy quả trà chua, lấy luôn 2 quả trà chua trong tủ ra dùng, còn thiếu bao nhiêu thì view vào danh sách đi chợ giúp chị nha.",
+    "latency": 1.7236698340000203
+  },
+  "public_0335": {
+    "raw_text": "Ừ, em tra chuyến xe buýt đi, cứ từng 5 giờ là lên xe luôn, rồi trộm thời gian xe chạy, nếu tới nơi trước 6 giờ tối, thì chờ xe tới, rưỡng hợp một tiếng trong thủ, rồi rồi lịch tên, tên lịch hành gặp đối tác ở trung tâm văn hóa Tây Hồ luôn nha.",
+    "normalized_text": "Ừ, em tra chuyến xe buýt đi, cứ từng 5 giờ là lên xe luôn, rồi trộm thời gian xe chạy, nếu tới nơi trước 6 giờ tối, thì chờ xe tới, rưỡng hợp một tiếng trong thủ, rồi rồi lịch tên, tên lịch hành gặp đối tác ở trung tâm văn hóa Tây Hồ luôn nha.",
+    "latency": 2.4523362149999457
+  },
+  "public_0336": {
+    "raw_text": "Lấy cho anh 2 vé đêm nhạc Charles, tối thứ 6 tuần sau, rồi đặt luôn xe 4 chỗ, từ nhà tới đường Châu Diên. Hẹn đón, trước giờ mở màn 45 phút, và nhận anh lũ nò ra khỏi nhà nhé.",
+    "normalized_text": "Lấy cho anh 2 vé đêm nhạc Charles, tối thứ 6 tuần sau, rồi đặt luôn xe 4 chỗ, từ nhà tới đường Châu Diên. Hẹn đón, trước giờ mở màn 45 phút, và nhận anh lũ nò ra khỏi nhà nhé.",
+    "latency": 1.8019545639999706
+  },
+  "public_0337": {
+    "raw_text": "Cái ám siêu tóc mới mua về đã hổng rồi. Làm giúp em yêu cầu trả hàng nhé. À, trong đêm đó, sớp, tùy ý, mén mẫu thay thế. Mẫu nào đang còn hàng thì thêm một cái vào danh sách cần mua cho em.",
+    "normalized_text": "Cái ám siêu tóc mới mua về đã hổng rồi. Làm giúp em yêu cầu trả hàng nhé. À, trong đêm đó, sớp, tùy ý, mén mẫu thay thế. Mẫu nào đang còn hàng thì thêm một cái vào danh sách cần mua cho em.",
+    "latency": 1.9462052990000984
+  },
+  "public_0338": {
+    "raw_text": "Ừ, vậy em làm trả hàng cái đơn Zalo nhùng để đi, lý do là Zalo sai mẫu, xong đặt lại cho anh một cái 12 luôn nhé.",
+    "normalized_text": "Ừ, vậy em làm trả hàng cái đơn Zalo nhùng để đi, lý do là Zalo sai mẫu, xong đặt lại cho anh một cái 12 luôn nhé.",
+    "latency": 1.3073337859999583
+  },
+  "public_0339": {
+    "raw_text": "Đặt 2 vé shop đó, xe như chị dặn, xong bấm và nhấn đi xem nhạc là xe đán lúc 7h10 vào cổng B nha.",
+    "normalized_text": "Đặt 2 vé shop đó, xe như chị dặn, xong bấm và nhấn đi xem nhạc là xe đán lúc 7h10 vào cổng B nha.",
+    "latency": 1.3546986329999982
+  },
+  "public_0340": {
+    "raw_text": "Ok, vậy là cho mình chuyển bay với chiếc thao đó, mỗi cái 1 vé thôi, mà nếu từ lúc hạ cánh tới lúc thòi chạy được ít nhất tiếng rưỡi thì nghi qua lịch sử giờ thao tới nơi giúp mình nha.",
+    "normalized_text": "Ok, vậy là cho mình chuyển bay với chiếc thao đó, mỗi cái 1 vé thôi, mà nếu từ lúc hạ cánh tới lúc thòi chạy được ít nhất tiếng rưỡi thì nghi qua lịch sử giờ thao tới nơi giúp mình nha.",
+    "latency": 1.8671684550000691
+  },
+  "public_0341": {
+    "raw_text": "Được rồi, cứ điện nguyên như thế, có ai làm gì thêm đâu em.",
+    "normalized_text": "Được rồi, cứ điện nguyên như thế, có ai làm gì thêm đâu em.",
+    "latency": 0.8958773839999594
+  },
+  "public_0342": {
+    "raw_text": "Tìm cho chị công thức mình xào chay cho hai người để cuối tuần chị tự làm. Còn trưa nay thì đặt luôn hai suốt mình xào chay về nhà nhé. Xong thêm vào danh sách việc cần làm cho chị một việc, lúc 11 rưỡi trưa là kiểm tra xem đồ ăn giờ tới chưa.",
+    "normalized_text": "Tìm cho chị công thức mình xào chay cho hai người để cuối tuần chị tự làm. Còn trưa nay thì đặt luôn hai suốt mình xào chay về nhà nhé. Xong thêm vào danh sách việc cần làm cho chị một việc, lúc 11 rưỡi trưa là kiểm tra xem đồ ăn giờ tới chưa.",
+    "latency": 2.0188779209998984
+  },
+  "public_0343": {
+    "raw_text": "Ờ, kiểm tra kênh cái nhà răng hoá nào gần đây nước mà có cái sân cầu lông ấy, và giữ cho em một chỗ đổi xe ở đó từ 5h chiều nay, 2 tiếng nha.",
+    "normalized_text": "Ờ, kiểm tra kênh cái nhà răng hoá nào gần đây nước mà có cái sân cầu lông ấy, và giữ cho em một chỗ đổi xe ở đó từ 5h chiều nay, 2 tiếng nha.",
+    "latency": 1.5285027359999503
+  },
+  "public_0344": {
+    "raw_text": "Tùm, lấy cái kẹt bàn của Xiaomi đó, một táo, đặt luôn nha, xong rồi ghi mạng anh Hơn ngoài danh sách cua sáng đen chuyển theo dõi.",
+    "normalized_text": "Tùm, lấy cái kẹt bàn của Xiaomi đó, một táo, đặt luôn nha, xong rồi ghi mạng anh Hơn ngoài danh sách cua sáng đen chuyển theo dõi.",
+    "latency": 1.4711941950000664
+  },
+  "public_0345": {
+    "raw_text": "Em mở tin nhắn của các hai anh xem tin mới nhấp nói gì. Nếu cô báo quỷ buổi học buổi thì xóa các lệnh tới để trang trị nhé.",
+    "normalized_text": "Em mở tin nhắn của các hai anh xem tin mới nhấp nói gì. Nếu cô báo quỷ buổi học buổi thì xóa các lệnh tới để trang trị nhé.",
+    "latency": 1.32388985099999
+  },
+  "public_0346": {
+    "raw_text": "Ok, thế đậu hủ trong tựa viết còn mấy hộp thì trừ hết ra luôn vì mình dùng tội này. Còn thiếu bao nhiêu hộp sợ những công thức thì đặt mua thêm cho đủ nha.",
+    "normalized_text": "Ok, thế đậu hủ trong tựa viết còn mấy hộp thì trừ hết ra luôn vì mình dùng tội này. Còn thiếu bao nhiêu hộp sợ những công thức thì đặt mua thêm cho đủ nha.",
+    "latency": 1.6041739529999859
+  },
+  "public_0347": {
+    "raw_text": "Thế đặt cho tôi một vé chuyến đó, dựng chỗ ở bãi phía bắc kia từ 7h sáng hôm ấy, gửi 2 ngày rồi thêm việc, rồi bãi ra tàu trước chờ chạy nửa tiếng nhé.",
+    "normalized_text": "Thế đặt cho tôi một vé chuyến đó, dựng chỗ ở bãi phía bắc kia từ 7h sáng hôm ấy, gửi 2 ngày rồi thêm việc, rồi bãi ra tàu trước chờ chạy nửa tiếng nhé.",
+    "latency": 1.6994247209999003
+  },
+  "public_0348": {
+    "raw_text": "Rồi gửi em thêm cái đèn đó vào dân sát đi, xong xem vé, nếu gật nhuyễn, chị nói thì đặt luôn 2 cái màu ổ phát cho chị.",
+    "normalized_text": "Rồi gửi em thêm cái đèn đó vào dân sát đi, xong xem vé, nếu gật nhuyễn, chị nói thì đặt luôn 2 cái màu ổ phát cho chị.",
+    "latency": 1.4362507520000918
+  },
+  "public_0349": {
+    "raw_text": "Em xem hôm đó có mưa không? Nếu không mưa thì chuyển chỗ sang công viên yên sở luôn nhé. Giờ dứt cửa dưỡng nguyên.",
+    "normalized_text": "Em xem hôm đó có mưa không? Nếu không mưa thì chuyển chỗ sang công viên yên sở luôn nhé. Giờ dứt cửa dưỡng nguyên.",
+    "latency": 1.392259885000044
+  },
+  "public_0350": {
+    "raw_text": "Rồi, giờ em vào cái ứng dụng thuê kho anh vừa nói, giữ chỗ cái nhanh đó cho anh trồng thuế đi.",
+    "normalized_text": "Rồi, giờ em vào cái ứng dụng thuê kho anh vừa nói, giữ chỗ cái nhanh đó cho anh trồng thuế đi.",
+    "latency": 1.2254881879999857
+  },
+  "public_0351": {
+    "raw_text": "Ờ, thấy bạn gửi luôn cái bản nháp vừa xong cho 10 phút chắc chúc mình với.",
+    "normalized_text": "Ờ, thấy bạn gửi luôn cái bản nháp vừa xong cho 10 phút chắc chúc mình với.",
+    "latency": 0.9755886530000453
+  },
+  "public_0352": {
+    "raw_text": "Em ơi, trả giúp anh tiền nước tháng này qua tài khoản ngân hàng nhé, xong thêm vào danh sách việc cần làm cho anh một việc là đối xác hóa đơn nước, hẹn 9h sáng thứ 4.",
+    "normalized_text": "Em ơi, trả giúp anh tiền nước tháng này qua tài khoản ngân hàng nhé, xong thêm vào danh sách việc cần làm cho anh một việc là đối xác hóa đơn nước, hẹn 9h sáng thứ 4.",
+    "latency": 1.6151166249999278
+  },
+  "public_0353": {
+    "raw_text": "Thế lấy cho tôi 2 vé cái vở nhạc kịch mùa thu ấy, xong ghi vào là đúng giờ diễn, nhớ ghi cả tên bài hát cho dễ nhớ nhé.",
+    "normalized_text": "Thế lấy cho tôi 2 vé cái vở nhạc kịch mùa thu ấy, xong ghi vào là đúng giờ diễn, nhớ ghi cả tên bài hát cho dễ nhớ nhé.",
+    "latency": 1.4400434309999355
+  },
+  "public_0354": {
+    "raw_text": "Ừ, thế gọi cho cái gala thành công giúp tôi, rồi ghi vào lịch 10h sáng thứ 6 này tôi mang xe qua đá bảo dưỡng nhé.",
+    "normalized_text": "Ừ, thế gọi cho cái gala thành công giúp tôi, rồi ghi vào lịch 10h sáng thứ 6 này tôi mang xe qua đá bảo dưỡng nhé.",
+    "latency": 1.2923755489999849
+  },
+  "public_0355": {
+    "raw_text": "Để cái áo sơ mi xanh ấy, shop gửi nhầm, anh đặt màu trắng cơ, em về yêu cầu tránh em giúp anh, rồi thêm vào kỳ cần làm, là 5h chiều thứ 3 tuần sau, vậy gửi trả xong nhé.",
+    "normalized_text": "Để cái áo sơ mi xanh ấy, shop gửi nhầm, anh đặt màu trắng cơ, em về yêu cầu tránh em giúp anh, rồi thêm vào kỳ cần làm, là 5h chiều thứ 3 tuần sau, vậy gửi trả xong nhé.",
+    "latency": 1.8000091139999768
+  },
+  "public_0356": {
+    "raw_text": "Mua cho anh 4 ghế xe stand-up comedy tối thứ 7 tuần sau nha. Đặt luôn xe 7 chỗ, bán ở công ty lúc 5 giờ chiều luôn. Hôm đó chờ cả nhóm tới cửa diễn, rồi đánh Zalo cho mình là 5 người, chung ra sản phẩm.",
+    "normalized_text": "Mua cho anh 4 ghế xe stand-up comedy tối thứ 7 tuần sau nha. Đặt luôn xe 7 chỗ, bán ở công ty lúc 5 giờ chiều luôn. Hôm đó chờ cả nhóm tới cửa diễn, rồi đánh Zalo cho mình là 5 người, chung ra sản phẩm.",
+    "latency": 1.9411250880000352
+  },
+  "public_0357": {
+    "raw_text": "Rồi, xem giờ vé khua bao nhiêu, còn dưới mít to chốc, thì lái một vé, sang thêm vào lịch tới hôm đó, kèm số ghé luôn.",
+    "normalized_text": "Rồi, xem giờ vé khua bao nhiêu, còn dưới mít to chốc, thì lái một vé, sang thêm vào lịch tới hôm đó, kèm số ghé luôn.",
+    "latency": 1.3423232630000257
+  },
+  "public_0358": {
+    "raw_text": "Ok, đặt cho mình 2 bé nha, còn bộ đi lại, nếu sao quá tắm cậy thì đặt luôn cái xe 4 chỗ, đánh mình ở nhà, lúc 7 giờ tối hôm đó, gần hơn thì thôi, cùng tự chạy xe.",
+    "normalized_text": "Ok, đặt cho mình 2 bé nha, còn bộ đi lại, nếu sao quá tắm cậy thì đặt luôn cái xe 4 chỗ, đánh mình ở nhà, lúc 7 giờ tối hôm đó, gần hơn thì thôi, cùng tự chạy xe.",
+    "latency": 1.7531803169999876
+  },
+  "public_0359": {
+    "raw_text": "Đôi giờ nào đã do nhầm mẫu rồi em, em luôn có yêu cầu trỏ hòn đi, sang ghi chú lẹ mỏ trỏ hòn với lý do thôi nhé, đừng ghi gì về số tiền hòn.",
+    "normalized_text": "Đôi giờ nào đã do nhầm mẫu rồi em, em luôn có yêu cầu trỏ hòn đi, sang ghi chú lẹ mỏ trỏ hòn với lý do thôi nhé, đừng ghi gì về số tiền hòn.",
+    "latency": 1.6611322520000158
+  },
+  "public_0360": {
+    "raw_text": "Ok, like chuyển dòng việc EA tốn giờ 15, bỏ mình lên thôi, giữ luôn chỗ bẻ phê he từ 6 giờ sáng hôm đó, gợi he ngày nhé, à, trước như vậy 1 tiếng thì nhát anh rời bẻ luôn thủ tục.",
+    "normalized_text": "Ok, like chuyển dòng việc EA tốn giờ 15, bỏ mình lên thôi, giữ luôn chỗ bẻ phê he từ 6 giờ sáng hôm đó, gợi he ngày nhé, à, trước như vậy 1 tiếng thì nhát anh rời bẻ luôn thủ tục.",
+    "latency": 1.7939002409999603
+  },
+  "public_0362": {
+    "raw_text": "Hãy đăng ký kênh để ủng hộ kênh của mình nhé.",
+    "normalized_text": "",
+    "latency": 0.8676189210000302
+  },
+  "public_0363": {
+    "raw_text": "Kiếm cho anh cách nấu canh chua, cái, rồi thêm vào danh sách y chợ hai quả cà chua với một gới me luôn nha.",
+    "normalized_text": "Kiếm cho anh cách nấu canh chua, cái, rồi thêm vào danh sách y chợ hai quả cà chua với một gới me luôn nha.",
+    "latency": 1.2245819180000126
+  },
+  "public_0364": {
+    "raw_text": "Mai em đi Đà Nẵng, thật giúp em hay vé tàu SE3, 9h-7h, 5h sáng nha, với 6h30 sáng mai giao cho em cái ô tô 4 chỗ từ nhà Sega Hà Nội luôn.",
+    "normalized_text": "Mai em đi Đà Nẵng, thật giúp em hay vé tàu SE3, 9h-7h, 5h sáng nha, với 6h30 sáng mai giao cho em cái ô tô 4 chỗ từ nhà Sega Hà Nội luôn.",
+    "latency": 1.5888702350000585
+  },
+  "public_0365": {
+    "raw_text": "Nhấn Zalo cho cậu ấy là mình sẽ gửi bản vẽ trước 5 giờ chiều nay nha.",
+    "normalized_text": "Nhấn Zalo cho cậu ấy là mình sẽ gửi bản vẽ trước 5 giờ chiều nay nha.",
+    "latency": 0.9574965209999391
+  },
+  "public_0366": {
+    "raw_text": "Thế thì nhắc anh về nhà trước một tiếng nha.",
+    "normalized_text": "Thế thì nhắc anh về nhà trước một tiếng nha.",
+    "latency": 0.7428626249999297
+  },
+  "public_0367": {
+    "raw_text": "Ở đây thấy cho hai bên địa chỉnh của món đầy tiền và danh sách đi chợ giúp chịu nhé. Số lớp đúng như anh vừa nói đấy.",
+    "normalized_text": "Ở đây thấy cho hai bên địa chỉnh của món đầy tiền và danh sách đi chợ giúp chịu nhé. Số lớp đúng như anh vừa nói đấy.",
+    "latency": 1.318870199999992
+  },
+  "public_0368": {
+    "raw_text": "Em đọc to cho chị Nguyên Văn ca cuốn sách chị đang đọc giờ đi, từ trang đầu tới trang cuối luôn nha.",
+    "normalized_text": "Em đọc to cho chị Nguyên Văn ca cuốn sách chị đang đọc giờ đi, từ trang đầu tới trang cuối luôn nha.",
+    "latency": 1.146014087000026
+  },
+  "public_0369": {
+    "raw_text": "Thôi khỏi ghi chú nữa em ạ, có mỗi 2-3 việc, tự nhớ được.",
+    "normalized_text": "Thôi khỏi ghi chú nữa em ạ, có mỗi 2-3 việc, tự nhớ được.",
+    "latency": 0.9699465820000341
+  },
+  "public_0370": {
+    "raw_text": "Ờ, chữ xin chào tiếng Anh nói sao nhỉ, dịch giúp em với.",
+    "normalized_text": "Ờ, chữ xin chào tiếng Anh nói sao nhỉ, dịch giúp em với.",
+    "latency": 0.9842311370000516
+  },
+  "public_0371": {
+    "raw_text": "Tôi vừa lấy hộp cảm ưu trong tụ bếp ra dục rồi, em chơi với nhé, à, thêm 3 quạt trắng ở trong sách bí chờ lô.",
+    "normalized_text": "Tôi vừa lấy hộp cảm ưu trong tụ bếp ra dục rồi, em chơi với nhé, à, thêm 3 quạt trắng ở trong sách bí chờ lô.",
+    "latency": 1.450384191000012
+  },
+  "public_0372": {
+    "raw_text": "Ờ, đặt cho em một cái tai nghe xao gô nha, à, với cái loa mini em mới nhận hôm trước bị hỏng rồi, làm luôn yêu cầu trả hàng giúp em.",
+    "normalized_text": "Ờ, đặt cho em một cái tai nghe xao gô nha, à, với cái loa mini em mới nhận hôm trước bị hỏng rồi, làm luôn yêu cầu trả hàng giúp em.",
+    "latency": 1.4450333050000381
+  },
+  "public_0373": {
+    "raw_text": "Hãy subscribe cho kênh La La School Để không bỏ lỡ những video hấp dẫn",
+    "normalized_text": "",
+    "latency": 0.9188230250000515
+  },
+  "public_0374": {
+    "raw_text": "Cái này đặt cho tôi một kế chuyến RV 158, trưa mai đi ra đẳng nhẹ, tôi vào thăm con gái, rồi dựa luôn một chỗ ở bãi xe sân bay nồi 3, tôi chỉ nhớ sáng mai, tôi gửi 5 ngày.",
+    "normalized_text": "Cái này đặt cho tôi một kế chuyến RV 158, trưa mai đi ra đẳng nhẹ, tôi vào thăm con gái, rồi dựa luôn một chỗ ở bãi xe sân bay nồi 3, tôi chỉ nhớ sáng mai, tôi gửi 5 ngày.",
+    "latency": 1.766789923000033
+  },
+  "public_0376": {
+    "raw_text": "Đặt cho tôi 5 vẻ chuyển làm ánh sáng, đô thị cho cả nhà nhẹ, rồi ghi vào lịch chụp tôi là bài rưỡi, tôi thử bài môn 3 tháng 10 đi xem.",
+    "normalized_text": "Đặt cho tôi 5 vẻ chuyển làm ánh sáng, đô thị cho cả nhà nhẹ, rồi ghi vào lịch chụp tôi là bài rưỡi, tôi thử bài môn 3 tháng 10 đi xem.",
+    "latency": 1.4912592749999476
+  },
+  "public_0377": {
+    "raw_text": "Này giúp tôi tìm cách nhỏ cháu gà nhẹ rồi đặt luôn cho tôi mùm, còn gà thà làm sẵn viên ở.",
+    "normalized_text": "Này giúp tôi tìm cách nhỏ cháu gà nhẹ rồi đặt luôn cho tôi mùm, còn gà thà làm sẵn viên ở.",
+    "latency": 1.241146163000053
+  },
+  "public_0378": {
+    "raw_text": "Được, thế chị đơn cho tôi tuyên nha tới cái quãng đầu tiên ấy.",
+    "normalized_text": "Được, thế chị đơn cho tôi tuyên nha tới cái quãng đầu tiên ấy.",
+    "latency": 0.8894198369999913
+  },
+  "public_0379": {
+    "raw_text": "Ừ, tôi hãy thử quyết công ngộ nhân sự để thử dụng tôi mới thử việc hãy nhé!",
+    "normalized_text": "Ừ, tôi hãy thử quyết công ngộ nhân sự để thử dụng tôi mới thử việc hãy nhé!",
+    "latency": 2.03
+  },
+  "public_0380": {
+    "raw_text": "Ừ thế em nhắc chị ra biển trước chuyển đấy 15 phút nhé.",
+    "normalized_text": "Ừ thế em nhắc chị ra biển trước chuyển đấy 15 phút nhé.",
+    "latency": 0.8530347549999533
+  },
+  "public_0381": {
+    "raw_text": "Ừ, lấy mang về nha em.",
+    "normalized_text": "Ừ, lấy mang về nha em.",
+    "latency": 0.6767244670000991
+  },
+  "public_0382": {
+    "raw_text": "Đúng loại, không đường đó, đặt cho tôi 3 hộp nhé.",
+    "normalized_text": "Đúng loại, không đường đó, đặt cho tôi 3 hộp nhé.",
+    "latency": 0.8286547200000314
+  },
+  "public_0383": {
+    "raw_text": "33 độ lạnh á, nóng thế thì còn nhảy chiều xa nổi, thôi hủy bộ biết biết sáng mai cho em đi.",
+    "normalized_text": "33 độ lạnh á, nóng thế thì còn nhảy chiều xa nổi, thôi hủy bộ biết biết sáng mai cho em đi.",
+    "latency": 1.1614701260000402
+  },
+  "public_0384": {
+    "raw_text": "36 phút cơ à, lâu vậy, thôi gọi cho chị cái xe máy từ nhà lên đó luôn đi em.",
+    "normalized_text": "36 phút cơ à, lâu vậy, thôi gọi cho chị cái xe máy từ nhà lên đó luôn đi em.",
+    "latency": 1.0893207649999113
+  },
+  "public_0385": {
+    "raw_text": "Món đầu nghe hợp với khách đấy, thôi khỏi nấu, đặt nhau về cho em 2 phần món đó nha.",
+    "normalized_text": "Món đầu nghe hợp với khách đấy, thôi khỏi nấu, đặt nhau về cho em 2 phần món đó nha.",
+    "latency": 1.1286807290000525
+  },
+  "public_0386": {
+    "raw_text": "Trong tranh báo của anh Nam bên phòng quận hành đấy, em đọc cho hai số điện thoại của anh ấy rồi gọi điện vào số đó luôn giúp anh.",
+    "normalized_text": "Trong tranh báo của anh Nam bên phòng quận hành đấy, em đọc cho hai số điện thoại của anh ấy rồi gọi điện vào số đó luôn giúp anh.",
+    "latency": 3.92
+  },
+  "public_0387": {
+    "raw_text": "Em tính giúp chị email của Lan bên phát chế, xong xác dẫn một thư nháp về Lan, theo đề là bản hợp đồng mới, nội dung báo, chị gửi bản sửa rồi, Lan xem giúp chị nhé.",
+    "normalized_text": "Em tính giúp chị email của Lan bên phát chế, xong xác dẫn một thư nháp về Lan, theo đề là bản hợp đồng mới, nội dung báo, chị gửi bản sửa rồi, Lan xem giúp chị nhé.",
+    "latency": 1.7840292910000244
+  },
+  "public_0388": {
+    "raw_text": "Tìm giúp anh công thức xúc bí đỏ nấu cho 4 người nhé, bí đỏ với kem dưa thì đặt bỏ lại luôn cho đủ lượng, bơ nhà còn rồi, còn thiếu gì nữa thì ghi vào danh sách đi chợ.",
+    "normalized_text": "Tìm giúp anh công thức xúc bí đỏ nấu cho 4 người nhé, bí đỏ với kem dưa thì đặt bỏ lại luôn cho đủ lượng, bơ nhà còn rồi, còn thiếu gì nữa thì ghi vào danh sách đi chợ.",
+    "latency": 1.6947412549999399
+  },
+  "public_0390": {
+    "raw_text": "Giờ kiếm giúp anh một món cá ấp chảo hợp với bữa đó, rồi đặt luôn hai nguyên liệu chính mô đủ cho cả nhà nhé.",
+    "normalized_text": "Giờ kiếm giúp anh một món cá ấp chảo hợp với bữa đó, rồi đặt luôn hai nguyên liệu chính mô đủ cho cả nhà nhé.",
+    "latency": 1.2566178770000533
+  },
+  "public_0391": {
+    "raw_text": "Cho giúp anh đi ô tô với xe buýt ra ga xe, nếu chuyến buýt sớm nhất, không, tới, trước giờ tàu nửa tiếng, thì đặt xe 4 chỗ đón anh, đúng giờ cần ra khỏi nhà để, cũng tới ga sớm nửa tiếng, rồi nhắc anh, giờ đó luôn.",
+    "normalized_text": "Cho giúp anh đi ô tô với xe buýt ra ga xe, nếu chuyến buýt sớm nhất, không, tới, trước giờ tàu nửa tiếng, thì đặt xe 4 chỗ đón anh, đúng giờ cần ra khỏi nhà để, cũng tới ga sớm nửa tiếng, rồi nhắc anh, giờ đó luôn.",
+    "latency": 2.0691226339999957
+  },
+  "public_0392": {
+    "raw_text": "Rồi, em kiếm công thức món đi, đặt mua đủ 2 nguyên liệu chính cho cả nhà, xong thêm cái lịch bắt đầu nấu, chút giờ ăn 1 tiếng rưỡi nha em.",
+    "normalized_text": "Rồi, em kiếm công thức món đi, đặt mua đủ 2 nguyên liệu chính cho cả nhà, xong thêm cái lịch bắt đầu nấu, chút giờ ăn 1 tiếng rưỡi nha em.",
+    "latency": 1.5122728520000237
+  },
+  "public_0393": {
+    "raw_text": "Mẹ chồng muốn chị ở Hải Phòng thêm 2 hôm nữa, em đổi về xe về nhà săn chuyến cùng giờ 2 hôm sau giúp chị nhé.",
+    "normalized_text": "Mẹ chồng muốn chị ở Hải Phòng thêm 2 hôm nữa, em đổi về xe về nhà săn chuyến cùng giờ 2 hôm sau giúp chị nhé.",
+    "latency": 1.2218410269999822
+  },
+  "public_0394": {
+    "raw_text": "Học ở công ty thì dùng nhà giúp chị, chị đi luôn, ở nhà thì vẫn nhỏ, số 20 nhé.",
+    "normalized_text": "Học ở công ty thì dùng nhà giúp chị, chị đi luôn, ở nhà thì vẫn nhỏ, số 20 nhé.",
+    "latency": 1.0306549069999846
+  },
+  "public_0395": {
+    "raw_text": "Hủy còn trên triệu thì lưu cháo nấm, à nhầm, canh chua Kellogg's nghe, không thì xe đáy vô chuột.",
+    "normalized_text": "Hủy còn trên triệu thì lưu cháo nấm, à nhầm, canh chua Kellogg's nghe, không thì xe đáy vô chuột.",
+    "latency": 1.3859752089999802
+  },
+  "public_0396": {
+    "raw_text": "Vậy nè, mai mà mưa thì cô lấy xe hơi đặt cho cô chỗ cái bãi đó từ 8h sáng, à không, 9h đi, còn không mưa thì cô chạy xe máy khỏi đặt.",
+    "normalized_text": "Vậy nè, mai mà mưa thì cô lấy xe hơi đặt cho cô chỗ cái bãi đó từ 8h sáng, à không, 9h đi, còn không mưa thì cô chạy xe máy khỏi đặt.",
+    "latency": 1.6309698129999788
+  },
+  "public_0397": {
+    "raw_text": "Nhắn Zalo xếp chân, à không, gửi mail đi, chiều nay anh xin về 3h, nhà có việc.",
+    "normalized_text": "Nhắn Zalo xếp chân, à không, gửi mail đi, chiều nay anh xin về 3h, nhà có việc.",
+    "latency": 1.1525254849999556
+  },
+  "public_0398": {
+    "raw_text": "Ờ, hủy cái đơn bún bò lễ giùm anh, ngày mà thôi, đường nào chưa ra thì hủy hết đi, vợ kêu về ăn thơm rồi.",
+    "normalized_text": "Ờ, hủy cái đơn bún bò lễ giùm anh, ngày mà thôi, đường nào chưa ra thì hủy hết đi, vợ kêu về ăn thơm rồi.",
+    "latency": 1.2985610250000263
+  },
+  "public_0399": {
+    "raw_text": "Nó thích cái chạy bộ, đặt 3 phần cơm tắm sử dụng bị trả về nhà, nhắn vợ tối nay khỏi nấu.",
+    "normalized_text": "Nó thích cái chạy bộ, đặt 3 phần cơm tắm sử dụng bị trả về nhà, nhắn vợ tối nay khỏi nấu.",
+    "latency": 1.2444217299999991
+  },
+  "public_0400": {
+    "raw_text": "Tính loại sáng lại lên, gói rón 95, chưa bao nhiêu, ngắn con thảo mà thôi, ngắn cho ông xa đi.",
+    "normalized_text": "Tính loại sáng lại lên, gói rón 95, chưa bao nhiêu, ngắn con thảo mà thôi, ngắn cho ông xa đi.",
+    "latency": 1.1510064189999412
+  },
+  "public_0401": {
+    "raw_text": "Mình có thách gấp phải đi lẹn, check out bãi xe gần công ty dầm rồi mở nhạc điếc phút nghe luôn.",
+    "normalized_text": "Mình có thách gấp phải đi lẹn, check out bãi xe gần công ty dầm rồi mở nhạc điếc phút nghe luôn.",
+    "latency": 1.2070806760000323
+  },
+  "public_0402": {
+    "raw_text": "Chủ nhật mà nắng thì tôi ở nhà phơi lúa, hủy hết vé, à không, hủy vé xe đi vinh vấy, vé xe tử vinh về thôi ngang.",
+    "normalized_text": "Chủ nhật mà nắng thì tôi ở nhà phơi lúa, hủy hết vé, à không, hủy vé xe đi vinh vấy, vé xe tử vinh về thôi ngang.",
+    "latency": 1.3500519319999285
+  },
+  "public_0403": {
+    "raw_text": "Ờ, vài chiếc xe ở quận 1, còn chỗ thì đưa hết vào bản đồ giùm em nha.",
+    "normalized_text": "Ờ, vài chiếc xe ở quận 1, còn chỗ thì đưa hết vào bản đồ giùm em nha.",
+    "latency": 1.0888310049999745
+  },
+  "public_0404": {
+    "raw_text": "Ok, đổi qua chuyến tối đó luôn, cancel vé tàu sáng mình book rồi đặt lại 2 vé nha.",
+    "normalized_text": "Ok, đổi qua chuyến tối đó luôn, cancel vé tàu sáng mình book rồi đặt lại 2 vé nha.",
+    "latency": 1.0117555010000387
+  },
+  "public_0405": {
+    "raw_text": "ừ ừ",
+    "normalized_text": "ừ ừ",
+    "latency": 1.58
+  },
+  "public_0406": {
+    "raw_text": "Ừ thôi anh tự nấu, trừ cho anh 2 gói mì nè, không 2 gói.",
+    "normalized_text": "Ừ thôi anh tự nấu, trừ cho anh 2 gói mì nè, không 2 gói.",
+    "latency": 1.0127545610000652
+  },
+  "public_0407": {
+    "raw_text": "Thứ 6 này chị không ra bên nữa em à, cái bé tàu ấy em hủy hộ chị luôn đi.",
+    "normalized_text": "Thứ 6 này chị không ra bên nữa em à, cái bé tàu ấy em hủy hộ chị luôn đi.",
+    "latency": 1.071134734999987
+  },
+  "public_0408": {
+    "raw_text": "Các bạn nhớ đăng ký kênh để ủng hộ kênh của mình nhé.",
+    "normalized_text": "Các bạn nhớ",
+    "latency": 1.049715730999992
+  },
+  "public_0409": {
+    "raw_text": "Mai ăn sáng món chi hè? Ờ, lưu giùm em thịt kho trứng. À không, pancake chuối đi. Cái mô làm nhanh hơn á.",
+    "normalized_text": "Mai ăn sáng món chi hè? Ờ, lưu giùm em thịt kho trứng. À không, pancake chuối đi. Cái mô làm nhanh hơn á.",
+    "latency": 2.55
+  },
+  "public_0410": {
+    "raw_text": "Ờ, mở ví xem, à không, xem giao dịch tài khoản tiết kiệm của em, mẹ báo chuyển tiền vào nó rồi.",
+    "normalized_text": "Ờ, mở ví xem, à không, xem giao dịch tài khoản tiết kiệm của em, mẹ báo chuyển tiền vào nó rồi.",
+    "latency": 1.2464420000000018
+  },
+  "public_0411": {
+    "raw_text": "Sữa mọc xanh bữa nay mà tăng thì bán bớt 100 cổ, giảm thì mua thêm 100, xong lấy 20 triệu bên tài khoản thanh toán hồi nãy, chuyển tiết kiệm 3 tháng nhà con.",
+    "normalized_text": "Sữa mọc xanh bữa nay mà tăng thì bán bớt 100 cổ, giảm thì mua thêm 100, xong lấy 20 triệu bên tài khoản thanh toán hồi nãy, chuyển tiết kiệm 3 tháng nhà con.",
+    "latency": 1.6868544530000236
+  },
+  "public_0412": {
+    "raw_text": "Ở Momo trong bếp còn đúng 1 thì nhóm vợ mua dùm, còn 2 thì thêm vô nhà xếp đi chợ.",
+    "normalized_text": "Ở Momo trong bếp còn đúng 1 thì nhóm vợ mua dùm, còn 2 thì thêm vô nhà xếp đi chợ.",
+    "latency": 1.1490315620000047
+  },
+  "public_0413": {
+    "raw_text": "Lấy 291 giờ chiều xong tắt nhạc, tắt mấy cái đèn trên tầng 2 đang sáng đi.",
+    "normalized_text": "Lấy 291 giờ chiều xong tắt nhạc, tắt mấy cái đèn trên tầng 2 đang sáng đi.",
+    "latency": 1.048301510999977
+  },
+  "public_0414": {
+    "raw_text": "ghi lại cái phim 9h tối mai trên VTV3 cho em, à, thôi khỏi, mai em ở phòng xem luôn.",
+    "normalized_text": "ghi lại cái phim 9h tối mai trên VTV3 cho em, à, thôi khỏi, mai em ở phòng xem luôn.",
+    "latency": 1.0440903360000675
+  },
+  "public_0415": {
+    "raw_text": "À, xóa bánh mì sandwich, không, cái nữa để đó, xóa món mô mua rồi thôi.",
+    "normalized_text": "À, xóa bánh mì sandwich, không, cái nữa để đó, xóa món mô mua rồi thôi.",
+    "latency": 1.0024543780000386
+  },
+  "public_0416": {
+    "raw_text": "Gửi email, biểu hành, gửi cái radio về nhà cho 3.000 lô thằng Úc mới phải.",
+    "normalized_text": "Gửi email, biểu hành, gửi cái radio về nhà cho 3.000 lô thằng Úc mới phải.",
+    "latency": 1.026658107000003
+  },
+  "public_0417": {
+    "raw_text": "Xem giúp tôi giá xe, xe nhà thằng Tuấn, à thôi thôi, mà nó qua đón tôi rồi.",
+    "normalized_text": "Xem giúp tôi giá xe, xe nhà thằng Tuấn, à thôi thôi, mà nó qua đón tôi rồi.",
+    "latency": 1.0386064189999615
+  },
+  "public_0418": {
+    "raw_text": "Ờ, đưa dùm tôi món gà xào xà ớt, à không, món lộn mắm của thành phố mình nè.",
+    "normalized_text": "Ờ, đưa dùm tôi món gà xào xà ớt, à không, món lộn mắm của thành phố mình nè.",
+    "latency": 1.1198616069999616
+  },
+  "public_0419": {
+    "raw_text": "Thịt kho trứng em ạ, đọc các bước cho chị, rồi nếu món ấy nấu quá 1 tiếng thì nhắc chị 3 rưỡi, à không, 4 giờ chiều bắt đầu nấu, không thì 5 giờ.",
+    "normalized_text": "Thịt kho trứng em ạ, đọc các bước cho chị, rồi nếu món ấy nấu quá 1 tiếng thì nhắc chị 3 rưỡi, à không, 4 giờ chiều bắt đầu nấu, không thì 5 giờ.",
+    "latency": 1.5419961750000084
+  },
+  "public_0420": {
+    "raw_text": "Gọi ô tô cho bạn tới từ ký túc, ra Hồ Vương, à không, xe máy thôi, rồi xem xe còn mấy phút nữa tới, dịch sang tiếng Anh cho bạn ấy đọc luôn nha.",
+    "normalized_text": "Gọi ô tô cho bạn tới từ ký túc, ra Hồ Vương, à không, xe máy thôi, rồi xem xe còn mấy phút nữa tới, dịch sang tiếng Anh cho bạn ấy đọc luôn nha.",
+    "latency": 1.5815245469999581
+  },
+  "public_0421": {
+    "raw_text": "Em sẽ chuyển 2 hộp trứng gà vào giỏ, à, thôi khoan, xem giá rồi nhắn Zalo chị Yến đã.",
+    "normalized_text": "Em sẽ chuyển 2 hộp trứng gà vào giỏ, à, thôi khoan, xem giá rồi nhắn Zalo chị Yến đã.",
+    "latency": 1.207399032000012
+  },
+  "public_0422": {
+    "raw_text": "Rồi, khán giác đăng ký con chú Thám, nếu bữa nay, thì can xe 4 chỗ lúc thôi, trước nửa tiếng ngay.",
+    "normalized_text": "Rồi, khán giác đăng ký con chú Thám, nếu bữa nay, thì can xe 4 chỗ lúc thôi, trước nửa tiếng ngay.",
+    "latency": 1.277553322000017
+  },
+  "public_0423": {
+    "raw_text": "Rứa sau 9 rưỡi tối ni ở đó còn xe về thì đặt em 2 vé, à không, 3 vé đêm nhạc nha.",
+    "normalized_text": "Rứa sau 9 rưỡi tối ni ở đó còn xe về thì đặt em 2 vé, à không, 3 vé đêm nhạc nha.",
+    "latency": 1.141042705000018
+  },
+  "public_0424": {
+    "raw_text": "Em ơi, tôi sắp đi ngủ rồi, em bật cái trông trộm trong nhà lên cho tôi nhé, dạo này phố mất trộm luôn.",
+    "normalized_text": "Em ơi, tôi sắp đi ngủ rồi, em bật cái trông trộm trong nhà lên cho tôi nhé, dạo này phố mất trộm luôn.",
+    "latency": 1.2020928640000648
+  },
+  "public_0425": {
+    "raw_text": "Có phía của tôi á, mã đang lỗ, à không, mã đang lời, tôi sợ nó rớt, cắt cảnh báo đi xuống nhầm hình.",
+    "normalized_text": "Có phía của tôi á, mã đang lỗ, à không, mã đang lời, tôi sợ nó rớt, cắt cảnh báo đi xuống nhầm hình.",
+    "latency": 1.2502208739999787
+  },
+  "public_0426": {
+    "raw_text": "giúp anh muốn mua chưa, không, muốn đặt xe thành phố mình, đợi giúp một tí nghe",
+    "normalized_text": "giúp anh muốn mua chưa, không, muốn đặt xe thành phố mình, đợi giúp một tí nghe",
+    "latency": 0.993743036000069
+  },
+  "public_0427": {
+    "raw_text": "Nếu sáng chín lắm mà rưỡi 2.2.2, nhầm, nếu sáng chín lắm mà rưỡi 2.2.5 thì mái cô đi đổ sớm, con chó cái bào thức sớm hơn trong 2 cái nở reo sớm thêm nửa tiếng nha.",
+    "normalized_text": "Nếu sáng chín lắm mà rưỡi 2.2.2, nhầm, nếu sáng chín lắm mà rưỡi 2.2.5 thì mái cô đi đổ sớm, con chó cái bào thức sớm hơn trong 2 cái nở reo sớm thêm nửa tiếng nha.",
+    "latency": 1.9979646220000404
+  },
+  "public_0428": {
+    "raw_text": "Đánh dấu con nước giùm tôi, à khoan, coi bữa nay tôi tích rồi hay chưa, chưa thì mà đánh ngang.",
+    "normalized_text": "Đánh dấu con nước giùm tôi, à khoan, coi bữa nay tôi tích rồi hay chưa, chưa thì mà đánh ngang.",
+    "latency": 1.0935117020000007
+  },
+  "public_0429": {
+    "raw_text": "Ba dặn VTech qua 128.000 thì báo, em coi thử, vợ qua rồi gọi ba liền nghe.",
+    "normalized_text": "Ba dặn VTech qua 128.000 thì báo, em coi thử, vợ qua rồi gọi ba liền nghe.",
+    "latency": 1.0447335799999564
+  },
+  "public_0430": {
+    "raw_text": "Thế chiều nay sẽ có những gì đẹp đủ ăn tối đấy không em?",
+    "normalized_text": "Thế chiều nay sẽ có những gì đẹp đủ ăn tối đấy không em?",
+    "latency": 0.9057843960000582
+  },
+  "public_0431": {
+    "raw_text": "Nằm thêm vào thẻ xe book, tiền đi 20 lượt từ Kim Liên về cầu giấy giúp chị, rồi xem mấy giờ có chuyến nhé.",
+    "normalized_text": "Nằm thêm vào thẻ xe book, tiền đi 20 lượt từ Kim Liên về cầu giấy giúp chị, rồi xem mấy giờ có chuyến nhé.",
+    "latency": 1.3294045469999674
+  },
+  "public_0432": {
+    "raw_text": "Tối qua chị ngủ sớm mà quên tích, em đi bù nhé, nói được chửi thì nhắn khoe anh Thành mấy hôm liền rồi, à thôi, khoe thằng Minh.",
+    "normalized_text": "Tối qua chị ngủ sớm mà quên tích, em đi bù nhé, nói được chửi thì nhắn khoe anh Thành mấy hôm liền rồi, à thôi, khoe thằng Minh.",
+    "latency": 1.5010833779999757
+  },
+  "public_0433": {
+    "raw_text": "Con ơi, chiều nay cô tự bến xe trung tâm ra cầu rồng thì đi xe buýt mua hè.",
+    "normalized_text": "Con ơi, chiều nay cô tự bến xe trung tâm ra cầu rồng thì đi xe buýt mua hè.",
+    "latency": 1.1386023920000525
+  },
+  "public_0435": {
+    "raw_text": "Trả lời mail dùm anh, dịch tiếng Anh, 8h sáng mai tôi đem bí qua khách sạn trả.",
+    "normalized_text": "Trả lời mail dùm anh, dịch tiếng Anh, 8h sáng mai tôi đem bí qua khách sạn trả.",
+    "latency": 1.0847386220000317
+  },
+  "public_0436": {
+    "raw_text": "Ừ, đủ đấy, em mua thêm ZKN, mới thay giá số, mọi mẻ cho tròn 500 cổ, anh đang vội.",
+    "normalized_text": "Ừ, đủ đấy, em mua thêm ZKN, mới thay giá số, mọi mẻ cho tròn 500 cổ, anh đang vội.",
+    "latency": 1.1658270860000357
+  },
+  "public_0437": {
+    "raw_text": "Tôi chạy khá đêm rồi, kết thúc lượt gửi ở ông Bayu xe gần nhà dùm tôi nha.",
+    "normalized_text": "Tôi chạy khá đêm rồi, kết thúc lượt gửi ở ông Bayu xe gần nhà dùm tôi nha.",
+    "latency": 1.1376982090000638
+  },
+  "public_0438": {
+    "raw_text": "Sáng chạy bộ, tối qua học từ vận, tích dùm mình, chét đường công ty về nhà rồi gọi cho anh Long nha.",
+    "normalized_text": "Sáng chạy bộ, tối qua học từ vận, tích dùm mình, chét đường công ty về nhà rồi gọi cho anh Long nha.",
+    "latency": 1.197022570999934
+  },
+  "public_0440": {
+    "raw_text": "Hơn nổi tiếng cơ à, thấy vé sau tối nay với vé chủ nhật chảy mấy giờ, tôi căn giờ đi.",
+    "normalized_text": "Hơn nổi tiếng cơ à, thấy vé sau tối nay với vé chủ nhật chảy mấy giờ, tôi căn giờ đi.",
+    "latency": 1.1070878010000342
+  },
+  "public_0441": {
+    "raw_text": "Mưa vậy thôi khỏi chạy xe máy đi, chắc chuyến xe sớm nhất đi Đà Lạt, mai nhát trịnh trước 1 tiếng nhé.",
+    "normalized_text": "Mưa vậy thôi khỏi chạy xe máy đi, chắc chuyến xe sớm nhất đi Đà Lạt, mai nhát trịnh trước 1 tiếng nhé.",
+    "latency": 1.2514047800000299
+  },
+  "public_0442": {
+    "raw_text": "Nón bát bạc tiếng Hàn, xe 4 chỗ, hết nhiều đó. Mai mưa thì đặt lúc 6h sáng nha.",
+    "normalized_text": "Nón bát bạc tiếng Hàn, xe 4 chỗ, hết nhiều đó. Mai mưa thì đặt lúc 6h sáng nha.",
+    "latency": 1.1745015430000194
+  },
+  "public_0443": {
+    "raw_text": "Thôi, cái mã đèn lỗi, bán bức hay chầm cổ cho anh, nhanh nhanh em.",
+    "normalized_text": "Thôi, cái mã đèn lỗi, bán bức hay chầm cổ cho anh, nhanh nhanh em.",
+    "latency": 1.012038066999935
+  },
+  "public_0444": {
+    "raw_text": "Ơi, tìm xem chúng tôi sắp tới có sự kiện gì không, ờ, các nhà thay hỗ trợ gì cũng được.",
+    "normalized_text": "Ơi, tìm xem chúng tôi sắp tới có sự kiện gì không, ờ, các nhà thay hỗ trợ gì cũng được.",
+    "latency": 1.1446755719999828
+  },
+  "public_0445": {
+    "raw_text": "Bé xe hải phòng thứ 5 tới, mấy giờ tới nơi, quán 6 giờ chiều là lỡ tiệc cưới, khỉ luôn cho cô.",
+    "normalized_text": "Bé xe hải phòng thứ 5 tới, mấy giờ tới nơi, quán 6 giờ chiều là lỡ tiệc cưới, khỉ luôn cho cô.",
+    "latency": 1.2882273550000036
+  },
+  "public_0446": {
+    "raw_text": "Tiếng Nhật nha em, mà nhớ thêm giờ đón vô câu đó luôn.",
+    "normalized_text": "Tiếng Nhật nha em, mà nhớ thêm giờ đón vô câu đó luôn.",
+    "latency": 0.9579368760000762
+  },
+  "public_0447": {
+    "raw_text": "Để tối kể ba nghe, em ghi dùm số cũ với giá vốn mã novo ghi chú ý.",
+    "normalized_text": "Để tối kể ba nghe, em ghi dùm số cũ với giá vốn mã novo ghi chú ý.",
+    "latency": 1.1364436280000518
+  },
+  "public_0449": {
+    "raw_text": "Rửa nhấn 3 à không, nhấn mạ chớ, nói về tàu em đặt rồi, hết bao nhiêu luôn nghe.",
+    "normalized_text": "Rửa nhấn 3 à không, nhấn mạ chớ, nói về tàu em đặt rồi, hết bao nhiêu luôn nghe.",
+    "latency": 1.0759954239999843
+  },
+  "public_0450": {
+    "raw_text": "Bán mã sữa đi, à không, Úc có dặn cho nghe chú rồi, em coi rồi bán ý về nha.",
+    "normalized_text": "Bán mã sữa đi, à không, Úc có dặn cho nghe chú rồi, em coi rồi bán ý về nha.",
+    "latency": 1.099200941999925
+  },
+  "public_0451": {
+    "raw_text": "Chị về đây, hồ gươm còn dài với xe thì kết thúc luôn. Rồi Zalo báo anh ấy chị đang về.",
+    "normalized_text": "Chị về đây, hồ gươm còn dài với xe thì kết thúc luôn. Rồi Zalo báo anh ấy chị đang về.",
+    "latency": 1.121566702999985
+  },
+  "public_0452": {
+    "raw_text": "Cần nổi tiếng rồi, đã cảnh báo đèn 300 số cho cô hủy, mà thôi, khỏi, để ông xé về tính.",
+    "normalized_text": "Cần nổi tiếng rồi, đã cảnh báo đèn 300 số cho cô hủy, mà thôi, khỏi, để ông xé về tính.",
+    "latency": 1.1374264510000103
+  },
+  "public_0453": {
+    "raw_text": "Ơm, tối nay tầm 8, 9 giờ ấy, VTB3 có chiếu cái gì không nhỉ?",
+    "normalized_text": "Ơm, tối nay tầm 8, 9 giờ ấy, VTB3 có chiếu cái gì không nhỉ?",
+    "latency": 1.0049905479999097
+  },
+  "public_0454": {
+    "raw_text": "Hôm qua em làm đủ hết các thói quen đấy, cái nào chưa ghi thì ghi bù giúp em nhé. À không, uống nước thì bỏ ra, hôm qua uống ít lắm.",
+    "normalized_text": "Hôm qua em làm đủ hết các thói quen đấy, cái nào chưa ghi thì ghi bù giúp em nhé. À không, uống nước thì bỏ ra, hôm qua uống ít lắm.",
+    "latency": 1.4316690709999875
+  },
+  "public_0455": {
+    "raw_text": "Con ơi, trưa đi cô, ở số 135 Lê Dựng, muốn lên Hữu Hành Sơn biến chùa thì đón xe buýt mô con.",
+    "normalized_text": "Con ơi, trưa đi cô, ở số 135 Lê Dựng, muốn lên Hữu Hành Sơn biến chùa thì đón xe buýt mô con.",
+    "latency": 1.2439210350000849
+  },
+  "public_0456": {
+    "raw_text": "Lấy anh 2k cơ hội cho nắp đi chợ, mà tính ra quá 300k thì thôi, nó lại chịu ghé chợ ủng hộ.",
+    "normalized_text": "Lấy anh 2k cơ hội cho nắp đi chợ, mà tính ra quá 300k thì thôi, nó lại chịu ghé chợ ủng hộ.",
+    "latency": 1.2583033920000162
+  },
+  "public_0457": {
+    "raw_text": "Hai khen nhí, thật luôn, tắt đèn phòng khách, xem xe từ nhà Lotus liễu dài bao nhiêu.",
+    "normalized_text": "Hai khen nhí, thật luôn, tắt đèn phòng khách, xem xe từ nhà Lotus liễu dài bao nhiêu.",
+    "latency": 1.089907165999989
+  },
+  "public_0459": {
+    "raw_text": "Mình nó khuyên chị mua thêm, thế 2 mẽ chị đang giữ, mẽ nào hôm nay tăng mạnh hơn thì em mua 100 cối nhé.",
+    "normalized_text": "Mình nó khuyên chị mua thêm, thế 2 mẽ chị đang giữ, mẽ nào hôm nay tăng mạnh hơn thì em mua 100 cối nhé.",
+    "latency": 1.3060595150000154
+  },
+  "public_0460": {
+    "raw_text": "Nạp thẻ xe buýt cho cô 150k nha con, may cô lên chợ lớn lấy hàng.",
+    "normalized_text": "Nạp thẻ xe buýt cho cô 150k nha con, may cô lên chợ lớn lấy hàng.",
+    "latency": 1.067249284999889
+  },
+  "public_0461": {
+    "raw_text": "Trong tiệm còn gạo ST25 cả chục bao, không bỏ món đó ra, khởi danh sách đi chợ dùm cô nha.",
+    "normalized_text": "Trong tiệm còn gạo ST25 cả chục bao, không bỏ món đó ra, khởi danh sách đi chợ dùm cô nha.",
+    "latency": 1.2292572979999932
+  },
+  "public_0462": {
+    "raw_text": "Thôi nó muốn call hồi này, và nó xài trứng đi là bỏ một vỉa vô dở cho tôi.",
+    "normalized_text": "Thôi nó muốn call hồi này, và nó xài trứng đi là bỏ một vỉa vô dở cho tôi.",
+    "latency": 1.0279688409999608
+  },
+  "public_0463": {
+    "raw_text": "Trung Vương thì gần nhà cô, đi bộ cũng tới. Bữa mùa ở đó mà cô không vướng lệnh thì con lấy 2 vé nghe.",
+    "normalized_text": "Trung Vương thì gần nhà cô, đi bộ cũng tới. Bữa mùa ở đó mà cô không vướng lệnh thì con lấy 2 vé nghe.",
+    "latency": 1.1774165619999621
+  },
+  "public_0464": {
+    "raw_text": "Chúc thông minh đi, nằm ở chỗ này gặp có thông minh lên lỡ nha, có tiếng Việt nó sao rồi không, à khoan, khách gửi hàng, tiếng hàng đi.",
+    "normalized_text": "Chúc thông minh đi, nằm ở chỗ này gặp có thông minh lên lỡ nha, có tiếng Việt nó sao rồi không, à khoan, khách gửi hàng, tiếng hàng đi.",
+    "latency": 1.4420423349999965
+  },
+  "public_0466": {
+    "raw_text": "Mai đó về sớm, cái mỏng bò khó bụng lắm Phục ấy, cất với 1 đoạn lưu cho anh nghe.",
+    "normalized_text": "Mai đó về sớm, cái mỏng bò khó bụng lắm Phục ấy, cất với 1 đoạn lưu cho anh nghe.",
+    "latency": 1.164072731000033
+  },
+  "public_0467": {
+    "raw_text": "Thế lừa món ấy cho chị nhé À thôi đừng 90 phút lâu quá Chị không nấu nổi",
+    "normalized_text": "Thế lừa món ấy cho chị nhé À thôi đừng 90 phút lâu quá Chị không nấu nổi",
+    "latency": 2.03
+  },
+  "public_0468": {
+    "raw_text": "Canh chua khởi nhan, cá lóc và mắt dưỡng nắng, lưu dùng tôi một món thôi, món chua nấu tới nửa tiếng á.",
+    "normalized_text": "Canh chua khởi nhan, cá lóc và mắt dưỡng nắng, lưu dùng tôi một món thôi, món chua nấu tới nửa tiếng á.",
+    "latency": 1.2902299630000016
+  },
+  "public_0469": {
+    "raw_text": "Ừ, má vợ hỏi giờ bao nhiêu rồi, xuống dưới mức anh ghi trong ghi chỗ thì nhắn vợ mô luôn đi nhé.",
+    "normalized_text": "Ừ, má vợ hỏi giờ bao nhiêu rồi, xuống dưới mức anh ghi trong ghi chỗ thì nhắn vợ mô luôn đi nhé.",
+    "latency": 1.2012582019999627
+  },
+  "public_0470": {
+    "raw_text": "Vàng nhẫn mà bán ra dưới là 123 triệu, thì đặt 7 tuần trước, tôi gửi, không thì 7 công viên ấy, 2 tiếng, rồi 11, à không, 11 lưỡi.",
+    "normalized_text": "Vàng nhẫn mà bán ra dưới là 123 triệu, thì đặt 7 tuần trước, tôi gửi, không thì 7 công viên ấy, 2 tiếng, rồi 11, à không, 11 lưỡi.",
+    "latency": 1.4516896760000009
+  },
+  "public_0471": {
+    "raw_text": "Ờ, chiêu mai trống, em dịch câu mời anh chiêu mai ăn bún chả sang tiếng khách họp tháng nay nhé.",
+    "normalized_text": "Ờ, chiêu mai trống, em dịch câu mời anh chiêu mai ăn bún chẳng sang tiếng khách họp tháng nay nhé.",
+    "latency": 1.1885206929999867
+  },
+  "public_0473": {
+    "raw_text": "Mang coi đi chợ sớm, sợ quên coi. Các bạn hãy ghi trong bí thức chứng giờ đó. Khi mua lên 300k thì đặt cảnh báo ngang con.",
+    "normalized_text": "Mang coi đi chợ sớm, sợ quên coi. Các bạn hãy ghi trong bí thức chứng giờ đó. Khi mua lên 300k thì đặt cảnh báo ngang con.",
+    "latency": 1.4816495430000032
+  },
+  "public_0474": {
+    "raw_text": "Giữ cô 2 chiếc xe đạp ở tao đàn, 6h sáng mai nha, à thôi khỏi chú 5 trời.",
+    "normalized_text": "Giữ cô 2 chiếc xe đạp ở tao đàn, 6h sáng mai nha, à thôi khỏi chú 5 trời.",
+    "latency": 1.170783001000018
+  },
+  "public_0475": {
+    "raw_text": "Mai mưa thì thôi, khủy các xe hồi nãy đi, rồi mua thép đẩy hương cho tôi nha.",
+    "normalized_text": "Mai mưa thì thôi, khủy các xe hồi nãy đi, rồi mua thép đẩy hương cho tôi nha.",
+    "latency": 1.1034448780000048
+  },
+  "public_0476": {
+    "raw_text": "À, em hãy giật chỉ cho đồ xe chưa nhận nhé. À khoan, chưa nhận chỉ phòng đêm vì cái trưa nay thôi.",
+    "normalized_text": "À, em hãy giật chỉ cho đồ xe chưa nhận nhé. À khoan, chưa nhận chỉ phòng đêm vì cái trưa nay thôi.",
+    "latency": 1.1567311159999463
+  },
+  "public_0477": {
+    "raw_text": "Một giờ trưa nay là báo thức cho tôi coi lại thép đại hơn nha, vì luôn dám bây giờ VOV để tôi so.",
+    "normalized_text": "Một giờ trưa nay là báo thức cho tôi coi lại thép đại hơn nha, vì luôn dám bây giờ VOV để tôi so.",
+    "latency": 1.141290566000066
+  },
+  "public_0478": {
+    "raw_text": "À em ơi, chị lấy xe ra rồi, em báo kết thúc lượt cửa xe giúp chị luôn nhé, để trả chỗ cho người ta.",
+    "normalized_text": "À em ơi, chị lấy xe ra rồi, em báo kết thúc lượt cửa xe giúp chị luôn nhé, để trả chỗ cho người ta.",
+    "latency": 1.238171282000053
+  },
+  "public_0479": {
+    "raw_text": "Công ty vừa phát mỗi người một cái đèn bàn rồi, cái đèn mình mới đặt giao thuế qua nó, nó chưa giao thì cancel, giao rồi thì rải dùm nha.",
+    "normalized_text": "Công ty vừa phát mỗi người một cái đèn bàn rồi, cái đèn mình mới đặt giao thuế qua nó, nó chưa giao thì cancel, giao rồi thì rải dùm nha.",
+    "latency": 1.389076154999998
+  },
+  "public_0480": {
+    "raw_text": "Nạp 300, à thôi, nạp đủ 20 lượt metro ra suối tiên, mà vé hơn 20 nghìn thì khỏi, em chỉ biết.",
+    "normalized_text": "Nạp 300, à thôi, nạp đủ 20 lượt metro ra suối tiên, mà vé hơn 20 nghìn thì khỏi, em chỉ biết.",
+    "latency": 1.14789104700003
+  },
+  "public_0481": {
+    "raw_text": "Rồi con cửa chỉnh dưới nhà coi thử khỏi chưa, chơi thử khỏi luôn dùm anh nha.",
+    "normalized_text": "Rồi con cửa chỉnh dưới nhà coi thử khỏi chưa, chơi thử khỏi luôn dùm anh nha.",
+    "latency": 1.0608051090000572
+  },
+  "public_0482": {
+    "raw_text": "Rồi hai thợ vừa dặn mua trên app đi chờ hết nhiều tiếng em, vì anh còn đủ trả không?",
+    "normalized_text": "Rồi hai thợ vừa dặn mua trên app đi chờ hết nhiều tiếng em, vì anh còn đủ trả không?",
+    "latency": 1.0663934950000566
+  },
+  "public_0483": {
+    "raw_text": "Dạ tập game đi con, à thôi, cô có tập thành GMO, bỏ vô cái danh sách có bài của Đức Phúc Á.",
+    "normalized_text": "Dạ tập game đi con, à thôi, cô có tập thành GMO, bỏ vô cái danh sách có bài của Đức Phúc Á.",
+    "latency": 1.1625185589999774
+  },
+  "public_0484": {
+    "raw_text": "Cái dưới bếp á, mà khoan coi thử, còn mì tôm khô không để, còn thì bật hết thì ghi vô danh sách đi trợ cho em.",
+    "normalized_text": "Cái dưới bếp á, mà khoan coi thử, còn mì tôm khô không để, còn thì bật hết thì ghi vô danh sách đi trợ cho em.",
+    "latency": 1.3477750719999904
+  },
+  "public_0485": {
+    "raw_text": "Mình tự hủy cái đơn nội trình không giao gần 2 triệu á, tôi mới dẫn đoàn xuất, nhãn ngay nhận, tự hủy luôn đi hết.",
+    "normalized_text": "Mình tự hủy cái đơn nội trình không giao gần 2 triệu á, tôi mới dẫn đoàn xuất, nhãn ngay nhận, tự hủy luôn đi hết.",
+    "latency": 1.443011566999985
+  },
+  "public_0486": {
+    "raw_text": "Quay sang 95 Dung Anh, trên 23h30 thì ghi lịch đổi sang tối nay 8h, không thì 6h sáng mai, có bài khác luôn.",
+    "normalized_text": "Quay sang 95 Dung Anh, trên 23h30 thì ghi lịch đổi sang tối nay 8h, không thì 6h sáng mai, có bài khác luôn.",
+    "latency": 1.2554711889999908
+  },
+  "public_0487": {
+    "raw_text": "Còn cái vé xe thứ 6 đó he, hủy luôn đi, à mà khoan, coi vé đó mua hết bao nhiêu tiền đã.",
+    "normalized_text": "Còn cái vé xe thứ 6 đó he, hủy luôn đi, à mà khoan, coi vé đó mua hết bao nhiêu tiền đã.",
+    "latency": 1.179712923000011
+  },
+  "public_0488": {
+    "raw_text": "7 giờ tới, à không, chốt chuyến 1 giờ trưa, 1 vé nha, Metro biến thành lên suối Tiên mà dưới 40 phút thì nạp thẻ 50, lâu hơn thì gọi xe máy về ký túc xá.",
+    "normalized_text": "7 giờ tới, à không, chốt chuyến 1 giờ trưa, 1 vé nha, Metro biến thành lên suối Tiên mà dưới 40 phút thì nạp thẻ 50, lâu hơn thì gọi xe máy về ký túc xá.",
+    "latency": 1.6165867580000395
+  },
+  "public_0489": {
+    "raw_text": "Em kịp Nhung Anh vừa kịch mô 2 vẽ vừa tròn số tiền ông gửi á, mà vừa đó anh không gạt lịch, đặt luôn 2 vẽ nha.",
+    "normalized_text": "Em kịp Nhung Anh vừa kịch mô 2 vẽ vừa tròn số tiền ông gửi á, mà vừa đó anh không gạt lịch, đặt luôn 2 vẽ nha.",
+    "latency": 1.3346324720000666
+  },
+  "public_0491": {
+    "raw_text": "11h thuê hẹn bạn Hàn ở Biến Thành Nề, bãi xe công viên 23 tháng 9, còn chỗ thì dịch tiếng Hàn gặp ở bãi xe công viên, hết chỗ thì gặp ở cổng chợ.",
+    "normalized_text": "11h thuê hẹn bạn Hàn ở Biến Thành Nề, bãi xe công viên 23 tháng 9, còn chỗ thì dịch tiếng Hàn gặp ở bãi xe công viên, hết chỗ thì gặp ở cổng chợ.",
+    "latency": 1.6861623839999993
+  },
+  "public_0492": {
+    "raw_text": "Đặt chiến sáng, à thôi, sớm rứa, lấy tờ, tối, hai bé, không đủ chửi, xe khách, tối mô rỉ nhá, cũng được.",
+    "normalized_text": "Đặt chiến sáng, à thôi, sớm rứa, lấy tờ, tối, hai bé, không đủ chửi, xe khách, tối mô rỉ nhá, cũng được.",
+    "latency": 1.418822150999972
+  },
+  "public_0493": {
+    "raw_text": "À thế loại hết ấy hôm qua tớ mua rồi mà quên gạch, đánh dấu trong danh sách đi chợ đi.",
+    "normalized_text": "À thế loại hết ấy hôm qua tớ mua rồi mà quên gạch, đánh dấu trong danh sách đi chợ đi.",
+    "latency": 1.1063511459999518
+  },
+  "public_0494": {
+    "raw_text": "Tôi bán một nửa số Zcanner của tôi đây, đặt giá nhìn hơn, giá anh vừa đọc 500 đồng, nhanh lên nhé.",
+    "normalized_text": "Tôi bán một nửa số Zcanner của tôi đây, đặt giá nhìn hơn, giá anh vừa đọc 500 đồng, nhanh lên nhé.",
+    "latency": 1.2608809020000535
+  },
+  "public_0495": {
+    "raw_text": "Ờ, trầm lít đi chở, dây vệ sinh ăn mua rồi, à không, lộn, lạc tháo, bốn trái đủ rồi, đánh dấu lẻ cho mình.",
+    "normalized_text": "Ờ, trầm lít đi chở, dây vệ sinh ăn mua rồi, à không, lộn, lạc tháo, bốn trái đủ rồi, đánh dấu lẻ cho mình.",
+    "latency": 1.4714971040000364
+  },
+  "public_0496": {
+    "raw_text": "2 tiệm đó, tiệm nào gần gỗ tôi hơn thì lưu tiệm đó nha, đặt tên chỗ sửa máy nghe.",
+    "normalized_text": "2 tiệm đó, tiệm nào gần gỗ tôi hơn thì lưu tiệm đó nha, đặt tên chỗ sửa máy nghe.",
+    "latency": 1.2801055639999959
+  },
+  "public_0497": {
+    "raw_text": "Rứa tài khoản thanh toán, còn trên 10 triệu thì mua thêm 200 cổ phiếu, 7 lưỡi đó, không thì 100 cổ thôi.",
+    "normalized_text": "Rứa tài khoản thanh toán, còn trên 10 triệu thì mua thêm 200 cổ phiếu, 7 lưỡi đó, không thì 100 cổ thôi.",
+    "latency": 1.3192421489999333
+  },
+  "public_0499": {
+    "raw_text": "Mèo 3 gửi hôm qua á, cóp vô lô chữ dùm em nha.",
+    "normalized_text": "Mèo 3 gửi hôm qua á, cóp vô lô chữ dùm em nha.",
+    "latency": 1.0338259730000345
+  },
+  "public_0500": {
+    "raw_text": "Bệ trò dừng xe 19 ở tòa Nam Sơn dùm, chuyến kế mà sau 5h10 thì dậy, thì rồi hẹn vi sân 6h30, còn sớm hơn thì nách anh 5h ra tạm nha.",
+    "normalized_text": "Bệ trò dừng xe 19 ở tòa Nam Sơn dùm, chuyến kế mà sau 5h10 thì dậy, thì rồi hẹn vi sân 6h30, còn sớm hơn thì nách anh 5h ra tạm nha.",
+    "latency": 1.6571441139999479
+  },
+  "public_0501": {
+    "raw_text": "Ví ít rứa, tuần sau còn lo đóng tiền trợ, bán hết mẻ, đang lời đi, à không, 100 cổ thôi.",
+    "normalized_text": "Ví ít rứa, tuần sau còn lo đóng tiền trợ, bán hết mẻ, đang lời đi, à không, 100 cổ thôi.",
+    "latency": 1.1594083479999426
+  },
+  "public_0502": {
+    "raw_text": "Cozat Mx còn dưới 65k thì mua cho tôi số bằng, số cổ bằng bên thế giới số đang giữ, giá 64k.",
+    "normalized_text": "Cozat Mx còn dưới 65k thì mua cho tôi số bằng, số cổ bằng bên thế giới số đang giữ, giá 64k.",
+    "latency": 1.2067056750000802
+  },
+  "public_0503": {
+    "raw_text": "Mở thư ngày nắng về tập 30, lưu lực mặt bể, VOV list luôn, à thôi, khỏi hết đi, mai còn bếp trai.",
+    "normalized_text": "Mở thư ngày nắng về tập 30, lưu lực mặt bể, VOV list luôn, à thôi, khỏi hết đi, mai còn bếp trai.",
+    "latency": 1.2287392569999156
+  },
+  "public_0504": {
+    "raw_text": "Tớ xong việc sớm rồi nè, bãi xe đang tính tiền ấy, cho dừng luôn nha, đỡ thốn.",
+    "normalized_text": "Tớ xong việc sớm rồi nè, bãi xe đang tính tiền ấy, cho dừng luôn nha, đỡ thốn.",
+    "latency": 1.1222184499999912
+  },
+  "public_0505": {
+    "raw_text": "Hãy đơn tay nghe đi em, xong cho anh hai con tục Logitech vào gió.",
+    "normalized_text": "Hãy đơn tay nghe đi em, xong cho anh hai con tục Logitech vào gió.",
+    "latency": 0.9248961519999739
+  },
+  "public_0506": {
+    "raw_text": "Mai dỗ ba cô, nhà đông lắm, con lưu dùm cô món thịt kho nào nấu được nhiều phần nhất bên ứng dụng nấu ăn nghe.",
+    "normalized_text": "Mai dỗ ba cô, nhà đông lắm, con lưu dùm cô món thịt kho nào nấu được nhiều phần nhất bên ứng dụng nấu ăn nghe.",
+    "latency": 1.260759796000002
+  },
+  "public_0508": {
+    "raw_text": "Cách sạc trả lại đi, à thôi khỏi, sai được, hủy bớt một đơn đăng giao đi, cháy túi rồi.",
+    "normalized_text": "Cách sạc trả lại đi, à thôi khỏi, sai được, hủy bớt một đơn đăng giao đi, cháy túi rồi.",
+    "latency": 1.1798253059998842
+  },
+  "public_0509": {
+    "raw_text": "Lưu chỗ đó chân siêu thịt quen nha, bãi công viên 239, còn chỗ thì dưới chân 19 từ 3 giờ, hay là thì khỏi ghé, mọi giỏ hay hợp chứng với tư đoạn.",
+    "normalized_text": "Lưu chỗ đó chân siêu thịt quen nha, bãi công viên 239, còn chỗ thì dưới chân 19 từ 3 giờ, hay là thì khỏi ghé, mọi giỏ hay hợp chứng với tư đoạn.",
+    "latency": 1.6918600520000382
+  },
+  "public_0510": {
+    "raw_text": "Bọc hơ vúa, yếu mặt hơ thúi, mơ mà mưa đi đạp, vô về lùng, chỉ không ra chợ nữa, không mưa thì đi vô danh sách đi chợ.",
+    "normalized_text": "Bọc hơ vúa, yếu mặt hơ thúi, mơ mà mưa đi đạp, vô về lùng, chỉ không ra chợ nữa, không mưa thì đi vô danh sách đi chợ.",
+    "latency": 1.561511415999803
+  },
+  "public_0511": {
+    "raw_text": "Mẹ chuyển tình thân này chưa? Rồi đi nạp thẻ thêm 10 lượt metro kia, xong gọi điện cho mẹ nha.",
+    "normalized_text": "Mẹ chuyển tình thân này chưa? Rồi đi nạp thẻ thêm 10 lượt metro kia, xong gọi điện cho mẹ nha.",
+    "latency": 1.27680189900002
+  },
+  "public_0512": {
+    "raw_text": "Tối qua cài liệm 3 tập Hà Nội wow cửa thủ hay giữ thần luôn nhé.",
+    "normalized_text": "Tối qua cài liệm 3 tập Hà Nội wow cửa thủ hay giữ thần luôn nhé.",
+    "latency": 1.018815990999883
+  },
+  "public_0513": {
+    "raw_text": "Rồi, máy máy đó đặt cảnh báo giá y như cái kìa chú chú khoét của anh, lệ nha.",
+    "normalized_text": "Rồi, máy máy đó đặt cảnh báo giá y như cái kìa chú chú khoét của anh, lệ nha.",
+    "latency": 1.1317862739999782
+  },
+  "public_0514": {
+    "raw_text": "Zalo anh Long dùm, trại đào em đặt rồi, nói luôn em gửi xe 7 nào để anh gửi chung.",
+    "normalized_text": "Zalo anh Long dùm, trại đào em đặt rồi, nói luôn em gửi xe 7 nào để anh gửi chung.",
+    "latency": 1.125379273000135
+  },
+  "public_0515": {
+    "raw_text": "Mã nào đang lỗ thì bán quát đi, khoan, đừng bán, chừng nào nó lên lại bằng giá tôi mua thì báo tôi.",
+    "normalized_text": "Mã nào đang lỗ thì bán quát đi, khoan, đừng bán, chừng nào nó lên lại bằng giá tôi mua thì báo tôi.",
+    "latency": 1.157319502000064
+  },
+  "public_0516": {
+    "raw_text": "Bán hết chỗ ZKNA đi hả không, dỗ lại 200, mưa thì đi lịch 3 giờ chiều má đánh cờ, nhắn ông ba sang nhà tôi.",
+    "normalized_text": "Bán hết chỗ ZKNA đi hả không, dỗ lại 200, mưa thì đi lịch 3 giờ chiều má đánh cờ, nhắn ông ba sang nhà tôi.",
+    "latency": 1.2465468370000963
+  },
+  "public_0517": {
+    "raw_text": "Em lấy xe ra rồi, tắt cái viên âm gửi xe giúp em nha.",
+    "normalized_text": "Em lấy xe ra rồi, tắt cái viên âm gửi xe giúp em nha.",
+    "latency": 0.9224154199998793
+  },
+  "public_0518": {
+    "raw_text": "Xếp bao pizza cả phòng rồi, hôm nào đang chờ Zalo lên công ty thì mũi hết dùng ăn, à khoan, trà sữa vẫn lấy.",
+    "normalized_text": "Xếp bao pizza cả phòng rồi, hôm nào đang chờ Zalo lên công ty thì mũi hết dùng ăn, à khoan, trà sữa vẫn lấy.",
+    "latency": 1.2482839799999965
+  },
+  "public_0519": {
+    "raw_text": "Hôm qua tôi có đi vào buổi sáng ở Bến Linh triệu mà quên đánh dấu, bị buồn, ngày hôm nay qua giùm tôi cho ngang.",
+    "normalized_text": "Hôm qua tôi có đi vào buổi sáng ở Bến Linh triệu mà quên đánh dấu, bị buồn, ngày hôm nay qua giùm tôi cho ngang.",
+    "latency": 1.2400584600000002
+  },
+  "public_0520": {
+    "raw_text": "Có chọn chung kết ở sân đó, còn vé không, còn thì vé 2 vé, hát thì vé 2 vé, xài gòn cười, rồi hình báo thức, chút giải trí 1 tiếng.",
+    "normalized_text": "Có chọn chung kết ở sân đó, còn vé không, còn thì vé 2 vé, hát thì vé 2 vé, xài gòn cười, rồi hình báo thức, chút giải trí 1 tiếng.",
+    "latency": 1.4725250270000743
+  },
+  "public_0522": {
+    "raw_text": "Trừ dùng cô tra dầu ăn, ẹt thôi, dầu chưa xài, cô mới lấy hộp sữa để dành cho con Thảo. Trừ hộp sữa thôi con.",
+    "normalized_text": "Trừ dùng cô tra dầu ăn, ẹt thôi, dầu chưa xài, cô mới lấy hộp sữa để dành cho con Thảo. Trừ hộp sữa thôi con.",
+    "latency": 1.4233388729999206
+  },
+  "public_0523": {
+    "raw_text": "Ăn mỡ mới, ổi, không cần ra Vinh nữa, bế nào đi Vinh tôi đặt là hủy hết dùm tôi ăn.",
+    "normalized_text": "Ăn mỡ mới, ổi, không cần ra Vinh nữa, bế nào đi Vinh tôi đặt là hủy hết dùm tôi ăn.",
+    "latency": 1.2193958199998178
+  },
+  "public_0524": {
+    "raw_text": "Lên giữ hàng canh giùm thôi, nếu lên 62k thì báo, mà thôi bỏ đi cho chúng coi.",
+    "normalized_text": "Lên giữ hàng canh giùm thôi, nếu lên 62k thì báo, mà thôi bỏ đi cho chúng coi.",
+    "latency": 1.104433040999993
+  },
+  "public_0525": {
+    "raw_text": "Bố chị khi cái mở ngân hồn ấy xuống dưới thêm mươi hơ à, à không, thêm mươi hơ nghìn rưỡi nha.",
+    "normalized_text": "Bố chị khi cái mở ngân hồn ấy xuống dưới thêm mươi hơ à, à không, thêm mươi hơ nghìn rưỡi nha.",
+    "latency": 1.2941263369998524
+  },
+  "public_0527": {
+    "raw_text": "Kêu phận cơm tắm sườn bị trả ngăn, vé xe win mà trùng bữa thứ tư thì hủy, lấy tàu đó một chỗ.",
+    "normalized_text": "Kêu phận cơm tắm sườn bị trả ngăn, vé xe win mà trùng bữa thứ tư thì hủy, lấy tàu đó một chỗ.",
+    "latency": 1.2785173280001345
+  },
+  "public_0528": {
+    "raw_text": "Ờ, cái vé, cái vé thứ 7 này đó, hủy dùm tôi nhanh 10h, hàng qua tuần sau rồi.",
+    "normalized_text": "Ờ, cái vé, cái vé thứ 7 này đó, hủy dùm tôi nhanh 10h, hàng qua tuần sau rồi.",
+    "latency": 1.0699863790000563
+  },
+  "public_0529": {
+    "raw_text": "Bây giờ, chị Minh sáng tối đâu có đủ rủi 2 cái, có nửa 1 cái thôi nha.",
+    "normalized_text": "Bây giờ, chị Minh sáng tối đâu có đủ rủi 2 cái, có nửa 1 cái thôi nha.",
+    "latency": 1.0243635500000892
+  },
+  "public_0530": {
+    "raw_text": "Tiền thì đủ mua mã đáy với Jack Connor, mỗi mã hơi trong cổ và giá thấp hơn đến hiện tại 1.000.",
+    "normalized_text": "Tiền thì đủ mua mã đáy với Jack Connor, mỗi mã hơi trong cổ và giá thấp hơn đến hiện tại 1.000.",
+    "latency": 1.1244148470000255
+  },
+  "public_0531": {
+    "raw_text": "Phim xong sớm, ngoài trời còn mưa thì kết thúc vụ gửi xa luôn để tôi chạy về. Tạnh rồi thì cứ để đó tôi đi dọn một chút.",
+    "normalized_text": "Phim xong sớm, ngoài trời còn mưa thì kết thúc vụ gửi xa luôn để tôi chạy về. Tạnh rồi thì cứ để đó tôi đi dọn một chút.",
+    "latency": 1.3796535030000996
+  },
+  "public_0532": {
+    "raw_text": "Tháng kể thảnh báo cho tôi khi các máy xuống dưới 20 chương trình rồi đặt báo thứ 9 giờ sáng tới lại nhé.",
+    "normalized_text": "Tháng kể thảnh báo cho tôi khi các máy xuống dưới 20 chương trình rồi đặt báo thứ 9 giờ sáng tới lại nhé.",
+    "latency": 1.176077985999882
+  },
+  "public_0533": {
+    "raw_text": "Mẹ muốn gửi hồi nãy lưu cho mình nha. Đã thôi, muốn ăn thuộc rồi. Lưu cái căn chua cá lóc đi, vì mẹ muốn đỡ.",
+    "normalized_text": "Mẹ muốn gửi hồi nãy lưu cho mình nha. Đã thôi, muốn ăn thuộc rồi. Lưu cái căn chua cá lóc đi, vì mẹ muốn đỡ.",
+    "latency": 1.3309117609999248
+  },
+  "public_0534": {
+    "raw_text": "Gửi hình phát đó, mẹ ơi, báo giá nghiêng, sòi lại 1, 45k 1kg, mai tôi đi khám răng, hẹn ảnh ghé vừa sau giờ đó.",
+    "normalized_text": "Gửi hình phát đó, mẹ ơi, báo giá nghiêng, sòi lại 1, 45k 1kg, mai tôi đi khám răng, hẹn ảnh ghé vừa sau giờ đó.",
+    "latency": 1.4535936289998972
+  },
+  "public_0535": {
+    "raw_text": "Hứa đặt cho em một vé check-in ngay.",
+    "normalized_text": "Hứa đặt cho em một vé check-in ngay.",
+    "latency": 0.7997722470001918
+  },
+  "public_0536": {
+    "raw_text": "3h10 chị phải đi đón Minh rồi, món nào kịp làm xong trước đó thì đọc cách làm cho chị.",
+    "normalized_text": "3h10 chị phải đi đón Minh rồi, món nào kịp làm xong trước đó thì đọc cách làm cho chị.",
+    "latency": 1.080991929999982
+  },
+  "public_0537": {
+    "raw_text": "Chắc tầm 10 giờ 2 tiếng, thôi khỏi book nha, anh Long chạy trị đi rồi.",
+    "normalized_text": "Chắc tầm 10 giờ 2 tiếng, thôi khỏi book nha, anh Long chạy trị đi rồi.",
+    "latency": 1.0269777729999987
+  },
+  "public_0538": {
+    "raw_text": "Thứ bảy này anh ra Nha Trang gặt client, em đặt giùm 2 vé tàu buổi sáng nha, chuyến mấy giờ thì hỏi anh trước.",
+    "normalized_text": "Thứ bảy này anh ra Nha Trang gặt client, em đặt giùm 2 vé tàu buổi sáng nha, chuyến mấy giờ thì hỏi anh trước.",
+    "latency": 1.344545290999804
+  },
+  "public_0539": {
+    "raw_text": "Thế đặt bé HR Care đây ở trường thơ, cho mấy đứa chưa có bé đi, xong gọi lại cho cha nhé.",
+    "normalized_text": "Thế đặt bé HR Care đây ở trường thơ, cho mấy đứa chưa có bé đi, xong gọi lại cho cha nhé.",
+    "latency": 1.0812728359999255
+  },
+  "public_0540": {
+    "raw_text": "Chiều nay tôi dẫn hai khách từ nhà đi xe buýt qua Pilgrim Village. Em nạp thẻ đóng tiền vé khứa hồi ba người nghe.",
+    "normalized_text": "Chiều nay tôi dẫn hai khách từ nhà đi xe buýt qua Pilgrim Village. Em nạp thẻ đóng tiền vé khứa hồi ba người nghe.",
+    "latency": 1.2433484450000378
+  },
+  "public_0541": {
+    "raw_text": "Còn học lý của bóng, không phải lớp bơi đâu, lớp của Mr. Bastel đấy, đã có khoá đăng chưa bao nhiêu hãy em.",
+    "normalized_text": "Còn học lý của bóng, không phải lớp bơi đâu, lớp của Mr. Bastel đấy, đã có khoá đăng chưa bao nhiêu hãy em.",
+    "latency": 1.225671969999894
+  },
+  "public_0542": {
+    "raw_text": "Cuộc shop hoãn rồi, hủy vé máy bay ra Đà Nẵng giùm chị, rồi 5h chiều hôm trước ngày bay nhắc chị gọi khác nha.",
+    "normalized_text": "Cuộc shop hoãn rồi, hủy vé máy bay ra Đà Nẵng giùm chị, rồi 5h chiều hôm trước ngày bay nhắc chị gọi khác nha.",
+    "latency": 1.2950103979999312
+  },
+  "public_0543": {
+    "raw_text": "Sarah báo nhận tiền 2 lần, em coi giao dịch cần đây của tài khoản gửi chuyển cho bạn ấy giúp chị nghe.",
+    "normalized_text": "Sarah báo nhận tiền 2 lần, em coi giao dịch cần đây của tài khoản gửi chuyển cho bạn ấy giúp chị nghe.",
+    "latency": 1.1537410509999972
+  },
+  "public_0544": {
+    "raw_text": "Zalo về nhà dậy nha em, hàng tới trước giờ cô Chloe Bennett qua ăn cơm nửa tiếng là vừa.",
+    "normalized_text": "Zalo về nhà dậy nha em, hàng tới trước giờ cô Chloe Bennett qua ăn cơm nửa tiếng là vừa.",
+    "latency": 1.0538869570000315
+  },
+  "public_0545": {
+    "raw_text": "Lưu dụng tôi công thức bún bò màu nấu chưa tới một tiếng nghe, khách muốn học nấu.",
+    "normalized_text": "Lưu dụng tôi công thức bún bò màu nấu chưa tới một tiếng nghe, khách muốn học nấu.",
+    "latency": 1.054817772999968
+  },
+  "public_0546": {
+    "raw_text": "Theo dõi số 09.60k thì mở VOV1, không thì đọc thử nghe tên bài hỏi làm trong máy hèn.",
+    "normalized_text": "Theo dõi số 09.60k thì mở VOV1, không thì đọc thử nghe tên bài hỏi làm trong máy hèn.",
+    "latency": 1.149036666000029
+  },
+  "public_0547": {
+    "raw_text": "Nạch hãy cho tôi đổ tiền để tuyến 09 cả đi lẫn về cho mấy bữa học của cô Anna Smith tuần sau nhé.",
+    "normalized_text": "Nạch hãy cho tôi đổ tiền để tuyến 09 cả đi lẫn về cho mấy bữa học của cô Anna Smith tuần sau nhé.",
+    "latency": 1.1953053949998775
+  },
+  "public_0549": {
+    "raw_text": "Dịch dùm anh nội dung ghi chữ Luminatic qua tiếng Anh nha, anh gửi cho khách.",
+    "normalized_text": "Dịch dùm anh nội dung ghi chữ Luminatic qua tiếng Anh nha, anh gửi cho khách.",
+    "latency": 1.1229744839999967
+  },
+  "public_0550": {
+    "raw_text": "Ờ, chết, sửa, tớ lấy 2 hộp, chứ không phải 1, trừ thêm cho đúng nha, tắt TV luôn, tớ chạy deadline đây.",
+    "normalized_text": "Ờ, chết, sửa, tớ lấy 2 hộp, chứ không phải 1, trừ thêm cho đúng nha, tắt TV luôn, tớ chạy deadline đây.",
+    "latency": 1.40755187700006
+  },
+  "public_0552": {
+    "raw_text": "Dịch sang tiếng Hàn giúp chị nhé, hóa đơn số 312 sẽ được thanh toàn trước ngày 15.",
+    "normalized_text": "Dịch sang tiếng Hàn giúp chị nhé, hóa đơn số 312 sẽ được thanh toàn trước ngày 15.",
+    "latency": 1.113478652999902
+  },
+  "public_0553": {
+    "raw_text": "Anh cũng nhấn Zalo hẹn ra bên đón chị book mấy giờ, có cấp dọc xe thứ 4 chị đặt tivi không anh?",
+    "normalized_text": "Anh cũng nhấn Zalo hẹn ra bên đón chị book mấy giờ, có cấp dọc xe thứ 4 chị đặt tivi không anh?",
+    "latency": 1.1481450039998435
+  },
+  "public_0555": {
+    "raw_text": "Boss bắt chị ở lại đằng trước sáng rồi anh, vì dùng chị mới vé tàu xe em vừa đặt nha.",
+    "normalized_text": "Boss bắt chị ở lại đằng trước sáng rồi anh, vì dùng chị mới vé tàu xe em vừa đặt nha.",
+    "latency": 1.0595658510001158
+  },
+  "public_0556": {
+    "raw_text": "Thôi đổi ý rồi em, để cho mình cái đơn hoàng phiến với xóa luôn lịch nhận hàng sáng mai nha.",
+    "normalized_text": "Thôi đổi ý rồi em, để cho mình cái đơn hoàng phiến với xóa luôn lịch nhận hàng sáng mai nha.",
+    "latency": 1.0780774900001688
+  },
+  "public_0557": {
+    "raw_text": "Hủy dâm anh vé tàu đi Nha Trang sáng thứ 3 nha, anh chuyển đi mê bay rồi, còn vé về thì cứ giữ.",
+    "normalized_text": "Hủy dâm anh vé tàu đi Nha Trang sáng thứ 3 nha, anh chuyển đi mê bay rồi, còn vé về thì cứ giữ.",
+    "latency": 1.1732966260001376
+  },
+  "public_0558": {
+    "raw_text": "Em xóa giúp chị cái bìa riêng bọc số bìa ô trong danh sách đi chợ nhé. À thôi, mình bảo mai mới mua, cứ để đấy.",
+    "normalized_text": "Em xóa giúp chị cái bìa riêng bọc số bìa ô trong danh sách đi chợ nhé. À thôi, mình bảo mai mới mua, cứ để đấy.",
+    "latency": 1.3775563199999397
+  },
+  "public_0559": {
+    "raw_text": "Lộn rồi, bảy gần hai con thác chứ hổng phải chợ cái răng, huy chủ ở chợ rồi ở bên kia, giờ hồi nãy ngang.",
+    "normalized_text": "Lộn rồi, bảy gần hai con thác chứ hổng phải chợ cái răng, huy chủ ở chợ rồi ở bên kia, giờ hồi nãy ngang.",
+    "latency": 1.287410343999909
+  },
+  "public_0560": {
+    "raw_text": "Em nạp thẻ cho anh đúng bằng tiền vé tiếng rừa 16 và tiếng rừa 1, và 6 giờ sáng mai nhắc anh ra trạng nghe.",
+    "normalized_text": "Em nạp thẻ cho anh đúng bằng tiền vé tiếng rừa 16 và tiếng rừa 1, và 6 giờ sáng mai nhắc anh ra trạng nghe.",
+    "latency": 1.2201030999999602
+  },
+  "public_0561": {
+    "raw_text": "Bên phân tác software dự học qua mai rồi, em hủy bóp 1 trong 2 đơn đó đi, đơn kia để mọi người ăn tối.",
+    "normalized_text": "Bên phân tác software dự học qua mai rồi, em hủy bóp 1 trong 2 đơn đó đi, đơn kia để mọi người ăn tối.",
+    "latency": 1.2048508870000205
+  },
+  "public_0563": {
+    "raw_text": "Còn ta bé của Mia Fisher, em cũng làm đi rứa luôn cho chị nghe.",
+    "normalized_text": "Còn ta bé của Mia Fisher, em cũng làm đi rứa luôn cho chị nghe.",
+    "latency": 0.9296168380001291
+  },
+  "public_0564": {
+    "raw_text": "Hủy vé xe lúc nãy giúp em rồi giữ chỗ gửi xe gần Marco Residence 4h30 sáng mai nha.",
+    "normalized_text": "Hủy vé xe lúc nãy giúp em rồi giữ chỗ gửi xe gần Marco Residence 4h30 sáng mai nha.",
+    "latency": 1.2350015659999372
+  },
+  "public_0565": {
+    "raw_text": "Bà sợ muốn nấu món của Chloe Choo Poys, em coi món nào làm đẹp nhất thì mở trên triết dụng anh nha",
+    "normalized_text": "Bà sợ muốn nấu món của Chloe Choo Poys, em coi món nào làm đẹp nhất thì mở trên triết dụng anh nha",
+    "latency": 2.14
+  },
+  "public_0566": {
+    "raw_text": "Cái món giá tới rồi á, giờ trên sàn có chỗ nào bán rẻ hơn giá thuê mua không?",
+    "normalized_text": "Cái món giá tới rồi á, giờ trên sàn có chỗ nào bán rẻ hơn giá thuê mua không?",
+    "latency": 1.0468915260000813
+  },
+  "public_0567": {
+    "raw_text": "Tìm giúp em diễn phương thuốc mô gần trường em, rồi lưu lại tên lại cho in bài nghe.",
+    "normalized_text": "Tìm giúp em diễn phương thuốc mô gần trường em, rồi lưu lại tên lại cho in bài nghe.",
+    "latency": 1.1057928939999329
+  },
+  "public_0569": {
+    "raw_text": "Sáng đi cô pha hết 4 gói cà phê Blue Bird Coffee, rồi con trừ trong tủ bếp dùm cô nghe.",
+    "normalized_text": "Sáng đi cô pha hết 4 gói cà phê Blue Bird Coffee, rồi con trừ trong tủ bếp dùm cô nghe.",
+    "latency": 1.1378059779999603
+  },
+  "public_0570": {
+    "raw_text": "Mấy món canh chua em vừa đọc, lưu dùm thôi mấy món nấu chưa tới 40 phút thôi nha.",
+    "normalized_text": "Mấy món canh chua em vừa đọc, lưu dùm thôi mấy món nấu chưa tới 40 phút thôi nha.",
+    "latency": 1.1082925709999927
+  },
+  "public_0571": {
+    "raw_text": "Thành tiền tháng này mà dưới 1 triệu thì cài tự động trả giùm thôi, không thì thôi.",
+    "normalized_text": "Thành tiền tháng này mà dưới 1 triệu thì cài tự động trả giùm thôi, không thì thôi.",
+    "latency": 1.0271397009998964
+  },
+  "public_0572": {
+    "raw_text": "Lucas ở lại thêm hai đêm rồi, hủy dùng túi vé của Lucas với bật đèn phòng khách luôn hủy.",
+    "normalized_text": "Lucas ở lại thêm hai đêm rồi, hủy dùng túi vé của Lucas với bật đèn phòng khách luôn hủy.",
+    "latency": 1.0763516179999897
+  },
+  "public_0573": {
+    "raw_text": "Để nào lấy cái bột năng, à không, bột mì làm bánh cho buổi học hành đi ở trường, con chửi dùm cô nha.",
+    "normalized_text": "Để nào lấy cái bột năng, à không, bột mì làm bánh cho buổi học hành đi ở trường, con chửi dùm cô nha.",
+    "latency": 1.2177133750001303
+  },
+  "public_0574": {
+    "raw_text": "Chốt đơn giản đó luôn nhanh con, giao thay tiệm chú chờ livestream 1 tiếng, xong gạch việc đặt nước uống luôn.",
+    "normalized_text": "Chốt đơn giản đó luôn nhanh con, giao thay tiệm chú chờ livestream 1 tiếng, xong gạch việc đặt nước uống luôn.",
+    "latency": 1.224987609999971
+  },
+  "public_0575": {
+    "raw_text": "Nhẫn vàng dưới 200 triệu một lượng thì thêm vô danh sách mua sắm, không thì đặt hai vé bên Ocean Burn Theater nghe.",
+    "normalized_text": "Nhẫn vàng dưới 200 triệu một lượng thì thêm vô danh sách mua sắm, không thì đặt hai vé bên Ocean Burn Theater nghe.",
+    "latency": 1.1851563339998847
+  },
+  "public_0576": {
+    "raw_text": "Vế nghe Sophie Martin đánh piano cộng một tô bún bò giò quán mệ kiếu 200 có đủ không em?",
+    "normalized_text": "Vế nghe Sophie Martin đánh piano cộng một tô bún bò giò quán mệ kiếu 200 có đủ không em?",
+    "latency": 1.0820768430000953
+  },
+  "public_0577": {
+    "raw_text": "Đặt giùm anh 4 vé buổi ngoại thảo của Clearwater Farmer nhà hình, cho mấy bạn trong nhóm, anh càng hợp không đi được.",
+    "normalized_text": "Đặt giùm anh 4 vé buổi ngoại thảo của Clearwater Farmer nhà hình, cho mấy bạn trong nhóm, anh càng hợp không đi được.",
+    "latency": 1.261581336999825
+  },
+  "public_0578": {
+    "raw_text": "Đi kiến ba tư nhé, nạp thẻ đủ tiền vé đi về còn ba buổi còn lại tuần này rồi đi vào nốt lịch là nạp rồi.",
+    "normalized_text": "Đi kiến ba tư nhé, nạp thẻ đủ tiền vé đi về còn ba buổi còn lại tuần này rồi đi vào nốt lịch là nạp rồi.",
+    "latency": 1.3442792529999679
+  },
+  "public_0579": {
+    "raw_text": "Xem thứ 2 Hà Nội có mưa không? Mưa thì hủy vé xe khách nhà Tuấn, đặt 3 vé tàu điên thay nhé.",
+    "normalized_text": "Xem thứ 2 Hà Nội có mưa không? Mưa thì hủy vé xe khách nhà Tuấn, đặt 3 vé tàu điên thay nhé.",
+    "latency": 1.263315840000132
+  },
+  "public_0580": {
+    "raw_text": "Vào sáng mai tắt hết mấy cái máu thuốc khác đi, chỉ để lại cái chợ cách Arizona thôi.",
+    "normalized_text": "Vào sáng mai tắt hết mấy cái máu thuốc khác đi, chỉ để lại cái chợ cách Arizona thôi.",
+    "latency": 0.9799365290000424
+  },
+  "public_0581": {
+    "raw_text": "Vậy chiếc metro chạy nhất ở ga khu công nghệ cao mà anh vẫn kịp hẹn Sarah Kim là chiếc mấy giờ em?",
+    "normalized_text": "Vậy chiếc metro chạy nhất ở ga khu công nghệ cao mà anh vẫn kịp hẹn Sarah Kim là chiếc mấy giờ em?",
+    "latency": 1.1682401980001487
+  },
+  "public_0582": {
+    "raw_text": "Ừ, nó lậu nấm chay đãi quên rắp lê, em luôn muốn nói lại rồi, nhắc anh 4h chiều đi mua nấm nha.",
+    "normalized_text": "Ừ, nó lậu nấm chay đãi quên rắp lê, em luôn muốn nói lại rồi, nhắc anh 4h chiều đi mua nấm nha.",
+    "latency": 1.2866756590001387
+  },
+  "public_0583": {
+    "raw_text": "Đủ rồi thì chợt luôn luôn, em giao VOV ra đúng không, cho dựa vào mỗi trời nhé.",
+    "normalized_text": "Đủ rồi thì chợt luôn luôn, em giao VOV ra đúng không, cho dựa vào mỗi trời nhé.",
+    "latency": 1.0419905030000791
+  },
+  "public_0584": {
+    "raw_text": "Lucas Bennett cũng đi nữa, em đặt hai bé chiến 12h trưa nha.",
+    "normalized_text": "Lucas Bennett cũng đi nữa, em đặt hai bé chiến 12h trưa nha.",
+    "latency": 0.826783819999946
+  },
+  "public_0585": {
+    "raw_text": "Trời nay tôi ăn ở workshop rồi, hủy dùm tôi cái đơn đồ ăn giao về nhà nghe.",
+    "normalized_text": "Trời nay tôi ăn ở workshop rồi, hủy dùm tôi cái đơn đồ ăn giao về nhà nghe.",
+    "latency": 1.0052245069998662
+  },
+  "public_0586": {
+    "raw_text": "Đóng luôn tiền nước trên ngân hàng nha con, rồi đặt vé cho cả nhà đi coi show cuối tuần sau luôn.",
+    "normalized_text": "Đóng luôn tiền nước trên ngân hàng nha con, rồi đặt vé cho cả nhà đi coi show cuối tuần sau luôn.",
+    "latency": 1.0831655710001087
+  },
+  "public_0587": {
+    "raw_text": "Tôi đi tiếng 15, nộp vô thẻ đủ vé đi với về, rồi trả lời mail lưu cách là tôi đi xe buýt với ngay.",
+    "normalized_text": "Tôi đi tiếng 15, nộp vô thẻ đủ vé đi với về, rồi trả lời mail lưu cách là tôi đi xe buýt với ngay.",
+    "latency": 1.2223576890000913
+  },
+  "public_0588": {
+    "raw_text": "Em tìm trang mua đồ giúp anh, ổ cám chuyển đổi của Nodwin Travel Gear, dưới 450k tháng 2.",
+    "normalized_text": "Em tìm trang mua đồ giúp anh, ổ cám chuyển đổi của Nodwin Travel Gear, dưới 450k tháng 2.",
+    "latency": 1.159290847999955
+  },
+  "public_0589": {
+    "raw_text": "Nhấn chị Ngân là sáng nay em xin họp online nha, về đánh dấu xong việc là làm slide bánh cốc luôn.",
+    "normalized_text": "Nhấn chị Ngân là sáng nay em xin họp online nha, về đánh dấu xong việc là làm slide bánh cốc luôn.",
+    "latency": 1.1605930609998723
+  },
+  "public_0590": {
+    "raw_text": "Hút lái xe ra khỏi bãi Bangkok Garden rồi, tắt cái phiên gửi xe ở đó giùm tôi nha.",
+    "normalized_text": "Hút lái xe ra khỏi bãi Bangkok Garden rồi, tắt cái phiên gửi xe ở đó giùm tôi nha.",
+    "latency": 1.174536443000079
+  },
+  "public_0591": {
+    "raw_text": "Đặt vé vừa kịch nghìn mưa, đủ cho chị với mấy người đã gửi tiền vé hôm nay nha.",
+    "normalized_text": "Đặt vé vừa kịch nghìn mưa, đủ cho chị với mấy người đã gửi tiền vé hôm nay nha.",
+    "latency": 1.1432031219999317
+  },
+  "public_0592": {
+    "raw_text": "À, hôm qua con Thảo khoe món brownie ngon lắm, con lưu cái công thức brownie nở vô cho cô với.",
+    "normalized_text": "À, hôm qua con Thảo khoe món brownie ngon lắm, con lưu cái công thức brownie nở vô cho cô với.",
+    "latency": 1.1590737360002095
+  },
+  "public_0593": {
+    "raw_text": "Thế em hủy đơn pizza bò đi, tối nay chị tự làm bánh, trừ dùm chị 2 hộp sữa tươi nhé.",
+    "normalized_text": "Thế em hủy đơn pizza bò đi, tối nay chị tự làm bánh, trừ dùm chị 2 hộp sữa tươi nhé.",
+    "latency": 1.1925900740000088
+  },
+  "public_0594": {
+    "raw_text": "Dịch qua tiếng Anh dùm anh câu tối mai 7 rưỡi gặp nhau ở West Game Mall. À thôi khỏi, anh biết tiếng Việt mà.",
+    "normalized_text": "Dịch qua tiếng Anh dùm anh câu tối mai 7 rưỡi gặp nhau ở West Game Mall. À thôi khỏi, anh biết tiếng Việt mà.",
+    "latency": 1.2229711729999053
+  },
+  "public_0595": {
+    "raw_text": "Em có hóa đơn Orion Tech, gửi qua mail bao nhiêu tiền, lấy số dư ví, chỉ trừ ra thì không bao nhiêu.",
+    "normalized_text": "Em có hóa đơn Orion Tech, gửi qua mail bao nhiêu tiền, lấy số dư ví, chỉ trừ ra thì không bao nhiêu.",
+    "latency": 1.1685224120001294
+  },
+  "public_0596": {
+    "raw_text": "Thôi, cái smoothie mà em nói 10 phút là xong á, đọc dùm anh từng bước luôn đi, 9 giờ anh còn deadline làm báo cáo.",
+    "normalized_text": "Thôi, cái smoothie mà em nói 10 phút là xong á, đọc dùm anh từng bước luôn đi, 9 giờ anh còn deadline làm báo cáo.",
+    "latency": 1.2252548369999658
+  },
+  "public_0597": {
+    "raw_text": "Mình đặt cảnh báo cho mã Redwood Analytics ngay đúng giá vốn của mạng nghe.",
+    "normalized_text": "Mình đặt cảnh báo cho mã Redwood Analytics ngay đúng giá vốn của mạng nghe.",
+    "latency": 0.9615324129999863
+  },
+  "public_0598": {
+    "raw_text": "Liền tuổi cuốn bún bò Arthur ở số 54 Nguyễn Công Trứ, toàn là bún bò Kevin Park này.",
+    "normalized_text": "Liền tuổi cuốn bún bò Arthur ở số 54 Nguyễn Công Trứ, toàn là bún bò Kevin Park này.",
+    "latency": 1.1086063729999296
+  },
+  "public_0599": {
+    "raw_text": "Daniel Lee ở lại thêm mấy bữa, em hủy với máy bay của anh dùm anh nghe.",
+    "normalized_text": "Daniel Lee ở lại thêm mấy bữa, em hủy với máy bay của anh dùm anh nghe.",
+    "latency": 0.9565282900000511
+  },
+  "public_0600": {
+    "raw_text": "Vỏ vậy là đủ rồi em, chốt đơn dùm anh, còn giờ giao thì sớm hơn bữa tối với gia đình 1 tiếng nha.",
+    "normalized_text": "Vỏ vậy là đủ rồi em, chốt đơn dùm anh, còn giờ giao thì sớm hơn bữa tối với gia đình 1 tiếng nha.",
+    "latency": 1.2139378829999714
+  },
+  "public_0601": {
+    "raw_text": "Thế tác dụng tờ 2 về chuyển sớm nhất còn đủ chỗ cho tờ về trang nha.",
+    "normalized_text": "Thế tác dụng tờ 2 về chuyển sớm nhất còn đủ chỗ cho tờ về trang nha.",
+    "latency": 1.0477977210000518
+  },
+  "public_0603": {
+    "raw_text": "Tối nay tớ làm pancake theo công thức đó cho 6 đứa trừ luôn trừng về sữa trong tủ dùng tới nha.",
+    "normalized_text": "Tối nay tớ làm pancake theo công thức đó cho 6 đứa trừ luôn trừng về sữa trong tủ dùng tới nha.",
+    "latency": 1.1661936660000265
+  },
+  "public_0604": {
+    "raw_text": "Em ơi, đợt tập huấn trong Đà Nẵng của trường kéo dài thêm mấy hôm, nên về máy bay về nhà em hủy giúp chị nhé.",
+    "normalized_text": "Em ơi, đợt tập huấn trong Đà Nẵng của trường kéo dài thêm mấy hôm, nên về máy bay về nhà em hủy giúp chị nhé.",
+    "latency": 1.4012366229999316
+  },
+  "public_0606": {
+    "raw_text": "Nghe hết nhạc trong máy tới thì có sang trước lúc 4 tới không?",
+    "normalized_text": "Nghe hết nhạc trong máy tới thì có sang trước lúc 4 tới không?",
+    "latency": 0.9198897580001812
+  },
+  "public_0608": {
+    "raw_text": "Làn một cơm Vero, hủy lên bún bò, vừa đặt, chuyển làn 110.000 băng tài khoản thiên toán nhà hàng.",
+    "normalized_text": "Làn một cơm Vero, hủy lên bún bò, vừa đặt, chuyển làn 110.000 băng tài khoản thiên toán nhà hàng.",
+    "latency": 1.2154345900000862
+  },
+  "public_0609": {
+    "raw_text": "Em lấy xe ra khỏi Toronto Town rồi. Em kết thúc phim ghi xe biến tỏa cho các anh nhé.",
+    "normalized_text": "Em lấy xe ra khỏi Toronto Town rồi. Em kết thúc phim ghi xe biến tỏa cho các anh nhé.",
+    "latency": 1.0781740570000693
+  },
+  "public_0610": {
+    "raw_text": "Cách đổi qua đi tàu rồi, hủy vé xe đó, đặt thậu sáng nếu đủ chỗ cho cả ba người, không thì chuyến chiều nghe.",
+    "normalized_text": "Cách đổi qua đi tàu rồi, hủy vé xe đó, đặt thậu sáng nếu đủ chỗ cho cả ba người, không thì chuyến chiều nghe.",
+    "latency": 1.2858881560000555
+  },
+  "public_0611": {
+    "raw_text": "Để giúp chị cái quán mà Hugo Lamprey hẹn vào bản đồ nhé, đặt tên là chỗ gặp Hugo Lamprey, nhanh lên em.",
+    "normalized_text": "Để giúp chị cái quán mà Hugo Lamprey hẹn vào bản đồ nhé, đặt tên là chỗ gặp Hugo Lamprey, nhanh lên em.",
+    "latency": 1.2762496670000019
+  },
+  "public_0612": {
+    "raw_text": "Coi dòng anh thứ 3 tuần này anh có gọi cho má không? Có thì tích thói quen ở má ngay đó nha.",
+    "normalized_text": "Coi dòng anh thứ 3 tuần này anh có gọi cho má không? Có thì tích thói quen ở má ngay đó nha.",
+    "latency": 1.098437266000019
+  },
+  "public_0613": {
+    "raw_text": "Sáng nay em đặt đùa bên quán Go Ba rồi, móng mù trong đơn nó có trong danh sách đi chợ thì xóa điểm em nhé.",
+    "normalized_text": "Sáng nay em đặt đùa bên quán Go Ba rồi, móng mù trong đơn nó có trong danh sách đi chợ thì xóa điểm em nhé.",
+    "latency": 1.2366282730001785
+  },
+  "public_0614": {
+    "raw_text": "Nạp thẻ xe buýt giúp cho tôi 1 căn, à, xong, 50k thôi, xong rồi giúp tôi thầy Johnson nhé.",
+    "normalized_text": "Nạp thẻ xe buýt giúp cho tôi 1 căn, à, xong, 50k thôi, xong rồi giúp tôi thầy Johnson nhé.",
+    "latency": 1.1982702990001144
+  },
+  "public_0615": {
+    "raw_text": "Ờ, luôn món ấy cho tôi, với nhắc, tôi bắt đầu nấu, so cho kịp 7 giờ tới, nay ăn cơm nhé.",
+    "normalized_text": "Ờ, luôn món ấy cho tôi, với nhắc, tôi bắt đầu nấu, so cho kịp 7 giờ tới, nay ăn cơm nhé.",
+    "latency": 1.1276905380000244
+  },
+  "public_0616": {
+    "raw_text": "Coi cho mấy máy giao dịch của các thẻ vừa chuyển cọc cho Leon faster nha.",
+    "normalized_text": "Coi cho mấy máy giao dịch của các thẻ vừa chuyển cọc cho Leon faster nha.",
+    "latency": 1.0050423689999661
+  },
+  "public_0617": {
+    "raw_text": "Kết thúc phiên độ xe thư sản máy. Ở bãi rưỡi công ty không chị? Chị chạy ra sân bay đi sân cáp bố đây. Lẹ nhé!",
+    "normalized_text": "Kết thúc phiên độ xe thư sản máy. Ở bãi rưỡi công ty không chị? Chị chạy ra sân bay đi sân cáp bố đây. Lẹ nhé!",
+    "latency": 1.5101211260000582
+  },
+  "public_0618": {
+    "raw_text": "Mã lỗ nặng nhất đó đặt báo khi nó lên lại giá vốn, rồi gọi Miss Wonderful cho tôi nghe.",
+    "normalized_text": "Mã lỗ nặng nhất đó đặt báo khi nó lên lại giá vốn, rồi gọi Miss Wonderful cho tôi nghe.",
+    "latency": 1.1454284900000857
+  },
+  "public_0619": {
+    "raw_text": "Tối nay, chị hẹn với Crispeel Hotel, cái đội riêng của anh Mộc Lán mà, em tìm rồi đưa, rồi lưu đến chỗ hẹn tối nay nghe.",
+    "normalized_text": "Tối nay, chị hẹn với Crispeel Hotel, cái đội riêng của anh Mộc Lán mà, em tìm rồi đưa, rồi lưu đến chỗ hẹn tối nay nghe.",
+    "latency": 1.5304675340000813
+  },
+  "public_0620": {
+    "raw_text": "Em coi dùm mai mà mưa thì gọi video cho Emily liền, không thì nhắn chỉ nơi giữa nguyên lịch nghe.",
+    "normalized_text": "Em coi dùm mai mà mưa thì gọi video cho Emily liền, không thì nhắn chỉ nơi giữa nguyên lịch nghe.",
+    "latency": 1.1361592040000232
+  },
+  "public_0621": {
+    "raw_text": "Mê mã của đàn lợi đó còn cài báo khi nào gớt về giá uống dùm cô nha.",
+    "normalized_text": "Mê mã của đàn lợi đó còn cài báo khi nào gớt về giá uống dùm cô nha.",
+    "latency": 1.0289326449999407
+  },
+  "public_0622": {
+    "raw_text": "Ví tôi đủ 760, thì quý trả hết cho make up, thank you, không thì trả phần tôi nha.",
+    "normalized_text": "Ví tôi đủ 760, thì quý trả hết cho make up, thank you, không thì trả phần tôi nha.",
+    "latency": 1.0200694709999425
+  },
+  "public_0623": {
+    "raw_text": "Hôm nay chị đi bộ được bao nhiêu ngàn bước rồi em? Đủ 8 ngàn bước chưa?",
+    "normalized_text": "Hôm nay chị đi bộ được bao nhiêu ngàn bước rồi em? Đủ 8 ngàn bước chưa?",
+    "latency": 0.9591813269998966
+  },
+  "public_0624": {
+    "raw_text": "Xói giúp chị trứng gà, à không, bánh mì sandwich thôi, anh Thành mua hôm qua rồi.",
+    "normalized_text": "Xói giúp chị trứng gà, à không, bánh mì sandwich thôi, anh Thành mua hôm qua rồi.",
+    "latency": 1.014625480999939
+  },
+  "public_0625": {
+    "raw_text": "Tối nay anh hẹn bạn trong chặp mới ở The Copper Kettle Cafe. Ip coi dùm anh quên đã nằm đủ nào.",
+    "normalized_text": "Tối nay anh hẹn bạn trong chặp mới ở The Copper Kettle Cafe. Ip coi dùm anh quên đã nằm đủ nào.",
+    "latency": 1.1874358460001986
+  },
+  "public_0626": {
+    "raw_text": "2 hóa đơn còn lại bằng tự động thanh toán luôn, rồi ghi thêm vào ghi chú Edwin Woods là từ tháng sau trai tự động.",
+    "normalized_text": "2 hóa đơn còn lại bằng tự động thanh toán luôn, rồi ghi thêm vào ghi chú Edwin Woods là từ tháng sau trai tự động.",
+    "latency": 1.2776068420000684
+  },
+  "public_0627": {
+    "raw_text": "Nước xanh roan 95 trên 21.000 rưỡi thì chuyển cho nguyên 700.000 tiền xanh, không thì 600 thôi.",
+    "normalized_text": "Nước xanh roan 95 trên 21.000 rưỡi thì chuyển cho nguyên 700.000 tiền xanh, không thì 600 thôi.",
+    "latency": 1.0826016910000362
+  },
+  "public_0628": {
+    "raw_text": "Nếu mà ở đây không mưa thì gọi là xuân lại hồi trưa dừng tôi, còn mưa thì gọi ăn mười nhé.",
+    "normalized_text": "Nếu mà ở đây không mưa thì gọi là xuân lại hồi trưa dừng tôi, còn mưa thì gọi ăn mười nhé.",
+    "latency": 1.1161560560001362
+  },
+  "public_0629": {
+    "raw_text": "Phòng em hết cà chua rồi anh, lưu giùm em món nào nhanh nhất trong mấy món còn lại nha.",
+    "normalized_text": "Phòng em hết cà chua rồi anh, lưu giùm em món nào nhanh nhất trong mấy món còn lại nha.",
+    "latency": 1.1105266079998728
+  },
+  "public_0630": {
+    "raw_text": "Lucas tự nhận phần rồi, vợ đó nghe, nhân sở khai báo thất đó, với kết thúc riêng rủi xe ở tại nội dùm anh.",
+    "normalized_text": "Lucas tự nhận phần rồi, vợ đó nghe, nhân sở khai báo thất đó, với kết thúc riêng rủi xe ở tại nội dùm anh.",
+    "latency": 1.417817924999781
+  },
+  "public_0631": {
+    "raw_text": "Cổ phiếu xếp nhắc hồi nãy do giá nhiều, so với giá bên Singapore trẻ thì trên nhiều một cổ.",
+    "normalized_text": "Cổ phiếu xếp nhắc hồi nãy do giá nhiều, so với giá bên Singapore trẻ thì trên nhiều một cổ.",
+    "latency": 1.1756078819998947
+  },
+  "public_0633": {
+    "raw_text": "Mấy món trừ gạch đó em thêm vừa dở, mua đồ đúng số lượng cho mình, trừ cây ấm ra nha.",
+    "normalized_text": "Mấy món trừ gạch đó em thêm vừa dở, mua đồ đúng số lượng cho mình, trừ cây ấm ra nha.",
+    "latency": 1.2271076350000385
+  },
+  "public_0634": {
+    "raw_text": "Để dành 2 cái bao thức cháu lưỡi sáng mai cùng giờ luyện, Zalo bật một cái giùm anh nghe.",
+    "normalized_text": "Để dành 2 cái bao thức cháu lưỡi sáng mai cùng giờ luyện, Zalo bật một cái giùm anh nghe.",
+    "latency": 1.1555828909999946
+  },
+  "public_0635": {
+    "raw_text": "Mà con, máy hòa trứng vừa sáng của Peter Hansen, em trừ trong tủ bếp rồi hỉ, chưa thì trừ luôn dùm anh nhan.",
+    "normalized_text": "Mà con, máy hòa trứng vừa sáng của Peter Hansen, em trừ trong tủ bếp rồi hỉ, chưa thì trừ luôn dùm anh nhan.",
+    "latency": 1.289796061000061
+  },
+  "public_0636": {
+    "raw_text": "Rưu anh đây sẽ biết ra gà Huế, chuyển kết chip ở trạm gần nhà có kịp đón lúc khác không em?",
+    "normalized_text": "Rưu anh đây sẽ biết ra gà Huế, chuyển kết chip ở trạm gần nhà có kịp đón lúc khác không em?",
+    "latency": 1.1205805520000922
+  },
+  "public_0637": {
+    "raw_text": "Em coi trong tài khoản thanh toán, Mark Johnson trả anh nửa tiền người xe thuốc ai chưa?",
+    "normalized_text": "Em coi trong tài khoản thanh toán, Mark Johnson trả anh nửa tiền người xe thuốc ai chưa?",
+    "latency": 1.0125496830000884
+  },
+  "public_0638": {
+    "raw_text": "Thêm 4 người đồng thêm 1 gói mì, tính cả anh, trời vợ tôi bếp giúp anh nhé.",
+    "normalized_text": "Thêm 4 người đồng thêm 1 gói mì, tính cả anh, trời vợ tôi bếp giúp anh nhé.",
+    "latency": 1.0579570879999665
+  },
+  "public_0639": {
+    "raw_text": "Ghi thói quen đọc với James Wong cho tối thứ 4 đó, rồi đặt lại trang đơn bún bò Coba bữa đó nha.",
+    "normalized_text": "Ghi thói quen đọc với James Wong cho tối thứ 4 đó, rồi đặt lại trang đơn bún bò Coba bữa đó nha.",
+    "latency": 1.1972763710000436
+  },
+  "public_0640": {
+    "raw_text": "Willowbrook Residence nhà em, căn hộ của anh đó mà kháng giao liền để chiều mai kháng giao dùm chị",
+    "normalized_text": "Willowbrook Residence nhà em, căn hộ của anh đó mà kháng giao liền để chiều mai kháng giao dùm chị",
+    "latency": 2.39
+  },
+  "public_0641": {
+    "raw_text": "Ừ, làm y như thằng Út dặn đi, cài xong thì nhắn nó biết mã, về giá em cài nha.",
+    "normalized_text": "Ừ, làm y như thằng Út dặn đi, cài xong thì nhắn nó biết mã, về giá em cài nha.",
+    "latency": 1.1416582989998005
+  },
+  "public_0642": {
+    "raw_text": "Thôi, coi giùm cô lại sang ngoài cô đỡ ở tiệm dùng rán giá bao nhiêu một lít cho coi.",
+    "normalized_text": "Thôi, coi giùm cô lại sang ngoài cô đỡ ở tiệm dùng rán giá bao nhiêu một lít cho coi.",
+    "latency": 1.187194763999969
+  },
+  "public_0643": {
+    "raw_text": "Còn đợt về chị đi sao? Em coi dùm chị ôm em mà đợt mấy đêm vậy?",
+    "normalized_text": "Còn đợt về chị đi sao? Em coi dùm chị ôm em mà đợt mấy đêm vậy?",
+    "latency": 2.06
+  },
+  "public_0644": {
+    "raw_text": "Còn hai mẹ Noah Whitfield gợi ý trong thiên nhấn, hôm nay mẹ mô tăng mạnh hơn em.",
+    "normalized_text": "Còn hai mẹ Noah Whitfield gợi ý trong thiên nhấn, hôm nay mẹ mô tăng mạnh hơn em.",
+    "latency": 1.1142382250000082
+  },
+  "public_0646": {
+    "raw_text": "Chừng 10 phút nữa, vừa mới ra tới trạm công ty Sài Gòn Laptop, coi dùm chuyến xe buýt nào kịp nha.",
+    "normalized_text": "Chừng 10 phút nữa, vừa mới ra tới trạm công ty Sài Gòn Laptop, coi dùm chuyến xe buýt nào kịp nha.",
+    "latency": 1.3088170350001747
+  },
+  "public_0647": {
+    "raw_text": "Coi dùm tôi giá cái mã mà Webinar khuyên gom hẳn nhắn đó hiên.",
+    "normalized_text": "Coi dùm tôi giá cái mã mà Webinar khuyên gom hẳn nhắn đó hiên.",
+    "latency": 0.9896550880000632
+  },
+  "public_0648": {
+    "raw_text": "Đặt vé xe khách cho anh với chị John đi gặp Bright Path Consulting, chuyến nào tới kịp giờ thì gửi anh chọn nha.",
+    "normalized_text": "Đặt vé xe khách cho anh với chị John đi gặp Bright Path Consulting, chuyến nào tới kịp giờ thì gửi anh chọn nha.",
+    "latency": 1.1720977780000794
+  },
+  "public_0649": {
+    "raw_text": "Trạm xe buýt gần Grandview Hotel có khuyên môn khóa chứng. Nếu chờ vé 20 phút thì đặt xe 4 chỗ về cho chị.",
+    "normalized_text": "Trạm xe buýt gần Grandview Hotel có khuyên môn khóa chứng. Nếu chờ vé 20 phút thì đặt xe 4 chỗ về cho chị.",
+    "latency": 1.2865597140000773
+  },
+  "public_0650": {
+    "raw_text": "Cái mã em định hỏi anh Sơn kia má, trả giá hôm nay dùm em coi.",
+    "normalized_text": "Cái mã em định hỏi anh Sơn kia má, trả giá hôm nay dùm em coi.",
+    "latency": 0.9823625650001304
+  },
+  "public_0651": {
+    "raw_text": "Mai dậy dậy trời chút cũng được cái báo thức kêu trước 6 giờ thì giờ thành 6 rưỡi nghe em.",
+    "normalized_text": "Mai dậy dậy trời chút cũng được cái báo thức kêu trước 6 giờ thì giờ thành 6 rưỡi nghe em.",
+    "latency": 1.0462557500000003
+  },
+  "public_0652": {
+    "raw_text": "Khách check out rồi em kết thúc gửi xe ở bãi Đông Ba, thêm việc thu tiền gửi xe của khách vì đó số tiền em.",
+    "normalized_text": "Khách check out rồi em kết thúc gửi xe ở bãi Đông Ba, thêm việc thu tiền gửi xe của khách vì đó số tiền em.",
+    "latency": 1.261134623000089
+  },
+  "public_0653": {
+    "raw_text": "Tao mẹ gửi cho xe ra nhà thôi khỏi, chị gặp mấy bạn ấy ở đồn Lemon Tree Cafe rồi, chị nhắc bạn ấy tới trễ một chút.",
+    "normalized_text": "Tao mẹ gửi cho xe ra nhà thôi khỏi, chị gặp mấy bạn ấy ở đồn Lemon Tree Cafe rồi, chị nhắc bạn ấy tới trễ một chút.",
+    "latency": 1.2832348360000196
+  },
+  "public_0654": {
+    "raw_text": "Em coi đặt cảnh báo private holding xuống dưới 30k cho anh chưa, chưa thì đặt luôn nha.",
+    "normalized_text": "Em coi đặt cảnh báo private holding xuống dưới 30k cho anh chưa, chưa thì đặt luôn nha.",
+    "latency": 1.017786039999919
+  },
+  "public_0655": {
+    "raw_text": "Anh ra cửa đón khách đây, dần nhọt lại với tắt đèn không khách luôn, hoặc cứ để bữa.",
+    "normalized_text": "Anh ra cửa đón khách đây, dần nhọt lại với tắt đèn không khách luôn, hoặc cứ để bữa.",
+    "latency": 1.1073571720000928
+  },
+  "public_0656": {
+    "raw_text": "Ê táo gòi này đó con, bà vui trả cho cô 2kg luôn nha.",
+    "normalized_text": "Ê táo gòi này đó con, bà vui trả cho cô 2kg luôn nha.",
+    "latency": 0.9732478439998431
+  },
+  "public_0657": {
+    "raw_text": "Số tiền Julia Moreno chuyển, hồi sáng đó con gửi hết vô tiết kiệm online dùm cô nghe.",
+    "normalized_text": "Số tiền Julia Moreno chuyển, hồi sáng đó con gửi hết vô tiết kiệm online dùm cô nghe.",
+    "latency": 1.1640941310001836
+  },
+  "public_0659": {
+    "raw_text": "Em coi dùm trong máy ví máy bay chị đạt chiếc nào bay sớm nhất thì chiếc in luôn chiếc đó cho chị nha.",
+    "normalized_text": "Em coi dùm trong máy ví máy bay chị đạt chiếc nào bay sớm nhất thì chiếc in luôn chiếc đó cho chị nha.",
+    "latency": 1.2586301549999916
+  },
+  "public_0660": {
+    "raw_text": "Thầy tiếng Nhật mới gửi mail hẹn buổi review, nếu tới đó mình rảnh thì đặt buổi học luôn, còn bận thì thôi nghe.",
+    "normalized_text": "Thầy tiếng Nhật mới gửi mail hẹn buổi review, nếu tới đó mình rảnh thì đặt buổi học luôn, còn bận thì thôi nghe.",
+    "latency": 1.2446856020001178
+  },
+  "public_0661": {
+    "raw_text": "Sếp vừa mua cái lò nướng bên Mỹ về, trên đó ghi 350 độ F, em gọi Radio C giúp anh.",
+    "normalized_text": "Sếp vừa mua cái lò nướng bên Mỹ về, trên đó ghi 350 độ F, em gọi Radio C giúp anh.",
+    "latency": 1.0895214059999034
+  },
+  "public_0662": {
+    "raw_text": "À mà cái xe gọi ở bến xe Ninh Kiều hồi chiều, em kết thúc lượt gỡ dùm tôi luôn nha.",
+    "normalized_text": "À mà cái xe gọi ở bến xe Ninh Kiều hồi chiều, em kết thúc lượt gỡ dùm tôi luôn nha.",
+    "latency": 1.180410547000065
+  },
+  "public_0663": {
+    "raw_text": "Các báo thức dạy dâu hẹn sáng mai em sửa lại trước giờ giao xoại cho anh mời 1 tiếng nha.",
+    "normalized_text": "Các báo thức dạy dâu hẹn sáng mai em sửa lại trước giờ giao xoại cho anh mời 1 tiếng nha.",
+    "latency": 1.149693501999991
+  },
+  "public_0664": {
+    "raw_text": "Chị ăn chua với Julia Merino xong rồi, em kết thúc phiên gửi xe giúp chị nhé.",
+    "normalized_text": "Chị ăn chua với Julia Merino xong rồi, em kết thúc phiên gửi xe giúp chị nhé.",
+    "latency": 1.015097679000064
+  },
+  "public_0665": {
+    "raw_text": "Cổ phiếu Sunrise Retail của cô giá bao nhiêu con? Lên thêm 5.000 hay xuống 5.000 thì báo cô nha.",
+    "normalized_text": "Cổ phiếu Sunrise Retail của cô giá bao nhiêu con? Lên thêm 5.000 hay xuống 5.000 thì báo cô nha.",
+    "latency": 1.1257417829999667
+  },
+  "public_0666": {
+    "raw_text": "Sắp tăng học rồi, xem giúp tài xế xe 11 rễ confirm chưa, với đặt một suất cơm tấm sườn giao về ký đúc giá nhả.",
+    "normalized_text": "Sắp tăng học rồi, xem giúp tài xế xe 11 rễ confirm chưa, với đặt một suất cơm tấm sườn giao về ký đúc giá nhả.",
+    "latency": 1.342831077000028
+  },
+  "public_0667": {
+    "raw_text": "Volume hồi sáng để 8, lớn quá, vặn xuống còn 4, nhớ nhánh Zalo ăn xấu là tối nay anh trả xe trễ nha.",
+    "normalized_text": "Volume hồi sáng để 8, lớn quá, vặn xuống còn 4, nhớ nhánh Zalo ăn xấu là tối nay anh trả xe trễ nha.",
+    "latency": 1.254425688000083
+  },
+  "public_0668": {
+    "raw_text": "Tôi ra Bluebird Cafe đón khách check in đây, em bật chế độ ra khỏi nhà rồi đặt xe trong máy chờ tôi qua đó ngay.",
+    "normalized_text": "Tôi ra Bluebird Cafe đón khách check in đây, em bật chế độ ra khỏi nhà rồi đặt xe trong máy chờ tôi qua đó ngay.",
+    "latency": 1.2428848219999509
+  },
+  "public_0669": {
+    "raw_text": "Hôm nay chỗ mình mà mưa thì lưu công thức pancake chuối kiểu lưu bớt cà phê cho khách, không thì lưu canh chua cá lóc nghe.",
+    "normalized_text": "Hôm nay chỗ mình mà mưa thì lưu công thức pancake chuối kiểu lưu bớt cà phê cho khách, không thì lưu canh chua cá lóc nghe.",
+    "latency": 1.4130439629998364
+  },
+  "public_0670": {
+    "raw_text": "Peter Hassel gửi thư nói chuyện tiền phòng qua app rồi, còn coi ông ghi bao nhiêu tài khoản của chuyển tiền dạo nhận chưa.",
+    "normalized_text": "Peter Hassel gửi thư nói chuyện tiền phòng qua app rồi, còn coi ông ghi bao nhiêu tài khoản của chuyển tiền dạo nhận chưa.",
+    "latency": 1.3297309850001966
+  },
+  "public_0671": {
+    "raw_text": "Tớ với Trang muốn đi Prisa, Sama nói chuyện, đặt cho tớ 2 vé nhé.",
+    "normalized_text": "Tớ với Trang muốn đi Prisa, Sama nói chuyện, đặt cho tớ 2 vé nhé.",
+    "latency": 1.011033148000024
+  },
+  "public_0672": {
+    "raw_text": "Đặt dùm ăn một vé đi cho kịp buổi gặp Northwind chưa đi nha, tàu hay xe gì cũng được.",
+    "normalized_text": "Đặt dùm ăn một vé đi cho kịp buổi gặp Northwind chưa đi nha, tàu hay xe gì cũng được.",
+    "latency": 1.1094354740000654
+  },
+  "public_0673": {
+    "raw_text": "Dịch qua tiếng Anh dầm, 7 giờ, tôi tới khách sạn đón ăn, với tiền lệch, 6 rưỡi sáng mai đón khách, Mark Johnson.",
+    "normalized_text": "Dịch qua tiếng Anh dầm, 7 giờ, tôi tới khách sạn đón ăn, với tiền lệch, 6 rưỡi sáng mai đón khách, Mark Johnson.",
+    "latency": 1.3143320489998587
+  },
+  "public_0674": {
+    "raw_text": "À, chị quên, xong khu sở chị lái xe về rồi em kết thúc luận đồ ở bãi phạm hung giúp chị nhé.",
+    "normalized_text": "À, chị quên, xong khu sở chị lái xe về rồi em kết thúc luận đồ ở bãi phạm hung giúp chị nhé.",
+    "latency": 1.2245008530001087
+  },
+  "public_0675": {
+    "raw_text": "Mời em nạp thêm 200k vô thẻ xe buýt hồi sáng với đóng luôn cái bill truyền hình bằng ví nha.",
+    "normalized_text": "Mời em nạp thêm 200k vô thẻ xe buýt hồi sáng với đóng luôn cái bill truyền hình bằng ví nha.",
+    "latency": 1.1887242540001353
+  },
+  "public_0677": {
+    "raw_text": "Hộp thư có cái voucher của bố đó đấy, em xóa giúp chị nhé, chị không dùng đâu.",
+    "normalized_text": "Hộp thư có cái voucher của bố đó đấy, em xóa giúp chị nhé, chị không dùng đâu.",
+    "latency": 1.0249253399999816
+  },
+  "public_0678": {
+    "raw_text": "Mai chị bay vào Đà Nẵng, hãy chụp in chiếc xếp chị nhé.",
+    "normalized_text": "Mai chị bay vào Đà Nẵng, hãy chụp in chiếc xếp chị nhé.",
+    "latency": 0.942410480000035
+  },
+  "public_0679": {
+    "raw_text": "Giá vàng nhận tới nay bán ra như vậy, ghi cho đó một cái note về vàng giùm tôi luôn.",
+    "normalized_text": "Giá vàng nhận tới nay bán ra như vậy, ghi cho đó một cái note về vàng giùm tôi luôn.",
+    "latency": 1.01097074900008
+  },
+  "public_0680": {
+    "raw_text": "Chiều nay mình không nghe máy, có người Venezuela gọi, mở thông tin từ đồ của người đó coi.",
+    "normalized_text": "Chiều nay mình không nghe máy, có người Venezuela gọi, mở thông tin từ đồ của người đó coi.",
+    "latency": 1.0285162510001555
+  },
+  "public_0681": {
+    "raw_text": "Con gọi dùm cô chiếc xe máy từ tiệm qua Cobalt Marketing lấy máy sắp vô chờ in cho tiệm nha.",
+    "normalized_text": "Con gọi dùm cô chiếc xe máy từ tiệm qua Cobalt Marketing lấy máy sắp vô chờ in cho tiệm nha.",
+    "latency": 1.2250422110000727
+  },
+  "public_0682": {
+    "raw_text": "Michael Chen có 2 cuốn sách trên đó, em đặt cuốn rể hơn nha, lên công ty cho chị nha.",
+    "normalized_text": "Michael Chen có 2 cuốn sách trên đó, em đặt cuốn rể hơn nha, lên công ty cho chị nha.",
+    "latency": 1.1009418920000371
+  },
+  "public_0683": {
+    "raw_text": "Di xe quán cà phê rủ đi, mà em lừa quá, ngoài trời chỗ em trừ răng, mở TV kênh VTV3 cho em luôn.",
+    "normalized_text": "Di xe quán cà phê rủ đi, mà em lừa quá, ngoài trời chỗ em trừ răng, mở TV kênh VTV3 cho em luôn.",
+    "latency": 1.333472539000013
+  },
+  "public_0684": {
+    "raw_text": "Mai chỉ đi xe anh hùng tới workshop, nên số đi sai, xe chạy giàu, em xem giá giàu, nhắn anh ấy là chỉ đi cùng nhé.",
+    "normalized_text": "Mai chỉ đi xe anh hùng tới workshop, nên số đi sai, xe chạy giàu, em xem giá giàu, nhắn anh ấy là chỉ đi cùng nhé.",
+    "latency": 1.3203344949999973
+  },
+  "public_0685": {
+    "raw_text": "Mai anh lái ô tô đi học review em tìm bãi đỗ gần công ty rồi giữ chỗ từ 8h30 sáng 3 tiếng nhé.",
+    "normalized_text": "Mai anh lái ô tô đi học review em tìm bãi đỗ gần công ty rồi giữ chỗ từ 8h30 sáng 3 tiếng nhé.",
+    "latency": 1.2090943539999444
+  },
+  "public_0686": {
+    "raw_text": "Mình là Loan, dán khoản chứ hàng là to, hủy dùm thôi cái MMP qua bệnh nha.",
+    "normalized_text": "Mình là Loan, dán khoản chứ hàng là to, hủy dùm thôi cái MMP qua bệnh nha.",
+    "latency": 1.0610167390000242
+  },
+  "public_0687": {
+    "raw_text": "Tối thứ 3 tuần sau chị rảnh, em coi các sự kiện chi hay rồi đặt dùm chị 2 viết nha.",
+    "normalized_text": "Tối thứ 3 tuần sau chị rảnh, em coi các sự kiện chi hay rồi đặt dùm chị 2 viết nha.",
+    "latency": 1.0648251570000866
+  },
+  "public_0688": {
+    "raw_text": "Vạn tivi nhỏ xuống 15, rồi chuyển 2 triệu từ tài khoản thanh toán cho Tokyo Garden, đi nốt cặt cổng tiền nha.",
+    "normalized_text": "Vạn tivi nhỏ xuống 15, rồi chuyển 2 triệu từ tài khoản thanh toán cho Tokyo Garden, đi nốt cặt cổng tiền nha.",
+    "latency": 1.2171748240000397
+  },
+  "public_0689": {
+    "raw_text": "Thói quen luyện nói tiếng Anh với Lumina Studio, giữ được mấy ngày rồi em, đánh dấu hôm nay anh ảnh xong luôn nha.",
+    "normalized_text": "Thói quen luyện nói tiếng Anh với Lumina Studio, giữ được mấy ngày rồi em, đánh dấu hôm nay anh ảnh xong luôn nha.",
+    "latency": 1.2293863830000191
+  },
+  "public_0690": {
+    "raw_text": "Bài hồi sáng cô nói lộn của Sophie Martin chứ không phải là Martin thêm bài đó vô playlist đó rồi gọi anh lọc dùm cô.",
+    "normalized_text": "Bài hồi sáng cô nói lộn của Sophie Martin chứ không phải là Martin thêm bài đó vô playlist đó rồi gọi anh lọc dùm cô.",
+    "latency": 1.2425530499999695
+  },
+  "public_0691": {
+    "raw_text": "Câu deadline báo cáo trưa nay em dịch rồi nhỉ, thôi khỏi dịch lại, nhắc chị 8h sáng thứ 6 nộp báo cáo nhé.",
+    "normalized_text": "Câu deadline báo cáo trưa nay em dịch rồi nhỉ, thôi khỏi dịch lại, nhắc chị 8h sáng thứ 6 nộp báo cáo nhé.",
+    "latency": 1.2590050709998195
+  },
+  "public_0694": {
+    "raw_text": "Xem tàu điện kế tiếp ở chỗ chị Yến, hẹn đón mấy giờ, sau 9h thì nhắn chị Yến là chị tới muộn nhé.",
+    "normalized_text": "Xem tàu điện kế tiếp ở chỗ chị Yến, hẹn đón mấy giờ, sau 9h thì nhắn chị Yến là chị tới muộn nhé.",
+    "latency": 1.2387827059999381
+  },
+  "public_0695": {
+    "raw_text": "Cái quà cho xa ra mua tôi mua rồi gạch khỏi chân xích đi chợ dùm nha",
+    "normalized_text": "Cái quà cho xa ra mua tôi mua rồi gạch khỏi chân xích đi chợ dùm nha",
+    "latency": 2.1
+  },
+  "public_0699": {
+    "raw_text": "Em luôn dùng ăn cây xăng trên đường nhà ăn vô bản đồ, đặt tên là chỗ lỗ xăng quen nha.",
+    "normalized_text": "Em luôn dùng ăn cây xăng trên đường nhà ăn vô bản đồ, đặt tên là chỗ lỗ xăng quen nha.",
+    "latency": 1.2586099749998994
+  }
+}

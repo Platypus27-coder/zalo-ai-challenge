@@ -1,19 +1,58 @@
-"""Part B — ASR Module: Speech-to-text using faster-whisper.
+"""Part B — ASR Module: Speech-to-text using faster-whisper with Prompt Biasing.
 
 Supports:
 - faster-whisper (CTranslate2-based, fast inference)
+- Contextual Prompt Biasing (injecting domain vocabulary & app names into initial_prompt)
 - Gold transcript fallback for debugging
-- Configurable model selection
+- Configurable model selection & offline weights loading
+- API contract compliance with Part A (Runner) and Part C (Agent)
 
-For Colab/Kaggle with T4 GPU:
-- whisper-large-v3-turbo (~800M params) — best quality/speed tradeoff
-- whisper-medium (~769M params) — lighter alternative
+Target performance on T4 GPU:
+- faster-whisper large-v3-turbo (~800M params, FP16)
+- Latency P95 < 2.5s/sample (max budget 5.0s)
 """
 import time
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any
 
-from .normalizer import normalize_transcript
+try:
+    from .normalizer import normalize_transcript
+except ImportError:
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from normalizer import normalize_transcript
+
+
+# Domain vocabulary for Prompt Biasing (Optimized for Token Budget <= 180 tokens)
+# Priority: 1. Negation (Crucial for state_hash) -> 2. Code-switching -> 3. Phone/Money format -> 4. Common apps
+DEFAULT_PROMPT_BIAS = (
+    "Trợ lý LifeMate. "
+    "Tuyệt đối chú ý từ phủ định: không, đừng, hủy, chưa, thôi, ngưng, tắt, khỏi cần, bỏ. "
+    "Thuật ngữ: book xe, set alarm, check-out, wifi, AC, OK, cancel, Zalo, VOV, Momo, Grab. "
+    "Ứng dụng: smart_home, banking, contacts, bill_payment, ride_hailing, calendar, reminders. "
+    "Định dạng: số điện thoại 09, 08, 03, 07, 05, tiền nghìn, triệu, trăm, k."
+)
+
+
+def build_initial_prompt(
+    sample: dict | None = None,
+    context: dict | None = None,
+    extra_terms: str | None = None
+) -> str:
+    """Build a contextual initial prompt to bias Whisper decoding."""
+    prompts = [DEFAULT_PROMPT_BIAS]
+    
+    ctx = context or (sample.get("context", {}) if sample else {})
+    installed_apps = ctx.get("installed_apps", {})
+    
+    if installed_apps:
+        app_names = list(installed_apps.keys())
+        prompts.append("Ứng dụng đã cài: " + ", ".join(app_names) + ".")
+    
+    if extra_terms:
+        prompts.append(extra_terms)
+        
+    return " ".join(prompts)
 
 
 class ASRModule:
@@ -21,25 +60,34 @@ class ASRModule:
     
     def __init__(
         self,
-        model_name: str = "large-v3-turbo",
+        model_name: str = "large-v3",
         device: str = "cuda",
         compute_type: str = "float16",
         language: str = "vi",
         beam_size: int = 5,
+        use_prompt_bias: bool = True,
+        vad_parameters: dict | None = None,
     ):
         """
         Args:
-            model_name: Whisper model name (e.g. "large-v3-turbo", "medium")
+            model_name: Whisper model name or local path (default: large-v3)
             device: "cuda" or "cpu"
             compute_type: "float16", "int8_float16", "int8"
-            language: Target language code
-            beam_size: Beam search size (1=greedy, 5=default)
+            language: Target language code ('vi')
+            beam_size: Beam search size (1=greedy, 3-5=recommended)
+            use_prompt_bias: Enable domain vocabulary prompt biasing
+            vad_parameters: Custom VAD settings (min_silence_duration_ms, speech_pad_ms)
         """
         self.model_name = model_name
         self.device = device
         self.compute_type = compute_type
         self.language = language
         self.beam_size = beam_size
+        self.use_prompt_bias = use_prompt_bias
+        self.vad_parameters = vad_parameters or dict(
+            min_silence_duration_ms=500,
+            speech_pad_ms=300,
+        )
         self.model = None
         self._load_time = 0
     
@@ -65,40 +113,45 @@ class ASRModule:
         self._load_time = time.monotonic() - start
         print(f"ASR model loaded: {self.model_name} ({self._load_time:.1f}s)")
     
-    def transcribe(self, audio_path: str, sample: dict | None = None) -> dict:
+    def transcribe(
+        self,
+        audio_path: str | Path,
+        sample: dict | None = None,
+        context: dict | None = None,
+        initial_prompt: str | None = None,
+    ) -> dict:
         """Transcribe audio file to text.
         
         Args:
             audio_path: Path to WAV file (16kHz, mono, 16-bit)
-            sample: Optional sample dict (for context, not used in basic ASR)
+            sample: Optional sample dict (contains context, installed_apps)
+            context: Optional context dict
+            initial_prompt: Optional custom initial prompt override
         
         Returns:
-            {
-                "raw_text": str,           # Raw ASR output
-                "normalized_text": str,    # After NFC normalization
-                "language": str,           # Detected language
-                "duration": float,         # Audio duration in seconds
-                "inference_time": float,   # ASR inference time
-                "segments": list,          # Per-segment results
-            }
+            Dict containing normalized and raw transcripts (dual keys for compatibility).
         """
         if self.model is None:
             self.load()
         
+        prompt_to_use = None
+        if initial_prompt:
+            prompt_to_use = initial_prompt
+        elif self.use_prompt_bias:
+            prompt_to_use = build_initial_prompt(sample=sample, context=context)
+        
         start = time.monotonic()
         
         segments_iter, info = self.model.transcribe(
-            audio_path,
+            str(audio_path),
             language=self.language,
             beam_size=self.beam_size,
+            initial_prompt=prompt_to_use,
             word_timestamps=False,
             vad_filter=True,
-            vad_parameters=dict(
-                min_silence_duration_ms=300,
-            ),
+            vad_parameters=self.vad_parameters,
         )
         
-        # Collect segments
         segments = []
         text_parts = []
         for seg in segments_iter:
@@ -110,21 +163,62 @@ class ASRModule:
             text_parts.append(seg.text.strip())
         
         raw_text = " ".join(text_parts)
+        normalized_text = normalize_transcript(raw_text)
+
+        # Self-healing Fallback: If output is empty (e.g. YouTube hallucination stripped),
+        # retry immediately without prompt bias and without VAD to recover raw speech.
+        if not normalized_text.strip():
+            fallback_iter, fallback_info = self.model.transcribe(
+                str(audio_path),
+                language=self.language,
+                beam_size=3,
+                initial_prompt=None,
+                vad_filter=False,
+                condition_on_previous_text=False,
+            )
+            fb_parts = [seg.text.strip() for seg in fallback_iter]
+            fb_raw = " ".join(fb_parts)
+            fb_norm = normalize_transcript(fb_raw)
+            
+            # If still empty, try greedy decoding with slight temperature
+            if not fb_norm.strip():
+                fb_iter_t, fb_info_t = self.model.transcribe(
+                    str(audio_path),
+                    language=self.language,
+                    beam_size=1,
+                    temperature=0.2,
+                    initial_prompt=None,
+                    vad_filter=False,
+                    condition_on_previous_text=False,
+                )
+                fb_parts = [seg.text.strip() for seg in fb_iter_t]
+                fb_raw = " ".join(fb_parts)
+                fb_norm = normalize_transcript(fb_raw)
+                if fb_norm.strip():
+                    fallback_info = fb_info_t
+
+            if fb_norm.strip():
+                raw_text = fb_raw
+                normalized_text = fb_norm
+                info = fallback_info
+
         inference_time = time.monotonic() - start
         
         return {
+            "raw_transcript": raw_text,
             "raw_text": raw_text,
-            "normalized_text": normalize_transcript(raw_text),
+            "normalized_transcript": normalized_text,
+            "normalized_text": normalized_text,
             "language": info.language if info else self.language,
             "duration": info.duration if info else 0,
             "inference_time": inference_time,
             "segments": segments,
         }
     
-    def __call__(self, audio_path: str, sample: dict | None = None) -> str:
+    def __call__(self, audio_path: str | Path, sample: dict | None = None) -> str:
         """Shortcut: transcribe and return normalized text."""
         result = self.transcribe(audio_path, sample)
-        return result["normalized_text"]
+        return result["normalized_transcript"]
 
 
 class GoldTranscriptASR:
@@ -133,99 +227,100 @@ class GoldTranscriptASR:
     Used for:
     - Debugging Agent logic without ASR errors
     - Establishing Agent-only baseline scores
-    - Comparing gold-transcript vs ASR to isolate error sources
+    - Isolating ASR error sources
     """
     
     def __init__(self):
         self.model_name = "gold_transcript"
     
     def load(self):
-        pass  # No model to load
+        pass
     
-    def transcribe(self, audio_path: str, sample: dict | None = None) -> dict:
-        """Return gold transcript from sample."""
+    def transcribe(
+        self,
+        audio_path: str | Path,
+        sample: dict | None = None,
+        context: dict | None = None,
+        initial_prompt: str | None = None,
+    ) -> dict:
         text = ""
         if sample:
             text = sample.get("audio_text", "")
         
+        normalized = normalize_transcript(text)
         return {
+            "raw_transcript": text,
             "raw_text": text,
-            "normalized_text": normalize_transcript(text),
+            "normalized_transcript": normalized,
+            "normalized_text": normalized,
             "language": "vi",
             "duration": 0,
             "inference_time": 0,
             "segments": [{"start": 0, "end": 0, "text": text}],
         }
     
-    def __call__(self, audio_path: str, sample: dict | None = None) -> str:
+    def __call__(self, audio_path: str | Path, sample: dict | None = None) -> str:
         result = self.transcribe(audio_path, sample)
-        return result["normalized_text"]
+        return result["normalized_transcript"]
 
 
-class HistoryASR:
-    """ASR that also transcribes history audio files.
+# Global default ASR instance for simple function calling
+_DEFAULT_ASR_INSTANCE: Optional[ASRModule | GoldTranscriptASR] = None
+
+
+def transcribe_audio(
+    audio_path: str | Path,
+    context: dict | None = None,
+    initial_prompt: str | None = None,
+    asr_instance: Optional[ASRModule | GoldTranscriptASR] = None,
+) -> dict[str, str]:
+    """Standard API contract function for Part B.
     
-    Per official README: history user turns have audio at audio/<id>/<id>_u1.wav, _u2.wav...
+    Args:
+        audio_path: Path to .wav audio file
+        context: Sample context (installed_apps, user_profile, current_time)
+        initial_prompt: Optional bias prompt
+        asr_instance: Pre-loaded ASR instance
+        
+    Returns:
+        {
+            "raw_transcript": str,
+            "normalized_transcript": str
+        }
     """
+    global _DEFAULT_ASR_INSTANCE
     
-    def __init__(self, base_asr: ASRModule | GoldTranscriptASR):
-        self.base_asr = base_asr
-    
-    def load(self):
-        self.base_asr.load()
-    
-    def transcribe_with_history(
-        self, 
-        audio_path: str, 
-        sample: dict,
-        data_root: str | Path = "."
-    ) -> dict:
-        """Transcribe current audio + history audio files.
-        
-        Returns main transcript plus history transcripts.
-        """
-        # Transcribe main audio
-        main_result = self.base_asr.transcribe(audio_path, sample)
-        
-        # Transcribe history audio if present
-        history_transcripts = []
-        for turn in sample.get("history", []):
-            if turn.get("role") == "user" and turn.get("audio"):
-                hist_audio = Path(data_root) / turn["audio"]
-                if hist_audio.exists():
-                    hist_result = self.base_asr.transcribe(str(hist_audio), sample)
-                    history_transcripts.append({
-                        "audio": turn["audio"],
-                        "text": hist_result["normalized_text"],
-                        "inference_time": hist_result["inference_time"],
-                    })
-                elif sample.get("audio_text"):
-                    # Use gold text for history in train
-                    if "audio_text" in turn:
-                        history_transcripts.append({
-                            "audio": turn.get("audio", ""),
-                            "text": turn["audio_text"],
-                            "inference_time": 0,
-                        })
-        
-        main_result["history_transcripts"] = history_transcripts
-        return main_result
+    instance = asr_instance or _DEFAULT_ASR_INSTANCE
+    if instance is None:
+        try:
+            instance = ASRModule()
+            instance.load()
+            _DEFAULT_ASR_INSTANCE = instance
+        except Exception:
+            instance = GoldTranscriptASR()
+            _DEFAULT_ASR_INSTANCE = instance
+            
+    res = instance.transcribe(
+        audio_path=audio_path,
+        context=context,
+        initial_prompt=initial_prompt
+    )
+    return {
+        "raw_transcript": res["raw_transcript"],
+        "normalized_transcript": res["normalized_transcript"]
+    }
 
 
 def create_asr(
     mode: str = "gold",
-    model_name: str = "large-v3-turbo",
+    model_name: str = "large-v3",
     device: str = "cuda",
     compute_type: str = "float16",
+    beam_size: int = 5,
+    use_prompt_bias: bool = True,
+    vad_parameters: dict | None = None,
 ) -> ASRModule | GoldTranscriptASR:
-    """Factory function to create ASR module.
-    
-    Args:
-        mode: "gold" (use gold transcripts), "whisper" (use faster-whisper)
-        model_name: Whisper model name
-        device: "cuda" or "cpu"
-        compute_type: Quantization type
-    """
+    """Factory function to create ASR module."""
     if mode == "gold":
         return GoldTranscriptASR()
     elif mode == "whisper":
@@ -233,23 +328,30 @@ def create_asr(
             model_name=model_name,
             device=device,
             compute_type=compute_type,
+            beam_size=beam_size,
+            use_prompt_bias=use_prompt_bias,
+            vad_parameters=vad_parameters,
         )
     else:
         raise ValueError(f"Unknown ASR mode: {mode}")
 
 
 if __name__ == "__main__":
-    # Test with gold transcripts
-    print("=== ASR Module Test (Gold Transcript) ===\n")
+    print("=== ASR Module Test (Gold Transcript & Prompt Biasing) ===\n")
+    
+    prompt = build_initial_prompt(
+        context={"installed_apps": {"smart_home": {}, "banking": {}}}
+    )
+    print("Generated Prompt Bias preview:")
+    print(prompt[:120] + "...\n")
     
     asr = create_asr(mode="gold")
-    
     sample = {
-        "audio_text": "Trợ lý ơi, giảm độ sáng đèn phòng ngủ nhỏ xuống còn một nửa nhé.",
+        "audio_text": "Trợ lý ơi, gọi cho số 912345678 và chuyển 500 nghìn cho mẹ.",
         "audio": "audio/train_0004/train_0004.wav",
     }
     
-    result = asr.transcribe("dummy_path.wav", sample)
-    print(f"Raw text:        {result['raw_text']}")
-    print(f"Normalized text: {result['normalized_text']}")
-    print(f"Inference time:  {result['inference_time']:.3f}s")
+    result = asr.transcribe("dummy.wav", sample)
+    print(f"Raw transcript:        {result['raw_transcript']}")
+    print(f"Normalized transcript: {result['normalized_transcript']}")
+    print(f"Inference time:        {result['inference_time']:.3f}s")
