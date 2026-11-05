@@ -127,59 +127,101 @@ def format_observations(observations: list[dict]) -> str:
 def parse_agent_response(response: str) -> dict:
     """Parse agent's response to extract tool call or done signal.
     
-    Expected formats:
-    - CALL: {"name": "tool.name", "arguments": {...}}
-    - DONE
+    Robust parser handling:
+    - DONE / [] / finish signals
+    - CALL: {"name": ..., "arguments": ...}
+    - Markdown code fences (```json ... ```)
+    - Qwen native <tool_call> ... </tool_call>
+    - JSON object or JSON list of tool calls
     
     Returns:
         {"action": "call", "name": str, "arguments": dict}
         {"action": "done"}
         {"action": "error", "message": str}
     """
+    import re
     response = response.strip()
     
-    # Check for DONE
-    if response.upper().startswith("DONE") or response.upper() == "DONE":
+    # 1. Check for DONE or empty tool calls
+    if (
+        response.upper().startswith("DONE")
+        or response.upper() == "DONE"
+        or response == "[]"
+        or "KHÔNG CẦN GỌI TOOL" in response.upper()
+    ):
         return {"action": "done"}
     
-    # Try to extract CALL: {...}
-    import re
-    
-    # Pattern: CALL: followed by JSON
-    call_match = re.search(r'CALL:\s*(\{.*\})', response, re.DOTALL)
-    if call_match:
+    # 2. Extract Qwen native <tool_call> tags
+    tool_call_match = re.search(r'<tool_call>\s*(.*?)\s*</tool_call>', response, re.DOTALL)
+    if tool_call_match:
+        content = tool_call_match.group(1).strip()
         try:
-            call_data = json.loads(call_match.group(1))
-            return {
-                "action": "call",
-                "name": call_data.get("name", ""),
-                "arguments": call_data.get("arguments", {}),
-            }
+            data = json.loads(content)
+            if isinstance(data, dict) and "name" in data:
+                return {
+                    "action": "call",
+                    "name": data.get("name", ""),
+                    "arguments": data.get("arguments", {}),
+                }
         except json.JSONDecodeError:
             pass
     
-    # Try to find any JSON with "name" and "arguments"
-    json_match = re.search(r'\{[^{}]*"name"\s*:\s*"[^"]+"\s*,\s*"arguments"\s*:\s*\{[^}]*\}[^{}]*\}', response)
+    # 3. Strip markdown code fences if present (```json ... ``` or ``` ... ```)
+    cleaned = response
+    fence_match = re.search(r'```(?:json)?\s*(.*?)\s*```', response, re.DOTALL)
+    if fence_match:
+        cleaned = fence_match.group(1).strip()
+    
+    # 4. Check for CALL: prefix
+    if "CALL:" in cleaned:
+        call_part = cleaned.split("CALL:", 1)[1].strip()
+        # Find first { and try to parse
+        first_brace = call_part.find("{")
+        if first_brace != -1:
+            # Try to find matching closing brace or parse progressively
+            for end_idx in range(len(call_part), first_brace, -1):
+                try:
+                    data = json.loads(call_part[first_brace:end_idx])
+                    if isinstance(data, dict) and "name" in data:
+                        return {
+                            "action": "call",
+                            "name": data.get("name", ""),
+                            "arguments": data.get("arguments", {}),
+                        }
+                except json.JSONDecodeError:
+                    continue
+    
+    # 5. Try to find any JSON object with "name" and "arguments"
+    json_match = re.search(r'\{[^{}]*"name"\s*:\s*"[^"]+"\s*,\s*"arguments"\s*:\s*\{[^}]*\}[^{}]*\}', cleaned)
     if json_match:
         try:
-            call_data = json.loads(json_match.group(0))
+            data = json.loads(json_match.group(0))
             return {
                 "action": "call",
-                "name": call_data.get("name", ""),
-                "arguments": call_data.get("arguments", {}),
+                "name": data.get("name", ""),
+                "arguments": data.get("arguments", {}),
             }
         except json.JSONDecodeError:
             pass
     
-    # Try to parse entire response as JSON
+    # 6. Try parsing the entire cleaned text as JSON (dict or list)
     try:
-        data = json.loads(response)
+        data = json.loads(cleaned)
         if isinstance(data, dict) and "name" in data:
             return {
                 "action": "call",
                 "name": data.get("name", ""),
                 "arguments": data.get("arguments", {}),
             }
+        elif isinstance(data, list):
+            if len(data) == 0:
+                return {"action": "done"}
+            if isinstance(data[0], dict) and "name" in data[0]:
+                return {
+                    "action": "call",
+                    "name": data[0].get("name", ""),
+                    "arguments": data[0].get("arguments", {}),
+                }
     except json.JSONDecodeError:
         pass
     
@@ -191,6 +233,13 @@ import json
 
 
 if __name__ == "__main__":
+    import sys
+    if sys.platform == "win32":
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+            sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     print("=== Prompt Template Test ===\n")
     print("System Prompt:")
     print(SYSTEM_PROMPT)
@@ -202,6 +251,9 @@ if __name__ == "__main__":
         'CALL: {"name": "smart_home.get_status", "arguments": {}}',
         'DONE',
         'Tôi sẽ gọi tool:\nCALL: {"name": "alarm.create", "arguments": {"time": "2026-11-03T07:00:00+07:00"}}',
+        '```json\n{"name": "contacts.search", "arguments": {"query": "Mẹ"}}\n```',
+        '<tool_call>\n{"name": "sms.send", "arguments": {"phone_number": "0912345678", "message": "Alo"}}\n</tool_call>',
+        '[{"name": "weather.get_forecast", "arguments": {"location": "Hà Nội"}}]',
         'invalid response',
     ]
     for t in tests:

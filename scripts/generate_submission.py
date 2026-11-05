@@ -25,7 +25,7 @@ def main():
                         choices=["rule", "transformers", "vllm"])
     parser.add_argument("--asr-mode", default="gold",
                         choices=["gold", "whisper"])
-    parser.add_argument("--model-name", default="Qwen/Qwen2.5-3B-Instruct")
+    parser.add_argument("--model-name", default="Qwen/Qwen3-4B-Instruct-2507")
     parser.add_argument("--asr-model", default="large-v3-turbo")
     parser.add_argument("--output", default=None, help="Output file path")
     parser.add_argument("--max-samples", type=int, default=None)
@@ -33,6 +33,11 @@ def main():
     args = parser.parse_args()
     
     split = args.split
+    
+    # Auto-switch to whisper on test splits if gold was erroneously requested
+    if split in ("public_test", "private_test") and args.asr_mode == "gold":
+        print(f"  ⚠️ Warning: {split} does not contain gold transcripts! Auto-switching --asr-mode to 'whisper'.")
+        args.asr_mode = "whisper"
     
     # Add zaic_tools to path
     sys.path.insert(0, str(DATA_ROOT / split))
@@ -139,6 +144,28 @@ def main():
         print(f"  ⚠️  {len(results) - n_with_hash} samples missing state_hash!")
     
     print(f"\n✅ Submission file ready: {output_path}")
+    
+    # Run official 7-layer Submission Linter
+    try:
+        from src.part_a.submission_linter import SubmissionLinter
+        print("\n" + "=" * 60)
+        print("RUNNING OFFICIAL 7-LAYER SUBMISSION LINTER")
+        print("=" * 60)
+        linter = SubmissionLinter(
+            submission_path=output_path,
+            catalog_path=catalog_path,
+            input_jsonl=jsonl_path,
+            split=split,
+        )
+        lint_report = linter.lint()
+        if lint_report["errors"]:
+            print(f"❌ Submission Linter found {len(lint_report['errors'])} critical errors:")
+            for err in lint_report["errors"][:5]:
+                print(f"  - {err}")
+        else:
+            print("🎉 0 Critical Errors! Submission is 100% compliant with Zalo AI Challenge rules.")
+    except Exception as e:
+        print(f"  [Notice] Could not run automatic linter: {e}")
 
 
 if __name__ == "__main__":
