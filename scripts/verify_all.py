@@ -14,7 +14,7 @@ if sys.platform == "win32":
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from config import DATA_ROOT, TRAIN_JSONL, TRAIN_CATALOG, SPLITS_DIR, OUTPUTS_DIR
+from config import DATA_ROOT, TRAIN_JSONL, TRAIN_CATALOG, PUBLIC_TEST_CATALOG, SPLITS_DIR, OUTPUTS_DIR
 
 
 def test_part_a_components():
@@ -29,9 +29,13 @@ def test_part_a_components():
         splits = json.load(f)
     print(f"✅ Splits verified: Train={splits['counts']['train']}, Dev={splits['counts']['dev']}, Holdout={splits['counts']['holdout']}")
     
+    # Active catalog: TRAIN_CATALOG if exists, otherwise fallback to PUBLIC_TEST_CATALOG
+    active_catalog = TRAIN_CATALOG if TRAIN_CATALOG.exists() else PUBLIC_TEST_CATALOG
+    assert active_catalog.exists(), f"Neither {TRAIN_CATALOG} nor {PUBLIC_TEST_CATALOG} exists!"
+
     # 2. Check catalog & fuzzy params
     from src.part_a.evaluator import load_catalog_fuzzy_params, token_f1
-    fuzzy_params = load_catalog_fuzzy_params(TRAIN_CATALOG)
+    fuzzy_params = load_catalog_fuzzy_params(active_catalog)
     assert len(fuzzy_params) > 0, "Fuzzy params empty!"
     print(f"✅ Catalog indexed: {len(fuzzy_params)} tools have fuzzy matching parameters")
     
@@ -42,7 +46,7 @@ def test_part_a_components():
     
     # 4. Check schema validator
     from src.part_a.validator import load_catalog, get_tool_specs, validate_call
-    catalog = load_catalog(TRAIN_CATALOG)
+    catalog = load_catalog(active_catalog)
     specs = get_tool_specs(catalog)
     val = validate_call("smart_home.light_set", {"device_id": "light_1", "power": "on"}, specs)
     assert val["ok"], f"Validation failed: {val}"
@@ -50,13 +54,15 @@ def test_part_a_components():
 
     # 5. Check Submission Linter
     from src.part_a.submission_linter import SubmissionLinter
-    linter = SubmissionLinter(split="dev")
-    assert len(linter.expected_samples) == 265, f"Expected 265 dev samples, got {len(linter.expected_samples)}"
-    print(f"✅ Submission Linter indexed {len(linter.expected_samples)} expected dev samples")
+    test_split = "dev" if TRAIN_CATALOG.exists() else "public_test"
+    linter = SubmissionLinter(split=test_split)
+    expected_count = 265 if test_split == "dev" else 634
+    assert len(linter.expected_samples) == expected_count, f"Expected {expected_count} {test_split} samples, got {len(linter.expected_samples)}"
+    print(f"✅ Submission Linter indexed {len(linter.expected_samples)} expected {test_split} samples")
 
     # 6. Check Loss Attributor
     from src.part_a.loss_attribution import LossAttributor
-    attributor = LossAttributor(TRAIN_CATALOG)
+    attributor = LossAttributor(active_catalog)
     assert attributor is not None
     print("✅ Loss Attribution Matrix initialized successfully")
 
