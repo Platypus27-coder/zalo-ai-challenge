@@ -306,9 +306,23 @@ class TransformersAgent(BaseAgent):
             "trust_remote_code": True,
         }
         if self.load_in_4bit:
-            model_kwargs["load_in_4bit"] = True
+            try:
+                from transformers import BitsAndBytesConfig
+                model_kwargs["quantization_config"] = BitsAndBytesConfig(
+                    load_in_4bit=True,
+                    bnb_4bit_compute_dtype=torch.float16,
+                    bnb_4bit_quant_type="nf4",
+                )
+            except Exception as e:
+                print(f"  ⚠️ BitsAndBytesConfig unavailable ({e}), falling back to standard float16...")
+                model_kwargs["torch_dtype"] = torch.float16 if "cuda" in self.device else torch.float32
         elif self.load_in_8bit:
-            model_kwargs["load_in_8bit"] = True
+            try:
+                from transformers import BitsAndBytesConfig
+                model_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
+            except Exception as e:
+                print(f"  ⚠️ BitsAndBytesConfig unavailable ({e}), falling back to standard float16...")
+                model_kwargs["torch_dtype"] = torch.float16 if "cuda" in self.device else torch.float32
         else:
             model_kwargs["torch_dtype"] = torch.float16 if "cuda" in self.device else torch.float32
         
