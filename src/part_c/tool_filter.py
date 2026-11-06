@@ -56,59 +56,38 @@ def filter_tools_for_sample(
 
 
 def format_tool_for_prompt(tool_spec: dict) -> str:
-    """Format a single tool spec into a concise LLM-readable description."""
+    """Format a single tool spec into a concise, token-efficient LLM description."""
     name = tool_spec["name"]
     kind = tool_spec.get("kind", "unknown")
     desc = tool_spec.get("description", "")
     
     params_spec = tool_spec.get("parameters", {})
     properties = params_spec.get("properties", {})
-    required = params_spec.get("required", [])
+    required = set(params_spec.get("required", []))
     x_one_of = params_spec.get("x-one-of", [])
     
-    # Format parameters
-    param_lines = []
+    # Format parameters in signature style: name*(type)
+    param_strs = []
     for pname, pspec in properties.items():
-        ptype = pspec.get("type", "any")
-        pdesc = pspec.get("description", "")
         is_req = pname in required
-        
-        parts = [f"  - {pname}: {ptype}"]
-        if is_req:
-            parts.append("(BẮT BUỘC)")
+        ptype = pspec.get("type", "any")
         if pspec.get("enum"):
-            parts.append(f"[{', '.join(str(e) for e in pspec['enum'])}]")
-        if pspec.get("format"):
-            parts.append(f"format: {pspec['format']}")
-        if pspec.get("x-ref"):
-            parts.append(f"(ID từ {pspec['x-ref']})")
-        if pspec.get("x-match") == "fuzzy":
-            parts.append("(văn bản tự do)")
-        if pdesc:
-            parts.append(f"— {pdesc}")
-        if pspec.get("minimum") is not None:
-            parts.append(f"min={pspec['minimum']}")
-        if pspec.get("maximum") is not None:
-            parts.append(f"max={pspec['maximum']}")
-        
-        param_lines.append(" ".join(parts))
+            ptype = "[" + "|".join(str(e) for e in pspec["enum"]) + "]"
+        xref = pspec.get("x-ref")
+        if xref:
+            ptype += f"(ID từ {xref})"
+        req_marker = "*" if is_req else ""
+        param_strs.append(f"{pname}{req_marker}: {ptype}")
     
-    # Format x-one-of
-    oneof_str = ""
+    kind_label = {"read": "ĐỌC", "write": "GHI", "meta": "SYS"}.get(kind, kind.upper())
+    sig = f"[{kind_label}] {name}({', '.join(param_strs)})"
+    if desc:
+        sig += f" — {desc}"
     if x_one_of:
-        groups = " HOẶC ".join(" + ".join(g) for g in x_one_of)
-        oneof_str = f"\n  Cần một trong: {groups}"
+        groups = " HOẶC ".join("+".join(g) for g in x_one_of)
+        sig += f" (Cần 1 trong: {groups})"
     
-    # Build output
-    kind_label = {"read": "ĐỌC", "write": "GHI", "meta": "HỆ THỐNG"}.get(kind, kind)
-    
-    result = f"[{kind_label}] {name}: {desc}"
-    if param_lines:
-        result += "\n" + "\n".join(param_lines)
-    if oneof_str:
-        result += oneof_str
-    
-    return result
+    return sig
 
 
 def format_tools_for_prompt(
@@ -124,7 +103,6 @@ def format_tools_for_prompt(
         group_by_app: Group tools by app
     """
     if group_by_app:
-        # Group by app
         apps = {}
         for name, spec in tool_specs.items():
             app = spec.get("app", name.split(".")[0])
@@ -134,12 +112,11 @@ def format_tools_for_prompt(
         for app_name in sorted(apps.keys()):
             tools = apps[app_name]
             tool_strs = [format_tool_for_prompt(t) for t in sorted(tools, key=lambda t: t["name"])]
-            sections.append(f"## {app_name}\n" + "\n\n".join(tool_strs))
+            sections.append(f"### {app_name}\n" + "\n".join(tool_strs))
         
         return "\n\n".join(sections)
     else:
-        tool_strs = [format_tool_for_prompt(spec) for spec in sorted(tool_specs.values(), key=lambda t: t["name"])]
-        return "\n\n".join(tool_strs)
+        return "\n".join(format_tool_for_prompt(spec) for spec in sorted(tool_specs.values(), key=lambda t: t["name"]))
 
 
 def format_tools_as_json_schema(tool_specs: dict[str, dict]) -> list[dict]:
@@ -159,10 +136,17 @@ def format_tools_as_json_schema(tool_specs: dict[str, dict]) -> list[dict]:
 
 
 if __name__ == "__main__":
+    import sys
+    if sys.platform == "win32":
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+            sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     # Test tool filtering
     print("=== Tool Filter Test ===\n")
     
-    catalog = load_catalog(TRAIN_CATALOG)
+    catalog = load_catalog(PUBLIC_TEST_CATALOG if PUBLIC_TEST_CATALOG.exists() else TRAIN_CATALOG)
     all_specs = get_all_tool_specs(catalog)
     print(f"Total tools in catalog: {len(all_specs)}")
     

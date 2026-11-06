@@ -1,3 +1,5 @@
+import os
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 """Part C — Agent Module: LLM-based tool-calling agent.
 
 Architecture:
@@ -258,14 +260,18 @@ class TransformersAgent(BaseAgent):
         model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
         catalog_path: Path = DEFAULT_CATALOG,
         device: str = "cuda",
-        max_new_tokens: int = 512,
+        max_new_tokens: int = 256,
         max_steps: int = 10,
+        load_in_4bit: bool = False,
+        load_in_8bit: bool = False,
         verbose: bool = False,
     ):
         super().__init__(catalog_path=catalog_path, max_steps=max_steps, verbose=verbose)
         self.model_name = model_name
         self.device = device
         self.max_new_tokens = max_new_tokens
+        self.load_in_4bit = load_in_4bit
+        self.load_in_8bit = load_in_8bit
         self._model = None
         self._tokenizer = None
     
@@ -291,11 +297,26 @@ class TransformersAgent(BaseAgent):
         # Use device_map="auto" for proper multi-layer / multi-GPU mapping on CUDA
         device_map = "auto" if "cuda" in self.device else None
         
+        model_kwargs = {
+            "device_map": device_map,
+            "trust_remote_code": True,
+        }
+        if self.load_in_4bit:
+            model_kwargs["load_in_4bit"] = True
+        elif self.load_in_8bit:
+            model_kwargs["load_in_8bit"] = True
+        else:
+            model_kwargs["torch_dtype"] = torch.float16 if "cuda" in self.device else torch.float32
+        
+        # Use SDPA (Scaled Dot-Product Attention) to avoid quadratic attention memory allocation
+        try:
+            model_kwargs["attn_implementation"] = "sdpa"
+        except Exception:
+            pass
+        
         self._model = AutoModelForCausalLM.from_pretrained(
             self.model_name,
-            torch_dtype=torch.float16 if "cuda" in self.device else torch.float32,
-            device_map=device_map,
-            trust_remote_code=True,
+            **model_kwargs,
         )
         if device_map is None:
             self._model = self._model.to(self.device)
@@ -322,18 +343,21 @@ class TransformersAgent(BaseAgent):
         inputs = self._tokenizer(text, return_tensors="pt").to(device)
         pad_token_id = self._tokenizer.pad_token_id if self._tokenizer.pad_token_id is not None else self._tokenizer.eos_token_id
         
-        with torch.no_grad():
+        with torch.inference_mode():
             outputs = self._model.generate(
                 **inputs,
                 max_new_tokens=self.max_new_tokens,
                 do_sample=False,  # Greedy decoding for reproducibility
-                temperature=1.0,  # Not used with do_sample=False
                 pad_token_id=pad_token_id,
             )
         
         # Decode only the new tokens
         new_tokens = outputs[0][inputs["input_ids"].shape[1]:]
         response = self._tokenizer.decode(new_tokens, skip_special_tokens=True)
+        
+        del inputs, outputs, new_tokens
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
         
         return response.strip()
 
@@ -411,6 +435,8 @@ def create_agent(
     mode: str = "rule",
     model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
     catalog_path: Path = DEFAULT_CATALOG,
+    load_in_4bit: bool = False,
+    load_in_8bit: bool = False,
     verbose: bool = False,
 ) -> BaseAgent:
     """Factory function to create an agent.
@@ -419,12 +445,20 @@ def create_agent(
         mode: "rule" (baseline), "transformers", "vllm"
         model_name: HuggingFace model name
         catalog_path: Path to tools catalog
+        load_in_4bit: Quantize LLM to 4-bit (saves VRAM on Colab T4)
+        load_in_8bit: Quantize LLM to 8-bit
         verbose: Print debug info
     """
     if mode == "rule":
         return RuleBasedAgent(catalog_path=catalog_path, verbose=verbose)
     elif mode == "transformers":
-        return TransformersAgent(model_name=model_name, catalog_path=catalog_path, verbose=verbose)
+        return TransformersAgent(
+            model_name=model_name,
+            catalog_path=catalog_path,
+            load_in_4bit=load_in_4bit,
+            load_in_8bit=load_in_8bit,
+            verbose=verbose,
+        )
     elif mode == "vllm":
         return VLLMAgent(model_name=model_name, catalog_path=catalog_path, verbose=verbose)
     else:

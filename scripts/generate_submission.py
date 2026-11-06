@@ -1,3 +1,5 @@
+import os
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 """Generate submission.jsonl for public_test or private_test."""
 import sys
 import json
@@ -29,6 +31,10 @@ def main():
                         help="Path to precomputed transcripts JSON")
     parser.add_argument("--model-name", default="Qwen/Qwen3-4B-Instruct-2507")
     parser.add_argument("--asr-model", default="large-v3-turbo")
+    parser.add_argument("--load-in-4bit", action="store_true",
+                        help="Quantize LLM to 4-bit (bitsandbytes) to save VRAM on Colab T4")
+    parser.add_argument("--load-in-8bit", action="store_true",
+                        help="Quantize LLM to 8-bit")
     parser.add_argument("--output", default=None, help="Output file path")
     parser.add_argument("--max-samples", type=int, default=None)
     parser.add_argument("--verbose", action="store_true")
@@ -82,6 +88,8 @@ def main():
         mode=args.agent_mode,
         model_name=args.model_name,
         catalog_path=catalog_path,
+        load_in_4bit=args.load_in_4bit,
+        load_in_8bit=args.load_in_8bit,
         verbose=args.verbose,
     )
     if hasattr(agent, 'load'):
@@ -121,6 +129,13 @@ def main():
                 "tool_calls": tool_calls,
                 "state_hash": state_hash,
             })
+        finally:
+            try:
+                import torch
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+            except ImportError:
+                pass
         
         if (i + 1) % 50 == 0:
             elapsed = time.monotonic() - start
