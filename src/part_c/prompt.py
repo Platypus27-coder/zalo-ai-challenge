@@ -24,8 +24,8 @@ SYSTEM_PROMPT = """Bạn là trợ lý AI xử lý yêu cầu bằng giọng nó
 6. Giữ nguyên số tiền, số điện thoại, tên riêng từ yêu cầu. Không làm tròn, không sửa.
 7. Chú ý câu phủ định: "không", "đừng", "thôi", "bỏ", "hủy" thay đổi ý nghĩa yêu cầu.
 
-## ĐỊNH DẠNG TRẢ LỜI
-Mỗi bước trả lời ĐÚNG MỘT trong hai dạng:
+## ĐỊNH DẠNG TRẢ LỜI (BẮT BUỘC)
+Câu trả lời PHẢI BẮT ĐẦU NGAY LẬP TỨC bằng một trong hai dạng (TUYỆT ĐỐI KHÔNG viết lời chào, lời mở đầu, hay tóm tắt lại yêu cầu):
 - Gọi tool: CALL: {"name": "<tool_name>", "arguments": {<params>}}
 - Kết thúc: DONE
 
@@ -97,9 +97,9 @@ def build_user_prompt(
     if observations:
         obs_text = format_observations(observations)
         parts.append(f"## KẾT QUẢ CÁC BƯỚC TRƯỚC\n{obs_text}")
-        parts.append("Dựa trên kết quả trên, hãy quyết định bước tiếp theo hoặc trả về DONE nếu đã xong.")
+        parts.append("Dựa trên kết quả trên, hãy trả lời ngay bằng CALL: {...} cho bước tiếp theo hoặc DONE nếu đã xong (không viết lời dẫn hay tóm tắt).")
     else:
-        parts.append("Hãy phân tích yêu cầu và thực hiện bước đầu tiên.")
+        parts.append("Hãy trả lời ngay bằng CALL: {...} cho bước đầu tiên hoặc DONE nếu ngoài phạm vi (không viết lời dẫn hay tóm tắt).")
     
     return "\n\n".join(parts)
 
