@@ -21,6 +21,9 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from config import TRAIN_CATALOG, PUBLIC_TEST_CATALOG, DATA_ROOT
 
+# Fallback to PUBLIC_TEST_CATALOG when running on test-only environments
+DEFAULT_CATALOG = TRAIN_CATALOG if TRAIN_CATALOG.exists() else PUBLIC_TEST_CATALOG
+
 from .prompt import (
     SYSTEM_PROMPT, build_user_prompt, parse_agent_response,
 )
@@ -36,7 +39,7 @@ class BaseAgent:
     
     def __init__(
         self,
-        catalog_path: Path = TRAIN_CATALOG,
+        catalog_path: Path = DEFAULT_CATALOG,
         max_steps: int = 10,
         max_retries: int = 1,
         verbose: bool = False,
@@ -228,7 +231,7 @@ class RuleBasedAgent(BaseAgent):
     - Always reads before writes (to get IDs)
     """
     
-    def __init__(self, catalog_path: Path = TRAIN_CATALOG, verbose: bool = False):
+    def __init__(self, catalog_path: Path = DEFAULT_CATALOG, verbose: bool = False):
         super().__init__(catalog_path=catalog_path, max_steps=8, verbose=verbose)
     
     def generate(self, messages: list[dict], tools: list[dict] | None = None) -> str:
@@ -253,7 +256,7 @@ class TransformersAgent(BaseAgent):
     def __init__(
         self,
         model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
-        catalog_path: Path = TRAIN_CATALOG,
+        catalog_path: Path = DEFAULT_CATALOG,
         device: str = "cuda",
         max_new_tokens: int = 512,
         max_steps: int = 10,
@@ -344,7 +347,7 @@ class VLLMAgent(BaseAgent):
     def __init__(
         self,
         model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
-        catalog_path: Path = TRAIN_CATALOG,
+        catalog_path: Path = DEFAULT_CATALOG,
         max_new_tokens: int = 512,
         max_steps: int = 10,
         verbose: bool = False,
@@ -407,7 +410,7 @@ class VLLMAgent(BaseAgent):
 def create_agent(
     mode: str = "rule",
     model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
-    catalog_path: Path = TRAIN_CATALOG,
+    catalog_path: Path = DEFAULT_CATALOG,
     verbose: bool = False,
 ) -> BaseAgent:
     """Factory function to create an agent.

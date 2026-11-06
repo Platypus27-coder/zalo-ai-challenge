@@ -85,7 +85,9 @@ def test_part_c_components():
     from src.part_c.tool_filter import filter_tools_for_sample, get_all_tool_specs
     from src.part_c.agent import create_agent
     
-    catalog = json.load(open(TRAIN_CATALOG, encoding="utf-8"))
+    active_catalog = TRAIN_CATALOG if TRAIN_CATALOG.exists() else PUBLIC_TEST_CATALOG
+    assert active_catalog.exists(), f"Neither {TRAIN_CATALOG} nor {PUBLIC_TEST_CATALOG} exists!"
+    catalog = json.load(open(active_catalog, encoding="utf-8"))
     specs = get_all_tool_specs(catalog)
     sample = {
         "id": "verify_sample",
@@ -99,7 +101,7 @@ def test_part_c_components():
     assert "smart_home.light_set" in filtered, "Filtered tools missing smart_home.light_set"
     print(f"✅ Tool filter: Reduced catalog to {len(filtered)} allowed tools")
     
-    agent = create_agent(mode="rule")
+    agent = create_agent(mode="rule", catalog_path=active_catalog)
     assert agent is not None
     print("✅ Rule-based agent baseline instantiated successfully")
 
