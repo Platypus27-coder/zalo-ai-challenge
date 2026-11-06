@@ -1,25 +1,27 @@
-"""Part C — Agent Module: LLM-based tool-calling agent.
+"""Part C — Agent Module: Sequential tool-calling agent with Evidence Ledger & Task Tracker.
 
-Architecture:
-- Sequential tool-calling loop with validator
-- Uses filtered tool catalog per sample
-- Respects runtime budget (max steps, timeout)
-- Tracks observations for grounding
-
-Three output behaviors:
-1. Execute: call read → write tools
-2. Ask: call sys.ask_missing_info when params are missing
-3. OOS: return no calls when no tool can handle the request
+Features:
+- Sequential tool-calling loop with pre-call validation.
+- Evidence Ledger for entity grounding and ID provenance.
+- Task Tracker for loop prevention and multi-action tracking.
+- Monotonic deadline compliance (leaves 1s buffer for finalization).
+- Terminal handling for sys.ask_missing_info and DONE.
+- Strict Qwen3-4B-Instruct-2507 support (greedy decoding, context limit 16384).
 """
+import copy
 import json
 import time
 import unicodedata
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
-from config import TRAIN_CATALOG, PUBLIC_TEST_CATALOG, DATA_ROOT
+from config import (
+    TRAIN_CATALOG, PUBLIC_TEST_CATALOG, DATA_ROOT,
+    DEFAULT_LLM_MODEL, LOCAL_LLM_DIR, MAX_CONTEXT_TOKENS,
+    MAX_TIME_PER_SAMPLE
+)
 
 from .prompt import (
     SYSTEM_PROMPT, build_user_prompt, parse_agent_response,
@@ -28,66 +30,67 @@ from .tool_filter import (
     load_catalog, get_all_tool_specs, filter_tools_for_sample,
     format_tools_for_prompt, format_tools_as_json_schema,
 )
+from .evidence_ledger import EvidenceLedger
+from .task_tracker import TaskTracker
 
 
 class BaseAgent:
-    """Base agent class. Subclass and implement `generate()` for specific LLM backends."""
+    """Base agent class defining the sequential tool-execution loop."""
     
     def __init__(
         self,
         catalog_path: Path = TRAIN_CATALOG,
         max_steps: int = 10,
-        max_retries: int = 1,
+        max_repairs: int = 2,
         verbose: bool = False,
     ):
-        """
-        Args:
-            catalog_path: Path to tools catalog JSON
-            max_steps: Maximum tool calls per sample
-            max_retries: Max retries on validation error before giving up
-            verbose: Print debug info
-        """
         self.catalog = load_catalog(catalog_path)
         self.all_tool_specs = get_all_tool_specs(self.catalog)
         self.max_steps = max_steps
-        self.max_retries = max_retries
+        self.max_repairs = max_repairs
         self.verbose = verbose
     
     def generate(self, messages: list[dict], tools: list[dict] | None = None) -> str:
-        """Generate next response from LLM.
-        
-        Args:
-            messages: Chat messages [{"role": ..., "content": ...}]
-            tools: Optional tool definitions for function calling
-        
-        Returns: LLM response text
-        
-        Must be implemented by subclasses.
-        """
+        """Generate response from LLM backend. Subclasses must implement."""
         raise NotImplementedError("Subclass must implement generate()")
     
-    def run(self, transcript: str, sample: dict, env) -> None:
+    def run(
+        self,
+        transcript: str,
+        sample: dict,
+        env,
+        deadline: Optional[float] = None,
+    ) -> None:
         """Run the agent loop on a single sample.
         
-        This is the main entry point called by the Runner.
-        The agent calls env.call() / env.validate() internally.
-        
         Args:
-            transcript: ASR transcript (or gold text)
+            transcript: ASR transcript (or gold text for debugging)
             sample: Full sample dict with context, history, etc.
-            env: ToolEnv session for this sample
+            env: ToolEnv session for this sample (only 1 instance per run)
+            deadline: Optional monotonic timestamp deadline (start_time + max_time)
         """
-        # Filter tools for this sample
+        # Filter allowed tools for this sample (installed_apps + sys.ask_missing_info)
         sample_tools = filter_tools_for_sample(sample, self.all_tool_specs)
         tools_text = format_tools_for_prompt(sample_tools)
         
         context = sample.get("context", {})
         history = sample.get("history", [])
         
+        # Initialize Evidence Ledger and Task Tracker
+        ledger = EvidenceLedger(sample)
+        tracker = TaskTracker(raw_transcript=transcript)
+        
         observations = []
+        repairs_used = 0
         
         for step in range(self.max_steps):
-            # Build prompt
+            # 1. Check monotonic deadline (leave 1.0s buffer for trace collection and hash calculation)
+            if deadline is not None and time.monotonic() >= (deadline - 1.0):
+                if self.verbose:
+                    print(f"    [Step {step}] Approaching deadline, finishing early.")
+                break
+            
+            # 2. Build user prompt with bounded observations
             user_prompt = build_user_prompt(
                 transcript=transcript,
                 context=context,
@@ -101,35 +104,63 @@ class BaseAgent:
                 {"role": "user", "content": user_prompt},
             ]
             
-            # Generate response
+            # 3. Generate response from LLM
             try:
                 response = self.generate(messages)
             except Exception as e:
                 if self.verbose:
-                    print(f"    LLM error at step {step}: {e}")
+                    print(f"    [Step {step}] LLM generation error: {e}")
                 break
             
-            # Parse response
+            # 4. Parse response
             parsed = parse_agent_response(response)
+            action = parsed.get("action")
             
-            if parsed["action"] == "done":
+            if action == "done":
                 if self.verbose:
-                    print(f"    Step {step}: DONE")
+                    print(f"    [Step {step}] Agent signaled DONE.")
                 break
             
-            elif parsed["action"] == "call":
-                name = parsed["name"]
-                arguments = parsed["arguments"]
+            elif action == "call":
+                name = parsed.get("name", "")
+                raw_arguments = parsed.get("arguments", {})
                 
-                # NFC normalize string arguments (but not IDs from tool results)
-                arguments = self._normalize_arguments(arguments, observations)
+                # Check tool allowlist
+                if name not in sample_tools:
+                    if self.verbose:
+                        print(f"    [Step {step}] Tool '{name}' not in allowed tools for this sample. Skipping.")
+                    if repairs_used < self.max_repairs:
+                        repairs_used += 1
+                        observations.append({
+                            "call": {"name": name, "arguments": raw_arguments},
+                            "result": {"ok": False, "error": f"Tool '{name}' không thuộc ứng dụng đã cài đặt."},
+                        })
+                        continue
+                    else:
+                        break
                 
-                # Validate before calling
+                # Normalize arguments (preserve exact opaque IDs from ledger/observations)
+                arguments = self._normalize_arguments(name, raw_arguments, ledger)
+                
+                # Loop guard check
+                if tracker.is_looping(name, arguments):
+                    if self.verbose:
+                        print(f"    [Step {step}] Loop detected for {name}({arguments}). Terminating loop.")
+                    break
+                
+                # Pre-call validation via env.validate (do NOT call env.call on schema error)
                 validation = env.validate(name, arguments)
                 
                 if validation.get("ok"):
-                    # Execute the call
+                    # Execute tool call on environment
                     result = env.call(name, arguments)
+                    tool_kind = sample_tools.get(name, {}).get("kind", "write")
+                    
+                    # Update ledger and tracker
+                    ledger.update_from_tool_result(name, arguments, result)
+                    if tool_kind == "write":
+                        ledger.invalidate_on_write(name, arguments)
+                    tracker.record_call(name, arguments, result, tool_kind)
                     
                     observations.append({
                         "call": {"name": name, "arguments": arguments},
@@ -137,99 +168,88 @@ class BaseAgent:
                     })
                     
                     if self.verbose:
-                        ok_str = "✓" if result.get("ok") else "✗"
-                        print(f"    Step {step}: {ok_str} {name}({json.dumps(arguments, ensure_ascii=False)[:100]})")
+                        ok_symbol = "✓" if result.get("ok") else "✗"
+                        print(f"    [Step {step}] {ok_symbol} {name}({json.dumps(arguments, ensure_ascii=False)[:80]})")
+                    
+                    # Terminal rule: sys.ask_missing_info is terminal
+                    if name == "sys.ask_missing_info":
+                        if self.verbose:
+                            print(f"    [Step {step}] sys.ask_missing_info called. Ending session.")
+                        break
                 else:
                     # Validation failed — DO NOT call env.call()!
-                    # Give agent a chance to retry
                     error_msg = validation.get("error", "validation failed")
-                    observations.append({
-                        "call": {"name": name, "arguments": arguments},
-                        "result": {"ok": False, "error": f"[VALIDATION] {error_msg}"},
-                    })
-                    
                     if self.verbose:
-                        print(f"    Step {step}: ✗ VALIDATION: {error_msg}")
+                        print(f"    [Step {step}] ✗ VALIDATION ERROR: {error_msg}")
+                    
+                    if repairs_used < self.max_repairs:
+                        repairs_used += 1
+                        observations.append({
+                            "call": {"name": name, "arguments": arguments},
+                            "result": {"ok": False, "error": f"[VALIDATION REJECTED] {error_msg}"},
+                        })
+                    else:
+                        break
             
-            elif parsed["action"] == "error":
+            elif action == "error":
                 if self.verbose:
-                    print(f"    Step {step}: PARSE ERROR: {parsed['message'][:100]}")
-                # Give one more chance
-                if step == 0:
-                    continue
-                break
+                    print(f"    [Step {step}] PARSE ERROR: {parsed.get('message', '')[:100]}")
+                if repairs_used < self.max_repairs:
+                    repairs_used += 1
+                    observations.append({
+                        "call": {"name": "unknown", "arguments": {}},
+                        "result": {"ok": False, "error": "Định dạng câu trả lời không đúng. Hãy trả về <tool_call>... JSON ...</tool_call> hoặc DONE."},
+                    })
+                else:
+                    break
     
-    def _normalize_arguments(self, arguments: dict, observations: list[dict]) -> dict:
-        """NFC normalize string values, but preserve IDs from tool results."""
-        # Collect IDs we've seen from tool results
-        known_ids = set()
-        for obs in observations:
-            result = obs.get("result", {})
-            self._collect_ids(result, known_ids)
-        
+    def _normalize_arguments(self, tool_name: str, arguments: dict, ledger: EvidenceLedger) -> dict:
+        """NFC normalize string values, but preserve IDs from Evidence Ledger."""
+        known_ids = ledger.get_known_ids()
         normalized = {}
         for key, value in arguments.items():
             if isinstance(value, str):
-                if value in known_ids:
-                    # Preserve ID exactly as received from tool
+                # If key looks like an ID or value is an exact known ID, keep unchanged
+                if key.endswith("_id") or key == "id" or value in known_ids:
                     normalized[key] = value
                 else:
-                    # NFC normalize text from ASR/LLM
                     normalized[key] = unicodedata.normalize("NFC", value)
+            elif isinstance(value, dict):
+                normalized[key] = self._normalize_arguments(tool_name, value, ledger)
+            elif isinstance(value, list):
+                normalized[key] = [
+                    unicodedata.normalize("NFC", x) if isinstance(x, str) and x not in known_ids else x
+                    for x in value
+                ]
             else:
                 normalized[key] = value
-        
         return normalized
-    
-    def _collect_ids(self, data: Any, ids: set):
-        """Recursively collect ID-like values from tool results."""
-        if isinstance(data, dict):
-            for key, value in data.items():
-                if key in ("id", "device_id", "contact_id", "event_id", "ride_id",
-                          "bill_id", "track_id", "playlist_id", "message_id",
-                          "chat_id", "alarm_id", "reminder_id", "note_id"):
-                    if isinstance(value, str):
-                        ids.add(value)
-                self._collect_ids(value, ids)
-        elif isinstance(data, list):
-            for item in data:
-                self._collect_ids(item, ids)
 
 
 class RuleBasedAgent(BaseAgent):
-    """Simple rule-based agent for baseline testing (no LLM needed).
-    
-    Strategy:
-    - If transcript is empty or no tools match → OOS
-    - Simple keyword matching to select tools
-    - Always reads before writes (to get IDs)
-    """
+    """Simple rule-based baseline agent (returns DONE, suitable for baseline/OOS verification)."""
     
     def __init__(self, catalog_path: Path = TRAIN_CATALOG, verbose: bool = False):
         super().__init__(catalog_path=catalog_path, max_steps=8, verbose=verbose)
     
     def generate(self, messages: list[dict], tools: list[dict] | None = None) -> str:
-        """Rule-based 'generation' — returns DONE for baseline."""
         return "DONE"
     
-    def run(self, transcript: str, sample: dict, env) -> None:
-        """Simple baseline: just return empty (OOS for everything).
-        
-        This establishes the minimum baseline. Real agent should override this.
-        """
-        # For baseline, just return nothing (will get OOS correct, everything else wrong)
+    def run(self, transcript: str, sample: dict, env, deadline: Optional[float] = None) -> None:
+        """Baseline run: performs no calls (pure OOS baseline)."""
         pass
 
 
 class TransformersAgent(BaseAgent):
-    """Agent using HuggingFace Transformers for LLM inference.
+    """Agent using HuggingFace Transformers for offline LLM inference.
     
-    Suitable for Colab T4 / Kaggle T4x2 with models < 5B params.
+    Default model: Qwen/Qwen3-4B-Instruct-2507 (or local path in models/llm/).
+    Greedy decoding (do_sample=False, temperature=0.0) for 100% bitwise determinism.
     """
     
     def __init__(
         self,
-        model_name: str = "Qwen/Qwen2.5-3B-Instruct",
+        model_name: str = DEFAULT_LLM_MODEL,
         catalog_path: Path = TRAIN_CATALOG,
         device: str = "cuda",
         max_new_tokens: int = 512,
@@ -244,7 +264,7 @@ class TransformersAgent(BaseAgent):
         self._tokenizer = None
     
     def load(self):
-        """Load model and tokenizer."""
+        """Load model and tokenizer from local files or specified path."""
         if self._model is not None:
             return
         
@@ -254,33 +274,44 @@ class TransformersAgent(BaseAgent):
         except ImportError:
             raise ImportError("transformers and torch required. pip install transformers torch")
         
-        print(f"Loading LLM: {self.model_name}...")
+        # Check local path first
+        load_path = self.model_name
+        if LOCAL_LLM_DIR.is_dir():
+            load_path = str(LOCAL_LLM_DIR)
+        
+        if self.verbose:
+            print(f"Loading LLM: {load_path}...")
         start = time.monotonic()
         
         self._tokenizer = AutoTokenizer.from_pretrained(
-            self.model_name,
-            trust_remote_code=True,
+            load_path,
+            local_files_only=Path(load_path).is_dir(),
+            trust_remote_code=False,
         )
         
+        torch_device = self.device if torch.cuda.is_available() and self.device == "cuda" else "cpu"
+        dtype = torch.bfloat16 if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else (torch.float16 if torch.cuda.is_available() else torch.float32)
+        
         self._model = AutoModelForCausalLM.from_pretrained(
-            self.model_name,
-            torch_dtype=torch.float16,
-            device_map=self.device,
-            trust_remote_code=True,
+            load_path,
+            torch_dtype=dtype,
+            device_map=torch_device,
+            local_files_only=Path(load_path).is_dir(),
+            trust_remote_code=False,
         )
         self._model.eval()
         
         elapsed = time.monotonic() - start
-        print(f"LLM loaded in {elapsed:.1f}s")
+        if self.verbose:
+            print(f"LLM loaded in {elapsed:.1f}s on {torch_device}")
     
     def generate(self, messages: list[dict], tools: list[dict] | None = None) -> str:
-        """Generate response using Transformers model."""
+        """Generate response using greedy decoding for deterministic results."""
         if self._model is None:
             self.load()
         
         import torch
         
-        # Apply chat template
         text = self._tokenizer.apply_chat_template(
             messages,
             tokenize=False,
@@ -289,31 +320,32 @@ class TransformersAgent(BaseAgent):
         
         inputs = self._tokenizer(text, return_tensors="pt").to(self._model.device)
         
+        # Cap input tokens to prevent context overflow
+        if inputs["input_ids"].shape[1] + self.max_new_tokens > MAX_CONTEXT_TOKENS:
+            max_input_len = MAX_CONTEXT_TOKENS - self.max_new_tokens
+            inputs["input_ids"] = inputs["input_ids"][:, -max_input_len:]
+            if "attention_mask" in inputs:
+                inputs["attention_mask"] = inputs["attention_mask"][:, -max_input_len:]
+        
         with torch.no_grad():
             outputs = self._model.generate(
                 **inputs,
                 max_new_tokens=self.max_new_tokens,
-                do_sample=False,  # Greedy decoding for reproducibility
-                temperature=1.0,  # Not used with do_sample=False
+                do_sample=False,
                 pad_token_id=self._tokenizer.eos_token_id,
             )
         
-        # Decode only the new tokens
         new_tokens = outputs[0][inputs["input_ids"].shape[1]:]
         response = self._tokenizer.decode(new_tokens, skip_special_tokens=True)
-        
         return response.strip()
 
 
 class VLLMAgent(BaseAgent):
-    """Agent using vLLM for fast LLM inference.
-    
-    Recommended for production / evaluation runs.
-    """
+    """Agent using vLLM for high-throughput batch=1 inference on A30."""
     
     def __init__(
         self,
-        model_name: str = "Qwen/Qwen2.5-3B-Instruct",
+        model_name: str = DEFAULT_LLM_MODEL,
         catalog_path: Path = TRAIN_CATALOG,
         max_new_tokens: int = 512,
         max_steps: int = 10,
@@ -326,7 +358,6 @@ class VLLMAgent(BaseAgent):
         self._tokenizer = None
     
     def load(self):
-        """Load vLLM model."""
         if self._llm is not None:
             return
         
@@ -335,22 +366,27 @@ class VLLMAgent(BaseAgent):
         except ImportError:
             raise ImportError("vllm required. pip install vllm")
         
-        print(f"Loading vLLM: {self.model_name}...")
+        load_path = self.model_name
+        if LOCAL_LLM_DIR.is_dir():
+            load_path = str(LOCAL_LLM_DIR)
+        
+        if self.verbose:
+            print(f"Loading vLLM: {load_path}...")
         start = time.monotonic()
         
         self._llm = LLM(
-            model=self.model_name,
-            trust_remote_code=True,
-            dtype="float16",
-            max_model_len=16384,
+            model=load_path,
+            trust_remote_code=False,
+            dtype="bfloat16",
+            max_model_len=MAX_CONTEXT_TOKENS,
         )
         self._tokenizer = self._llm.get_tokenizer()
         
         elapsed = time.monotonic() - start
-        print(f"vLLM loaded in {elapsed:.1f}s")
+        if self.verbose:
+            print(f"vLLM loaded in {elapsed:.1f}s")
     
     def generate(self, messages: list[dict], tools: list[dict] | None = None) -> str:
-        """Generate response using vLLM."""
         if self._llm is None:
             self.load()
         
@@ -365,28 +401,27 @@ class VLLMAgent(BaseAgent):
         sampling = SamplingParams(
             max_tokens=self.max_new_tokens,
             temperature=0,  # Greedy
-            stop=["DONE", "\n\nUser:", "\n\n##"],
+            stop=["DONE", "<done>"],
         )
         
-        outputs = self._llm.generate([text], sampling)
+        outputs = self._llm.generate([text], sampling, use_tqdm=False)
         response = outputs[0].outputs[0].text
-        
         return response.strip()
 
 
 def create_agent(
     mode: str = "rule",
-    model_name: str = "Qwen/Qwen2.5-3B-Instruct",
+    model_name: str = DEFAULT_LLM_MODEL,
     catalog_path: Path = TRAIN_CATALOG,
     verbose: bool = False,
 ) -> BaseAgent:
-    """Factory function to create an agent.
+    """Factory function to instantiate an agent.
     
     Args:
         mode: "rule" (baseline), "transformers", "vllm"
-        model_name: HuggingFace model name
-        catalog_path: Path to tools catalog
-        verbose: Print debug info
+        model_name: HuggingFace model repo or local path
+        catalog_path: Path to catalog JSON
+        verbose: Print debug logs
     """
     if mode == "rule":
         return RuleBasedAgent(catalog_path=catalog_path, verbose=verbose)
@@ -396,26 +431,3 @@ def create_agent(
         return VLLMAgent(model_name=model_name, catalog_path=catalog_path, verbose=verbose)
     else:
         raise ValueError(f"Unknown agent mode: {mode}")
-
-
-if __name__ == "__main__":
-    # Test rule-based agent (no GPU needed)
-    print("=== Agent Module Test (Rule-Based Baseline) ===\n")
-    
-    agent = create_agent(mode="rule", verbose=True)
-    
-    # Simulate a sample
-    sample = {
-        "id": "test_001",
-        "context": {
-            "current_time": "2026-11-02T15:00:00+07:00",
-            "timezone": "Asia/Ho_Chi_Minh",
-            "installed_apps": {
-                "smart_home": {"tools": ["smart_home.get_status", "smart_home.light_set"]},
-            }
-        },
-        "history": [],
-    }
-    
-    print("Rule-based agent returns empty (baseline OOS).")
-    print("To test with LLM, use: create_agent(mode='transformers', model_name='...')")

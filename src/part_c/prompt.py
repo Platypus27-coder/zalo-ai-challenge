@@ -1,30 +1,39 @@
-"""Part C — Prompt Templates: System and user prompts for the Agent LLM.
+"""Part C — Prompt Templates: System prompts, user prompts, and protocol parser for Qwen3-4B-Instruct.
 
-Design principles:
-- Concise: minimize token usage (16K context limit)
-- Action-oriented: Agent is judged on actions, not words
-- Vietnamese-aware: handle Vietnamese time, names, addresses
-- Structured output: guide LLM to produce parseable tool calls
+Supports:
+1. Native Qwen3 function calling format: <tool_call>\n{"name": "...", "arguments": {...}}\n</tool_call>
+2. Legacy text protocol: CALL: {"name": "...", "arguments": {...}} / DONE
+3. Strict parsing & terminal action identification with nested JSON support.
 """
+from __future__ import annotations
+
+import json
+import re
+from typing import Any, Optional
 
 
-SYSTEM_PROMPT = """Bạn là trợ lý AI xử lý yêu cầu bằng giọng nói tiếng Việt. Nhiệm vụ: phân tích yêu cầu và gọi các công cụ (tool) phù hợp.
+SYSTEM_PROMPT = """Bạn là trợ lý AI xử lý yêu cầu bằng giọng nói tiếng Việt cho hệ thống LifeMate.
+Nhiệm vụ: phân tích yêu cầu của người dùng và gọi các công cụ (tool) phù hợp một cách tuần tự.
 
-## QUY TẮC BẮT BUỘC
-1. CHỈ gọi tool có trong danh sách được cung cấp.
-2. Nếu cần ID (device_id, contact_id, event_id...), PHẢI gọi tool đọc (read) trước để lấy ID thật. KHÔNG ĐƯỢC tự bịa ID.
-3. Nếu thiếu thông tin bắt buộc mà không thể suy luận từ ngữ cảnh, gọi sys.ask_missing_info.
-4. Nếu không có tool nào phù hợp, trả về DONE (không gọi tool nào).
-5. Thời gian "mai" = ngày tiếp theo so với current_time. Dùng timezone của mẫu.
-6. Giữ nguyên số tiền, số điện thoại, tên riêng từ yêu cầu. Không làm tròn, không sửa.
-7. Chú ý câu phủ định: "không", "đừng", "thôi", "bỏ", "hủy" thay đổi ý nghĩa yêu cầu.
+## QUY TẮC BẮT BUỘC:
+1. CHỈ gọi các tool có trong danh sách công cụ được cung cấp (thuộc app đã cài đặt).
+2. THỨ TỰ THỰC THI (Read -> Write): Nếu cần ID (device_id, contact_id, event_id, alarm_id, v.v.), BẮT BUỘC phải gọi tool đọc (read/get/search/list) để lấy ID thật trước. TUYỆT ĐỐI KHÔNG tự bịa ID.
+3. HỎI THÔNG TIN THIẾU: Nếu người dùng chưa cung cấp đủ tham số bắt buộc và không thể tra cứu từ hệ thống, hãy gọi tool `sys.ask_missing_info` với `tool_name` dự định và danh sách `params` bị thiếu. Sau khi gọi tool này, dừng lại ngay.
+4. NGOÀI PHẠM VI (Out-of-Scope): Nếu yêu cầu thuộc về ứng dụng chưa được cài đặt, hoặc không có tool nào phù hợp, trả về `DONE` ngay lập tức mà không gọi tool nào.
+5. THỜI GIAN & ĐỊA ĐIỂM:
+   - Căn cứ vào `current_time` và `timezone` được cung cấp trong ngữ cảnh.
+   - Giữ nguyên số tiền, số điện thoại, tên riêng, không làm tròn số và không sửa chính tả tên riêng.
+6. CÂU PHỦ ĐỊNH: Chú ý từ ngữ phủ định hoặc hủy lệnh ("không", "đừng", "thôi", "hủy", "bỏ qua") làm thay đổi hoàn toàn ý định.
 
-## ĐỊNH DẠNG TRẢ LỜI
-Mỗi bước trả lời ĐÚNG MỘT trong hai dạng:
-- Gọi tool: CALL: {"name": "<tool_name>", "arguments": {<params>}}
-- Kết thúc: DONE
-
-Sau khi gọi tool, bạn sẽ nhận observation. Dùng observation để quyết định bước tiếp theo."""
+## GIAO THỨC TRẢ LỜI:
+Mỗi lượt suy luận, bạn CHỈ ĐƯỢC thực hiện ĐÚNG MỘT hành động:
+- Gọi tool:
+<tool_call>
+{"name": "<tool_name>", "arguments": {<tham_số>}}
+</tool_call>
+- Hoặc kết thúc khi đã hoàn thành hoặc ngoài phạm vi:
+DONE
+"""
 
 
 def build_user_prompt(
@@ -34,18 +43,10 @@ def build_user_prompt(
     tools_text: str,
     observations: list[dict] | None = None,
 ) -> str:
-    """Build the user prompt for the Agent LLM.
-    
-    Args:
-        transcript: ASR transcript of user request
-        context: Sample context (current_time, user_profile, etc.)
-        history: Conversation history
-        tools_text: Formatted tool descriptions
-        observations: Previous tool call results in this session
-    """
+    """Build a unified user prompt incorporating context, history, tools, and observations."""
     parts = []
     
-    # Context
+    # 1. Temporal & Environmental Context
     current_time = context.get("current_time", "")
     timezone = context.get("timezone", "Asia/Ho_Chi_Minh")
     user_profile = context.get("user_profile", {})
@@ -53,158 +54,178 @@ def build_user_prompt(
     parts.append(f"## THỜI GIAN\nHiện tại: {current_time} ({timezone})")
     
     if user_profile:
-        profile_str = ", ".join(f"{k}: {v}" for k, v in user_profile.items() if v)
-        parts.append(f"## NGƯỜI DÙNG\n{profile_str}")
+        profile_str = ", ".join(f"{k}: {v}" for k, v in user_profile.items() if v is not None)
+        if profile_str:
+            parts.append(f"## THÔNG TIN NGƯỜI DÙNG\n{profile_str}")
     
     if context.get("location"):
         loc = context["location"]
         parts.append(f"## VỊ TRÍ\nlat={loc.get('lat')}, lng={loc.get('lng')}")
     
-    # History
+    # 2. History
     if history:
         hist_text = format_history(history)
-        parts.append(f"## LỊCH SỬ HỘI THOẠI\n{hist_text}")
+        if hist_text:
+            parts.append(f"## LỊCH SỬ HỘI THOẠI\n{hist_text}")
     
-    # Available tools
-    parts.append(f"## CÔNG CỤ KHẢ DỤNG\n{tools_text}")
+    # 3. Available Tools
+    if tools_text:
+        parts.append(f"## CÔNG CỤ ĐƯỢC PHÉP DÙNG\n{tools_text}")
     
-    # Current request
-    parts.append(f"## YÊU CẦU HIỆN TẠI\n{transcript}")
+    # 4. Current Request
+    parts.append(f"## YÊU CẦU CẦN XỬ LÝ\n{transcript if transcript else '[Yêu cầu trống]'}")
     
-    # Previous observations in this session
+    # 5. Previous observations in this session
     if observations:
         obs_text = format_observations(observations)
-        parts.append(f"## KẾT QUẢ CÁC BƯỚC TRƯỚC\n{obs_text}")
-        parts.append("Dựa trên kết quả trên, hãy quyết định bước tiếp theo.")
+        parts.append(f"## QUAN SÁT TỪ CÁC BƯỚC TRƯỚC\n{obs_text}")
+        parts.append("Dựa trên các quan sát trên, hãy thực hiện bước tiếp theo hoặc trả về DONE nếu đã xong.")
     else:
-        parts.append("Hãy phân tích yêu cầu và thực hiện bước đầu tiên.")
+        parts.append("Hãy phân tích yêu cầu và gọi tool đầu tiên (hoặc DONE nếu ngoài phạm vi).")
     
     return "\n\n".join(parts)
 
 
 def format_history(history: list[dict]) -> str:
-    """Format conversation history concisely."""
+    """Format conversation history concisely without leaking unrelated internal data."""
     lines = []
-    for i, turn in enumerate(history):
+    for turn in history:
         role = turn.get("role", "unknown")
         if role == "user":
-            text = turn.get("audio_text", turn.get("text", "[audio]"))
+            text = turn.get("audio_text") or turn.get("text") or "[audio]"
             lines.append(f"User: {text}")
         elif role == "assistant":
             text = turn.get("text", "")
             if turn.get("tool_calls"):
-                calls = ", ".join(tc["name"] for tc in turn["tool_calls"])
-                lines.append(f"Assistant: [gọi: {calls}] {text}")
-            else:
+                calls_str = ", ".join(tc.get("name", "") for tc in turn["tool_calls"] if isinstance(tc, dict))
+                lines.append(f"Assistant: [Đã gọi: {calls_str}] {text}".strip())
+            elif text:
                 lines.append(f"Assistant: {text}")
-    
     return "\n".join(lines)
 
 
-def format_observations(observations: list[dict]) -> str:
-    """Format previous tool observations concisely."""
+def format_observations(observations: list[dict], max_obs_len: int = 800) -> str:
+    """Format previous tool observations safely, preserving IDs and error details."""
     lines = []
     for i, obs in enumerate(observations):
         call = obs.get("call", {})
         result = obs.get("result", {})
-        
         name = call.get("name", "unknown")
-        args = json.dumps(call.get("arguments", {}), ensure_ascii=False)
+        args_str = json.dumps(call.get("arguments", {}), ensure_ascii=False)
         
         if result.get("ok"):
-            # Truncate long results
             result_str = json.dumps(result, ensure_ascii=False)
-            if len(result_str) > 500:
-                result_str = result_str[:500] + "..."
-            lines.append(f"Bước {i+1}: {name}({args}) → {result_str}")
+            if len(result_str) > max_obs_len:
+                result_str = result_str[:max_obs_len] + "... [dữ liệu dài đã rút gọn]"
+            lines.append(f"Bước {i+1}: {name}({args_str}) -> Thành công: {result_str}")
         else:
-            error = result.get("error", "unknown error")
-            lines.append(f"Bước {i+1}: {name}({args}) → LỖI: {error}")
-    
+            error_msg = result.get("error", "Lỗi không xác định")
+            lines.append(f"Bước {i+1}: {name}({args_str}) -> LỖI: {error_msg}")
     return "\n".join(lines)
 
 
-def parse_agent_response(response: str) -> dict:
-    """Parse agent's response to extract tool call or done signal.
+def _extract_first_json_object(text: str, start_pos: int = 0) -> Optional[dict]:
+    """Robustly extract the first valid JSON object handling arbitrary nesting and escaped quotes."""
+    idx = text.find("{", start_pos)
+    if idx == -1:
+        return None
+    depth = 0
+    in_string = False
+    escape = False
+    start_idx = idx
+    for i in range(idx, len(text)):
+        ch = text[i]
+        if escape:
+            escape = False
+            continue
+        if ch == "\\":
+            escape = True
+            continue
+        if ch == '"':
+            in_string = not in_string
+            continue
+        if not in_string:
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    try:
+                        return json.loads(text[start_idx:i + 1])
+                    except json.JSONDecodeError:
+                        return None
+    return None
+
+
+def parse_agent_response(response: str) -> dict[str, Any]:
+    """Parse agent's LLM response strictly.
     
-    Expected formats:
-    - CALL: {"name": "tool.name", "arguments": {...}}
-    - DONE
+    Recognizes:
+    - Native format: <tool_call>\n{"name": "...", "arguments": {...}}\n</tool_call>
+    - CALL protocol: CALL: {"name": "...", "arguments": {...}}
+    - Terminal: DONE or <done>
     
     Returns:
         {"action": "call", "name": str, "arguments": dict}
         {"action": "done"}
         {"action": "error", "message": str}
     """
-    response = response.strip()
-    
-    # Check for DONE
-    if response.upper().startswith("DONE") or response.upper() == "DONE":
+    if not response:
         return {"action": "done"}
     
-    # Try to extract CALL: {...}
-    import re
+    text = response.strip()
     
-    # Pattern: CALL: followed by JSON
-    call_match = re.search(r'CALL:\s*(\{.*\})', response, re.DOTALL)
-    if call_match:
-        try:
-            call_data = json.loads(call_match.group(1))
+    # 1. Check for explicit completion / OOS signal
+    if text.upper() == "DONE" or text.upper().startswith("DONE") or text == "<done>":
+        return {"action": "done"}
+    
+    # 2. Check for native Qwen3 format: <tool_call> ... </tool_call>
+    tool_call_start = text.find("<tool_call>")
+    if tool_call_start != -1:
+        obj = _extract_first_json_object(text, tool_call_start)
+        if isinstance(obj, dict) and "name" in obj:
             return {
                 "action": "call",
-                "name": call_data.get("name", ""),
-                "arguments": call_data.get("arguments", {}),
+                "name": str(obj["name"]).strip(),
+                "arguments": obj.get("arguments") if isinstance(obj.get("arguments"), dict) else {}
             }
-        except json.JSONDecodeError:
-            pass
-    
-    # Try to find any JSON with "name" and "arguments"
-    json_match = re.search(r'\{[^{}]*"name"\s*:\s*"[^"]+"\s*,\s*"arguments"\s*:\s*\{[^}]*\}[^{}]*\}', response)
-    if json_match:
-        try:
-            call_data = json.loads(json_match.group(0))
+            
+    # 3. Check for CALL: {...} protocol
+    call_pos = text.find("CALL:")
+    if call_pos != -1:
+        obj = _extract_first_json_object(text, call_pos)
+        if isinstance(obj, dict) and "name" in obj:
             return {
                 "action": "call",
-                "name": call_data.get("name", ""),
-                "arguments": call_data.get("arguments", {}),
+                "name": str(obj["name"]).strip(),
+                "arguments": obj.get("arguments") if isinstance(obj.get("arguments"), dict) else {}
             }
-        except json.JSONDecodeError:
-            pass
-    
-    # Try to parse entire response as JSON
-    try:
-        data = json.loads(response)
-        if isinstance(data, dict) and "name" in data:
+
+    # 4. Check for direct JSON block: ```json { ... } ``` or raw {...}
+    json_block = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
+    if json_block:
+        obj = _extract_first_json_object(json_block.group(1))
+        if isinstance(obj, dict) and "name" in obj:
             return {
                 "action": "call",
-                "name": data.get("name", ""),
-                "arguments": data.get("arguments", {}),
+                "name": str(obj["name"]).strip(),
+                "arguments": obj.get("arguments") if isinstance(obj.get("arguments"), dict) else {}
             }
-    except json.JSONDecodeError:
-        pass
-    
-    return {"action": "error", "message": f"Cannot parse response: {response[:200]}"}
 
+    # 5. Fallback: Find any first valid JSON object in text
+    obj = _extract_first_json_object(text)
+    if isinstance(obj, dict) and "name" in obj:
+        return {
+            "action": "call",
+            "name": str(obj["name"]).strip(),
+            "arguments": obj.get("arguments") if isinstance(obj.get("arguments"), dict) else {}
+        }
 
-# Keep json available for parse_agent_response
-import json
+    # Standalone DONE word
+    if re.search(r"\bDONE\b", text):
+        return {"action": "done"}
 
-
-if __name__ == "__main__":
-    print("=== Prompt Template Test ===\n")
-    print("System Prompt:")
-    print(SYSTEM_PROMPT)
-    print(f"\n--- ({len(SYSTEM_PROMPT)} chars) ---\n")
-    
-    # Test parsing
-    print("Parse Tests:")
-    tests = [
-        'CALL: {"name": "smart_home.get_status", "arguments": {}}',
-        'DONE',
-        'Tôi sẽ gọi tool:\nCALL: {"name": "alarm.create", "arguments": {"time": "2026-11-03T07:00:00+07:00"}}',
-        'invalid response',
-    ]
-    for t in tests:
-        result = parse_agent_response(t)
-        print(f"  Input:  {t[:80]}")
-        print(f"  Parsed: {result}\n")
+    return {
+        "action": "error",
+        "message": f"Không thể trích xuất tool call hợp lệ từ response: {text[:200]}"
+    }

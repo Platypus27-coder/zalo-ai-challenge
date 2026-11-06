@@ -1,18 +1,18 @@
 """Part A — Pipeline Runner: Orchestrates ASR → Agent → ToolEnv → Submission.
 
-This is the main execution loop that:
-1. Loads samples from JSONL
-2. Runs ASR on audio (via Part B module)
-3. Runs Agent loop with validator (via Part C module)
-4. Collects tool_calls and state_hash
-5. Generates submission.jsonl
-6. Optionally evaluates against gold labels
+Features:
+- Exactly one ToolEnv per sample (contract enforcement).
+- Monotonic shared deadline computation and propagation.
+- Sample sanitization (removes gold labels/final_state before passing to Agent).
+- Faithful finalization: retains trace and real state_hash from existing env on error.
 """
+import copy
+import inspect
 import json
 import time
 import unicodedata
 from pathlib import Path
-from typing import Callable, Any
+from typing import Callable, Any, Optional
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
@@ -47,31 +47,12 @@ def load_samples(split: str = "train") -> list[dict]:
     return samples
 
 
-def get_installed_tools(sample: dict) -> set[str]:
-    """Extract all tool names from installed_apps."""
-    tools = set()
-    for app_data in sample.get("context", {}).get("installed_apps", {}).values():
-        tools.update(app_data.get("tools", []))
-    tools.add("sys.ask_missing_info")
-    return tools
-
-
-def normalize_nfc(text: str) -> str:
-    """Normalize text to NFC (for fuzzy params from ASR/LLM output)."""
-    if isinstance(text, str):
-        return unicodedata.normalize("NFC", text)
-    return text
-
-
-def normalize_arguments(arguments: dict) -> dict:
-    """NFC-normalize string values in arguments (but preserve IDs from tool results)."""
-    normalized = {}
-    for key, value in arguments.items():
-        if isinstance(value, str):
-            normalized[key] = normalize_nfc(value)
-        else:
-            normalized[key] = value
-    return normalized
+def sanitize_sample(sample: dict) -> dict:
+    """Sanitize sample to ensure agent cannot accidentally read gold labels or final states."""
+    sanitized = copy.deepcopy(sample)
+    for forbidden_key in ("label", "gold_calls", "gold_state", "final_state", "answer"):
+        sanitized.pop(forbidden_key, None)
+    return sanitized
 
 
 class PipelineRunner:
@@ -84,40 +65,31 @@ class PipelineRunner:
         agent_fn: Callable | None = None,
         sample_ids: list[str] | None = None,
         max_time: float = MAX_TIME_PER_SAMPLE,
+        data_root: Path = DATA_ROOT,
         verbose: bool = True
     ):
-        """
-        Args:
-            split: "train" or "public_test"
-            asr_fn: Function(audio_path, sample) -> str (transcript)
-            agent_fn: Function(transcript, sample, env, validator) -> None 
-                      (should call env.call() internally)
-            sample_ids: If provided, only run these sample IDs
-            max_time: Maximum seconds per sample
-            verbose: Print progress
-        """
         self.split = split
         self.asr_fn = asr_fn
         self.agent_fn = agent_fn
         self.sample_ids = set(sample_ids) if sample_ids else None
         self.max_time = max_time
+        self.data_root = Path(data_root)
         self.verbose = verbose
         
         self.data_split = "train" if split in ("train", "dev", "holdout") else split
 
-        # Add zaic_tools to path
-        split_dir = DATA_ROOT / self.data_split
+        # Add zaic_tools to sys.path
+        split_dir = self.data_root / self.data_split
         if str(split_dir) not in sys.path:
             sys.path.insert(0, str(split_dir))
     
     def run(self, samples: list[dict] | None = None) -> list[dict]:
-        """Run pipeline on all samples. Returns list of submission entries."""
+        """Run pipeline on all samples with strict single-env enforcement."""
         from zaic_tools import ToolEnv
         
         if samples is None:
             samples = load_samples(self.split)
         
-        # Filter by sample_ids if specified
         if self.sample_ids:
             samples = [s for s in samples if s["id"] in self.sample_ids]
         
@@ -125,53 +97,79 @@ class PipelineRunner:
         errors = []
         latencies = []
         
-        for i, sample in enumerate(samples):
-            sample_id = sample["id"]
-            start_time = time.monotonic()
-            
+        # Check if agent_fn accepts deadline keyword argument
+        supports_deadline = False
+        if self.agent_fn:
             try:
-                # Create fresh ToolEnv for this sample
-                env = ToolEnv(self.data_split, sample_id, root=str(DATA_ROOT))
+                sig = inspect.signature(self.agent_fn)
+                supports_deadline = "deadline" in sig.parameters
+            except Exception:
+                pass
+        
+        for i, raw_sample in enumerate(samples):
+            sample_id = raw_sample["id"]
+            start_time = time.monotonic()
+            deadline = start_time + self.max_time
+            
+            env = None
+            try:
+                # Exactly one ToolEnv created per sample
+                env = ToolEnv(self.data_split, sample_id, root=str(self.data_root))
                 
-                # Step 1: ASR
+                # Step 1: ASR Transcription
                 if self.asr_fn:
-                    audio_path = DATA_ROOT / self.data_split / sample["audio"]
-                    transcript = self.asr_fn(str(audio_path), sample)
+                    audio_rel_path = raw_sample.get("audio", f"audio/{sample_id}.wav")
+                    audio_path = self.data_root / self.data_split / audio_rel_path
+                    transcript = self.asr_fn(str(audio_path), raw_sample)
                 else:
-                    # Fallback: use gold transcript (for baseline/debugging)
-                    transcript = sample.get("audio_text", "")
+                    transcript = raw_sample.get("audio_text", "")
                 
-                # Step 2: Agent loop
+                # Step 2: Sanitize sample to prevent gold leakage
+                clean_sample = sanitize_sample(raw_sample)
+                
+                # Step 3: Agent Execution
                 if self.agent_fn:
-                    self.agent_fn(transcript, sample, env)
+                    if supports_deadline:
+                        self.agent_fn(transcript, clean_sample, env, deadline=deadline)
+                    else:
+                        self.agent_fn(transcript, clean_sample, env)
                 
-                # Step 3: Collect results
+                # Step 4: Collect faithful results directly from env
                 tool_calls = env.get_tool_calls()
                 state_hash = env.get_state_hash()
                 
                 elapsed = time.monotonic() - start_time
                 latencies.append(elapsed)
                 
-                result = {
+                results.append({
                     "id": sample_id,
                     "tool_calls": tool_calls,
                     "state_hash": state_hash,
-                }
-                results.append(result)
+                })
                 
                 if self.verbose and (i + 1) % 50 == 0:
-                    print(f"  [{i+1}/{len(samples)}] {sample_id} — "
-                          f"{len(tool_calls)} calls, {elapsed:.2f}s")
+                    print(f"  [{i+1}/{len(samples)}] {sample_id} — {len(tool_calls)} calls, {elapsed:.2f}s")
                 
             except Exception as e:
                 elapsed = time.monotonic() - start_time
                 errors.append({"id": sample_id, "error": str(e), "time": elapsed})
                 
-                # Still need to output something
+                # Faithful finalization: retrieve whatever calls and state_hash from existing env
+                if env is not None:
+                    try:
+                        fallback_calls = env.get_tool_calls()
+                        fallback_hash = env.get_state_hash()
+                    except Exception:
+                        fallback_calls = []
+                        fallback_hash = ""
+                else:
+                    fallback_calls = []
+                    fallback_hash = ""
+                
                 results.append({
                     "id": sample_id,
-                    "tool_calls": [],
-                    "state_hash": "",
+                    "tool_calls": fallback_calls,
+                    "state_hash": fallback_hash,
                 })
                 
                 if self.verbose:
@@ -181,97 +179,29 @@ class PipelineRunner:
             print(f"\nCompleted: {len(results)} samples")
             if latencies:
                 latencies.sort()
-                print(f"Latency: p50={latencies[len(latencies)//2]:.2f}s, "
-                      f"p95={latencies[int(len(latencies)*0.95)]:.2f}s, "
-                      f"max={latencies[-1]:.2f}s")
+                p50 = latencies[len(latencies) // 2]
+                p95 = latencies[int(len(latencies) * 0.95)]
+                max_lat = latencies[-1]
+                print(f"Latency: p50={p50:.2f}s, p95={p95:.2f}s, max={max_lat:.2f}s")
             if errors:
-                print(f"Errors: {len(errors)}")
+                print(f"Errors encountered: {len(errors)}")
         
         return results
     
     def save_submission(self, results: list[dict], output_path: Path | None = None) -> Path:
-        """Save results as submission JSONL."""
+        """Save results as valid UTF-8 JSONL submission."""
         if output_path is None:
             SUBMISSIONS_DIR.mkdir(parents=True, exist_ok=True)
             timestamp = time.strftime("%Y%m%d_%H%M%S")
             output_path = SUBMISSIONS_DIR / f"submission_{self.split}_{timestamp}.jsonl"
         
+        output_path = Path(output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        
         with open(output_path, "w", encoding="utf-8") as f:
             for result in results:
                 f.write(json.dumps(result, ensure_ascii=False) + "\n")
         
-        print(f"Submission saved: {output_path} ({len(results)} samples)")
+        if self.verbose:
+            print(f"Saved submission to: {output_path.resolve()}")
         return output_path
-
-
-def run_gold_baseline(split: str = "train", sample_ids: list[str] | None = None) -> list[dict]:
-    """Baseline: use gold transcript + replay gold tool calls.
-    
-    This should produce a perfect score and validates our ToolEnv + evaluator setup.
-    """
-    data_split = "train" if split in ("train", "dev", "holdout") else split
-    split_dir = DATA_ROOT / data_split
-    if str(split_dir) not in sys.path:
-        sys.path.insert(0, str(split_dir))
-    from zaic_tools import ToolEnv
-    samples = load_samples(split)
-    if sample_ids:
-        sample_ids_set = set(sample_ids)
-        samples = [s for s in samples if s["id"] in sample_ids_set]
-    
-    results = []
-    
-    for sample in samples:
-        sample_id = sample["id"]
-        env = ToolEnv(data_split, sample_id, root=str(DATA_ROOT))
-        
-        # Replay gold tool calls
-        gold_calls = sample.get("label", {}).get("tool_calls", [])
-        for tc in gold_calls:
-            env.call(tc["name"], tc.get("arguments", {}))
-        
-        results.append({
-            "id": sample_id,
-            "tool_calls": env.get_tool_calls(),
-            "state_hash": env.get_state_hash(),
-        })
-    
-    return results
-
-
-if __name__ == "__main__":
-    import argparse
-    
-    parser = argparse.ArgumentParser(description="LifeMate Pipeline Runner")
-    parser.add_argument("--split", default="dev", choices=["train", "dev", "holdout", "public_test"])
-    parser.add_argument("--gold-baseline", action="store_true", help="Run gold replay baseline")
-    parser.add_argument("--max-samples", type=int, default=None, help="Limit number of samples")
-    args = parser.parse_args()
-    
-    if args.gold_baseline:
-        print(f"Running gold baseline on '{args.split}'...")
-        samples = load_samples(args.split)
-        if args.max_samples:
-            samples = samples[:args.max_samples]
-        
-        results = run_gold_baseline(args.split, [s["id"] for s in samples])
-        
-        runner = PipelineRunner(split=args.split)
-        output_path = runner.save_submission(results)
-        
-        # Evaluate if on train/dev/holdout split
-        if args.split in ("train", "dev", "holdout"):
-            from src.part_a.evaluator import (
-                load_catalog_fuzzy_params, evaluate_submission,
-                compute_gold_hashes_via_replay
-            )
-            
-            print(f"\nEvaluating gold baseline on '{args.split}' (expected: 100.0)...")
-            fuzzy_params = load_catalog_fuzzy_params()
-            gold_hashes = compute_gold_hashes_via_replay(samples, "train")
-            eval_result = evaluate_submission(results, samples, fuzzy_params, gold_hashes)
-            print(f"Final Score:     {eval_result['final_score']:.2f} / 100")
-            print(f"Hash Match Rate: {eval_result['hash_match_rate']:.2%}")
-            print(f"Type Counts:     {eval_result['type_counts']}")
-            print(f"Hash Match Rate: {eval_result['hash_match_rate']:.2%}")
-            print(f"Type Counts: {eval_result['type_counts']}")

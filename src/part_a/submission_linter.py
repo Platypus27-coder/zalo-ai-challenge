@@ -1,28 +1,23 @@
-"""Part A — Submission Linter & Pre-Flight Verifier.
+"""Part A — Submission Linter & Pre-Flight Verifier (§4 and §13 of Plan C).
 
 Enforces zero-defect submission files to prevent:
-1. Disqualification due to format errors or missing samples.
-2. Zero score due to invalid state_hash or calling tools from uninstalled apps.
+1. Disqualification due to format errors, missing samples, or duplicate IDs.
+2. Zero score due to missing/invalid state_hash or calling tools from uninstalled apps.
 3. Schema violations (missing required parameters, wrong types, invalid enums).
 
-Usage:
-    python -m src.part_a.submission_linter --submission outputs/submissions/submission.jsonl --split public_test
+Exit status: Exits with code 1 if critical errors exist, 0 if passed.
 """
+from __future__ import annotations
+
+import argparse
 import json
 import re
-import argparse
-from pathlib import Path
-from typing import Any
-
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+from pathlib import Path
+from typing import Any, Optional
 
-if sys.platform == "win32":
-    try:
-        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
-    except Exception:
-        pass
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 
 from config import (
     DATA_ROOT, PUBLIC_TEST_JSONL, PUBLIC_TEST_CATALOG,
@@ -30,28 +25,57 @@ from config import (
 )
 from src.part_a.validator import load_catalog, get_tool_specs, validate_call
 
-
 SHA256_HEX_PATTERN = re.compile(r"^[a-fA-F0-9]{64}$")
 
 
 class SubmissionLinter:
     """Validates submission files against dataset ground rules and catalog constraints."""
 
-    def __init__(self, split: str = "public_test"):
+    def __init__(
+        self,
+        split: str = "public_test",
+        jsonl_path: Optional[Path | str] = None,
+        catalog_path: Optional[Path | str] = None,
+    ):
         self.split = split
-        if split == "public_test":
+        
+        # Resolve jsonl_path
+        if jsonl_path is not None:
+            self.jsonl_path = Path(jsonl_path)
+        elif split == "public_test":
             self.jsonl_path = PUBLIC_TEST_JSONL
-            self.catalog_path = PUBLIC_TEST_CATALOG
-        else:
+        elif split in ("train", "dev", "holdout"):
             self.jsonl_path = TRAIN_JSONL
-            self.catalog_path = TRAIN_CATALOG
+        else:
+            self.jsonl_path = DATA_ROOT / split / f"{split}.jsonl"
 
-        self.catalog = load_catalog(self.catalog_path)
+        # Resolve catalog_path
+        if catalog_path is not None:
+            self.catalog_path = Path(catalog_path)
+        elif split == "public_test":
+            self.catalog_path = PUBLIC_TEST_CATALOG
+        elif split in ("train", "dev", "holdout"):
+            self.catalog_path = TRAIN_CATALOG
+        else:
+            self.catalog_path = DATA_ROOT / split / f"{split}_tools_catalog.json"
+
+        if not self.catalog_path.is_file():
+            # Search for any catalog in split directory
+            parent = self.catalog_path.parent
+            if parent.is_dir():
+                found = list(parent.glob("*catalog*.json"))
+                if found:
+                    self.catalog_path = found[0]
+
+        self.catalog = load_catalog(self.catalog_path) if self.catalog_path.is_file() else {}
         self.tool_specs = get_tool_specs(self.catalog)
         self.expected_samples = self._load_expected_samples()
 
     def _load_expected_samples(self) -> dict[str, dict]:
         samples = {}
+        if not self.jsonl_path.is_file():
+            return samples
+
         with open(self.jsonl_path, encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
@@ -95,7 +119,6 @@ class SubmissionLinter:
             return report
 
         seen_ids = set()
-        submission_ids = []
         parsed_entries = []
 
         with open(submission_path, encoding="utf-8") as f:
@@ -129,29 +152,29 @@ class SubmissionLinter:
                     report["passed"] = False
                     report["critical_errors"].append(f"Line {line_idx}: Duplicate sample ID '{sample_id}'")
                 seen_ids.add(sample_id)
-                submission_ids.append(sample_id)
 
-                if sample_id not in self.expected_samples:
+                if self.expected_samples and sample_id not in self.expected_samples:
                     report["passed"] = False
-                    report["critical_errors"].append(f"Line {line_idx}: ID '{sample_id}' not found in {self.split}")
+                    report["critical_errors"].append(f"Line {line_idx}: ID '{sample_id}' not found in expected {self.split} samples")
                     continue
 
-                parsed_entries.append((line_idx, entry, self.expected_samples[sample_id]))
+                parsed_entries.append((line_idx, entry, self.expected_samples.get(sample_id, {})))
 
-        expected_ids = set(self.expected_samples.keys())
-        missing_ids = expected_ids - seen_ids
-        if missing_ids:
-            report["passed"] = False
-            report["critical_errors"].append(
-                f"Missing {len(missing_ids)} expected samples from {self.split}. Sample missing: {list(missing_ids)[:5]}"
-            )
+        if self.expected_samples:
+            expected_ids = set(self.expected_samples.keys())
+            missing_ids = expected_ids - seen_ids
+            if missing_ids:
+                report["passed"] = False
+                report["critical_errors"].append(
+                    f"Missing {len(missing_ids)} expected samples from {self.split}. Sample missing: {list(missing_ids)[:5]}"
+                )
 
         total_tool_calls = 0
         max_calls = 0
 
         # Detailed entry checks
         for line_idx, entry, expected in parsed_entries:
-            sample_id = entry["id"]
+            sample_id = entry.get("id", f"line_{line_idx}")
             tool_calls = entry.get("tool_calls", [])
             state_hash = entry.get("state_hash", "")
 
@@ -169,29 +192,22 @@ class SubmissionLinter:
             else:
                 report["stats"]["call_count"] += n_calls
 
-            # Hash check
-            if not isinstance(state_hash, str):
+            # Hash check: MUST be a valid 64-char sha256 hex string. Empty hash is a CRITICAL error.
+            if not isinstance(state_hash, str) or not SHA256_HEX_PATTERN.match(state_hash):
                 report["passed"] = False
-                report["critical_errors"].append(f"Line {line_idx} ({sample_id}): 'state_hash' must be string")
-            else:
+                report["critical_errors"].append(
+                    f"Line {line_idx} ({sample_id}): 'state_hash' must be a valid 64-char sha256 hex string, got: '{state_hash}'"
+                )
                 if state_hash == "":
                     report["stats"]["empty_hashes"] += 1
-                    if n_calls > 0:
-                        report["warnings"].append(
-                            f"Line {line_idx} ({sample_id}): tool_calls is non-empty ({n_calls} calls) but state_hash is empty"
-                        )
-                elif SHA256_HEX_PATTERN.match(state_hash):
-                    report["stats"]["valid_hashes"] += 1
-                else:
-                    report["passed"] = False
-                    report["critical_errors"].append(
-                        f"Line {line_idx} ({sample_id}): 'state_hash' is not a valid 64-char sha256 hex: '{state_hash[:10]}...'"
-                    )
+            else:
+                report["stats"]["valid_hashes"] += 1
 
             # Installed tools check
             installed_tools = set()
-            for app_name, app_info in expected.get("context", {}).get("installed_apps", {}).items():
-                installed_tools.update(app_info.get("tools", []))
+            if expected:
+                for app_name, app_info in expected.get("context", {}).get("installed_apps", {}).items():
+                    installed_tools.update(app_info.get("tools", []))
             installed_tools.add("sys.ask_missing_info")
 
             for call_idx, call in enumerate(tool_calls):
@@ -214,20 +230,20 @@ class SubmissionLinter:
                     continue
 
                 # Pre-call validator check
-                val = validate_call(call_name, call_args, self.tool_specs, installed_tools)
-                if not val["ok"]:
-                    for err in val["errors"]:
-                        # Uninstalled app or unknown tool is critical
-                        if "not in installed_apps" in err or "not in catalog" in err:
-                            report["passed"] = False
-                            report["critical_errors"].append(f"Line {line_idx} ({sample_id}): {err}")
-                        else:
-                            report["warnings"].append(f"Line {line_idx} ({sample_id}) [{call_name}]: {err}")
+                if self.tool_specs:
+                    val = validate_call(call_name, call_args, self.tool_specs, installed_tools if expected else None)
+                    if not val["ok"]:
+                        report["passed"] = False
+                        for err in val.get("errors", [val.get("error")]):
+                            report["critical_errors"].append(f"Line {line_idx} ({sample_id}) [{call_name}]: {err}")
 
         n_samples = len(parsed_entries)
         report["stats"]["total_samples"] = n_samples
         report["stats"]["max_calls"] = max_calls
         report["stats"]["avg_calls"] = round(total_tool_calls / n_samples, 2) if n_samples > 0 else 0.0
+
+        if report["critical_errors"]:
+            report["passed"] = False
 
         return report
 
@@ -276,12 +292,17 @@ class SubmissionLinter:
 def main():
     parser = argparse.ArgumentParser(description="LifeMate Submission Linter")
     parser.add_argument("--submission", required=True, help="Path to submission.jsonl")
-    parser.add_argument("--split", default="public_test", choices=["train", "public_test"])
+    parser.add_argument("--split", default="public_test")
+    parser.add_argument("--catalog", default=None, help="Optional path to catalog JSON")
+    parser.add_argument("--jsonl", default=None, help="Optional path to ground truth JSONL")
     args = parser.parse_args()
 
-    linter = SubmissionLinter(split=args.split)
+    linter = SubmissionLinter(split=args.split, jsonl_path=args.jsonl, catalog_path=args.catalog)
     report = linter.lint_file(args.submission)
     linter.print_report(report)
+
+    if not report["passed"]:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
