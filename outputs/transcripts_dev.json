@@ -1,0 +1,1327 @@
+{
+  "train_0001": {
+    "raw_text": "Nếu mai mưa thì giờ chạy vỡ muộn một tiếng nhắn xếp dũng giờ mới, không mưa thì thôi.",
+    "normalized_text": "Nếu mai mưa thì giờ chạy vỡ muộn một tiếng nhắn xếp dũng giờ mới, không mưa thì thôi.",
+    "latency": 1.603999329000544
+  },
+  "train_0002": {
+    "raw_text": "Nếu mai mưa thì hủy lịch đá bóng, à mà thôi, cứ để lịch đó, chỉ cần xem giúp mai có mưa không.",
+    "normalized_text": "Nếu mai mưa thì hủy lịch đá bóng, à mà thôi, cứ để lịch đó, chỉ cần xem giúp mai có mưa không.",
+    "latency": 1.4894587910002883
+  },
+  "train_0003": {
+    "raw_text": "Ơi, làm giúp mình 50k tiền điện thoại cho bác ba với chuyển ví cho con mai số tiền điện thắng này nhé.",
+    "normalized_text": "Ơi, làm giúp mình 50k tiền điện thoại cho bác ba với chuyển ví cho con mai số tiền điện thắng này nhé.",
+    "latency": 1.6150793019996854
+  },
+  "train_0004": {
+    "raw_text": "Trợ lý ơi, giảm đột sáng đèn phòng ngủ nhỏ xuống còn một nửa nhé.",
+    "normalized_text": "Trợ lý ơi, giảm đột sáng đèn phòng ngủ nhỏ xuống còn một nửa nhé.",
+    "latency": 1.1263380480004344
+  },
+  "train_0005": {
+    "raw_text": "Trợ lý ơi, đặt giúp tôi xe vốn chỗ từ công ty đi học của Win chiều nay nhé, đặt ngay bây giờ luôn.",
+    "normalized_text": "Trợ lý ơi, đặt giúp tôi xe vốn chỗ từ công ty đi học của Win chiều nay nhé, đặt ngay bây giờ luôn.",
+    "latency": 1.3083061709994581
+  },
+  "train_0006": {
+    "raw_text": "Điều giả thu mua vào vàng Ết, trí trí hôm nay rưỡi 123 triệu thì chỉ cho sản mái nhắc tôi đi mua nhé.",
+    "normalized_text": "Điều giả thu mua vào vàng Ết, trí trí hôm nay rưỡi 123 triệu thì chỉ cho sản mái nhắc tôi đi mua nhé.",
+    "latency": 1.3491248039999846
+  },
+  "train_0007": {
+    "raw_text": "Đặt báo thức 5 giờ nhé, à không, 5 rưỡi sáng mai đó.",
+    "normalized_text": "Đặt báo thức 5 giờ nhé, à không, 5 rưỡi sáng mai đó.",
+    "latency": 0.957478565999736
+  },
+  "train_0008": {
+    "raw_text": "Cái còn lại nếu mai mưa thì dòi muộn nửa tiếng, không mưa rửa nguyên.",
+    "normalized_text": "Cái còn lại nếu mai mưa thì dòi muộn nửa tiếng, không mưa rửa nguyên.",
+    "latency": 1.103355322000425
+  },
+  "train_0009": {
+    "raw_text": "Nạp dùm em lên 50k cho số 09505360367 nha.",
+    "normalized_text": "Nạp dùm em lên 50k cho số 09505360367 nha.",
+    "latency": 0.979096381999625
+  },
+  "train_0011": {
+    "raw_text": "Nếu ví đủ thì trả điện và nhắn bố là đã đóng, còn không thì trả ngân hàng và nhắc tôi 8h tối nay nạp tiền vào ví nha.",
+    "normalized_text": "Nếu ví đủ thì trả điện và nhắn bố là đã đóng, còn không thì trả ngân hàng và nhắc tôi 8h tối nay nạp tiền vào ví nha.",
+    "latency": 1.4851014400001077
+  },
+  "train_0012": {
+    "raw_text": "Bạn ơi, chuyển cho rũ nhà Phạm Hùng 2 triệu tím và nạp giúp sắp dụng 200 nghề nhé.",
+    "normalized_text": "Bạn ơi, chuyển cho rũ nhà Phạm Hùng 2 triệu tím và nạp giúp sắp dụng 200 nghề nhé.",
+    "latency": 1.3400573340004485
+  },
+  "train_0013": {
+    "raw_text": "Nếu mai mưa thì giờ, đã bóng sáng mai muộn một phí, nhánh SMS cho Lan, báo giờ mới, không mưa gì thôi.",
+    "normalized_text": "Nếu mai mưa thì giờ, đã bóng sáng mai muộn một phí, nhánh SMS cho Lan, báo giờ mới, không mưa gì thôi.",
+    "latency": 1.3422752129999935
+  },
+  "train_0014": {
+    "raw_text": "Tết hết đèn, tầm 2 dừng trị, phòng nào đang bật máy lạnh thì để nguyên nha.",
+    "normalized_text": "tắt hết đèn, tầm 2 dừng trị, phòng nào đang bật máy lạnh thì để nguyên nha.",
+    "latency": 1.1555525899993881
+  },
+  "train_0015": {
+    "raw_text": "Chào mừng quý vị đến với kênh lalaschool Để không bỏ lỡ những video hấp dẫn",
+    "normalized_text": "Chào mừng quý vị đến với kênh",
+    "latency": 1.0647108440007287
+  },
+  "train_0016": {
+    "raw_text": "Nếu mai mưa thì giờ lịch ra bóng, sáng mai mượn 2 tiếng với nhắn SMS cho mẹ lập báo giờ mới, không mưa thì thôi.",
+    "normalized_text": "Nếu mai mưa thì giờ lịch ra bóng, sáng mai mượn 2 tiếng với nhắn SMS cho mẹ lập báo giờ mới, không mưa thì thôi.",
+    "latency": 1.3307068809999691
+  },
+  "train_0017": {
+    "raw_text": "Ơi, chuyển sang kênh S-Tone Spot cho em nha.",
+    "normalized_text": "Ơi, chuyển sang kênh S-Tone Spot cho em nha.",
+    "latency": 0.9100866699991457
+  },
+  "train_0018": {
+    "raw_text": "gọi dùm tôi bố nha",
+    "normalized_text": "gọi dùm tôi bố nha",
+    "latency": 0.7122349829996892
+  },
+  "train_0019": {
+    "raw_text": "Chị ơi, tôi cần đặt phòng khách sạn ở Đà Lạt nữa nha.",
+    "normalized_text": "Chị ơi, tôi cần đặt phòng khách sạn ở Đà Lạt nữa nha.",
+    "latency": 0.9222811079998792
+  },
+  "train_0020": {
+    "raw_text": "Tắt đèn tận 2 giúp em nhé, từ phòng nào đang bật điều hòa thì cứ để nguyên.",
+    "normalized_text": "Tắt đèn tận 2 giúp em nhé, từ phòng nào đang bật điều hòa thì cứ để nguyên.",
+    "latency": 1.0904843830003301
+  },
+  "train_0025": {
+    "raw_text": "Nếu mai mưa thì gửi dịch đá bóng, sáng mai phơi lợi cho đàn ông anh nhé, còn không mưa thì thôi.",
+    "normalized_text": "Nếu mai mưa thì gửi dịch đá bóng, sáng mai phơi lợi cho đàn ông anh nhé, còn không mưa thì thôi.",
+    "latency": 1.2534383949996482
+  },
+  "train_0026": {
+    "raw_text": "Trời ơi, về lịch trà phê với gia đình, mà mỗi hôm một tiếng giúp mình hiếm.",
+    "normalized_text": "Trời ơi, về lịch trà phê với gia đình, mà mỗi hôm một tiếng giúp mình hiếm.",
+    "latency": 1.0814592110000376
+  },
+  "train_0027": {
+    "raw_text": "Nhật chứng chỉ là sân bay lúc tạm giá kèm 15 tuổi mái nhé.",
+    "normalized_text": "Nhật chứng chỉ là sân bay lúc tạm giá kèm 15 tuổi mái nhé.",
+    "latency": 1.0922146709999652
+  },
+  "train_0028": {
+    "raw_text": "Đặt báo giúp cho chị một tiếng trước lịch họp tim ngày 19 nhé.",
+    "normalized_text": "Đặt báo giúp cho chị một tiếng trước lịch họp tim ngày 19 nhé.",
+    "latency": 1.0090580659998523
+  },
+  "train_0029": {
+    "raw_text": "Nếu giá vàng SGC mua vào dưới 124 triệu thì nhắc mình 9h sáng mai đi mua nha.",
+    "normalized_text": "Nếu giá vàng SGC mua vào dưới 124 triệu thì nhắc mình 9h sáng mai đi mua nha.",
+    "latency": 1.1977237310002238
+  },
+  "train_0030": {
+    "raw_text": "Ơi, trời nhút tẩu 1 triệu 2 cho chữa nha, phàm hung nghe.",
+    "normalized_text": "Ơi, trời nhút tẩu 1 triệu 2 cho chữa nha, phàm hung nghe.",
+    "latency": 1.1086184910000156
+  },
+  "train_0031": {
+    "raw_text": "Nhớ nhắc mình gọi lại cho khách lúc tầm dưới tối mai nhé.",
+    "normalized_text": "Nhớ nhắc mình gọi lại cho khách lúc tầm dưới tối mai nhé.",
+    "latency": 1.022178217000146
+  },
+  "train_0032": {
+    "raw_text": "Chuyển dùm tôi cho anh Trần Văn Trúm số tiền truyền hình tháng này nha.",
+    "normalized_text": "Chuyển dùm tôi cho anh Trần Văn Trúm số tiền truyền hình tháng này nha.",
+    "latency": 1.0570750769993538
+  },
+  "train_0033": {
+    "raw_text": "Đặt chút triệt, bảo thức trước lịch học đêm mai hay tuyển nhé.",
+    "normalized_text": "Đặt chút triệt, bảo thức trước lịch học đêm mai hay tuyển nhé.",
+    "latency": 0.9677811500005191
+  },
+  "train_0034": {
+    "raw_text": "Và nhận qua Zalo cho bác ba là tuổi này ăn cơm ở nhà nhé.",
+    "normalized_text": "Và nhận qua Zalo cho bác ba là tuổi này ăn cơm ở nhà nhé.",
+    "latency": 0.9310723460002919
+  },
+  "train_0035": {
+    "raw_text": "Bà nữ thắt đèn phong khách giúp tôi nhẹ.",
+    "normalized_text": "Bà nữ tắt đèn phong khách giúp tôi nhẹ.",
+    "latency": 0.8200150100001338
+  },
+  "train_0036": {
+    "raw_text": "Tắt đèn, không làm việc, đi, à, thôi khỏi, không cần.",
+    "normalized_text": "Tắt đèn, không làm việc, đi, à, thôi khỏi, không cần.",
+    "latency": 0.8787632050007232
+  },
+  "train_0037": {
+    "raw_text": "Nếu mai ngơ thì để ý cho tôi đặt đi chơi công viên sáng mai ngư.",
+    "normalized_text": "Nếu mai ngơ thì để ý cho tôi đặt đi chơi công viên sáng mai ngư.",
+    "latency": 0.955012151000119
+  },
+  "train_0038": {
+    "raw_text": "Em ơi, đừng lắc bếp nhé, cứ để đó.",
+    "normalized_text": "Em ơi, đừng tắt bếp nhé, cứ để đó.",
+    "latency": 0.8228512169998794
+  },
+  "train_0039": {
+    "raw_text": "Ờ, ờ, giáo hoa Zalo cho mình về tối nay ăn cơm ở nhà nhé.",
+    "normalized_text": "Ờ, ờ, giáo hoa Zalo cho mình về tối nay ăn cơm ở nhà nhé.",
+    "latency": 0.9929615889996057
+  },
+  "train_0040": {
+    "raw_text": "Ơi, giờ lịch cà phê với gia đình mai muộn hơn nửa tiếng giúp chị nhé.",
+    "normalized_text": "Ơi, giờ lịch cà phê với gia đình mai muộn hơn nửa tiếng giúp chị nhé.",
+    "latency": 1.0891254999996818
+  },
+  "train_0041": {
+    "raw_text": "Nạp cho anh Tuấn 50k và chuyển tiền điền thẳng này cho cô má nhẹ.",
+    "normalized_text": "Nạp cho anh Tuấn 50k và chuyển tiền điền thẳng này cho cô má nhẹ.",
+    "latency": 1.013584303999778
+  },
+  "train_0042": {
+    "raw_text": "Đặt báo chất sâu đuổi sáng mai, gửi hình gọi cho mình giúp tôi nhé.",
+    "normalized_text": "Đặt báo chất sâu đuổi sáng mai, gửi hình gọi cho mình giúp tôi nhé.",
+    "latency": 1.0968982710001
+  },
+  "train_0043": {
+    "raw_text": "Charlie ơi, đặt dịp em chỉ xe ra sân bay nhé.",
+    "normalized_text": "Charlie ơi, đặt dịp em chỉ xe ra sân bay nhé.",
+    "latency": 0.9025637349996032
+  },
+  "train_0045": {
+    "raw_text": "Trợ lý ơi, chuyển giúp tôi ra anh Trần Vân Tuấn số tiền bằng hóa đơn nước tháng này nhé.",
+    "normalized_text": "Trợ lý ơi, chuyển giúp tôi ra anh Trần Vân Tuấn số tiền bằng hóa đơn nước tháng này nhé.",
+    "latency": 1.2181562059995485
+  },
+  "train_0046": {
+    "raw_text": "Nếu miễn thủ thì trả tiền truyền kinh và nhắn thương là đã đóng, khẳng công thì trả bằng ngân hàng và nhắc tôi tắm cho tới nay nàng nhìn lĩnh chiếc.",
+    "normalized_text": "Nếu miễn thủ thì trả tiền truyền kinh và nhắn thương là đã đóng, khẳng công thì trả bằng ngân hàng và nhắc tôi tắm cho tới nay nàng nhìn lĩnh chiếc.",
+    "latency": 1.6368797469995116
+  },
+  "train_0047": {
+    "raw_text": "Tắt đèn phương ngộ đi ơi, à mà rồi, không xài, đúng không, tắt đèn bẹp chút chí nhé.",
+    "normalized_text": "Tắt đèn phương ngộ đi ơi, à mà rồi, không xài, đúng không, tắt đèn bẹp chút chí nhé.",
+    "latency": 1.1726589010004318
+  },
+  "train_0048": {
+    "raw_text": "Ờ à, gọi cho Lan nhé.",
+    "normalized_text": "Ờ à, gọi cho Lan nhé.",
+    "latency": 0.7665207260006355
+  },
+  "train_0049": {
+    "raw_text": "Chuyển tiền mạnh thế này cho chuyển nghề vạn hồn nghe, nếu tài khoản sách toán không đủ thì lấy thử thiết kiệm giúp tôi.",
+    "normalized_text": "Chuyển tiền mạnh thế này cho chuyển nghề vạn hồn nghe, nếu tài khoản sách toán không đủ thì lấy thử thiết kiệm giúp tôi.",
+    "latency": 1.4582585130001462
+  },
+  "train_0050": {
+    "raw_text": "Alo, cho em linh hỏi giá về SGC hôm nay bao nhiêu dùm nhau?",
+    "normalized_text": "Alo, cho em linh hỏi giá về SGC hôm nay bao nhiêu dùm nhau?",
+    "latency": 0.9615515209998193
+  },
+  "train_0052": {
+    "raw_text": "Đặt bảo thức sau rưỡi sáng mai và gọi cho mình giúp tôi.",
+    "normalized_text": "Đặt bảo thức sau rưỡi sáng mai và gọi cho mình giúp tôi.",
+    "latency": 0.9368004199995994
+  },
+  "train_0055": {
+    "raw_text": "Tắt hết đèn chẳng hai, trừ phòng nào đăng bật điều hòa thì đẹp huyết nhé.",
+    "normalized_text": "Tắt hết đèn chẳng hai, trừ phòng nào đăng bật điều hòa thì đẹp huyết nhé.",
+    "latency": 1.110327684999902
+  },
+  "train_0057": {
+    "raw_text": "Nè, hôm nay mày làm thuốc lắm đó, khen một tiếng nha.",
+    "normalized_text": "Nè, hôm nay mày làm thuốc lắm đó, khen một tiếng nha.",
+    "latency": 0.9074161830003504
+  },
+  "train_0059": {
+    "raw_text": "Trời lý ơi, sáng giúp tôi tiền điện thẳng này bao nhiêu rồi thanh toán bằng vị, nếu thiểu thì trừ luôn qua ngân hàng nhé.",
+    "normalized_text": "Trời lý ơi, sáng giúp tôi tiền điện thẳng này bao nhiêu rồi thanh toán bằng vị, nếu thiểu thì trừ luôn qua ngân hàng nhé.",
+    "latency": 1.331273749000502
+  },
+  "train_0060": {
+    "raw_text": "Đã dùm tuổi báo thức 7 rưỡi sáng mai nghe.",
+    "normalized_text": "Đã dùm tuổi báo thức 7 rưỡi sáng mai nghe.",
+    "latency": 0.9369213440004387
+  },
+  "train_0061": {
+    "raw_text": "Dắt mình gọi lại cho khách lúc 9h kém 15h tối mai nhé.",
+    "normalized_text": "Dắt mình gọi lại cho khách lúc 9h kém 15h tối mai nhé.",
+    "latency": 0.9940553090000321
+  },
+  "train_0062": {
+    "raw_text": "Nhắn que Zalo Cha Minh là đến rồi, thì gọi tôi nhé.",
+    "normalized_text": "Nhắn que Zalo Cha Minh là đến rồi, thì gọi tôi nhé.",
+    "latency": 0.9117203320001863
+  },
+  "train_0063": {
+    "raw_text": "Nhắn tin cho mình giữa mang tài liệu.",
+    "normalized_text": "Nhắn tin cho mình giữa mang tài liệu.",
+    "latency": 0.8060072100006437
+  },
+  "train_0064": {
+    "raw_text": "Ơi, giúp tôi thanh toán tiền điện bằng ví nhé, à mà ví không đủ thì rời qua ngân hàng dụng luôn nha.",
+    "normalized_text": "Ơi, giúp tôi thanh toán tiền điện bằng ví nhé, à mà ví không đủ thì rời qua ngân hàng dụng luôn nha.",
+    "latency": 1.3522602910006754
+  },
+  "train_0065": {
+    "raw_text": "Nếu mai mưa thì hủy lịch đã bọn sáng mai và gọi bảo cho Lan, không mưa thì thôi.",
+    "normalized_text": "Nếu mai mưa thì hủy lịch đã bọn sáng mai và gọi bảo cho Lan, không mưa thì thôi.",
+    "latency": 1.065118440000333
+  },
+  "train_0066": {
+    "raw_text": "Dắt mình gọi lời cho khách lúc 9h kém 15 tối mai nhé.",
+    "normalized_text": "Dắt mình gọi lời cho khách lúc 9h kém 15 tối mai nhé.",
+    "latency": 0.9261214039997867
+  },
+  "train_0068": {
+    "raw_text": "Đặt báo khúc 6h sáng mai với gọi cho mình nhé.",
+    "normalized_text": "Đặt báo khúc 6h sáng mai với gọi cho mình nhé.",
+    "latency": 0.8319805479995921
+  },
+  "train_0069": {
+    "raw_text": "Tắt đèn, phòng ngủ nhỏ, chi vỡi, rồi gửi cái tín nhận cho hướng là nhỡ mang hồ gục xác nghe.",
+    "normalized_text": "Tắt đèn, phòng ngủ nhỏ, chi vỡi, rồi gửi cái tín nhận cho hướng là nhỡ mang hồ gục xác nghe.",
+    "latency": 1.324151556000288
+  },
+  "train_0070": {
+    "raw_text": "Đặt xe 4 chỗ từ công ty tới chỗ hiện cà phê với gia đình chiều nay, hướng trước giờ nửa tiếng, nhắc tôi mang laptop trước lúc xe, đón 15 phút.",
+    "normalized_text": "Đặt xe 4 chỗ từ công ty tới chỗ hiện cà phê với gia đình chiều nay, hướng trước giờ nửa tiếng, nhắc tôi mang laptop trước lúc xe, đón 15 phút.",
+    "latency": 1.4845435509996605
+  },
+  "train_0071": {
+    "raw_text": "Đặt bớt hết 5 giờ sáng mai cho em, rồi chuyển quý cho bố em giúp tìm nhé.",
+    "normalized_text": "Đặt bớt hết 5 giờ sáng mai cho em, rồi chuyển quý cho bố em giúp tìm nhé.",
+    "latency": 1.0686543080000774
+  },
+  "train_0072": {
+    "raw_text": "Vàng SJC bán le trên 127 triệu, thì nên ăn 9h sáng mai đi bán vàng, không thì chuyển 2 triệu từ tài khoản thanh toán cho chủ nhà Phạm Hùng, tiền góp mua vàng.",
+    "normalized_text": "Vàng SJC bán le trên 127 triệu, thì nên ăn 9h sáng mai đi bán vàng, không thì chuyển 2 triệu từ tài khoản thanh toán cho chủ nhà Phạm Hùng, tiền góp mua vàng.",
+    "latency": 1.6091445150004802
+  },
+  "train_0074": {
+    "raw_text": "Nếu có ví đủ tiền thì trả tiền nước bằng ví, và nhắn SMS cho cô giáo Mai là đóng rồi, còn thiếu thì trả bằng ngân hàng và 8 giờ tối nay nhắc tôi là ví.",
+    "normalized_text": "Nếu có ví đủ tiền thì trả tiền nước bằng ví, và nhắn SMS cho cô giáo Mai là đóng rồi, còn thiếu thì trả bằng ngân hàng và 8 giờ tối nay nhắc tôi là ví.",
+    "latency": 1.507518194000113
+  },
+  "train_0075": {
+    "raw_text": "Bật đèn phòng khách thôi, mà để mờ 50%, hoặc thì đừng bật, với bật điều hòa phòng khách 26 độ.",
+    "normalized_text": "Bật đèn phòng khách thôi, mà để mờ 50%, hoặc thì đừng bật, với bật điều hòa phòng khách 26 độ.",
+    "latency": 1.209221037000134
+  },
+  "train_0076": {
+    "raw_text": "Đặt xe đúng chỗ từ công ty đến chỗ hàng chặt kê với gia đình chuyển anh, đón sớm 45 phút, nhắc tôi mai lắp đáp trước giờ xe đó 15 phút.",
+    "normalized_text": "Đặt xe đúng chỗ từ công ty đến chỗ hàng chặt kê với gia đình chuyển anh, đón sớm 45 phút, nhắc tôi mai lắp đáp trước giờ xe đó 15 phút.",
+    "latency": 1.571309707999717
+  },
+  "train_0078": {
+    "raw_text": "Tắt đèn sẵn sàng giúp tôi, kỳ vọng nào đăng ký ngoại trí cứ để điểm đó, rồi bật điều hòa phòng nguyện, 55k, xin cảm ơn.",
+    "normalized_text": "Tắt đèn sẵn sàng giúp tôi, kỳ vọng nào đăng ký ngoại trí cứ để điểm đó, rồi bật điều hòa phòng nguyện, 55k, xin cảm ơn.",
+    "latency": 1.738465470999472
+  },
+  "train_0079": {
+    "raw_text": "Máy hóa đơn đến hạn trong 5 ngày tới thì trả bằng ngân hàng hết, mà cái nào trên 500k thì để lại đó chưa trả nha.",
+    "normalized_text": "Máy hóa đơn đến hạn trong 5 ngày tới thì trả bằng ngân hàng hết, mà cái nào trên 500k thì để lại đó chưa trả nha.",
+    "latency": 1.292519564000031
+  },
+  "train_0080": {
+    "raw_text": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn",
+    "normalized_text": "",
+    "latency": 1.0009959690005417
+  },
+  "train_0081": {
+    "raw_text": "Chuyển cho chủ nhà Phạm Hùng đúng tiền truyền hình tháng này, cho Trần Văn Tuấn đúng tiền biết tháng này, trừ tài khoản thanh toán mà không đủ cả hai thì lấy thiết kiệm.",
+    "normalized_text": "Chuyển cho chủ nhà Phạm Hùng đúng tiền truyền hình tháng này, cho Trần Văn Tuấn đúng tiền biết tháng này, trừ tài khoản thanh toán mà không đủ cả hai thì lấy thiết kiệm.",
+    "latency": 1.7179942390002907
+  },
+  "train_0082": {
+    "raw_text": "Mai mà mưa thì để lịch chạy bộ, sáng muộn 2 tiếng thì rồi nhắn SMS cho bố giờ mới, còn không mưa thì thôi nha.",
+    "normalized_text": "Mai mà mưa thì để lịch chạy bộ, sáng muộn 2 tiếng thì rồi nhắn SMS cho bố giờ mới, còn không mưa thì thôi nha.",
+    "latency": 1.2468156579998322
+  },
+  "train_0083": {
+    "raw_text": "Bật đèn phong cách giúp mình, mà dịu thôi, tầm 30%, quẹt thì khỏi bật, điều hòa phong cách giữa 26,",
+    "normalized_text": "Bật đèn phong cách giúp mình, mà dịu thôi, tầm 30%, quẹt thì khỏi bật, điều hòa phong cách giữa 26,",
+    "latency": 1.2577830449999965
+  },
+  "train_0084": {
+    "raw_text": "Đặt giúp tôi cái ô tô 4 chỗ, chiều nay đi từ công ty tới chỗ họp phụ huynh nhé, đặt ngay bây giờ luôn.",
+    "normalized_text": "Đặt giúp tôi cái ô tô 4 chỗ, chiều nay đi từ công ty tới chỗ họp phụ huynh nhé, đặt ngay bây giờ luôn.",
+    "latency": 1.229568415000358
+  },
+  "train_0085": {
+    "raw_text": "Trở nên em có hẹn đi chơi công kinh đặt xe bộ chỗ từ công ty đến đó. Đón sớm bốn mười lập phút, nhóm em mang laptop chọn bộ xe tới bữa lập phút.",
+    "normalized_text": "Trở nên em có hẹn đi chơi công kinh đặt xe bộ chỗ từ công ty đến đó. Đón sớm bốn mười lập phút, nhóm em mang laptop chọn bộ xe tới bữa lập phút.",
+    "latency": 1.6802998590001152
+  },
+  "train_0086": {
+    "raw_text": "Đẹp béo thích 6h sáng mai, rồi gọi cha mình giúp tôi.",
+    "normalized_text": "Đẹp béo thích 6h sáng mai, rồi gọi cha mình giúp tôi.",
+    "latency": 0.9186933740002132
+  },
+  "train_0087": {
+    "raw_text": "Em chuyển cho Trần Văn Trứng, trúng tiền nước tháng này, chủ nhà Phạm Hùng, trúng tiền điện, trừ vào tài khoản thanh toán, không đủ cả 2 khoản thì gút tiết kiệm ra nhé.",
+    "normalized_text": "Em chuyển cho Trần Văn Trứng, trúng tiền nước tháng này, chủ nhà Phạm Hùng, trúng tiền điện, trừ vào tài khoản thanh toán, không đủ cả 2 khoản thì gút tiết kiệm ra nhé.",
+    "latency": 1.8422844940005234
+  },
+  "train_0088": {
+    "raw_text": "Hóa đơn nào tới hạn trong 5 ngày nữa thì trả bằng ngân hàng giúp em, riêng cái nào quá 500k thì cứ để đó em tính sau.",
+    "normalized_text": "Hóa đơn nào tới hạn trong 5 ngày nữa thì trả bằng ngân hàng giúp em, riêng cái nào quá 500k thì cứ để đó em tính sau.",
+    "latency": 1.337197973000002
+  },
+  "train_0089": {
+    "raw_text": "Gọi điện cho Hương, điện tôi cái nha.",
+    "normalized_text": "Gọi điện cho Hương, điện tôi cái nha.",
+    "latency": 0.8653438760002246
+  },
+  "train_0090": {
+    "raw_text": "Đóng tiền mạng bằng ví điện từ lúc anh, ví không đủ thì lấy thêm ngân hàng, xong nhắn SMS cho Lan, báo là đã đóng rồi nha.",
+    "normalized_text": "Đóng tiền mạng bằng ví điện từ lúc anh, ví không đủ thì lấy thêm ngân hàng, xong nhắn SMS cho Lan, báo là đã đóng rồi nha.",
+    "latency": 1.4556360830001722
+  },
+  "train_0091": {
+    "raw_text": "Tắt trả hóa đơn, tới hẹn trong vòng 5h tới từ 06.00 qua ngân hàng, còn hóa đơn này trên 500k thì trừ ra, chưa trả nha.",
+    "normalized_text": "Tắt trả hóa đơn, tới hẹn trong vòng 5h tới từ 06.00 qua ngân hàng, còn hóa đơn này trên 500k thì trừ ra, chưa trả nha.",
+    "latency": 1.4442632070004038
+  },
+  "train_0092": {
+    "raw_text": "Cảm ơn các bạn đã theo dõi và ủng hộ cho kênh lalaschool Để không bỏ lỡ những video hấp dẫn",
+    "normalized_text": "Cảm ơn các bạn đã theo dõi và ủng hộ cho kênh",
+    "latency": 1.2754642650006645
+  },
+  "train_0093": {
+    "raw_text": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn",
+    "normalized_text": "",
+    "latency": 1.5473995009997452
+  },
+  "train_0094": {
+    "raw_text": "Mai nếu mưa thì rời lịch chay bộ sáng mai, 1-2 tiếng, rồi nhấn SMS cho bộ báo giờ mới, không mưa thì thôi.",
+    "normalized_text": "Mai nếu mưa thì rời lịch chay bộ sáng mai, 1-2 tiếng, rồi nhấn SMS cho bộ báo giờ mới, không mưa thì thôi.",
+    "latency": 1.276346427000135
+  },
+  "train_0095": {
+    "raw_text": "Thôi gọi Zalo cho người đấy giúp em nha.",
+    "normalized_text": "Thôi gọi Zalo cho người đấy giúp em nha.",
+    "latency": 0.8017536929992275
+  },
+  "train_0096": {
+    "raw_text": "Nhất tui gọi lại cho khách lúc 8h kia 15 tối mai nha.",
+    "normalized_text": "Nhất tui gọi lại cho khách lúc 8h kia 15 tối mai nha.",
+    "latency": 0.9369789479997053
+  },
+  "train_0097": {
+    "raw_text": "Nhắc tôi đến thuốc lúc 8h-15h tối mai lắm.",
+    "normalized_text": "Nhắc tôi đến thuốc lúc 8h-15h tối mai lắm.",
+    "latency": 0.860405362000165
+  },
+  "train_0098": {
+    "raw_text": "Trả tiền mẹ bằng lý điện tử nhé, lý là không đủ điều khiển qua ngân hàng, rồi nhấn SMS cho xếp vựng, đó thôi, đóng xong rồi.",
+    "normalized_text": "Trả tiền mẹ bằng lý điện tử nhé, lý là không đủ điều khiển qua ngân hàng, rồi nhấn SMS cho xếp vựng, đó thôi, đóng xong rồi.",
+    "latency": 1.4917006290006611
+  },
+  "train_0100": {
+    "raw_text": "Tiền mang tháng này trả bằng vị điện tử giúp chị, vị thiếu thì lấy ngân hàng, xong nhận SMS cho Hương, bảo chị đóng rồi nghe.",
+    "normalized_text": "Tiền mang tháng này trả bằng vị điện tử giúp chị, vị thiếu thì lấy ngân hàng, xong nhận SMS cho Hương, bảo chị đóng rồi nghe.",
+    "latency": 1.4657387509996624
+  },
+  "train_0103": {
+    "raw_text": "Đặt báo thức 6.3.3 và gọi Minh giúp tôi nhé.",
+    "normalized_text": "Đặt báo thức 6.3.3 và gọi Minh giúp tôi nhé.",
+    "latency": 0.9535920950002037
+  },
+  "train_0104": {
+    "raw_text": "Trẻ hộ anh tất cả hóa đơn đến hạn trong 5 ngày tới qua ngân hàng, còn hóa đơn nào quét 500k thì không trẻ, để lại đẻ.",
+    "normalized_text": "Trẻ hộ anh tất cả hóa đơn đến hạn trong 5 ngày tới qua ngân hàng, còn hóa đơn nào quét 500k thì không trẻ, để lại đẻ.",
+    "latency": 1.4216600420004397
+  },
+  "train_0105": {
+    "raw_text": "Đặt cho chị ô tô 4 chỗ, từ công ty đến chỗ hên khẳng trang chiều nay, nón chép rửa hết 30 phút, rồi nhắc chị mang laptop chép nút toàn xe 30 phút.",
+    "normalized_text": "Đặt cho chị ô tô 4 chỗ, từ công ty đến chỗ hên khẳng trang chiều nay, nón chép rửa hết 30 phút, rồi nhắc chị mang laptop chép nút toàn xe 30 phút.",
+    "latency": 1.5601751260001038
+  },
+  "train_0106": {
+    "raw_text": "Mai mưa thì hủy lý ảo tim, rồi nhận SMS, báo cô giáo mai, còn không mưa thì đặt ô tô 4 chỗ, từ nhà tới chỗ hẹn đó, đón suốt nửa tiếng.",
+    "normalized_text": "Mai mưa thì hủy lý ảo tim, rồi nhận SMS, báo cô giáo mai, còn không mưa thì đặt ô tô 4 chỗ, từ nhà tới chỗ hẹn đó, đón suốt nửa tiếng.",
+    "latency": 1.5842692169999282
+  },
+  "train_0107": {
+    "raw_text": "Trả tiền mạc bằng ví điện tử giúp chị, ví không đủ thì trừ vào ngân hàng, xong rồi nhắn SMS cho cô giáo Mai và chị đóng rồi nhé.",
+    "normalized_text": "Trả tiền mạc bằng ví điện tử giúp chị, ví không đủ thì trừ vào ngân hàng, xong rồi nhắn SMS cho cô giáo Mai và chị đóng rồi nhé.",
+    "latency": 1.4058410039997398
+  },
+  "train_0108": {
+    "raw_text": "Tắt hết đèn cái tầng 2 đi, chứ phòng mũ đang mệt quạt thì cứ để đèn đó, rồi bật điều hòa phòng mũ 26 đồ nghe.",
+    "normalized_text": "Tắt hết đèn cái tầng 2 đi, chứ phòng mũ đang mệt quạt thì cứ để đèn đó, rồi bật điều hòa phòng mũ 26 đồ nghe.",
+    "latency": 1.4019323630000144
+  },
+  "train_0109": {
+    "raw_text": "Ngày mai mà mưa thì hủy lít hàng cà phê với mình, nhà này SMS bảo an tính, không mưa thì gọi ô tô bốn chỗ từ nhà tới chỗ hàng, đón trước nửa tiếng nha.",
+    "normalized_text": "Ngày mai mà mưa thì hủy lít hàng cà phê với mình, nhà này SMS bảo an tính, không mưa thì gọi ô tô bốn chỗ từ nhà tới chỗ hàng, đón trước nửa tiếng nha.",
+    "latency": 1.6073757720005233
+  },
+  "train_0110": {
+    "raw_text": "Lấy ví đặt 50k tiền điện thoại cho sếp dũng, rồi chuyển ví cho mẹ đúng bằng tiền điện tháng này nhé.",
+    "normalized_text": "Lấy ví đặt 50k tiền điện thoại cho sếp dũng, rồi chuyển ví cho mẹ đúng bằng tiền điện tháng này nhé.",
+    "latency": 1.280703940999956
+  },
+  "train_0111": {
+    "raw_text": "Chiều nay tôi đi học phụ huynh, gọi ô tô 4 chỗ đó ở công ty, trở tới chỗ hẹn, trước giờ hẹn 45 phút nhé, nhất tôi mang laptop trước book xe tới 15 phút.",
+    "normalized_text": "Chiều nay tôi đi học phụ huynh, gọi ô tô 4 chỗ đó ở công ty, trở tới chỗ hẹn, trước giờ hẹn 45 phút nhé, nhất tôi mang laptop trước book xe tới 15 phút.",
+    "latency": 1.5959830460005833
+  },
+  "train_0112": {
+    "raw_text": "Giá tiền mạng bằng ví tiện tự giúp trị, ví không đủ thì trừ tài khoản ngân hàng nhé.",
+    "normalized_text": "Giá tiền mạng bằng ví tiện tự giúp trị, ví không đủ thì trừ tài khoản ngân hàng nhé.",
+    "latency": 1.2361558319998949
+  },
+  "train_0113": {
+    "raw_text": "Chuyển cho chủ nhà phạm hồn đúng bằng tiền truyền hình tháng này. Tài khoản thanh tác không đối thì lấy từ chi tiết kiệm nhé.",
+    "normalized_text": "Chuyển cho chủ nhà phạm hồn đúng bằng tiền truyền hình tháng này. Tài khoản thanh tác không đối thì lấy từ chi tiết kiệm nhé.",
+    "latency": 1.50234752400047
+  },
+  "train_0115": {
+    "raw_text": "Nhắn Zalo cho mình giúp chị làm mai gửi mình file nhé.",
+    "normalized_text": "Nhắn Zalo cho mình giúp chị làm mai gửi mình file nhé.",
+    "latency": 0.9153343329999188
+  },
+  "train_0116": {
+    "raw_text": "Ờ, nhắc tôi gọi điện cho mẹ với nha.",
+    "normalized_text": "Ờ, nhắc tôi gọi điện cho mẹ với nha.",
+    "latency": 0.8779381129998001
+  },
+  "train_0117": {
+    "raw_text": "Vàng SGC bán ra nay trên 129 triệu, thì nhắc tôi 9h sáng mai đi bán vàng, chưa tới thì chuyển 2 triệu cho Phạm Hùng từ tài khoản thanh toán, góp mua vàng.",
+    "normalized_text": "Vàng SGC bán ra nay trên 129 triệu, thì nhắc tôi 9h sáng mai đi bán vàng, chưa tới thì chuyển 2 triệu cho Phạm Hùng từ tài khoản thanh toán, góp mua vàng.",
+    "latency": 1.5882498099999793
+  },
+  "train_0119": {
+    "raw_text": "Chuyển cho Lê Minh đúng tiền lứa tháng này, chủ nhà Phạm Hùng đúng tiền truyền hình tháng này, trừ vào tài khoản thanh toán, không đủ, cho cả hai thì lấy tiết kiệm.",
+    "normalized_text": "Chuyển cho Lê Minh đúng tiền lứa tháng này, chủ nhà Phạm Hùng đúng tiền truyền hình tháng này, trừ vào tài khoản thanh toán, không đủ, cho cả hai thì lấy tiết kiệm.",
+    "latency": 1.7296064539996223
+  },
+  "train_0121": {
+    "raw_text": "Trong 5 ngày tới có hóa đơn nào tới hạn thì lén ngân hàng tra khớp giúp mình, liên hóa đơn nào cao hơn 500k thì đừng trả, chờ mình xem lá.",
+    "normalized_text": "Trong 5 ngày tới có hóa đơn nào tới hạn thì lén ngân hàng tra khớp giúp mình, liên hóa đơn nào cao hơn 500k thì đừng trả, chờ mình xem lá.",
+    "latency": 1.5101276400000643
+  },
+  "train_0122": {
+    "raw_text": "Nếu giá vàng ở chế xí mô vô hôm nay rưỡi 119 triệu thì nhắc chi chính giờ sáng mai đi mua vàng nghe.",
+    "normalized_text": "Nếu giá vàng ở chế xí mô vô hôm nay rưỡi 119 triệu thì nhắc chi chính giờ sáng mai đi mua vàng nghe.",
+    "latency": 1.2917734809998365
+  },
+  "train_0123": {
+    "raw_text": "Vành SDG, bán ra trên 127 triệu, thì nhắc tôi 9h sáng mai đi bán vàng, chưa tới thì lấy tài khoản thân tuyến, chuyển 2 triệu cho Nguyễn Ước Thị lên góp mua vàng.",
+    "normalized_text": "Vành SDG, bán ra trên 127 triệu, thì nhắc tôi 9h sáng mai đi bán vàng, chưa tới thì lấy tài khoản thân tuyến, chuyển 2 triệu cho Nguyễn Ước Thị lên góp mua vàng.",
+    "latency": 1.7374987759994838
+  },
+  "train_0124": {
+    "raw_text": "Giờ lịch khám răng mai mũ 60 phút nha, đặt báo thức trước đó 1 tiếng rồi nhắn SMS cho bố giờ mới.",
+    "normalized_text": "Giờ lịch khám răng mai mũ 60 phút nha, đặt báo thức trước đó 1 tiếng rồi nhắn SMS cho bố giờ mới.",
+    "latency": 1.2064587529994242
+  },
+  "train_0125": {
+    "raw_text": "Nếu dám mua vàng vàng SGC hôm nay dưới 120.000 triệu, thì nhắc mình 9h sáng mai đi mua vàng nhé.",
+    "normalized_text": "Nếu dám mua vàng vàng SGC hôm nay dưới 120.000 triệu, thì nhắc mình 9h sáng mai đi mua vàng nhé.",
+    "latency": 1.2706602600001133
+  },
+  "train_0126": {
+    "raw_text": "Hóa đơn nào đến hạn trong vòng 5 ngày tới thì trả bán ngân hàng cho tôi, trừ hóa đơn trên 500k thì cứ để đó đã.",
+    "normalized_text": "Hóa đơn nào đến hạn trong vòng 5 ngày tới thì trả bán ngân hàng cho tôi, trừ hóa đơn trên 500k thì cứ để đó đã.",
+    "latency": 1.342055721000179
+  },
+  "train_0127": {
+    "raw_text": "Chiều nay tôi đi chơi công viên, em đặt ô tô 4 chỗ đón tôi ở công ty tới chỗ hẹn. Trước giờ hẹn 45 phút nhất tôi mang laptop trước lúc xe đóng 15 phút.",
+    "normalized_text": "Chiều nay tôi đi chơi công viên, em đặt ô tô 4 chỗ đón tôi ở công ty tới chỗ hẹn. Trước giờ hẹn 45 phút nhất tôi mang laptop trước lúc xe đóng 15 phút.",
+    "latency": 1.6643187500003478
+  },
+  "train_0128": {
+    "raw_text": "Mai mè mưa thì hủy lực đe bóng, nhắn SMS, béo minh đồng nghiệp, hộ tôi, không mưa thì gọi ô tô 4 chỗ từ nhà đến chỗ hiện đó, đón chúc nổi tiếng.",
+    "normalized_text": "Mai mè mưa thì hủy lực đe bóng, nhắn SMS, béo minh đồng nghiệp, hộ tôi, không mưa thì gọi ô tô 4 chỗ từ nhà đến chỗ hiện đó, đón chúc nổi tiếng.",
+    "latency": 1.726693771999635
+  },
+  "train_0129": {
+    "raw_text": "Hết đèn thứ 2 đi, trừ phòng nào rong bật điều hòa thì cứ để nguyên đèn nhé.",
+    "normalized_text": "Hết đèn thứ 2 đi, trừ phòng nào rong bật điều hòa thì cứ để nguyên đèn nhé.",
+    "latency": 1.0868922409999868
+  },
+  "train_0130": {
+    "raw_text": "Lịch đá bóng mai nhé, mưa thì hủy, rồi nhắn SMS báo mẹ mình, còn không mưa thì đặt ô tô 4 chỗ từ nhà đến chỗ hẹn, đón sớm đưa ở tiếng.",
+    "normalized_text": "Lịch đá bóng mai nhé, mưa thì hủy, rồi nhắn SMS báo mẹ mình, còn không mưa thì đặt ô tô 4 chỗ từ nhà đến chỗ hẹn, đón sớm đưa ở tiếng.",
+    "latency": 1.5780845899998894
+  },
+  "train_0131": {
+    "raw_text": "Trời mai mưa thì hủy hẹn cà phê với mình, gửi SMS báo anh Tuấn, còn không mưa thì đặt ô tô 4 chỗ, từ nhà qua chỗ hẹn, đón trước, giờ hẹn nửa tiếng.",
+    "normalized_text": "Trời mai mưa thì hủy hẹn cà phê với mình, gửi SMS báo anh Tuấn, còn không mưa thì đặt ô tô 4 chỗ, từ nhà qua chỗ hẹn, đón trước, giờ hẹn nửa tiếng.",
+    "latency": 1.7011434799997005
+  },
+  "train_0132": {
+    "raw_text": "Nhắc em gọi lại cho khách lúc 9h kém 15h tối mai nha.",
+    "normalized_text": "Nhắc em gọi lại cho khách lúc 9h kém 15h tối mai nha.",
+    "latency": 0.9223689909995301
+  },
+  "train_0133": {
+    "raw_text": "Tắt đèn bếp giúp tôi với nhắn tin cho mình là tối nay ăn cơm nhà nhé.",
+    "normalized_text": "Tắt đèn bếp giúp tôi với nhắn tin cho mình là tối nay ăn cơm nhà nhé.",
+    "latency": 0.9990274930005398
+  },
+  "train_0134": {
+    "raw_text": "Đặt bún bò giò ở quán bún bò Huế gần nhà giúp mình, nhóm chat gia đình bao nhiêu người thì cứ gọi bấy nhiêu phần, không tính mình ra.",
+    "normalized_text": "Đặt bún bò giò ở quán bún bò Huế gần nhà giúp mình, nhóm chat gia đình bao nhiêu người thì cứ gọi bấy nhiêu phần, không tính mình ra.",
+    "latency": 1.4268175340002927
+  },
+  "train_0135": {
+    "raw_text": "Mai bạn đặt bảo thức gọi mình dây nhé.",
+    "normalized_text": "Mai bạn đặt bảo thức gọi mình dây nhé.",
+    "latency": 0.802138420999654
+  },
+  "train_0136": {
+    "raw_text": "Cha mình đặt bốn bà, và ở quán bốn bà ở EcoBear, nhóm chat gia đình ca mấy người thì lại đúng mấy phần, không tính mình nhé.",
+    "normalized_text": "Cha mình đặt bốn bà, và ở quán bốn bà ở EcoBear, nhóm chat gia đình ca mấy người thì lại đúng mấy phần, không tính mình nhé.",
+    "latency": 1.4162793309997141
+  },
+  "train_0137": {
+    "raw_text": "Nếu mai mưa thì rời địch đi chợ hoa sáng mai muộn 1 tiếng, rồi nhắn tin SMS cho lương báo giờ mới, không mưa thì thôi.",
+    "normalized_text": "Nếu mai mưa thì rời địch đi chợ hoa sáng mai muộn 1 tiếng, rồi nhắn tin SMS cho lương báo giờ mới, không mưa thì thôi.",
+    "latency": 1.3921647710003526
+  },
+  "train_0138": {
+    "raw_text": "Chó dị tắt hết đèn dòng 2, riêng phòng nào còn đang chạy thì đánh nguyên đèn, rồi bật điều hòa phòng ngủ 27 độ.",
+    "normalized_text": "Chó dị tắt hết đèn dòng 2, riêng phòng nào còn đang chạy thì đánh nguyên đèn, rồi bật điều hòa phòng ngủ 27 độ.",
+    "latency": 1.4675814960000935
+  },
+  "train_0139": {
+    "raw_text": "Đặt chiếc Toyota 4 chỗ từ công ty đến chỗ hẹn đã bấm chiều nay, đón sớm hơn giờ hẹn 45 phút, lát tôi mang laptop trước lúc xe đón 15 phút.",
+    "normalized_text": "Đặt chiếc Toyota 4 chỗ từ công ty đến chỗ hẹn đã bấm chiều nay, đón sớm hơn giờ hẹn 45 phút, lát tôi mang laptop trước lúc xe đón 15 phút.",
+    "latency": 1.5775978150004448
+  },
+  "train_0140": {
+    "raw_text": "Bật đèn phòng khách 30% thôi nhé, hoặc thì đừng bật, rồi bật điều hòa phòng khách 26 độ cho chị.",
+    "normalized_text": "Bật đèn phòng khách 30% thôi nhé, hoặc thì đừng bật, rồi bật điều hòa phòng khách 26 độ cho chị.",
+    "latency": 1.197611794000295
+  },
+  "train_0141": {
+    "raw_text": "Em ơi, đóng tiền điện bằng ví điện thử cho tôi, ví mà không đủ vị trí qua ngân hàng nhé, xong gửi tin nhận SMS cho bác bà, gió bảo tôi đóng rồi.",
+    "normalized_text": "Em ơi, đóng tiền điện bằng ví điện thử cho tôi, ví mà không đủ vị trí qua ngân hàng nhé, xong gửi tin nhận SMS cho bác bà, gió bảo tôi đóng rồi.",
+    "latency": 1.538559603000067
+  },
+  "train_0142": {
+    "raw_text": "Giờ buổi cà phê với gia đình Mai muộn thêm 60 phút giúp tôi đặt cây báo thuốc chắc đóng 1 tiếng và nhấn SMS cho anh đồng nghiệp biết giờ mới nhé.",
+    "normalized_text": "Giờ buổi cà phê với gia đình Mai muộn thêm 60 phút giúp tôi đặt cây báo thuốc chắc đóng 1 tiếng và nhấn SMS cho anh đồng nghiệp biết giờ mới nhé.",
+    "latency": 1.523605850000422
+  },
+  "train_0143": {
+    "raw_text": "Em ơi, đọc báo thức 5h mạng sáng mai nhé, với chuyển phí cho anh Phấn chút tiền.",
+    "normalized_text": "Em ơi, đọc báo thức 5h mạng sáng mai nhé, với chuyển phí cho anh Phấn chút tiền.",
+    "latency": 1.1410204029998567
+  },
+  "train_0144": {
+    "raw_text": "Bật đèn phòng khách mà để 40% thôi nha, hoặc thì đừng bật, phải mở điều hòa phòng khách 26 độ.",
+    "normalized_text": "Bật đèn phòng khách mà để 40% thôi nha, hoặc thì đừng bật, phải mở điều hòa phòng khách 26 độ.",
+    "latency": 1.1981557919998522
+  },
+  "train_0145": {
+    "raw_text": "Dùng ví điện tử làm 100k tính điện thoại cho xếp dũng, rồi truyền cho bố đúng mang tiền lưu tháng 2 nhé.",
+    "normalized_text": "Dùng ví điện tử làm 100k tính điện thoại cho xếp dũng, rồi truyền cho bố đúng mang tiền lưu tháng 2 nhé.",
+    "latency": 1.3201363110001694
+  },
+  "train_0146": {
+    "raw_text": "Nếu chị trả bằng ngân hàng mấy hóa đơn đến hãng trong 5 ngày thấy giúp anh, trừ kết hợp trên ngân thông minh, thì cái đó chưa trả nha.",
+    "normalized_text": "Nếu chị trả bằng ngân hàng mấy hóa đơn đến hãng trong 5 ngày thấy giúp anh, trừ kết hợp trên ngân thông minh, thì cái đó chưa trả nha.",
+    "latency": 1.4629465990001336
+  },
+  "train_0147": {
+    "raw_text": "Yeah yeah lô lia",
+    "normalized_text": "Yeah yeah lô lia",
+    "latency": 0.7056167189994085
+  },
+  "train_0148": {
+    "raw_text": "Trong vòng 5 ngày tới, hóa đơn nào tới hạn thì cứ dùng ngân hàng trẻ, còn hóa đơn nào vượt 500k thì chuối trẻ, để tôi tính đại nhiên.",
+    "normalized_text": "Trong vòng 5 ngày tới, hóa đơn nào tới hạn thì cứ dùng ngân hàng trẻ, còn hóa đơn nào vượt 500k thì chưa trả, để tôi tính đại nhiên.",
+    "latency": 1.57199787799982
+  },
+  "train_0149": {
+    "raw_text": "Chiều nay đặt ô tô 4 chỗ tới đón tôi ở công ty tới chỗ hiện cà phê với gia đình. Trước giờ thì muốn 15 phút nhắc tôi mang laptop 15 phút trước lúc ra xe đón.",
+    "normalized_text": "Chiều nay đặt ô tô 4 chỗ tới đón tôi ở công ty tới chỗ hiện cà phê với gia đình. Trước giờ thì muốn 15 phút nhắc tôi mang laptop 15 phút trước lúc ra xe đón.",
+    "latency": 1.5905072119994657
+  },
+  "train_0150": {
+    "raw_text": "Vậy em muốn ăn bún bò giờ, ô em bún bò Huế gần đây, đặt cho kẻ nhóm gia đình, mỗi với một phần, không thánh em nhé.",
+    "normalized_text": "Vậy em muốn ăn bún bò giờ, ô em bún bò Huế gần đây, đặt cho kẻ nhóm gia đình, mỗi với một phần, không thánh em nhé.",
+    "latency": 1.368377505999888
+  },
+  "train_0151": {
+    "raw_text": "Trả tiền mạng bằng ví điểm thử đi, ví không đủ thì trừ vào tài khoản ngân hàng nhé.",
+    "normalized_text": "Trả tiền mạng bằng ví điểm thử đi, ví không đủ thì trừ vào tài khoản ngân hàng nhé.",
+    "latency": 1.1196807289998105
+  },
+  "train_0152": {
+    "raw_text": "Đặt vào thức 6h sáng mai cho anh, rồi chuyển ví điện tử cho lại anh ít tiền nha.",
+    "normalized_text": "Đặt vào thức 6h sáng mai cho anh, rồi chuyển ví điện tử cho lại anh ít tiền nha.",
+    "latency": 1.053029236999464
+  },
+  "train_0153": {
+    "raw_text": "Nhắc chỉ đổ xăng lúc 5h chiều mai, với nhắn cho anh Lan là, nhớ mang hộ cái sạc.",
+    "normalized_text": "Nhắc chỉ đổ xăng lúc 5h chiều mai, với nhắn cho anh Lan là, nhớ mang hộ cái sạc.",
+    "latency": 1.0962658279995594
+  },
+  "train_0154": {
+    "raw_text": "Mai mưa thì hủy lịch học tim rồi nhắn SMS báo minh đồng nghiệp, còn không mưa thì đặt ô tô 4 chỗ từ nhà tới chỗ hiện đó, đón sớm hơn nửa tiếng.",
+    "normalized_text": "Mai mưa thì hủy lịch học tim rồi nhắn SMS báo minh đồng nghiệp, còn không mưa thì đặt ô tô 4 chỗ từ nhà tới chỗ hiện đó, đón sớm hơn nửa tiếng.",
+    "latency": 1.541283984999609
+  },
+  "train_0155": {
+    "raw_text": "Ờ, tắt hộp mình cái đêm phòng khách, à thôi khỏi, không cần đâu.",
+    "normalized_text": "Ờ, tắt hộp mình cái đêm phòng khách, à thôi khỏi, không cần đâu.",
+    "latency": 0.9590564560003259
+  },
+  "train_0156": {
+    "raw_text": "Em ơi giờ lịch học phụ huynh mai mộn thêm 45 phút, đặt bài học thức trước đó 1 tiếng, vừa nhắn SMS cho bố biết giờ mới nhé.",
+    "normalized_text": "Em ơi giờ lịch học phụ huynh mai mộn thêm 45 phút, đặt bài học thức trước đó 1 tiếng, vừa nhắn SMS cho bố biết giờ mới nhé.",
+    "latency": 1.3530438950001553
+  },
+  "train_0157": {
+    "raw_text": "Tắt hết đèn tầng 2 group A nhé, trừ phòng nạp và đánh chạy thì để nguyên đèn, xong bật điều hòa phòng ngủ 26 độc.",
+    "normalized_text": "Tắt hết đèn tầng 2 group A nhé, trừ phòng nạp và đánh chạy thì để nguyên đèn, xong bật điều hòa phòng ngủ 26 độc.",
+    "latency": 1.4359793049998189
+  },
+  "train_0158": {
+    "raw_text": "Tắt đèn gá tầng 2 đi, trừ phòng nào đang bật vậy thì để đèn lại cho tôi, rồi bỏ điều hòa phòng ngủ 35 độ nhé.",
+    "normalized_text": "Tắt đèn gá tầng 2 đi, trừ phòng nào đang bật vậy thì để đèn lại cho tôi, rồi bỏ điều hòa phòng ngủ 35 độ nhé.",
+    "latency": 1.3991901050003435
+  },
+  "train_0159": {
+    "raw_text": "Tắt hết đèn tầng 2 đi nhé, phòng nào đang bật điều hòa thì để nguyên đèn cho tôi.",
+    "normalized_text": "Tắt hết đèn tầng 2 đi nhé, phòng nào đang bật điều hòa thì để nguyên đèn cho tôi.",
+    "latency": 1.1409064009994836
+  },
+  "train_0161": {
+    "raw_text": "5h chiều mai nhắc anh đổ xanh nha, rồi nhắn minh giúp anh làng giỡn mang hồ cái sạc.",
+    "normalized_text": "5h chiều mai nhắc anh đổ xanh nha, rồi nhắn minh giúp anh làng giỡn mang hồ cái sạc.",
+    "latency": 1.2400440799992793
+  },
+  "train_0162": {
+    "raw_text": "Chiều mai 5h, nhánh ăn đi đổ xanh he, với nhánh điện đêm ít, cha Hương lại nhớ mang hồ khách sạn.",
+    "normalized_text": "Chiều mai 5h, nhánh ăn đi đổ xanh he, với nhánh điện đêm ít, cha Hương lại nhớ mang hồ khách sạn.",
+    "latency": 1.2746157990004576
+  },
+  "train_0163": {
+    "raw_text": "Chuyển cho Lê Minh đúng bằng tiền nạn hả này nha. Nếu tài khoản, an toán không đủ thì lấy từ tiết kiệm.",
+    "normalized_text": "Chuyển cho Lê Minh đúng bằng tiền nạn hả này nha. Nếu tài khoản, an toán không đủ thì lấy từ tiết kiệm.",
+    "latency": 1.2982263779995264
+  },
+  "train_0164": {
+    "raw_text": "Tập áp của 7 giờ sáng mai giúp anh rồi chuyển quý ra hơn chục tiền nhé.",
+    "normalized_text": "Tập áp của 7 giờ sáng mai giúp anh rồi chuyển quý ra hơn chục tiền nhé.",
+    "latency": 1.0162267659998179
+  },
+  "train_0165": {
+    "raw_text": "Mai nếu mưa thì hủy xe lệch xanh răng, nhấn SMS cho bố kít, không mưa thì gọi ô tô 4 chỗ từ nhà đến đó, đón trước giờ hẹn nửa tiếng.",
+    "normalized_text": "Mai nếu mưa thì hủy xe lệch xanh răng, nhấn SMS cho bố kít, không mưa thì gọi ô tô 4 chỗ từ nhà đến đó, đón trước giờ hẹn nửa tiếng.",
+    "latency": 1.5238171009996222
+  },
+  "train_0166": {
+    "raw_text": "Bởi cho lên thì mới đặt qua thức 6h sớm mai chị em nữa.",
+    "normalized_text": "Bởi cho lên thì mới đặt qua thức 6h sớm mai chị em nữa.",
+    "latency": 0.9038231450003877
+  },
+  "train_0168": {
+    "raw_text": "Nhóc mình gọi lại cho khách núp thắng rồi kém 15 tuần mai nhé.",
+    "normalized_text": "Nhóc mình gọi lại cho khách núp thắng rồi kém 15 tuần mai nhé.",
+    "latency": 0.9040603200000987
+  },
+  "train_0169": {
+    "raw_text": "Trả tiền điện bằng ví điện tử giúp mình, ví mà không đưa tiền trường vào tài khoản ngân hàng nhé.",
+    "normalized_text": "Trả tiền điện bằng ví điện tử giúp mình, ví mà không đưa tiền trường vào tài khoản ngân hàng nhé.",
+    "latency": 1.1922030530004122
+  },
+  "train_0170": {
+    "raw_text": "Tắt đèn phòng lòng vừa giúp tôi, gửi nhắn SMS cho Lan là nhớ mang gỗng cái sạc đi nhé.",
+    "normalized_text": "Tắt đèn phòng lòng vừa giúp tôi, gửi nhắn SMS cho Lan là nhớ mang gỗng cái sạc đi nhé.",
+    "latency": 1.1853217699999732
+  },
+  "train_0171": {
+    "raw_text": "Em đặt giúp tôi bướm bò, dạ, của em bướm bò Huế Cô Ba nhé, mỗi người trong nhóm gia đình một phần, không tính tôi.",
+    "normalized_text": "Em đặt giúp tôi bướm bò, dạ, của em bướm bò Huế Cô Ba nhé, mỗi người trong nhóm gia đình một phần, không tính tôi.",
+    "latency": 1.3709460999998555
+  },
+  "train_0172": {
+    "raw_text": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn",
+    "normalized_text": "",
+    "latency": 1.0898134199997003
+  },
+  "train_0173": {
+    "raw_text": "Đặt báo thích 5 giờ xe máy cho anh, rồi chuyển ví cho cô giáo máy ướp tiền giấy.",
+    "normalized_text": "Đặt báo thích 5 giờ xe máy cho anh, rồi chuyển ví cho cô giáo máy ướp tiền giấy.",
+    "latency": 1.1870762260004994
+  },
+  "train_0174": {
+    "raw_text": "Đặt báo thức 6h sáng mai dùm tôi rồi gọi cho Minh luôn nhe.",
+    "normalized_text": "Đặt báo thức 6h sáng mai dùm tôi rồi gọi cho Minh luôn nhe.",
+    "latency": 0.9924978409999312
+  },
+  "train_0176": {
+    "raw_text": "Mai mưa thì về địch đi chơi công viên, nhắn SMS và xét dấu, còn không mưa thì đặt ô tô 4 chỗ thì nhà đến chỗ hết đó, đón trước rồi hãy ngồi chiếu.",
+    "normalized_text": "Mai mưa thì về địch đi chơi công viên, nhắn SMS và xét dấu, còn không mưa thì đặt ô tô 4 chỗ thì nhà đến chỗ hết đó, đón trước rồi hãy ngồi chiếu.",
+    "latency": 1.577527843000098
+  },
+  "train_0177": {
+    "raw_text": "Nhận Zalo cho mình giúp mình là đến rồi thì gọi tôi nha.",
+    "normalized_text": "Nhận Zalo cho mình giúp mình là đến rồi thì gọi tôi nha.",
+    "latency": 0.8390424839999469
+  },
+  "train_0178": {
+    "raw_text": "Nhắc em gọi lại khách lúc 8h kém 15h tối mai.",
+    "normalized_text": "Nhắc em gọi lại khách lúc 8h kém 15h tối mai.",
+    "latency": 0.8659749429998556
+  },
+  "train_0179": {
+    "raw_text": "Đóng tiền mạng bằng ví điện tử cho tôi, ví mà không được thì trừ vào ngân hàng nhé, xong nhắn SMS cho mẹ báo là đã xong, đóng rồi.",
+    "normalized_text": "Đóng tiền mạng bằng ví điện tử cho tôi, ví mà không được thì trừ vào ngân hàng nhé, xong nhắn SMS cho mẹ báo là đã xong, đóng rồi.",
+    "latency": 1.4384402850000697
+  },
+  "train_0180": {
+    "raw_text": "Chắc nàng phòng làm chuyện đây. Với những em bé trò làm và mày, ngửi mình phải nhé.",
+    "normalized_text": "Chắc nàng phòng làm chuyện đây. Với những em bé trò làm và mày, ngửi mình phải nhé.",
+    "latency": 1.040116162999766
+  },
+  "train_0181": {
+    "raw_text": "Xóa chút chiều thì bảo thức 7h sẵn mãi thôi nha.",
+    "normalized_text": "Xóa chút chiều thì bảo thức 7h sẵn mãi thôi nha.",
+    "latency": 0.923853214000701
+  },
+  "train_0182": {
+    "raw_text": "Giá SGC hôm nay mà mua vào dưới 120 triệu thì nhắc em 9h sáng mai đi mua về nha.",
+    "normalized_text": "Giá SGC hôm nay mà mua vào dưới 120 triệu thì nhắc em 9h sáng mai đi mua về nha.",
+    "latency": 1.1149375440008953
+  },
+  "train_0183": {
+    "raw_text": "Khán đơn nèo đến hạn trong năm ngày tới thì chạy qua ngân hàng giúp em, nhưng cái nèo hơn 500k thì cứ để lại, đừng chạy.",
+    "normalized_text": "Khán đơn nèo đến hạn trong năm ngày tới thì chạy qua ngân hàng giúp em, nhưng cái nèo hơn 500k thì cứ để lại, đừng chạy.",
+    "latency": 1.305108881999331
+  },
+  "train_0184": {
+    "raw_text": "Trả bằng ngân hàng giúp em bấy khóa đơn hạn trong 5 ngày tới đi, viên khóa đơn nào trên 500k thì trừa ra, chưa trả nha.",
+    "normalized_text": "Trả bằng ngân hàng giúp em bấy khóa đơn hạn trong 5 ngày tới đi, viên khóa đơn nào trên 500k thì trừa ra, chưa trả nha.",
+    "latency": 1.3607472310004596
+  },
+  "train_0185": {
+    "raw_text": "Đặt món bún bào giả ở quán bún bào Huế Kobe giúp em, mỗi người trăng giám gia đình một phần, không tính em nhé.",
+    "normalized_text": "Đặt món bún bào giả ở quán bún bào Huế Kobe giúp em, mỗi người trăng giám gia đình một phần, không tính em nhé.",
+    "latency": 1.3052128240005914
+  },
+  "train_0186": {
+    "raw_text": "Rời cái hẹt cà phê với Minh Mai muộn thêm 45 phút dùm tôi, đặt báo thức trên đó 1 tiếng, rồi nhắn SMS cho Lan giờ mới nhá.",
+    "normalized_text": "Rời cái hẹt cà phê với Minh Mai muộn thêm 45 phút dùm tôi, đặt báo thức trên đó 1 tiếng, rồi nhắn SMS cho Lan giờ mới nhá.",
+    "latency": 1.4726806100006797
+  },
+  "train_0187": {
+    "raw_text": "Lịch Hàn Giang mai rời muộn thêm 4-5 phút rồi em nhé. Đã đó thức chấp đóng 1 tiếng. Vừa nhận SMS cho xếp dũ giờ mới nha.",
+    "normalized_text": "Lịch Hàn Giang mai rời muộn thêm 4-5 phút rồi em nhé. Đã đó thức chấp đóng 1 tiếng. Vừa nhận SMS cho xếp dũ giờ mới nha.",
+    "latency": 1.5569537699993816
+  },
+  "train_0188": {
+    "raw_text": "45 phút nữa nhé, chị gọi lại cho khách nhé.",
+    "normalized_text": "45 phút nữa nhé, chị gọi lại cho khách nhé.",
+    "latency": 0.8916346160003741
+  },
+  "train_0189": {
+    "raw_text": "Trả giúp chị kết tiền mạng bánh bí điện tử, vì kiểu đi dùng ngân hàng, xong nhắn SMS trả lan đó là đóng rồi nhé.",
+    "normalized_text": "Trả giúp chị kết tiền mạng bánh bí điện tử, vì kiểu đi dùng ngân hàng, xong nhắn SMS trả lan đó là đóng rồi nhé.",
+    "latency": 1.341167730000052
+  },
+  "train_0190": {
+    "raw_text": "Mấy cô em đợi hợp trong 5 ngày thuế, trả bằng ngân hàng luôn đi, kết hợp nhiều hơn 500k thì để đấy, chưa trả,",
+    "normalized_text": "Mấy cô em đợi hợp trong 5 ngày thuế, trả bằng ngân hàng luôn đi, kết hợp nhiều hơn 500k thì để đấy, chưa trả,",
+    "latency": 1.2721306260000347
+  },
+  "train_0191": {
+    "raw_text": "Đặt bớt suốt 7h sáng mai cho ăn rồi chuyển ví cho Lan cái tiền nha.",
+    "normalized_text": "Đặt bớt suốt 7h sáng mai cho ăn rồi chuyển ví cho Lan cái tiền nha.",
+    "latency": 0.9894124289994579
+  },
+  "train_0192": {
+    "raw_text": "Bật đèn phòng khách cho tôi, mà chỉ 80% thôi nhé, quản thì thôi đừng bật, điều hòa phòng khách cứ để 26 độ đi.",
+    "normalized_text": "Bật đèn phòng khách cho tôi, mà chỉ 80% thôi nhé, quản thì thôi đừng bật, điều hòa phòng khách cứ để 26 độ đi.",
+    "latency": 1.279075231999741
+  },
+  "train_0193": {
+    "raw_text": "Đã có tối bóng chỗ từ công ty đến chỗ hộp tiêm chiều nay, đóng trước hẳn, giờ hẳn 15 phút mà nhắc rồi mang laptop trước, giờ sẽ đóng 15 phút.",
+    "normalized_text": "Đã có tối bóng chỗ từ công ty đến chỗ hộp tiêm chiều nay, đóng trước hẳn, giờ hẳn 15 phút mà nhắc rồi mang laptop trước, giờ sẽ đóng 15 phút.",
+    "latency": 1.5677084990002186
+  },
+  "train_0194": {
+    "raw_text": "Tắt lịch và xe dưới gia đình, mai dài muộn thêm 30 phút, thật bớt phức trước đó 1 tiếng, rồi nhắn SMS cho bác bà giờ mới nhé.",
+    "normalized_text": "Tắt lịch và xe dưới gia đình, mai dài muộn thêm 30 phút, thật bớt phức trước đó 1 tiếng, rồi nhắn SMS cho bác bà giờ mới nhé.",
+    "latency": 1.457985920000283
+  },
+  "train_0195": {
+    "raw_text": "Zalo nhé em!",
+    "normalized_text": "Zalo nhé em!",
+    "latency": 0.6089402150000751
+  },
+  "train_0196": {
+    "raw_text": "Bán ra mà chê 126 triệu thì 9h sáng mai nhắc tôi đi bán vàng, chưa tới thì chuyển 2 triệu từ tài khoản thanh toán cho Trần Vân Tuấn, tiền góp mua vàng.",
+    "normalized_text": "Bán ra mà chê 126 triệu thì 9h sáng mai nhắc tôi đi bán vàng, chưa tới thì chuyển 2 triệu từ tài khoản thanh toán cho Trần Vân Tuấn, tiền góp mua vàng.",
+    "latency": 1.5992531909996615
+  },
+  "train_0197": {
+    "raw_text": "Hôm nay vàng STC bán ra trên 124 triệu thì nhắc mình 9 giờ sáng mai đi bán, chưa tới thì chuyển 2 triệu từ tài khoản thanh toán cho mình lên góp mua vàng.",
+    "normalized_text": "Hôm nay vàng STC bán ra trên 124 triệu thì nhắc mình 9 giờ sáng mai đi bán, chưa tới thì chuyển 2 triệu từ tài khoản thanh toán cho mình lên góp mua vàng.",
+    "latency": 1.5737491850004517
+  },
+  "train_0199": {
+    "raw_text": "Đèn phòng khách mà chỉ dùng tới 30% là đủ, quả khỏi và thèn, rồi mở điều hòa phòng khách hay xói đồ luôn.",
+    "normalized_text": "Đèn phòng khách mà chỉ dùng tới 30% là đủ, quả khỏi và thèn, rồi mở điều hòa phòng khách hay xói đồ luôn.",
+    "latency": 1.3799149280002894
+  },
+  "train_0200": {
+    "raw_text": "Vàng SGC bán ra trên 134 triệu thì 9h sáng mai nhắc tôi đi bán, chưa tới thì chuyển 2 triệu từ tài khoản thanh toán cho Nguyễn Thị Lan để góp mua vào.",
+    "normalized_text": "Vàng SGC bán ra trên 134 triệu thì 9h sáng mai nhắc tôi đi bán, chưa tới thì chuyển 2 triệu từ tài khoản thanh toán cho Nguyễn Thị Lan để góp mua vào.",
+    "latency": 1.6695316830000593
+  },
+  "train_0201": {
+    "raw_text": "Lịch hộp tim, mơ giờ muộn thêm 45 phút nhé, đẹp báo thức trước đó 1 tiếng cho chị, xong nhán xmx cho cô giáo mơ, giờ mới.",
+    "normalized_text": "Lịch hộp tim, mơ giờ muộn thêm 45 phút nhé, đẹp báo thức trước đó 1 tiếng cho chị, xong nhán xmx cho cô giáo mơ, giờ mới.",
+    "latency": 1.455362721999336
+  },
+  "train_0202": {
+    "raw_text": "Thế bây giờ là hết đi, phòng nào nằm bật điều hòa thì cứ để đèo nguyên lõng, nha.",
+    "normalized_text": "Thế bây giờ là hết đi, phòng nào nằm bật điều hòa thì cứ để đèo nguyên lõng, nha.",
+    "latency": 1.1813228850005544
+  },
+  "train_0203": {
+    "raw_text": "Nếu ví đủ thì đóng tiền mạng bằng ví và nhắn hết lên nhát hương là đã đóng, còn ví thiếu thì chạy vào ngân hàng và nhắc tôi nhập ví 8h tối nay.",
+    "normalized_text": "Nếu ví đủ thì đóng tiền mạng bằng ví và nhắn hết lên nhát hương là đã đóng, còn ví thiếu thì chạy vào ngân hàng và nhắc tôi nhập ví 8h tối nay.",
+    "latency": 1.4902250780005488
+  },
+  "train_0204": {
+    "raw_text": "Nếu bí thủ trả tiền chuyển hình bằng bí, bài ngắn nhân viên cho tôi nó đã đóng, có không đủ thì trả bằng ngân hàng và đặt tôi 3 giờ tối nay nạp bí nha.",
+    "normalized_text": "Nếu bí thủ trả tiền chuyển hình bằng bí, bài ngắn nhân viên cho tôi nó đã đóng, có không đủ thì trả bằng ngân hàng và đặt tôi 3 giờ tối nay nạp bí nha.",
+    "latency": 1.6350426409999272
+  },
+  "train_0205": {
+    "raw_text": "Mai mà mưa thì gửi dịch tại vòng sáu mai, rồi gọi cho mình giúp em, không mưa thì thôi.",
+    "normalized_text": "Mai mà mưa thì gửi dịch tại vòng sáu mai, rồi gọi cho mình giúp em, không mưa thì thôi.",
+    "latency": 1.090506431999529
+  },
+  "train_0206": {
+    "raw_text": "Chấn văn tấn thì chuyển đúng số tiền điện tháng này, chủ nhà phạm hùng đúng tiền mạng tháng này, trừ vào tài khoản thông toán, không đủ cả hai thì lấy tiền thiết kiện nha.",
+    "normalized_text": "Chấn văn tấn thì chuyển đúng số tiền điện tháng này, chủ nhà phạm hùng đúng tiền mạng tháng này, trừ vào tài khoản thông toán, không đủ cả hai thì lấy tiền thiết kiện nha.",
+    "latency": 1.751034836999679
+  },
+  "train_0207": {
+    "raw_text": "Các tiền phòng khách giúp em gửi nhắn SMS cho Hương gặp tối nay ăn cơm nhà nhé.",
+    "normalized_text": "tắt đèn khách giúp em gửi nhắn SMS cho Hương gặp tối nay ăn cơm nhà nhé.",
+    "latency": 1.102204017999611
+  },
+  "train_0208": {
+    "raw_text": "Chuyển cho liên minh đúng bằng tiền mạng tháng này giá lấy từ tài khoản thanh toán, nếu không đủ thì dùng tiền thiết kiệm chuyển thuê.",
+    "normalized_text": "Chuyển cho liên minh đúng bằng tiền mạng tháng này giá lấy từ tài khoản thanh toán, nếu không đủ thì dùng tiền thiết kiệm chuyển thuê.",
+    "latency": 1.4929007749997254
+  },
+  "train_0209": {
+    "raw_text": "Đóng thông minh tiền nếu bằng ví điện tử, nếu không đủ thì trả bằng ngân hàng về xong ngắn SMS vào sử dụng và đóng xong nhé.",
+    "normalized_text": "Đóng thông minh tiền nếu bằng ví điện tử, nếu không đủ thì trả bằng ngân hàng về xong ngắn SMS vào sử dụng và đóng xong nhé.",
+    "latency": 1.52979746300025
+  },
+  "train_0210": {
+    "raw_text": "Nếu mai mưa thì rời địch đi chợ hoa sáng mai muộn 2 tiếng, rồi nhắn sms cho mẹ báo giờ mới, không mưa thì thôi ạ.",
+    "normalized_text": "Nếu mai mưa thì rời địch đi chợ hoa sáng mai muộn 2 tiếng, rồi nhắn sms cho mẹ báo giờ mới, không mưa thì thôi ạ.",
+    "latency": 1.4242348440002388
+  },
+  "train_0211": {
+    "raw_text": "Đạn bún bò giò ở quán bún bò Huế có bay cho em, mỗi người trong nhóm chat gia đình một phần, không tính em nhé.",
+    "normalized_text": "Đạn bún bò giò ở quán bún bò Huế có bay cho em, mỗi người trong nhóm chat gia đình một phần, không tính em nhé.",
+    "latency": 1.343309832000159
+  },
+  "train_0212": {
+    "raw_text": "Trưa nay tôi muốn ăn bún bò giò ở quán bún bò Huế đặt chùm tôi, trong nhóm gia đình cũng một phần, chứ tôi tan nhanh.",
+    "normalized_text": "Trưa nay tôi muốn ăn bún bò giò ở quán bún bò Huế đặt chùm tôi, trong nhóm gia đình cũng một phần, chứ tôi tan nhanh.",
+    "latency": 1.3361424240001725
+  },
+  "train_0213": {
+    "raw_text": "Nếu ví đủ thì trả tiền nước bằng ví và nhấn SMS cho xếp dũng là đa đóng, còn không đủ thì trả vào ngân hàng và nhấn tôi 8 rồi tới làm ví nhé.",
+    "normalized_text": "Nếu ví đủ thì trả tiền nước bằng ví và nhấn SMS cho xếp dũng là đa đóng, còn không đủ thì trả vào ngân hàng và nhấn tôi 8 rồi tới làm ví nhé.",
+    "latency": 1.4792084979999345
+  },
+  "train_0214": {
+    "raw_text": "Đóng tiền mạng bằng quý điện tử giúp tôi, quý không đủ thì trừ qua ngân hàng, xong nhấn SMS cho xếp dưỡng báo tôi đóng rồi nhé.",
+    "normalized_text": "Đóng tiền mạng bằng quý điện tử giúp tôi, quý không đủ thì trừ qua ngân hàng, xong nhấn SMS cho xếp dưỡng báo tôi đóng rồi nhé.",
+    "latency": 1.4842926909996095
+  },
+  "train_0215": {
+    "raw_text": "Mai mà mưa thì hủy lịch đá bóng, sáng mai rồi gọi báo cho Lan, không mưa thì thôi ạ.",
+    "normalized_text": "Mai mà mưa thì hủy lịch đá bóng, sáng mai rồi gọi báo cho Lan, không mưa thì thôi ạ.",
+    "latency": 1.122085936000076
+  },
+  "train_0216": {
+    "raw_text": "Trả tiền truyền hình bằng ví cho chị, ví không đủ thì lấy tài khoản ngân hàng nha.",
+    "normalized_text": "Trả tiền truyền hình bằng ví cho chị, ví không đủ thì lấy tài khoản ngân hàng nha.",
+    "latency": 1.089694375000363
+  },
+  "train_0217": {
+    "raw_text": "Mai 8h sáng nhắc em đi đổ xăng với, ảnh nhắn SMS cho Lan là tối nay ăn cơm nhà nhé.",
+    "normalized_text": "Mai 8h sáng nhắc em đi đổ xăng với, ảnh nhắn SMS cho Lan là tối nay ăn cơm nhà nhé.",
+    "latency": 1.1245185960005983
+  },
+  "train_0219": {
+    "raw_text": "Nhắc em đi học với nhé.",
+    "normalized_text": "Nhắc em đi học với nhé.",
+    "latency": 0.6735619910004971
+  },
+  "train_0220": {
+    "raw_text": "Trợ lý ơi, nhắc mình gọi cho mẹ nhé.",
+    "normalized_text": "Trợ lý ơi, nhắc mình gọi cho mẹ nhé.",
+    "latency": 0.8104330699998172
+  },
+  "train_0221": {
+    "raw_text": "Hòa đơn đều tới hẹn trong 5 ngày, thấy thì trễ bằng ngân hàng cho tôi, toàn cái đều khoảng 500k thì để lại đấy, chưa trễ đâu nhé.",
+    "normalized_text": "Hòa đơn đều tới hẹn trong 5 ngày, thấy thì trễ bằng ngân hàng cho tôi, toàn cái đều khoảng 500k thì để lại đấy, chưa trễ đâu nhé.",
+    "latency": 1.4755524049996893
+  },
+  "train_0222": {
+    "raw_text": "Mê và mưa thì hãy ngồi lại đọc tim rồi nhắn bếp báo bố giúp mình, còn không mưa thì đặt 4 ô tô 4 chỗ từ nhà đến chỗ hàng, đón trước về hàng lúc nửa tiếng.",
+    "normalized_text": "Mê và mưa thì hãy ngồi lại đọc tim rồi nhắn bếp báo bố giúp mình, còn không mưa thì đặt 4 ô tô 4 chỗ từ nhà đến chỗ hàng, đón trước về hàng lúc nửa tiếng.",
+    "latency": 1.7609233210005186
+  },
+  "train_0224": {
+    "raw_text": "Vàng SGC bán ra hôm nay trên 151 triệu, thì nhóm tôi chính sẽ sáng mai đi bán, chưa tới thì chuyển 2 triệu từ thực hiện thanh tánh cho Liên minh gốc mua vàng.",
+    "normalized_text": "Vàng SGC bán ra hôm nay trên 151 triệu, thì nhóm tôi chính sẽ sáng mai đi bán, chưa tới thì chuyển 2 triệu từ thực hiện thanh tánh cho Liên minh gốc mua vàng.",
+    "latency": 1.5720214359998863
+  },
+  "train_0225": {
+    "raw_text": "Nhấn SMS cho Hương là chiều nay gặp ở quán cũ nha.",
+    "normalized_text": "Nhấn SMS cho Hương là chiều nay gặp ở quán cũ nha.",
+    "latency": 0.8861361230001421
+  },
+  "train_0226": {
+    "raw_text": "Chuyển cho Nguyễn Thị Lan đúng tiền nước tháng này, chủ nhà Phạm Hùng đúng tiền truyền hình, trừ vào tài khoản thanh toán, không đủ cả hai thì lấy tiết kiệm nha.",
+    "normalized_text": "Chuyển cho Nguyễn Thị Lan đúng tiền nước tháng này, chủ nhà Phạm Hùng đúng tiền truyền hình, trừ vào tài khoản thanh toán, không đủ cả hai thì lấy tiết kiệm nha.",
+    "latency": 1.697483882000597
+  },
+  "train_0227": {
+    "raw_text": "Cho đèn phòng khách sáng 50% hoặc thì thôi đừng bật với lệ bật điều hòa phòng khách ở 26 độ.",
+    "normalized_text": "Cho đèn phòng khách sáng 50% hoặc thì thôi đừng bật với lệ bật điều hòa phòng khách ở 26 độ.",
+    "latency": 1.1669395750004696
+  },
+  "train_0228": {
+    "raw_text": "Đặt vào thức xấu dưới sáng mai, rồi gọi cho Lan dùng thuê nha.",
+    "normalized_text": "Đặt vào thức xấu dưới sáng mai, rồi gọi cho Lan dùng thuê nha.",
+    "latency": 0.9907724340000641
+  },
+  "train_0229": {
+    "raw_text": "Chuyển cho Trần Văn Tuấn đúng vang tiền ạ, em hãy giúp tôi, chơi vào tài khoản anh bán nhé, không đủ thì lấy dự tiết nghiệm nhé.",
+    "normalized_text": "Chuyển cho Trần Văn Tuấn đúng vang tiền ạ, em hãy giúp tôi, chơi vào tài khoản anh bán nhé, không đủ thì lấy dự tiết nghiệm nhé.",
+    "latency": 1.4792852540003878
+  },
+  "train_0230": {
+    "raw_text": "Chào mừng quý vị đến với kênh lalaschool Để không bỏ lỡ những video hấp dẫn",
+    "normalized_text": "Chào mừng quý vị đến với kênh",
+    "latency": 1.0273590119995788
+  },
+  "train_0231": {
+    "raw_text": "Đóng tiền điện bằng ví điện tử giúp tôi, ví mà không đủ thì trả bằng ngân hàng, xong nhắn SMS cho bố, báo đóng rồi nhé.",
+    "normalized_text": "Đóng tiền điện bằng ví điện tử giúp tôi, ví mà không đủ thì trả bằng ngân hàng, xong nhắn SMS cho bố, báo đóng rồi nhé.",
+    "latency": 1.4001773729996785
+  },
+  "train_0232": {
+    "raw_text": "Nếu vàng nhất thì mua vào dưới 153 triệu, thì nhất tôi chính ra sáng nay đi mua vàng nhé.",
+    "normalized_text": "Nếu vàng nhất thì mua vào dưới 153 triệu, thì nhất tôi chính ra sáng nay đi mua vàng nhé.",
+    "latency": 1.0972942890002741
+  },
+  "train_0233": {
+    "raw_text": "Tắt đèn phòng mủ đi em, dù nhắn tin cho Hương là tối nay ăn không nhà nhé.",
+    "normalized_text": "Tắt đèn phòng mủ đi em, dù nhắn tin cho Hương là tối nay ăn không nhà nhé.",
+    "latency": 1.1005465150001328
+  },
+  "train_0234": {
+    "raw_text": "Giá bánh vàng SGC hôm nay trên 128 triệu, thì chính giờ xem mai, nhớ tôi đi ván, chưa tới thì chỉ còn phần thứ 2 triệu từ tài khoản thanh toán gấp mua vàng.",
+    "normalized_text": "Giá bánh vàng SGC hôm nay trên 128 triệu, thì chính giờ xem mai, nhớ tôi đi ván, chưa tới thì chỉ còn phần thứ 2 triệu từ tài khoản thanh toán gấp mua vàng.",
+    "latency": 1.6088451850000638
+  },
+  "train_0235": {
+    "raw_text": "Tắt hết đèn tầng 2 giúp mình, trừ phòng nào đang bật quạt thì cứ để đèn đó, rồi bật điều hòa phòng ngữ 25 độ nhé.",
+    "normalized_text": "Tắt hết đèn tầng 2 giúp mình, trừ phòng nào đang bật quạt thì cứ để đèn đó, rồi bật điều hòa phòng ngữ 25 độ nhé.",
+    "latency": 1.4314032929996756
+  },
+  "train_0236": {
+    "raw_text": "Nếu ví đủ thì trả tiền truyền hình bằng ví và nhấn SMS xếp dũ là đã đóng, còn thiếu thì trả qua ngân hàng và nhắc tôi 8h tối nay là ví nha.",
+    "normalized_text": "Nếu ví đủ thì trả tiền truyền hình bằng ví và nhấn SMS xếp dũ là đã đóng, còn thiếu thì trả qua ngân hàng và nhắc tôi 8h tối nay là ví nha.",
+    "latency": 1.6235558949992992
+  },
+  "train_0237": {
+    "raw_text": "Nhớ chị thất bếp lúc 8 giờ kém 15 tối mai nhé.",
+    "normalized_text": "Nhớ chị tắt bếp lúc 8 giờ kém 15 tối mai nhé.",
+    "latency": 0.8753323369992358
+  },
+  "train_0238": {
+    "raw_text": "Gọi ô tô 4 chỗ từ công ty đến chỗ kháng giang chiều nay, đáng sớm 30 phút so với giờ hẹn, với nhắc chị mang laptop 15 phút trước khi xe tới.",
+    "normalized_text": "Gọi ô tô 4 chỗ từ công ty đến chỗ kháng giang chiều nay, đáng sớm 30 phút so với giờ hẹn, với nhắc chị mang laptop 15 phút trước khi xe tới.",
+    "latency": 1.4232985890002965
+  },
+  "train_0239": {
+    "raw_text": "Đèn phòng khách bật 40% thôi nha, huệ đừng bật, rồi bật điều hòa phòng khách 26 độ cho chị.",
+    "normalized_text": "Đèn phòng khách bật 40% thôi nha, huệ đừng bật, rồi bật điều hòa phòng khách 26 độ cho chị.",
+    "latency": 1.177394689000721
+  },
+  "train_0240": {
+    "raw_text": "Đặt bao giấc 7 giờ sáng mai cho em với lại chuyển ví cho bố chút tiền em.",
+    "normalized_text": "Đặt bao giấc 7 giờ sáng mai cho em với lại chuyển ví cho bố chút tiền em.",
+    "latency": 0.9818622459997641
+  },
+  "train_0241": {
+    "raw_text": "Mai nếu mưa thì hủy giúp tôi lệch đi chơi công viên sáng mai nhé.",
+    "normalized_text": "Mai nếu mưa thì hủy giúp tôi lệch đi chơi công viên sáng mai nhé.",
+    "latency": 0.9801432390004265
+  },
+  "train_0242": {
+    "raw_text": "Trả bằng thân hẹn giúp tôi mấy hoa đơn tính hẹn trong năm này tới, liệu hoa đơn nào trên 500k thì giữ lại, chưa trả nhé.",
+    "normalized_text": "Trả bằng thân hẹn giúp tôi mấy hoa đơn tính hẹn trong năm này tới, liệu hoa đơn nào trên 500k thì giữ lại, chưa trả nhé.",
+    "latency": 1.3864017420000891
+  },
+  "train_0243": {
+    "raw_text": "Cho tôi báo kết sau rưỡi sáng mai, với lại gọi cho Lan nữa nhé.",
+    "normalized_text": "Cho tôi báo kết sau rưỡi sáng mai, với lại gọi cho Lan nữa nhé.",
+    "latency": 0.9499418819996208
+  },
+  "train_0244": {
+    "raw_text": "3 tháng 6 giờ lưỡi sáng mai nhé, quay lại chuyển ví cho mình chút tiền giúp tôi.",
+    "normalized_text": "3 tháng 6 giờ lưỡi sáng mai nhé, quay lại chuyển ví cho mình chút tiền giúp tôi.",
+    "latency": 1.0668190849992243
+  },
+  "train_0245": {
+    "raw_text": "Gọi cho Minh giúp chị.",
+    "normalized_text": "Gọi cho Minh giúp chị.",
+    "latency": 0.7090183339996656
+  },
+  "train_0246": {
+    "raw_text": "Tắt đèn tầng 2, trừ phòng nào quẹt đèn chạy, thì để nguyên đèn nhé, xong bật điều hòa phòng hữu 26 độ.",
+    "normalized_text": "Tắt đèn tầng 2, trừ phòng nào quẹt đèn chạy, thì để nguyên đèn nhé, xong bật điều hòa phòng hữu 26 độ.",
+    "latency": 2.6727533989997028
+  },
+  "train_0247": {
+    "raw_text": "Nhớ nhanh tối uống thuốc lúc 9h kém về làm tối mai với nhé.",
+    "normalized_text": "Nhớ nhanh tối uống thuốc lúc 9h kém về làm tối mai với nhé.",
+    "latency": 1.0214908619991547
+  },
+  "train_0248": {
+    "raw_text": "Gọi cho tôi một chiếc xe 4 chỗ ra sân bay với.",
+    "normalized_text": "Gọi cho tôi một chiếc xe 4 chỗ ra sân bay với.",
+    "latency": 0.8941319709992968
+  },
+  "train_0249": {
+    "raw_text": "Trẻ tiền bằng ví điện tử cho tôi, ví, không đủ thì lấy ngân hàng trẻ, xong ngân SMS cho bố béo, lại đóng xong rồi.",
+    "normalized_text": "Trẻ tiền bằng ví điện tử cho tôi, ví, không đủ thì lấy ngân hàng trẻ, xong ngân SMS cho bố béo, lại đóng xong rồi.",
+    "latency": 1.340943690000131
+  },
+  "train_0250": {
+    "raw_text": "Đặt báo thức 7h30 sáng mai giúp mình, rồi chuyển ví cho mẹ ít tiền nghe.",
+    "normalized_text": "Đặt báo thức 7h30 sáng mai giúp mình, rồi chuyển ví cho mẹ ít tiền nghe.",
+    "latency": 1.0286582529997759
+  },
+  "train_0251": {
+    "raw_text": "Chiều nay, chị đi cà phê với gia đình, em đặt ô tô 4 chủa từ công ty tới chỗ hạn, đón sớm nửa chiến, rồi dắt chị mang laptop, 15 phút trước lúc xe đón.",
+    "normalized_text": "Chiều nay, chị đi cà phê với gia đình, em đặt ô tô 4 chủa từ công ty tới chỗ hạn, đón sớm nửa chiến, rồi dắt chị mang laptop, 15 phút trước lúc xe đón.",
+    "latency": 1.6271725960004915
+  },
+  "train_0252": {
+    "raw_text": "Bật đèn phòng khách giúp em mà để 30% thôi, quạt thì đừng bật, với bật điều hòa phòng khách 26 độ nha.",
+    "normalized_text": "Bật đèn phòng khách giúp em mà để 30% thôi, quạt thì đừng bật, với bật điều hòa phòng khách 26 độ nha.",
+    "latency": 1.24899767000079
+  },
+  "train_0253": {
+    "raw_text": "Các anh phòng làm việc đi, với lại nhắn SMS cho Lan là Mai gửi mình file nha.",
+    "normalized_text": "tắt đèn làm việc đi, với lại nhắn SMS cho Lan là Mai gửi mình file nha.",
+    "latency": 0.9763783430007607
+  },
+  "train_0254": {
+    "raw_text": "Nếu mai mưa thì bỏ cái họp phụ huynh đi, nhắn SMS báo hương giúp tôi, còn trời ráo thì gọi ô tô 4 chỗ từ nhà ra chỗ hẹn, đón sớm nửa tiếng.",
+    "normalized_text": "Nếu mai mưa thì bỏ cái họp phụ huynh đi, nhắn SMS báo hương giúp tôi, còn trời ráo thì gọi ô tô 4 chỗ từ nhà ra chỗ hẹn, đón sớm nửa tiếng.",
+    "latency": 1.6488251509999827
+  },
+  "train_0255": {
+    "raw_text": "Và SGC bán ra mà trên 122 triệu thì 9h sáng mai nhắc tôi đi bán vàng, chưa tới thì chuyển cho lên mình 2 triệu từ tài khoản thanh toán góp mua vàng.",
+    "normalized_text": "Và SGC bán ra mà trên 122 triệu thì 9h sáng mai nhắc tôi đi bán vàng, chưa tới thì chuyển cho lên mình 2 triệu từ tài khoản thanh toán góp mua vàng.",
+    "latency": 1.525758931999917
+  },
+  "train_0256": {
+    "raw_text": "Giờ lịch họp tim mai muộn thêm 4-5 phút nhé, rồi đặt báo thức trước đó 1 tiếng, và nhắn SMS cho Hương giờ mới.",
+    "normalized_text": "Giờ lịch họp tim mai muộn thêm 4-5 phút nhé, rồi đặt báo thức trước đó 1 tiếng, và nhắn SMS cho Hương giờ mới.",
+    "latency": 1.372639963000438
+  },
+  "train_0257": {
+    "raw_text": "Đặt giúp tôi món bún bò giò ở quán bún bò Huế, mỗi người trong nhóm chat gia đình một phần, không tính tôi nhé.",
+    "normalized_text": "Đặt giúp tôi món bún bò giò ở quán bún bò Huế, mỗi người trong nhóm chat gia đình một phần, không tính tôi nhé.",
+    "latency": 1.383427830999608
+  },
+  "train_0258": {
+    "raw_text": "Tắt hết đèn tấn 2, chứ phòng nào cũng bật điều hòa thì đèn nguyên nhé.",
+    "normalized_text": "Tắt hết đèn tấn 2, chứ phòng nào cũng bật điều hòa thì đèn nguyên nhé.",
+    "latency": 1.1048972540002069
+  },
+  "train_0259": {
+    "raw_text": "Lấy tài khoản thanh toán cho A Quyền Thị Lan đúng thì nước tháng này, chủ nhà phạm hồn đúng tiền truyền hành tháng này, không đổ ra ai thì bù hồn tiết kiệm nhé.",
+    "normalized_text": "Lấy tài khoản thanh toán cho A Quyền Thị Lan đúng thì nước tháng này, chủ nhà phạm hồn đúng tiền truyền hành tháng này, không đổ ra ai thì bù hồn tiết kiệm nhé.",
+    "latency": 1.7864766069997131
+  },
+  "train_0260": {
+    "raw_text": "Trẻ tiền điện, bằng ví cho thôi, ví không được thì lấy tiền nhân hành nha.",
+    "normalized_text": "Trẻ tiền điện, bằng ví cho thôi, ví không được thì lấy tiền nhân hành nha.",
+    "latency": 1.0021433900001284
+  },
+  "train_0261": {
+    "raw_text": "Tiền điện thì vào ví điện tử giúp tôi nhé, ví mà thiếu thì lấy ngân hàng cho đủ, rồi nhắn SMS cho Hương là tôi đã đóng xong.",
+    "normalized_text": "Tiền điện thì vào ví điện tử giúp tôi nhé, ví mà thiếu thì lấy ngân hàng cho đủ, rồi nhắn SMS cho Hương là tôi đã đóng xong.",
+    "latency": 1.3542732989999422
+  },
+  "train_0262": {
+    "raw_text": "Đảm bảo thức xấu cho Giả Mai, rồi gọi điện cho Lan giúp tôi.",
+    "normalized_text": "Đảm bảo thức xấu cho Giả Mai, rồi gọi điện cho Lan giúp tôi.",
+    "latency": 0.9646695289993659
+  },
+  "train_0263": {
+    "raw_text": "Đặt báo thức năm mới sáng mai với chuyển ví cho bộ ít thỉ nghiệm.",
+    "normalized_text": "Đặt báo thức năm mới sáng mai với chuyển ví cho bộ ít thỉ nghiệm.",
+    "latency": 1.009904497000207
+  },
+  "train_0264": {
+    "raw_text": "Em nhờ bật đèn phòng khách 40%, quạt thì đừng, còn điều hòa phòng khách mở 26 độ nha.",
+    "normalized_text": "Em nhờ bật đèn phòng khách 40%, quạt thì đừng, còn điều hòa phòng khách mở 26 độ nha.",
+    "latency": 1.1853847140000653
+  },
+  "train_0265": {
+    "raw_text": "Tắt cái đèn phòng ngủ nhỏ hộ anh, với lại nhấn lan là mai gửi mình ra nhé.",
+    "normalized_text": "Tắt cái đèn phòng ngủ nhỏ hộ anh, với lại nhấn lan là mai gửi mình ra nhé.",
+    "latency": 1.0283882749999975
+  },
+  "train_0266": {
+    "raw_text": "Nếu mai mưa thì dọi lịch đa bóng sáng mai mùa 2 tiếng rồi nhăn SMS cho Tuấn báo giờ mới, hôm mưa thì thôi.",
+    "normalized_text": "Nếu mai mưa thì dọi lịch đa bóng sáng mai mùa 2 tiếng rồi nhăn SMS cho Tuấn báo giờ mới, hôm mưa thì thôi.",
+    "latency": 1.2668115219994434
+  },
+  "train_0267": {
+    "raw_text": "Lấy tài khoản thanh toán chuyển cho chủ nhà Phạm Hùng đúng tiền tiền hình tháng này, Trần Văn Túng đúng tiền tiền hình tháng này, không đủ cả 2 thì lấy tiết kiệm nhé.",
+    "normalized_text": "Lấy tài khoản thanh toán chuyển cho chủ nhà Phạm Hùng đúng tiền tiền hình tháng này, Trần Văn Túng đúng tiền tiền hình tháng này, không đủ cả 2 thì lấy tiết kiệm nhé.",
+    "latency": 1.7297189060000164
+  },
+  "train_0268": {
+    "raw_text": "Đặt báo thuốc 5h sáng mai giúp em rồi gửi Tuấn chút tiền qua phí nha.",
+    "normalized_text": "Đặt báo thuốc 5h sáng mai giúp em rồi gửi Tuấn chút tiền qua phí nha.",
+    "latency": 1.1548815169999216
+  },
+  "train_0269": {
+    "raw_text": "Đẹp báo thức 6 lưỡi sáng mơ giúp mình, tới gọi Zalo luôn nhé.",
+    "normalized_text": "Đẹp báo thức 6 lưỡi sáng mơ giúp mình, tới gọi Zalo luôn nhé.",
+    "latency": 1.0863357140005974
+  },
+  "train_0270": {
+    "raw_text": "Tắt nét đèn tầng 2 đi, từ phòng mà đang bật quạt thì cứ để đèn, rồi bật điều hòa phòng của 26 độ nhé.",
+    "normalized_text": "Tắt nét đèn tầng 2 đi, từ phòng mà đang bật quạt thì cứ để đèn, rồi bật điều hòa phòng của 26 độ nhé.",
+    "latency": 1.3364559450001252
+  },
+  "train_0271": {
+    "raw_text": "Bật dùm tôi đèn phòng khách 40%, quạt thì không cần bật, điều hòa phòng khách cho 26 độ.",
+    "normalized_text": "Bật dùm tôi đèn phòng khách 40%, quạt thì không cần bật, điều hòa phòng khách cho 26 độ.",
+    "latency": 1.1135518589999265
+  },
+  "train_0272": {
+    "raw_text": "Giá vài HTC buýt ra bữa nay, tránh ra 124 triệu, thì ngất tối đi bán vàng, 9h sáng mai, không, từ trên 2 triệu, trong Nguyễn Thị Lan, từ Thạch Quảng Thân bán, truyền góp mua vàng.",
+    "normalized_text": "Giá vài HTC buýt ra bữa nay, tránh ra 124 triệu, thì ngất tối đi bán vàng, 9h sáng mai, không, từ trên 2 triệu, trong Nguyễn Thị Lan, từ Thạch Quảng Thân bán, truyền góp mua vàng.",
+    "latency": 1.9054672030006259
+  },
+  "train_0273": {
+    "raw_text": "Gọi hương hộ cái.",
+    "normalized_text": "Gọi hương hộ cái.",
+    "latency": 0.6367073880001044
+  },
+  "train_0274": {
+    "raw_text": "Chuyển chiếc tour Nguyễn Thị Lan đúng tiền mạng tháng này với Trần Văn Tuấn đúng tiền truyền hình tháng này từ tài khoản Thanh Tó. Nếu không đủ cả hai thì lấy tiết kiệm.",
+    "normalized_text": "Chuyển chiếc tour Nguyễn Thị Lan đúng tiền mạng tháng này với Trần Văn Tuấn đúng tiền truyền hình tháng này từ tài khoản Thanh Tó. Nếu không đủ cả hai thì lấy tiết kiệm.",
+    "latency": 1.7494861610002772
+  },
+  "train_0275": {
+    "raw_text": "Bật đèn phòng khách lên nhưng để mở 30% thôi, quạt đường bật nhé, rồi bật điều hòa phòng khách 26 độ.",
+    "normalized_text": "Bật đèn phòng khách lên nhưng để mở 30% thôi, quạt đường bật nhé, rồi bật điều hòa phòng khách 26 độ.",
+    "latency": 1.2302762890003578
+  },
+  "train_0276": {
+    "raw_text": "Đặt ô tô 4 chỗ từ Công ty tới chỗ hẹn để chơi công viên chiều nay, đón sớm mới là 45 phút so với giờ hẹn, với đặt tòa mang mọi laptop 15 phút trước bước xe đón.",
+    "normalized_text": "Đặt ô tô 4 chỗ từ Công ty tới chỗ hẹn để chơi công viên chiều nay, đón sớm mới là 45 phút so với giờ hẹn, với đặt tòa mang mọi laptop 15 phút trước bước xe đón.",
+    "latency": 1.6953526070001317
+  },
+  "train_0277": {
+    "raw_text": "Bật đèn phòng khách 50% thôi nha, quà thì khỏi bật, còn điều hòa phòng khách thì để 26 độ ạ.",
+    "normalized_text": "Bật đèn phòng khách 50% thôi nha, quà thì khỏi bật, còn điều hòa phòng khách thì để 26 độ ạ.",
+    "latency": 1.1747565939995184
+  },
+  "train_0278": {
+    "raw_text": "Cái còn lại thì mai mưa dời mụn thêm nửa tiếng cho tôi ngủ thêm, không mưa thì cứ giữ mình nha.",
+    "normalized_text": "Cái còn lại thì mai mưa dời mụn thêm nửa tiếng cho tôi ngủ thêm, không mưa thì cứ giữ mình nha.",
+    "latency": 1.2581066070006273
+  },
+  "train_0279": {
+    "raw_text": "Vàng SCG bán ra hôm nay hơn 131 triệu thì nhắc tôi chính thức sáng mai đi bán vàng, chưa tới thì lấy tài khoản thanh toán chuyển Trần Văn Tuấn 2 triệu tiền góp mua vàng.",
+    "normalized_text": "Vàng SCG bán ra hôm nay hơn 131 triệu thì nhắc tôi chính thức sáng mai đi bán vàng, chưa tới thì lấy tài khoản thanh toán chuyển Trần Văn Tuấn 2 triệu tiền góp mua vàng.",
+    "latency": 1.7543757579996964
+  },
+  "train_0280": {
+    "raw_text": "Tắt đèn phòng mũi giúp tôi với nhánh lấy xong lấy cho mình là có ai ăn cơm nhà dí.",
+    "normalized_text": "Tắt đèn phòng mũi giúp tôi với nhánh lấy xong lấy cho mình là có ai ăn cơm nhà dí.",
+    "latency": 1.188774999999623
+  },
+  "train_0281": {
+    "raw_text": "Đặt báo thức 6h sáng mai, rồi gọi cho mình nghe.",
+    "normalized_text": "Đặt báo thức 6h sáng mai, rồi gọi cho mình nghe.",
+    "latency": 0.9143568280005638
+  },
+  "train_0282": {
+    "raw_text": "Mai mà mưa thì hủy lệnh ra vòng sáng mai rồi và báo cho mình, không mưa thì thôi nhé.",
+    "normalized_text": "Mai mà mưa thì hủy lệnh ra vòng sáng mai rồi và báo cho mình, không mưa thì thôi nhé.",
+    "latency": 1.1025758390005649
+  },
+  "train_0283": {
+    "raw_text": "Nếu ví đủ thì trả tiền mạng bằng ví và nhấn SMS trả mạng là đóng rồi, còn không đủ thì trả bằng ngân hàng và nhấc tôi 8 giờ tối nạp ví.",
+    "normalized_text": "Nếu ví đủ thì trả tiền mạng bằng ví và nhấn SMS trả mạng là đóng rồi, còn không đủ thì trả bằng ngân hàng và nhấc tôi 8 giờ tối nạp ví.",
+    "latency": 1.521993012999701
+  },
+  "train_0284": {
+    "raw_text": "Nguyễn Thị Lan ghi chuyển đốn tiền nước tháng mai, chủ nhà phạm hùng đốn tiền điện, trừ tài khoản thanh toán, nếu không đủ cả 2 tài khoản thì lấy tiền tiết kiểm tra cả 2 nha.",
+    "normalized_text": "Nguyễn Thị Lan ghi chuyển đốn tiền nước tháng mai, chủ nhà phạm hùng đốn tiền điện, trừ tài khoản thanh toán, nếu không đủ cả 2 tài khoản thì lấy tiền tiết kiểm tra cả 2 nha.",
+    "latency": 1.8087923639996006
+  },
+  "train_0285": {
+    "raw_text": "Tắt tiền bếp giúp tôi, rồi dắn tin cho đây là tôi sẽ ăn cơm nhà nhé.",
+    "normalized_text": "tắt đèn giúp tôi, rồi dắn tin cho đây là tôi sẽ ăn cơm nhà nhé.",
+    "latency": 1.0136485510001876
+  },
+  "train_0286": {
+    "raw_text": "Tiền điện tháng này trả bằng ví giúp tôi, ví không đủ thì lấy nhánh, từ ngân hàng, xăm hưu, nhắn SMS cho xếp dũng, báo là tôi đóng rồi nhé.",
+    "normalized_text": "Tiền điện tháng này trả bằng ví giúp tôi, ví không đủ thì lấy nhánh, từ ngân hàng, xăm hưu, nhắn SMS cho xếp dũng, báo là tôi đóng rồi nhé.",
+    "latency": 1.5614989360001346
+  },
+  "train_0287": {
+    "raw_text": "Nhấc mình gọi cho mẹ cái nhé.",
+    "normalized_text": "Nhấc mình gọi cho mẹ cái nhé.",
+    "latency": 0.7493548279999231
+  },
+  "train_0288": {
+    "raw_text": "Đặt bún bò giò ở quán bún bò Huế đi, mỗi người trong nhóm gia đình một phần, không tính tôi nhé.",
+    "normalized_text": "Đặt bún bò giò ở quán bún bò Huế đi, mỗi người trong nhóm gia đình một phần, không tính tôi nhé.",
+    "latency": 1.204745300000468
+  },
+  "train_0289": {
+    "raw_text": "Đặt báo thức 7h sáng mai giúp em với chuyển ví cho sếp dùng ít tiền nữa nha.",
+    "normalized_text": "Đặt báo thức 7h sáng mai giúp em với chuyển ví cho sếp dùng ít tiền nữa nha.",
+    "latency": 1.124705332999838
+  },
+  "train_0290": {
+    "raw_text": "Trên tầng 2 đèn còn bật, thì tắt đất đi, viên phòng nào máy lạnh đang chảy thì để đèn lại nha.",
+    "normalized_text": "Trên tầng 2 đèn còn bật, thì tắt đất đi, viên phòng nào máy lạnh đang chảy thì để đèn lại nha.",
+    "latency": 1.3079576749996704
+  },
+  "train_0291": {
+    "raw_text": "Đặt báo thức 6h sáng mai, rồi gọi cho mình giúp tôi.",
+    "normalized_text": "Đặt báo thức 6h sáng mai, rồi gọi cho mình giúp tôi.",
+    "latency": 0.9610520989999713
+  }
+}
