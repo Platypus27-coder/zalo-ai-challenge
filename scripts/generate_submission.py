@@ -94,6 +94,7 @@ def main():
     
     for i, sample in enumerate(samples):
         sample_id = sample["id"]
+        env = None
         try:
             # Create ToolEnv
             env = ToolEnv(split, sample_id, root=str(DATA_ROOT))
@@ -112,10 +113,13 @@ def main():
             })
         except Exception as e:
             print(f"  ✗ {sample_id}: {e}")
+            # Ensure valid state_hash from env even on exception, never emit empty string
+            tool_calls = env.get_tool_calls() if env is not None else []
+            state_hash = env.get_state_hash() if env is not None else ""
             results.append({
                 "id": sample_id,
-                "tool_calls": [],
-                "state_hash": "",
+                "tool_calls": tool_calls,
+                "state_hash": state_hash,
             })
         
         if (i + 1) % 50 == 0:

@@ -147,6 +147,12 @@ class BaseAgent:
                     if self.verbose:
                         ok_str = "✓" if result.get("ok") else "✗"
                         print(f"    Step {step}: {ok_str} {name}({json.dumps(arguments, ensure_ascii=False)[:100]})")
+                    
+                    # Terminal tool call: sys.ask_missing_info ends the session
+                    if name == "sys.ask_missing_info":
+                        if self.verbose:
+                            print(f"    Step {step}: sys.ask_missing_info is terminal — ending session.")
+                        break
                 else:
                     # Validation failed — DO NOT call env.call()!
                     # Give agent a chance to retry
@@ -158,6 +164,15 @@ class BaseAgent:
                     
                     if self.verbose:
                         print(f"    Step {step}: ✗ VALIDATION: {error_msg}")
+                
+                # Loop guard: avoid repeating identical failed call twice
+                if len(observations) >= 2:
+                    prev_obs = observations[-2]
+                    curr_obs = observations[-1]
+                    if prev_obs.get("call") == curr_obs.get("call") and not curr_obs.get("result", {}).get("ok"):
+                        if self.verbose:
+                            print(f"    Step {step}: Repeated identical failed call — stopping loop.")
+                        break
             
             elif parsed["action"] == "error":
                 if self.verbose:
@@ -300,7 +315,9 @@ class TransformersAgent(BaseAgent):
             add_generation_prompt=True,
         )
         
-        inputs = self._tokenizer(text, return_tensors="pt").to(self._model.device)
+        device = getattr(self._model, "device", "cuda" if torch.cuda.is_available() else "cpu")
+        inputs = self._tokenizer(text, return_tensors="pt").to(device)
+        pad_token_id = self._tokenizer.pad_token_id if self._tokenizer.pad_token_id is not None else self._tokenizer.eos_token_id
         
         with torch.no_grad():
             outputs = self._model.generate(
@@ -308,7 +325,7 @@ class TransformersAgent(BaseAgent):
                 max_new_tokens=self.max_new_tokens,
                 do_sample=False,  # Greedy decoding for reproducibility
                 temperature=1.0,  # Not used with do_sample=False
-                pad_token_id=self._tokenizer.eos_token_id,
+                pad_token_id=pad_token_id,
             )
         
         # Decode only the new tokens
