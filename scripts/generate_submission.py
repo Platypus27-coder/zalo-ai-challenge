@@ -112,7 +112,16 @@ def main():
                             completed_ids.add(entry["id"])
                     except json.JSONDecodeError:
                         print(f"  ⚠️ Ignored broken/partial line {line_no} from previous run in {output_path}")
-        if completed_ids:
+        # Guard: If existing checkpoint has all empty calls (e.g. initial rule-based baseline), but we are running LLM:
+        all_empty = (len(results) >= 20 and all(len(r.get("tool_calls", [])) == 0 for r in results))
+        if all_empty and args.agent_mode != "rule":
+            print(f"  ℹ️ Existing checkpoint ({len(results)} samples) is an empty baseline (0 tool calls).")
+            print(f"     Automatically resetting to run fresh LLM inference for --agent-mode {args.agent_mode}...")
+            completed_ids.clear()
+            results.clear()
+            if output_path.exists():
+                output_path.unlink()
+        elif completed_ids:
             # Re-write verified clean entries to guarantee valid JSONL without broken lines
             with open(output_path, "w", encoding="utf-8") as f:
                 for r in results:
