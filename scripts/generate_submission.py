@@ -23,8 +23,10 @@ def main():
                         choices=["public_test", "private_test"])
     parser.add_argument("--agent-mode", default="rule",
                         choices=["rule", "transformers", "vllm"])
-    parser.add_argument("--asr-mode", default="gold",
-                        choices=["gold", "whisper"])
+    parser.add_argument("--asr-mode", default="whisper",
+                        choices=["gold", "whisper", "precomputed"])
+    parser.add_argument("--transcripts-file", default=None,
+                        help="Path to precomputed transcripts JSON")
     parser.add_argument("--model-name", default="Qwen/Qwen3-4B-Instruct-2507")
     parser.add_argument("--asr-model", default="large-v3-turbo")
     parser.add_argument("--output", default=None, help="Output file path")
@@ -35,7 +37,14 @@ def main():
     split = args.split
     
     # Auto-switch to whisper on test splits if gold was erroneously requested
-    if split in ("public_test", "private_test") and args.asr_mode == "gold":
+    if args.transcripts_file or args.asr_mode == "precomputed":
+        args.asr_mode = "precomputed"
+        if not args.transcripts_file:
+            cand = Path(__file__).resolve().parent.parent / "outputs" / f"transcripts_{split}.json"
+            if cand.exists():
+                args.transcripts_file = str(cand)
+                print(f"  ⚡ Found precomputed transcripts for {split}: {cand}")
+    elif split in ("public_test", "private_test") and args.asr_mode == "gold":
         print(f"  ⚠️ Warning: {split} does not contain gold transcripts! Auto-switching --asr-mode to 'whisper'.")
         args.asr_mode = "whisper"
     
@@ -61,6 +70,7 @@ def main():
     asr = create_asr(
         mode=args.asr_mode,
         model_name=args.asr_model,
+        transcripts_path=args.transcripts_file,
     )
     if args.asr_mode != "gold":
         asr.load()
@@ -151,19 +161,9 @@ def main():
         print("\n" + "=" * 60)
         print("RUNNING OFFICIAL 7-LAYER SUBMISSION LINTER")
         print("=" * 60)
-        linter = SubmissionLinter(
-            submission_path=output_path,
-            catalog_path=catalog_path,
-            input_jsonl=jsonl_path,
-            split=split,
-        )
-        lint_report = linter.lint()
-        if lint_report["errors"]:
-            print(f"❌ Submission Linter found {len(lint_report['errors'])} critical errors:")
-            for err in lint_report["errors"][:5]:
-                print(f"  - {err}")
-        else:
-            print("🎉 0 Critical Errors! Submission is 100% compliant with Zalo AI Challenge rules.")
+        linter = SubmissionLinter(split=split)
+        lint_report = linter.lint_file(output_path)
+        linter.print_report(lint_report)
     except Exception as e:
         print(f"  [Notice] Could not run automatic linter: {e}")
 

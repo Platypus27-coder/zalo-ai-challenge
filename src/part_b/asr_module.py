@@ -11,6 +11,7 @@ Target performance on T4 GPU:
 - faster-whisper large-v3-turbo (~800M params, FP16)
 - Latency P95 < 2.5s/sample (max budget 5.0s)
 """
+import json
 import time
 from pathlib import Path
 from typing import Optional, Any
@@ -67,6 +68,7 @@ class ASRModule:
         beam_size: int = 5,
         use_prompt_bias: bool = True,
         vad_parameters: dict | None = None,
+    transcripts_path: str | Path | None = None,
     ):
         """
         Args:
@@ -268,6 +270,51 @@ class GoldTranscriptASR:
         return result["normalized_text"]
 
 
+class PrecomputedTranscriptASR:
+    """ASR implementation that reads from a pre-computed JSON transcript file.
+    
+    Useful for:
+    - Rapid Agent LLM development without loading Whisper into VRAM
+    - Running on CPU/low-resource machines when audio is already transcribed
+    - Reproducible benchmarking using verified Member B transcripts
+    """
+    
+    def __init__(self, transcripts_path: str | Path):
+        self.model_name = f"precomputed({Path(transcripts_path).name})"
+        self.transcripts_path = Path(transcripts_path)
+        with open(self.transcripts_path, "r", encoding="utf-8") as f:
+            self.transcripts = json.load(f)
+    
+    def load(self):
+        pass
+    
+    def transcribe(
+        self,
+        audio_path: str | Path,
+        sample: dict | None = None,
+        context: dict | None = None,
+        initial_prompt: str | None = None,
+    ) -> dict:
+        sample_id = sample.get("id") if sample else None
+        item = self.transcripts.get(sample_id, {}) if sample_id else {}
+        raw = item.get("raw_text", "")
+        norm = item.get("normalized_text", normalize_transcript(raw))
+        return {
+            "raw_transcript": raw,
+            "raw_text": raw,
+            "normalized_transcript": norm,
+            "normalized_text": norm,
+            "language": "vi",
+            "duration": 0,
+            "inference_time": item.get("latency", 0),
+            "segments": [],
+        }
+    
+    def __call__(self, audio_path: str | Path, sample: dict | None = None, context: dict | None = None) -> str:
+        result = self.transcribe(audio_path, sample=sample, context=context)
+        return result["normalized_text"]
+
+
 # Global default ASR instance for simple function calling
 _DEFAULT_ASR_INSTANCE: Optional[ASRModule | GoldTranscriptASR] = None
 
@@ -323,10 +370,15 @@ def create_asr(
     beam_size: int = 5,
     use_prompt_bias: bool = True,
     vad_parameters: dict | None = None,
+    transcripts_path: str | Path | None = None,
 ) -> ASRModule | GoldTranscriptASR:
     """Factory function to create ASR module."""
     if mode == "gold":
         return GoldTranscriptASR()
+    elif mode == "precomputed":
+        if not transcripts_path:
+            raise ValueError("transcripts_path required for mode='precomputed'")
+        return PrecomputedTranscriptASR(transcripts_path)
     elif mode == "whisper":
         return ASRModule(
             model_name=model_name,
