@@ -35,4 +35,4 @@ COPY models/ /workspace/models/
 
 # Default entrypoint for competition platform
 ENTRYPOINT ["python", "scripts/run_offline.py"]
-CMD ["--data-dir", "/data/public_test", "--output", "/output/submission.jsonl"]
+CMD ["--data-dir", "/data/public_test", "--output", "result/submission.jsonl"]

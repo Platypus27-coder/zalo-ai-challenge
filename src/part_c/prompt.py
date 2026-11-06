@@ -1,11 +1,16 @@
-"""Part C — Prompt Templates: System and user prompts for the Agent LLM.
+"""Part C — Prompt Templates: System prompts, user prompts, and protocol parser for Qwen3-4B-Instruct.
 
-Design principles:
-- Concise: minimize token usage (16K context limit)
-- Action-oriented: Agent is judged on actions, not words
-- Vietnamese-aware: handle Vietnamese time, names, addresses
-- Structured output: guide LLM to produce parseable tool calls
+Supports:
+1. Native Qwen3 function calling format: <tool_call>\n{"name": "...", "arguments": {...}}\n</tool_call>
+2. Legacy text protocol: CALL: {"name": "...", "arguments": {...}} / DONE
+3. Function-call notation: [Bước X:] tool_name({...})
+4. Strict parsing & terminal action identification with nested JSON support.
 """
+from __future__ import annotations
+
+import json
+import re
+from typing import Any, Optional
 
 
 SYSTEM_PROMPT = """Bạn là trợ lý AI xử lý yêu cầu bằng giọng nói tiếng Việt. Nhiệm vụ: phân tích yêu cầu và gọi các công cụ (tool) phù hợp.
@@ -58,15 +63,7 @@ def build_user_prompt(
     tools_text: str,
     observations: list[dict] | None = None,
 ) -> str:
-    """Build the user prompt for the Agent LLM.
-    
-    Args:
-        transcript: ASR transcript of user request
-        context: Sample context (current_time, user_profile, etc.)
-        history: Conversation history
-        tools_text: Formatted tool descriptions
-        observations: Previous tool call results in this session
-    """
+    """Build the user prompt for the Agent LLM."""
     parts = []
     
     # Context
@@ -87,19 +84,20 @@ def build_user_prompt(
     # History
     if history:
         hist_text = format_history(history)
-        parts.append(f"## LỊCH SỬ HỘI THOẠI\n{hist_text}")
+        if hist_text:
+            parts.append(f"## LỊCH SỬ HỘI THOẠI\n{hist_text}")
     
     # Available tools
     parts.append(f"## CÔNG CỤ KHẢ DỤNG\n{tools_text}")
     
     # Current request
-    parts.append(f"## YÊU CẦU HIỆN TẠI\n{transcript}")
+    parts.append(f"## YÊU CẦU HIỆN TẠI\n{transcript if transcript else '[Yêu cầu trống]'}")
     
     # Previous observations in this session
     if observations:
         obs_text = format_observations(observations)
         parts.append(f"## KẾT QUẢ CÁC BƯỚC TRƯỚC\n{obs_text}")
-        parts.append("Dựa trên kết quả trên, hãy quyết định bước tiếp theo.")
+        parts.append("Dựa trên kết quả trên, hãy quyết định bước tiếp theo hoặc trả về DONE nếu đã xong.")
     else:
         parts.append("Hãy phân tích yêu cầu và thực hiện bước đầu tiên.")
     
@@ -109,7 +107,7 @@ def build_user_prompt(
 def format_history(history: list[dict]) -> str:
     """Format conversation history concisely."""
     lines = []
-    for i, turn in enumerate(history):
+    for turn in history:
         role = turn.get("role", "unknown")
         if role == "user":
             text = turn.get("audio_text", turn.get("text", "[audio]"))
@@ -117,15 +115,14 @@ def format_history(history: list[dict]) -> str:
         elif role == "assistant":
             text = turn.get("text", "")
             if turn.get("tool_calls"):
-                calls = ", ".join(tc["name"] for tc in turn["tool_calls"])
-                lines.append(f"Assistant: [gọi: {calls}] {text}")
-            else:
+                calls = ", ".join(tc["name"] for tc in turn["tool_calls"] if isinstance(tc, dict) and "name" in tc)
+                lines.append(f"Assistant: [gọi: {calls}] {text}".strip())
+            elif text:
                 lines.append(f"Assistant: {text}")
-    
     return "\n".join(lines)
 
 
-def format_observations(observations: list[dict]) -> str:
+def format_observations(observations: list[dict], max_obs_len: int = 600) -> str:
     """Format previous tool observations concisely."""
     lines = []
     for i, obs in enumerate(observations):
@@ -136,10 +133,9 @@ def format_observations(observations: list[dict]) -> str:
         args = json.dumps(call.get("arguments", {}), ensure_ascii=False)
         
         if result.get("ok"):
-            # Truncate long results
             result_str = json.dumps(result, ensure_ascii=False)
-            if len(result_str) > 500:
-                result_str = result_str[:500] + "..."
+            if len(result_str) > max_obs_len:
+                result_str = result_str[:max_obs_len] + "... [dữ liệu dài đã rút gọn]"
             lines.append(f"Bước {i+1}: {name}({args}) → {result_str}")
         else:
             error = result.get("error", "unknown error")
@@ -148,14 +144,48 @@ def format_observations(observations: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def parse_agent_response(response: str) -> dict:
+def _extract_first_json_object(text: str, start_pos: int = 0) -> Optional[dict]:
+    """Robustly extract the first valid JSON object handling arbitrary nesting and escaped quotes."""
+    idx = text.find("{", start_pos)
+    if idx == -1:
+        return None
+    depth = 0
+    in_string = False
+    escape = False
+    start_idx = idx
+    for i in range(idx, len(text)):
+        ch = text[i]
+        if escape:
+            escape = False
+            continue
+        if ch == "\\":
+            escape = True
+            continue
+        if ch == '"':
+            in_string = not in_string
+            continue
+        if not in_string:
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    try:
+                        return json.loads(text[start_idx:i + 1])
+                    except json.JSONDecodeError:
+                        return None
+    return None
+
+
+def parse_agent_response(response: str) -> dict[str, Any]:
     """Parse agent's response to extract tool call or done signal.
     
     Robust parser handling:
-    - DONE / [] / finish signals
+    - DONE / [] / finish signals / <done>
     - CALL: {"name": ..., "arguments": ...}
     - Markdown code fences (```json ... ```)
     - Qwen native <tool_call> ... </tool_call>
+    - Function call style: [Bước X:] tool_name({...})
     - JSON object or JSON list of tool calls
     
     Returns:
@@ -163,125 +193,99 @@ def parse_agent_response(response: str) -> dict:
         {"action": "done"}
         {"action": "error", "message": str}
     """
-    import re
-    response = response.strip()
+    if not response:
+        return {"action": "done"}
+
+    cleaned = response.strip()
     
     # 1. Check for DONE or empty tool calls
     if (
-        response.upper().startswith("DONE")
-        or response.upper() == "DONE"
-        or response == "[]"
-        or "KHÔNG CẦN GỌI TOOL" in response.upper()
+        cleaned.upper().startswith("DONE")
+        or cleaned.upper() == "DONE"
+        or cleaned == "[]"
+        or cleaned == "<done>"
+        or "KHÔNG CẦN GỌI TOOL" in cleaned.upper()
     ):
         return {"action": "done"}
     
     # 2. Extract Qwen native <tool_call> tags
-    tool_call_match = re.search(r'<tool_call>\s*(.*?)\s*</tool_call>', response, re.DOTALL)
+    tool_call_match = re.search(r'<tool_call>\s*(.*?)\s*</tool_call>', cleaned, re.DOTALL)
     if tool_call_match:
         content = tool_call_match.group(1).strip()
-        try:
-            data = json.loads(content)
-            if isinstance(data, dict) and "name" in data:
-                return {
-                    "action": "call",
-                    "name": data.get("name", ""),
-                    "arguments": data.get("arguments", {}),
-                }
-        except json.JSONDecodeError:
-            pass
+        obj = _extract_first_json_object(content)
+        if isinstance(obj, dict) and "name" in obj:
+            return {
+                "action": "call",
+                "name": str(obj["name"]).strip(),
+                "arguments": obj.get("arguments") if isinstance(obj.get("arguments"), dict) else {},
+            }
     
     # 3. Strip markdown code fences if present (```json ... ``` or ``` ... ```)
-    cleaned = response
-    fence_match = re.search(r'```(?:json)?\s*(.*?)\s*```', response, re.DOTALL)
+    fence_match = re.search(r'```(?:json)?\s*(.*?)\s*```', cleaned, re.DOTALL)
     if fence_match:
-        cleaned = fence_match.group(1).strip()
+        fenced_content = fence_match.group(1).strip()
+        obj = _extract_first_json_object(fenced_content)
+        if isinstance(obj, dict) and "name" in obj:
+            return {
+                "action": "call",
+                "name": str(obj["name"]).strip(),
+                "arguments": obj.get("arguments") if isinstance(obj.get("arguments"), dict) else {},
+            }
+        cleaned = fenced_content
     
     # 4. Check for CALL: prefix
     if "CALL:" in cleaned:
-        call_part = cleaned.split("CALL:", 1)[1].strip()
-        # Find first { and try to parse
-        first_brace = call_part.find("{")
-        if first_brace != -1:
-            # Try to find matching closing brace or parse progressively
-            for end_idx in range(len(call_part), first_brace, -1):
-                try:
-                    data = json.loads(call_part[first_brace:end_idx])
-                    if isinstance(data, dict) and "name" in data:
-                        return {
-                            "action": "call",
-                            "name": data.get("name", ""),
-                            "arguments": data.get("arguments", {}),
-                        }
-                except json.JSONDecodeError:
-                    continue
-    
-    # 5. Try to find any JSON object with "name" and "arguments"
-    json_match = re.search(r'\{[^{}]*"name"\s*:\s*"[^"]+"\s*,\s*"arguments"\s*:\s*\{[^}]*\}[^{}]*\}', cleaned)
-    if json_match:
-        try:
-            data = json.loads(json_match.group(0))
+        call_pos = cleaned.find("CALL:")
+        obj = _extract_first_json_object(cleaned, call_pos)
+        if isinstance(obj, dict) and "name" in obj:
             return {
                 "action": "call",
-                "name": data.get("name", ""),
-                "arguments": data.get("arguments", {}),
+                "name": str(obj["name"]).strip(),
+                "arguments": obj.get("arguments") if isinstance(obj.get("arguments"), dict) else {},
             }
-        except json.JSONDecodeError:
-            pass
-
-    # 5.5. Match function-call style: [Bước \d+:] app.tool_name({...})
+    
+    # 5. Try to find function-call style: [Bước \d+:] app.tool_name({...})
     fn_match = re.search(r'([a-z_]+\.[a-z_]+)\s*\(\s*(\{.*?\})\s*\)', cleaned, re.DOTALL)
     if fn_match:
         fn_name = fn_match.group(1).strip()
         fn_args_str = fn_match.group(2).strip()
-        try:
-            fn_args = json.loads(fn_args_str)
-            if isinstance(fn_args, dict):
-                return {
-                    "action": "call",
-                    "name": fn_name,
-                    "arguments": fn_args,
-                }
-        except json.JSONDecodeError:
-            first_b = fn_args_str.find("{")
-            if first_b != -1:
-                for end_i in range(len(fn_args_str), first_b, -1):
-                    try:
-                        data = json.loads(fn_args_str[first_b:end_i])
-                        if isinstance(data, dict):
-                            return {
-                                "action": "call",
-                                "name": fn_name,
-                                "arguments": data,
-                            }
-                    except json.JSONDecodeError:
-                        continue
-    
-    # 6. Try parsing the entire cleaned text as JSON (dict or list)
-    try:
-        data = json.loads(cleaned)
-        if isinstance(data, dict) and "name" in data:
+        obj = _extract_first_json_object(fn_args_str)
+        if isinstance(obj, dict):
             return {
                 "action": "call",
-                "name": data.get("name", ""),
-                "arguments": data.get("arguments", {}),
+                "name": fn_name,
+                "arguments": obj,
             }
-        elif isinstance(data, list):
+    
+    # 6. Try finding any JSON object with "name" and "arguments"
+    obj = _extract_first_json_object(cleaned)
+    if isinstance(obj, dict) and "name" in obj:
+        return {
+            "action": "call",
+            "name": str(obj["name"]).strip(),
+            "arguments": obj.get("arguments") if isinstance(obj.get("arguments"), dict) else {},
+        }
+    
+    # 7. Check for JSON list
+    try:
+        data = json.loads(cleaned)
+        if isinstance(data, list):
             if len(data) == 0:
                 return {"action": "done"}
             if isinstance(data[0], dict) and "name" in data[0]:
                 return {
                     "action": "call",
-                    "name": data[0].get("name", ""),
-                    "arguments": data[0].get("arguments", {}),
+                    "name": str(data[0]["name"]).strip(),
+                    "arguments": data[0].get("arguments") if isinstance(data[0].get("arguments"), dict) else {},
                 }
     except json.JSONDecodeError:
         pass
     
-    return {"action": "error", "message": f"Cannot parse response: {response[:200]}"}
-
-
-# Keep json available for parse_agent_response
-import json
+    # 8. Standalone DONE word anywhere in the response
+    if re.search(r'\bDONE\b', cleaned):
+        return {"action": "done"}
+    
+    return {"action": "error", "message": f"Cannot parse response: {cleaned[:200]}"}
 
 
 if __name__ == "__main__":
@@ -293,16 +297,14 @@ if __name__ == "__main__":
         except Exception:
             pass
     print("=== Prompt Template Test ===\n")
-    print("System Prompt:")
-    print(SYSTEM_PROMPT)
-    print(f"\n--- ({len(SYSTEM_PROMPT)} chars) ---\n")
+    print(f"System Prompt Length: {len(SYSTEM_PROMPT)} chars\n")
     
-    # Test parsing
-    print("Parse Tests:")
     tests = [
         'CALL: {"name": "smart_home.get_status", "arguments": {}}',
         'DONE',
-        'Tôi sẽ gọi tool:\nCALL: {"name": "alarm.create", "arguments": {"time": "2026-11-03T07:00:00+07:00"}}',
+        '<done>',
+        'Bước 4: smart_home.climate_set({"device_id": "ac_living", "mode": "heat", "temperature": 25})',
+        'Tôi sẽ gọi: alarm.create({"time": "2026-11-03T07:00:00+07:00"})',
         '```json\n{"name": "contacts.search", "arguments": {"query": "Mẹ"}}\n```',
         '<tool_call>\n{"name": "sms.send", "arguments": {"phone_number": "0912345678", "message": "Alo"}}\n</tool_call>',
         '[{"name": "weather.get_forecast", "arguments": {"location": "Hà Nội"}}]',
@@ -310,5 +312,5 @@ if __name__ == "__main__":
     ]
     for t in tests:
         result = parse_agent_response(t)
-        print(f"  Input:  {t[:80]}")
+        print(f"  Input:  {t[:75]}")
         print(f"  Parsed: {result}\n")

@@ -1,23 +1,43 @@
-"""Part C — Evidence Ledger & Entity Resolver (§5.1 of Review Plan v3).
+"""Part C — Evidence Ledger & Entity Resolver (§7 of Plan C).
 
 In-memory evidence ledger scoped to a single sample:
-- Tracks all entities observed across context, history, and tool execution outputs.
-- Prevents ID hallucinations and resolves canonical entity IDs (devices, contacts, events, alarms).
-- Automatically invalidates entities (marks as stale) upon write operations.
-- Provides fallback read/ask recommendations when required IDs are missing.
-
-Usage:
-    ledger = EvidenceLedger(sample)
-    ledger.update_from_tool_result("contacts.search", {"query": "Mẹ"}, result)
-    canonical_id = ledger.resolve_entity(entity_type="contact", query_name="Mẹ")
-    ledger.invalidate_on_write("smart_home.light_set", {"device_id": "light_living"})
+- Tracks all entities observed across context, history, and successful tool execution outputs.
+- Prevents ID hallucinations and resolves canonical entity IDs.
+- Tracks provenance and freshness (marks entities stale/invalidated upon write operations).
+- Strict disambiguation: returns None on tie/ambiguity to prevent arbitrary ID guessing.
+- Preserves exact opaque IDs byte-for-byte (no lowercase, no stripping).
 """
+from __future__ import annotations
+
 import copy
+import unicodedata
 from typing import Any, Optional
 
 
+ID_KEY_PATTERNS = {
+    "device_id": "device",
+    "contact_id": "contact",
+    "event_id": "event",
+    "reminder_id": "reminder",
+    "alarm_id": "alarm",
+    "note_id": "note",
+    "task_id": "task",
+    "bill_id": "bill",
+    "ride_id": "ride",
+    "track_id": "track",
+    "playlist_id": "playlist",
+    "account_id": "account",
+    "account_number": "account",
+    "appliance_id": "appliance",
+    "item_id": "item",
+    "message_id": "message",
+    "chat_id": "chat",
+    "room_id": "room",
+}
+
+
 class EvidenceLedger:
-    """Scoped in-memory evidence ledger for one sample."""
+    """Scoped in-memory evidence ledger for a single sample."""
 
     # Map tool write operations to entity types invalidated
     WRITE_INVALIDATIONS = {
@@ -29,7 +49,11 @@ class EvidenceLedger:
         "notes": ["note"],
         "tasks": ["task"],
         "appliances": ["appliance"],
-        "door_lock": ["lock"],
+        "door_lock": ["device", "lock"],
+        "music": ["playlist", "track"],
+        "ride_hailing": ["ride"],
+        "bill_payment": ["bill"],
+        "banking": ["account"],
     }
 
     def __init__(self, sample: dict):
@@ -38,7 +62,7 @@ class EvidenceLedger:
         self.user_profile = sample.get("context", {}).get("user_profile", {})
         self.step_idx = 0
 
-        # {entity_type: {canonical_id: {attributes, source_kind, source_ref, observed_step, validity}}}
+        # {entity_type: {canonical_id: {canonical_id, entity_type, attributes, source_kind, source_ref, observed_step, validity}}}
         self.entities: dict[str, dict[str, dict]] = {
             "device": {},
             "contact": {},
@@ -49,6 +73,10 @@ class EvidenceLedger:
             "task": {},
             "bill": {},
             "account": {},
+            "ride": {},
+            "track": {},
+            "playlist": {},
+            "appliance": {},
             "other": {},
         }
 
@@ -57,38 +85,40 @@ class EvidenceLedger:
         self._seed_from_history(sample)
 
     def _seed_from_context(self, sample: dict):
-        """Seed known context information."""
-        # City/location
+        """Seed known context information (user profile, locations)."""
         city = self.user_profile.get("city")
-        if city:
+        if city and isinstance(city, str):
             self.add_entity(
                 entity_type="other",
                 canonical_id=city,
                 attributes={"type": "user_city", "name": city},
                 source_kind="context",
-                source_ref="user_profile.city"
+                source_ref="user_profile.city",
+                validity="current"
             )
 
     def _seed_from_history(self, sample: dict):
-        """Extract explicit mentions from prior turns in history."""
+        """Extract explicit entities mentioned in prior turns in history."""
         history = sample.get("history", [])
         for h_idx, turn in enumerate(history):
-            content = turn.get("content", "")
-            # Tool results in history
             tool_calls = turn.get("tool_calls", [])
             for tc in tool_calls:
+                if not isinstance(tc, dict):
+                    continue
                 c_name = tc.get("name", "")
                 c_args = tc.get("arguments", {})
-                # Extract explicit IDs used in history
+                if not isinstance(c_args, dict):
+                    continue
                 for k, v in c_args.items():
-                    if k.endswith("_id") and isinstance(v, str):
-                        etype = k.replace("_id", "")
+                    if isinstance(v, str) and (k.endswith("_id") or k in ID_KEY_PATTERNS):
+                        etype = ID_KEY_PATTERNS.get(k, k.replace("_id", ""))
                         self.add_entity(
                             entity_type=etype,
                             canonical_id=v,
                             attributes={"used_in_history": True, "turn": h_idx},
                             source_kind="history",
-                            source_ref=f"turn_{h_idx}.{c_name}"
+                            source_ref=f"turn_{h_idx}.{c_name}",
+                            validity="current"
                         )
 
     def add_entity(
@@ -101,12 +131,15 @@ class EvidenceLedger:
         validity: str = "current"
     ):
         """Register or update an entity in the ledger."""
+        if not canonical_id or not isinstance(canonical_id, str):
+            return
         if entity_type not in self.entities:
             self.entities[entity_type] = {}
 
         existing = self.entities[entity_type].get(canonical_id, {})
         merged_attrs = copy.deepcopy(existing.get("attributes", {}))
-        merged_attrs.update(attributes)
+        if isinstance(attributes, dict):
+            merged_attrs.update(attributes)
 
         self.entities[entity_type][canonical_id] = {
             "canonical_id": canonical_id,
@@ -124,48 +157,67 @@ class EvidenceLedger:
         if not isinstance(result, dict) or not result.get("ok", True):
             return
 
-        # 1. Contacts
-        if tool_name in ("contacts.search", "contacts.list", "contacts.get"):
-            contacts_list = result.get("contacts") or ([result["contact"]] if "contact" in result else [])
-            for c in contacts_list:
-                cid = c.get("id") or c.get("contact_id")
-                if cid:
-                    self.add_entity("contact", cid, c, source_kind="tool_result", source_ref=tool_name)
+        # Recursively ingest any dict or list containing recognizable IDs
+        self._ingest_data(result, tool_name)
 
-        # 2. Smart Home
-        elif tool_name in ("smart_home.get_status", "smart_home.list_devices"):
-            devices = result.get("devices", [])
-            for d in devices:
-                did = d.get("id") or d.get("device_id")
-                if did:
-                    self.add_entity("device", did, d, source_kind="tool_result", source_ref=tool_name)
+    def _ingest_data(self, data: Any, tool_name: str, parent_type: Optional[str] = None):
+        """Recursively scan tool output for entity objects."""
+        if isinstance(data, list):
+            for item in data:
+                self._ingest_data(item, tool_name, parent_type)
+        elif isinstance(data, dict):
+            # Check for known ID keys in this dict
+            found_id = None
+            found_type = None
 
-        # 3. Calendar
-        elif tool_name in ("calendar.list_events", "calendar.get_event"):
-            events = result.get("events") or ([result["event"]] if "event" in result else [])
-            for ev in events:
-                eid = ev.get("id") or ev.get("event_id")
-                if eid:
-                    self.add_entity("event", eid, ev, source_kind="tool_result", source_ref=tool_name)
+            for k, etype in ID_KEY_PATTERNS.items():
+                if k in data and isinstance(data[k], str) and data[k]:
+                    found_id = data[k]
+                    found_type = etype
+                    break
 
-        # 4. Reminders
-        elif tool_name in ("reminders.list", "reminders.get"):
-            rems = result.get("reminders") or ([result["reminder"]] if "reminder" in result else [])
-            for r in rems:
-                rid = r.get("id") or r.get("reminder_id")
-                if rid:
-                    self.add_entity("reminder", rid, r, source_kind="tool_result", source_ref=tool_name)
+            if not found_id and "id" in data and isinstance(data["id"], str) and data["id"]:
+                found_id = data["id"]
+                # Infer type from tool name
+                app = tool_name.split(".", 1)[0]
+                found_type = self._infer_entity_type_from_app(app) or parent_type or "other"
 
-        # 5. Alarms
-        elif tool_name in ("alarm.list", "alarm.get"):
-            alarms = result.get("alarms") or ([result["alarm"]] if "alarm" in result else [])
-            for a in alarms:
-                aid = a.get("id") or a.get("alarm_id")
-                if aid:
-                    self.add_entity("alarm", aid, a, source_kind="tool_result", source_ref=tool_name)
+            if found_id and found_type:
+                self.add_entity(
+                    entity_type=found_type,
+                    canonical_id=found_id,
+                    attributes=data,
+                    source_kind="tool_result",
+                    source_ref=tool_name,
+                    validity="current"
+                )
+
+            # Recurse into nested dicts/lists
+            for k, v in data.items():
+                if isinstance(v, (dict, list)):
+                    inferred_sub = ID_KEY_PATTERNS.get(f"{k}_id", k)
+                    self._ingest_data(v, tool_name, inferred_sub)
+
+    @staticmethod
+    def _infer_entity_type_from_app(app: str) -> str:
+        mapping = {
+            "smart_home": "device",
+            "contacts": "contact",
+            "calendar": "event",
+            "reminders": "reminder",
+            "alarm": "alarm",
+            "notes": "note",
+            "tasks": "task",
+            "bill_payment": "bill",
+            "ride_hailing": "ride",
+            "music": "track",
+            "banking": "account",
+            "appliances": "appliance",
+        }
+        return mapping.get(app, "other")
 
     def invalidate_on_write(self, tool_name: str, arguments: dict):
-        """Invalidate affected entities after a write operation (§5.1 rule)."""
+        """Invalidate affected entities after a write operation (§7.2 rule)."""
         app = tool_name.split(".", 1)[0]
         affected_types = self.WRITE_INVALIDATIONS.get(app, [])
 
@@ -188,38 +240,58 @@ class EvidenceLedger:
     ) -> Optional[str]:
         """Resolve the canonical ID using multi-attribute matching and validity priority.
 
-        Priority order:
-        1. Valid ('current') exact match on name/label.
-        2. Valid match with highest attribute overlap.
-        3. History reference if no current match.
+        Rules:
+        1. Never resolve stale entities.
+        2. Exact name/title match gets highest score.
+        3. Token overlap gets partial score.
+        4. In case of ambiguous tie (two distinct entities with identical top score),
+           returns None to avoid arbitrary hallucination.
         """
         table = self.entities.get(entity_type, {})
         if not table:
             return None
 
         candidates = []
+
         for cid, entry in table.items():
             if entry["validity"] == "stale":
-                continue  # Never resolve stale IDs!
+                continue
 
             attrs = entry["attributes"]
             score = 0
 
             if query_name:
-                q_norm = query_name.strip().lower()
-                e_name = str(attrs.get("name") or attrs.get("title") or attrs.get("label") or cid).lower()
-                if q_norm == e_name:
-                    score += 10
-                elif q_norm in e_name or e_name in q_norm:
-                    score += 5
+                q_norm = unicodedata.normalize("NFC", query_name.strip().lower())
+                name_val = str(attrs.get("name") or attrs.get("title") or attrs.get("label") or "")
+                n_norm = unicodedata.normalize("NFC", name_val.strip().lower())
+                
+                if q_norm and n_norm:
+                    if q_norm == n_norm:
+                        score += 15
+                    elif q_norm in n_norm or n_norm in q_norm:
+                        score += 8
+                    else:
+                        # Check word overlap
+                        q_words = set(q_norm.split())
+                        n_words = set(n_norm.split())
+                        overlap = q_words & n_words
+                        if overlap:
+                            score += len(overlap) * 3
+
+                # Also match against ID itself if relevant
+                cid_norm = cid.strip().lower()
+                if q_norm == cid_norm:
+                    score += 12
+                elif q_norm in cid_norm:
+                    score += 6
 
             if attributes_filter:
                 for k, v in attributes_filter.items():
                     if attrs.get(k) == v:
-                        score += 3
+                        score += 5
 
             if entry["validity"] == "current":
-                score += 2
+                score += 1
 
             if score > 0:
                 candidates.append((score, cid))
@@ -228,23 +300,22 @@ class EvidenceLedger:
             return None
 
         candidates.sort(key=lambda x: -x[0])
+
+        # Ambiguity check: if top 2 candidates have the exact same score > 0, return None
+        if len(candidates) >= 2 and candidates[0][0] == candidates[1][0] and candidates[0][1] != candidates[1][1]:
+            return None
+
         return candidates[0][1]
 
     def has_entity(self, entity_type: str, canonical_id: str) -> bool:
-        """Check if an entity exists and is current."""
+        """Check if an entity exists and is current (not stale)."""
         entry = self.entities.get(entity_type, {}).get(canonical_id)
         return entry is not None and entry.get("validity") != "stale"
 
-    def get_summary(self) -> dict:
-        """Return ledger state summary."""
-        return {
-            etype: {
-                cid: {
-                    "validity": data["validity"],
-                    "source": data["source_ref"]
-                }
-                for cid, data in table.items()
-            }
-            for etype, table in self.entities.items()
-            if table
-        }
+    def get_known_ids(self) -> set[str]:
+        """Return all canonical IDs known in the ledger."""
+        ids = set()
+        for etype, table in self.entities.items():
+            for cid in table:
+                ids.add(cid)
+        return ids

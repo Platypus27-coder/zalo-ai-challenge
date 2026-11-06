@@ -1,27 +1,33 @@
+from __future__ import annotations
+
 import os
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
-"""Part C — Agent Module: LLM-based tool-calling agent.
+"""Part C — Agent Module: Sequential tool-calling agent with Evidence Ledger & Task Tracker.
 
-Architecture:
-- Sequential tool-calling loop with validator
-- Uses filtered tool catalog per sample
-- Respects runtime budget (max steps, timeout)
-- Tracks observations for grounding
-
-Three output behaviors:
-1. Execute: call read → write tools
-2. Ask: call sys.ask_missing_info when params are missing
-3. OOS: return no calls when no tool can handle the request
+Features:
+- Sequential tool-calling loop with pre-call validation.
+- Evidence Ledger for entity grounding and ID provenance.
+- Task Tracker for loop prevention and multi-action tracking.
+- Monotonic deadline compliance (leaves 1s buffer for finalization).
+- Terminal handling for sys.ask_missing_info and DONE.
+- Strict Qwen3-4B-Instruct-2507 support (greedy decoding, context limit 16384).
+- Colab T4 optimization (SDPA attention, expandable segments, 4-bit / 8-bit support).
 """
+
+import copy
 import json
 import time
 import unicodedata
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
-from config import TRAIN_CATALOG, PUBLIC_TEST_CATALOG, DATA_ROOT
+from config import (
+    TRAIN_CATALOG, PUBLIC_TEST_CATALOG, DATA_ROOT,
+    DEFAULT_LLM_MODEL, LOCAL_LLM_DIR, MAX_CONTEXT_TOKENS,
+    MAX_TIME_PER_SAMPLE
+)
 
 # Fallback to PUBLIC_TEST_CATALOG when running on test-only environments
 DEFAULT_CATALOG = TRAIN_CATALOG if TRAIN_CATALOG.exists() else PUBLIC_TEST_CATALOG
@@ -34,68 +40,66 @@ from .tool_filter import (
     format_tools_for_prompt, format_tools_as_json_schema,
 )
 from .evidence_ledger import EvidenceLedger
+from .task_tracker import TaskTracker
 
 
 class BaseAgent:
-    """Base agent class. Subclass and implement `generate()` for specific LLM backends."""
+    """Base agent class defining the sequential tool-execution loop."""
     
     def __init__(
         self,
         catalog_path: Path = DEFAULT_CATALOG,
         max_steps: int = 10,
-        max_retries: int = 1,
+        max_repairs: int = 2,
         verbose: bool = False,
     ):
-        """
-        Args:
-            catalog_path: Path to tools catalog JSON
-            max_steps: Maximum tool calls per sample
-            max_retries: Max retries on validation error before giving up
-            verbose: Print debug info
-        """
         self.catalog = load_catalog(catalog_path)
         self.all_tool_specs = get_all_tool_specs(self.catalog)
         self.max_steps = max_steps
-        self.max_retries = max_retries
+        self.max_repairs = max_repairs
         self.verbose = verbose
     
     def generate(self, messages: list[dict], tools: list[dict] | None = None) -> str:
-        """Generate next response from LLM.
-        
-        Args:
-            messages: Chat messages [{"role": ..., "content": ...}]
-            tools: Optional tool definitions for function calling
-        
-        Returns: LLM response text
-        
-        Must be implemented by subclasses.
-        """
+        """Generate response from LLM backend. Subclasses must implement."""
         raise NotImplementedError("Subclass must implement generate()")
     
-    def run(self, transcript: str, sample: dict, env) -> None:
+    def run(
+        self,
+        transcript: str,
+        sample: dict,
+        env,
+        deadline: Optional[float] = None,
+    ) -> None:
         """Run the agent loop on a single sample.
         
-        This is the main entry point called by the Runner.
-        The agent calls env.call() / env.validate() internally.
-        
         Args:
-            transcript: ASR transcript (or gold text)
+            transcript: ASR transcript (or gold text for debugging)
             sample: Full sample dict with context, history, etc.
-            env: ToolEnv session for this sample
+            env: ToolEnv session for this sample (only 1 instance per run)
+            deadline: Optional monotonic timestamp deadline (start_time + max_time)
         """
-        # Filter tools for this sample
+        # Filter allowed tools for this sample (installed_apps + sys.ask_missing_info)
         sample_tools = filter_tools_for_sample(sample, self.all_tool_specs)
         tools_text = format_tools_for_prompt(sample_tools)
         
         context = sample.get("context", {})
         history = sample.get("history", [])
         
-        # Scoped Evidence Ledger per sample (§5.1 of Master Plan)
+        # Initialize Evidence Ledger and Task Tracker
         ledger = EvidenceLedger(sample)
+        tracker = TaskTracker(raw_transcript=transcript)
+        
         observations = []
+        repairs_used = 0
         
         for step in range(self.max_steps):
-            # Build prompt
+            # 1. Check monotonic deadline (leave 1.0s buffer for trace collection and hash calculation)
+            if deadline is not None and time.monotonic() >= (deadline - 1.0):
+                if self.verbose:
+                    print(f"    [Step {step}] Approaching deadline, finishing early.")
+                break
+            
+            # 2. Build user prompt with bounded observations
             user_prompt = build_user_prompt(
                 transcript=transcript,
                 context=context,
@@ -109,7 +113,7 @@ class BaseAgent:
                 {"role": "user", "content": user_prompt},
             ]
             
-            # Generate response
+            # 3. Generate response from LLM
             try:
                 response = self.generate(messages)
             except Exception as e:
@@ -117,7 +121,7 @@ class BaseAgent:
                     print(f"    LLM error at step {step}: {e}")
                 break
             
-            # Parse response
+            # 4. Parse response
             parsed = parse_agent_response(response)
             
             if parsed["action"] == "done":
@@ -129,15 +133,33 @@ class BaseAgent:
                 name = parsed["name"]
                 arguments = parsed["arguments"]
                 
-                # NFC normalize string arguments (but not IDs from tool results)
-                arguments = self._normalize_arguments(arguments, observations)
+                # Check tool exists in catalog
+                if name not in self.all_tool_specs and not name.startswith("sys."):
+                    observations.append({
+                        "call": {"name": name, "arguments": arguments},
+                        "result": {"ok": False, "error": f"Tool '{name}' không tồn tại trong danh mục hệ thống."}
+                    })
+                    continue
+
+                # NFC normalize text arguments, but preserve exact IDs
+                known_ids = ledger.get_known_ids()
+                arguments = self._normalize_arguments(arguments, known_ids)
                 
-                # Validate before calling
+                # Check loop prevention
+                if tracker.is_looping(name, arguments):
+                    if self.verbose:
+                        print(f"    Step {step}: Loop detected on {name}({arguments}) — breaking.")
+                    break
+                
+                # Pre-call validation via environment
                 validation = env.validate(name, arguments)
                 
                 if validation.get("ok"):
-                    # Execute the call
+                    # Execute tool call
                     result = env.call(name, arguments)
+                    
+                    tool_kind = self.all_tool_specs.get(name, {}).get("kind", "write")
+                    tracker.record_call(name, arguments, result, tool_kind=tool_kind)
                     
                     observations.append({
                         "call": {"name": name, "arguments": arguments},
@@ -153,22 +175,28 @@ class BaseAgent:
                         ok_str = "✓" if result.get("ok") else "✗"
                         print(f"    Step {step}: {ok_str} {name}({json.dumps(arguments, ensure_ascii=False)[:100]})")
                     
-                    # Terminal tool call: sys.ask_missing_info ends the session
+                    # Terminal tool: sys.ask_missing_info ends the session immediately
                     if name == "sys.ask_missing_info":
                         if self.verbose:
                             print(f"    Step {step}: sys.ask_missing_info is terminal — ending session.")
                         break
                 else:
-                    # Validation failed — DO NOT call env.call()!
-                    # Give agent a chance to retry
+                    # Validation failed — DO NOT execute invalid call
                     error_msg = validation.get("error", "validation failed")
+                    repairs_used += 1
+                    
                     observations.append({
                         "call": {"name": name, "arguments": arguments},
                         "result": {"ok": False, "error": f"[VALIDATION] {error_msg}"},
                     })
                     
                     if self.verbose:
-                        print(f"    Step {step}: ✗ VALIDATION: {error_msg}")
+                        print(f"    Step {step}: ✗ VALIDATION ({repairs_used}/{self.max_repairs}): {error_msg}")
+                    
+                    if repairs_used >= self.max_repairs:
+                        if self.verbose:
+                            print(f"    Step {step}: Max validation repairs exceeded — ending sample.")
+                        break
                 
                 # Loop guard: avoid repeating identical failed call twice
                 if len(observations) >= 2:
@@ -182,82 +210,53 @@ class BaseAgent:
             elif parsed["action"] == "error":
                 if self.verbose:
                     print(f"    Step {step}: PARSE ERROR: {parsed['message'][:100]}")
-                # Give one more chance
                 if step == 0:
                     continue
                 break
     
-    def _normalize_arguments(self, arguments: dict, observations: list[dict]) -> dict:
-        """NFC normalize string values, but preserve IDs from tool results."""
-        # Collect IDs we've seen from tool results
-        known_ids = set()
-        for obs in observations:
-            result = obs.get("result", {})
-            self._collect_ids(result, known_ids)
-        
+    def _normalize_arguments(self, arguments: dict, known_ids: set) -> dict:
+        """NFC normalize string values, preserving exact IDs from ledger."""
         normalized = {}
         for key, value in arguments.items():
             if isinstance(value, str):
                 if value in known_ids:
-                    # Preserve ID exactly as received from tool
                     normalized[key] = value
                 else:
-                    # NFC normalize text from ASR/LLM
                     normalized[key] = unicodedata.normalize("NFC", value)
+            elif isinstance(value, dict):
+                normalized[key] = self._normalize_arguments(value, known_ids)
+            elif isinstance(value, list):
+                normalized[key] = [
+                    unicodedata.normalize("NFC", x) if isinstance(x, str) and x not in known_ids else x
+                    for x in value
+                ]
             else:
                 normalized[key] = value
-        
         return normalized
-    
-    def _collect_ids(self, data: Any, ids: set):
-        """Recursively collect ID-like values from tool results."""
-        if isinstance(data, dict):
-            for key, value in data.items():
-                if key in ("id", "device_id", "contact_id", "event_id", "ride_id",
-                          "bill_id", "track_id", "playlist_id", "message_id",
-                          "chat_id", "alarm_id", "reminder_id", "note_id"):
-                    if isinstance(value, str):
-                        ids.add(value)
-                self._collect_ids(value, ids)
-        elif isinstance(data, list):
-            for item in data:
-                self._collect_ids(item, ids)
 
 
 class RuleBasedAgent(BaseAgent):
-    """Simple rule-based agent for baseline testing (no LLM needed).
-    
-    Strategy:
-    - If transcript is empty or no tools match → OOS
-    - Simple keyword matching to select tools
-    - Always reads before writes (to get IDs)
-    """
+    """Simple rule-based agent for baseline testing (no LLM needed)."""
     
     def __init__(self, catalog_path: Path = DEFAULT_CATALOG, verbose: bool = False):
         super().__init__(catalog_path=catalog_path, max_steps=8, verbose=verbose)
     
     def generate(self, messages: list[dict], tools: list[dict] | None = None) -> str:
-        """Rule-based 'generation' — returns DONE for baseline."""
         return "DONE"
     
-    def run(self, transcript: str, sample: dict, env) -> None:
-        """Simple baseline: just return empty (OOS for everything).
-        
-        This establishes the minimum baseline. Real agent should override this.
-        """
-        # For baseline, just return nothing (will get OOS correct, everything else wrong)
+    def run(self, transcript: str, sample: dict, env, deadline: Optional[float] = None) -> None:
         pass
 
 
 class TransformersAgent(BaseAgent):
     """Agent using HuggingFace Transformers for LLM inference.
     
-    Suitable for Colab T4 / Kaggle T4x2 with models < 5B params.
+    Optimized for Colab T4 / Kaggle T4x2 / A30 with SDPA, 4-bit, and 8-bit support.
     """
     
     def __init__(
         self,
-        model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
+        model_name: str = DEFAULT_LLM_MODEL,
         catalog_path: Path = DEFAULT_CATALOG,
         device: str = "cuda",
         max_new_tokens: int = 256,
@@ -286,19 +285,24 @@ class TransformersAgent(BaseAgent):
         except ImportError:
             raise ImportError("transformers and torch required. pip install transformers torch")
         
-        print(f"Loading LLM: {self.model_name}...")
+        load_path = self.model_name
+        if LOCAL_LLM_DIR.is_dir():
+            load_path = str(LOCAL_LLM_DIR)
+        
+        print(f"Loading LLM: {load_path}...")
         start = time.monotonic()
         
         self._tokenizer = AutoTokenizer.from_pretrained(
-            self.model_name,
+            load_path,
+            local_files_only=Path(load_path).is_dir(),
             trust_remote_code=True,
         )
         
-        # Use device_map="auto" for proper multi-layer / multi-GPU mapping on CUDA
         device_map = "auto" if "cuda" in self.device else None
         
         model_kwargs = {
             "device_map": device_map,
+            "local_files_only": Path(load_path).is_dir(),
             "trust_remote_code": True,
         }
         if self.load_in_4bit:
@@ -315,7 +319,7 @@ class TransformersAgent(BaseAgent):
             pass
         
         self._model = AutoModelForCausalLM.from_pretrained(
-            self.model_name,
+            load_path,
             **model_kwargs,
         )
         if device_map is None:
@@ -332,7 +336,6 @@ class TransformersAgent(BaseAgent):
         
         import torch
         
-        # Apply chat template
         text = self._tokenizer.apply_chat_template(
             messages,
             tokenize=False,
@@ -343,6 +346,13 @@ class TransformersAgent(BaseAgent):
         inputs = self._tokenizer(text, return_tensors="pt").to(device)
         pad_token_id = self._tokenizer.pad_token_id if self._tokenizer.pad_token_id is not None else self._tokenizer.eos_token_id
         
+        # Cap input tokens to prevent context overflow
+        if inputs["input_ids"].shape[1] + self.max_new_tokens > MAX_CONTEXT_TOKENS:
+            max_input_len = MAX_CONTEXT_TOKENS - self.max_new_tokens
+            inputs["input_ids"] = inputs["input_ids"][:, -max_input_len:]
+            if "attention_mask" in inputs:
+                inputs["attention_mask"] = inputs["attention_mask"][:, -max_input_len:]
+        
         with torch.inference_mode():
             outputs = self._model.generate(
                 **inputs,
@@ -351,7 +361,6 @@ class TransformersAgent(BaseAgent):
                 pad_token_id=pad_token_id,
             )
         
-        # Decode only the new tokens
         new_tokens = outputs[0][inputs["input_ids"].shape[1]:]
         response = self._tokenizer.decode(new_tokens, skip_special_tokens=True)
         
@@ -363,14 +372,11 @@ class TransformersAgent(BaseAgent):
 
 
 class VLLMAgent(BaseAgent):
-    """Agent using vLLM for fast LLM inference.
-    
-    Recommended for production / evaluation runs.
-    """
+    """Agent using vLLM for high-throughput batch=1 inference on A30."""
     
     def __init__(
         self,
-        model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
+        model_name: str = DEFAULT_LLM_MODEL,
         catalog_path: Path = DEFAULT_CATALOG,
         max_new_tokens: int = 512,
         max_steps: int = 10,
@@ -383,31 +389,35 @@ class VLLMAgent(BaseAgent):
         self._tokenizer = None
     
     def load(self):
-        """Load vLLM model."""
         if self._llm is not None:
             return
         
         try:
-            from vllm import LLM, SamplingParams
+            from vllm import LLM
         except ImportError:
             raise ImportError("vllm required. pip install vllm")
         
-        print(f"Loading vLLM: {self.model_name}...")
+        load_path = self.model_name
+        if LOCAL_LLM_DIR.is_dir():
+            load_path = str(LOCAL_LLM_DIR)
+        
+        if self.verbose:
+            print(f"Loading vLLM: {load_path}...")
         start = time.monotonic()
         
         self._llm = LLM(
-            model=self.model_name,
+            model=load_path,
             trust_remote_code=True,
             dtype="float16",
-            max_model_len=16384,
+            max_model_len=MAX_CONTEXT_TOKENS,
         )
         self._tokenizer = self._llm.get_tokenizer()
         
         elapsed = time.monotonic() - start
-        print(f"vLLM loaded in {elapsed:.1f}s")
+        if self.verbose:
+            print(f"vLLM loaded in {elapsed:.1f}s")
     
     def generate(self, messages: list[dict], tools: list[dict] | None = None) -> str:
-        """Generate response using vLLM."""
         if self._llm is None:
             self.load()
         
@@ -422,32 +432,31 @@ class VLLMAgent(BaseAgent):
         sampling = SamplingParams(
             max_tokens=self.max_new_tokens,
             temperature=0,  # Greedy
-            stop=["DONE", "\n\nUser:", "\n\n##"],
+            stop=["DONE", "<done>"],
         )
         
-        outputs = self._llm.generate([text], sampling)
+        outputs = self._llm.generate([text], sampling, use_tqdm=False)
         response = outputs[0].outputs[0].text
-        
         return response.strip()
 
 
 def create_agent(
     mode: str = "rule",
-    model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
+    model_name: str = DEFAULT_LLM_MODEL,
     catalog_path: Path = DEFAULT_CATALOG,
     load_in_4bit: bool = False,
     load_in_8bit: bool = False,
     verbose: bool = False,
 ) -> BaseAgent:
-    """Factory function to create an agent.
+    """Factory function to instantiate an agent.
     
     Args:
         mode: "rule" (baseline), "transformers", "vllm"
-        model_name: HuggingFace model name
-        catalog_path: Path to tools catalog
+        model_name: HuggingFace model repo or local path
+        catalog_path: Path to catalog JSON
         load_in_4bit: Quantize LLM to 4-bit (saves VRAM on Colab T4)
         load_in_8bit: Quantize LLM to 8-bit
-        verbose: Print debug info
+        verbose: Print debug logs
     """
     if mode == "rule":
         return RuleBasedAgent(catalog_path=catalog_path, verbose=verbose)
@@ -463,26 +472,3 @@ def create_agent(
         return VLLMAgent(model_name=model_name, catalog_path=catalog_path, verbose=verbose)
     else:
         raise ValueError(f"Unknown agent mode: {mode}")
-
-
-if __name__ == "__main__":
-    # Test rule-based agent (no GPU needed)
-    print("=== Agent Module Test (Rule-Based Baseline) ===\n")
-    
-    agent = create_agent(mode="rule", verbose=True)
-    
-    # Simulate a sample
-    sample = {
-        "id": "test_001",
-        "context": {
-            "current_time": "2026-11-02T15:00:00+07:00",
-            "timezone": "Asia/Ho_Chi_Minh",
-            "installed_apps": {
-                "smart_home": {"tools": ["smart_home.get_status", "smart_home.light_set"]},
-            }
-        },
-        "history": [],
-    }
-    
-    print("Rule-based agent returns empty (baseline OOS).")
-    print("To test with LLM, use: create_agent(mode='transformers', model_name='...')")

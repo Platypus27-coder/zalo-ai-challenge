@@ -338,3 +338,28 @@ if __name__ == "__main__":
     for pred, gold, label in tests:
         f1 = token_f1(pred, gold)
         print(f"  {label}: F1={f1:.3f} (pred='{pred}', gold='{gold}')")
+
+
+class Evaluator:
+    """Convenience class to evaluate submissions against ground truth labels."""
+
+    def __init__(self, split: str = "train", catalog_path: Path = TRAIN_CATALOG):
+        self.split = split
+        self.catalog_path = catalog_path
+        self.fuzzy_params = load_catalog_fuzzy_params(catalog_path)
+        from src.part_a.runner import load_samples
+        self.gold_data = load_samples(split)
+        self.gold_hashes = {}
+
+    def evaluate(self, submission: list[dict]) -> dict:
+        sample_ids = {s["id"] for s in submission}
+        needed_samples = [s for s in self.gold_data if s["id"] in sample_ids and s["id"] not in self.gold_hashes]
+        if needed_samples:
+            computed = compute_gold_hashes_via_replay(needed_samples, split="train")
+            self.gold_hashes.update(computed)
+        res = evaluate_submission(submission, self.gold_data, self.fuzzy_params, self.gold_hashes)
+        return {
+            "score": res.get("final_score", 0.0),
+            "hash_match_rate": res.get("hash_match_rate", 0.0),
+            "details": res
+        }

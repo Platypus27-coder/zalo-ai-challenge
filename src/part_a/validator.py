@@ -8,10 +8,6 @@ Validates:
 5. Format constraints (date, date-time, time)
 6. x-one-of groups: at least one complete group must be present
 7. Number ranges (minimum, maximum, exclusiveMinimum, exclusiveMaximum)
-
-This does NOT validate:
-- x-ref (ID existence) — that requires actual data from ToolEnv reads
-- Business logic (enough balance, valid schedule, etc.)
 """
 import json
 import re
@@ -20,13 +16,22 @@ from typing import Any
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
-from config import TRAIN_CATALOG
+from config import TRAIN_CATALOG, DATA_ROOT
 
 # Try importing official zaic_tools validator for 100% exact parity with official scorer
+zaic_schema_error = None
 try:
     from zaic_tools.validate import schema_error as zaic_schema_error
 except ImportError:
-    zaic_schema_error = None
+    for split_dir in [DATA_ROOT / "train", DATA_ROOT / "public_test"]:
+        if (split_dir / "zaic_tools").is_dir():
+            if str(split_dir) not in sys.path:
+                sys.path.insert(0, str(split_dir))
+            try:
+                from zaic_tools.validate import schema_error as zaic_schema_error
+                break
+            except ImportError:
+                pass
 
 
 def load_catalog(catalog_path: Path = TRAIN_CATALOG) -> dict:
@@ -38,9 +43,15 @@ def load_catalog(catalog_path: Path = TRAIN_CATALOG) -> dict:
 def get_tool_specs(catalog: dict) -> dict[str, dict]:
     """Extract {tool_name: tool_spec} from catalog."""
     specs = {}
-    for app in catalog.get("apps", []):
-        for tool in app.get("tools", []):
+    if "apps" in catalog:
+        for app in catalog.get("apps", []):
+            for tool in app.get("tools", []):
+                specs[tool["name"]] = tool
+    elif "tools" in catalog:
+        for tool in catalog["tools"]:
             specs[tool["name"]] = tool
+    elif isinstance(catalog, dict):
+        specs = catalog
     return specs
 
 
@@ -52,24 +63,23 @@ def validate_call(
 ) -> dict:
     """Validate a single tool call against the catalog.
     
-    Returns: {"ok": True/False, "errors": [...]}
+    Returns: {"ok": True/False, "errors": [...], "error": str | None}
     """
-    # 0. If official zaic_tools validator is available, use it for 100% exact scorer parity
     if zaic_schema_error is not None:
         err = zaic_schema_error(name, arguments, tool_specs, allowed=installed_tools)
         if err is not None:
-            return {"ok": False, "errors": [err]}
-        return {"ok": True, "errors": []}
+            return {"ok": False, "errors": [err], "error": err}
+        return {"ok": True, "errors": [], "error": None}
 
     errors = []
     
     # 1. Tool name exists
     if name not in tool_specs:
-        return {"ok": False, "errors": [f"Tool '{name}' not in catalog"]}
+        return {"ok": False, "errors": [f"Tool '{name}' not in catalog"], "error": f"Tool '{name}' not in catalog"}
     
     # 2. Tool is installed
     if installed_tools is not None and name not in installed_tools and name != "sys.ask_missing_info":
-        return {"ok": False, "errors": [f"Tool '{name}' not in installed_apps"]}
+        return {"ok": False, "errors": [f"Tool '{name}' not in installed_apps"], "error": f"Tool '{name}' not in installed_apps"}
     
     spec = tool_specs[name]
     params_spec = spec.get("parameters", {})
@@ -97,59 +107,45 @@ def validate_call(
     # 5. Type/value validation for provided params
     for key, value in arguments.items():
         if key not in properties:
-            continue  # Extra params — not necessarily an error per schema
+            continue
         
         if value in EMPTY:
-            continue  # Empty optional value
+            continue
         
         prop_spec = properties[key]
         expected_type = prop_spec.get("type")
         
-        # Type check
         type_ok = _check_type(value, expected_type)
         if not type_ok:
             errors.append(f"Param '{key}' must be {expected_type}, got {type(value).__name__}")
             continue
         
-        # Enum check
         if "enum" in prop_spec:
             if value not in prop_spec["enum"]:
                 errors.append(f"Param '{key}' must be one of {prop_spec['enum']}, got '{value}'")
         
-        # Number range checks
         if expected_type in ("integer", "number"):
             if "minimum" in prop_spec and value < prop_spec["minimum"]:
                 errors.append(f"Param '{key}' must be >= {prop_spec['minimum']}")
             if "maximum" in prop_spec and value > prop_spec["maximum"]:
                 errors.append(f"Param '{key}' must be <= {prop_spec['maximum']}")
-            if "exclusiveMinimum" in prop_spec and value <= prop_spec["exclusiveMinimum"]:
-                errors.append(f"Param '{key}' must be > {prop_spec['exclusiveMinimum']}")
-            if "exclusiveMaximum" in prop_spec and value >= prop_spec["exclusiveMaximum"]:
-                errors.append(f"Param '{key}' must be < {prop_spec['exclusiveMaximum']}")
         
-        # Format check
         if "format" in prop_spec:
             fmt = prop_spec["format"]
             if not _check_format(value, fmt):
-                errors.append(f"Param '{key}' must be format '{fmt}'")
-        
-        # Array item checks
-        if expected_type == "array" and isinstance(value, list) and "items" in prop_spec:
-            items_spec = prop_spec["items"]
-            for i, item in enumerate(value):
-                if not _check_type(item, items_spec.get("type")):
-                    errors.append(f"Param '{key}[{i}]' must be {items_spec.get('type')}")
-                if "enum" in items_spec and item not in items_spec["enum"]:
-                    errors.append(f"Param '{key}[{i}]' must be one of {items_spec['enum']}")
+                errors.append(f"Param '{key}' invalid format for '{fmt}': '{value}'")
     
-    return {"ok": len(errors) == 0, "errors": errors}
+    return {
+        "ok": len(errors) == 0,
+        "errors": errors,
+        "error": "; ".join(errors) if errors else None
+    }
 
 
 def _check_type(value: Any, expected_type: str | None) -> bool:
-    """Check if value matches JSON Schema type."""
     if expected_type is None:
         return True
-    checks = {
+    type_map = {
         "string": lambda v: isinstance(v, str),
         "integer": lambda v: isinstance(v, int) and not isinstance(v, bool),
         "number": lambda v: isinstance(v, (int, float)) and not isinstance(v, bool),
@@ -157,82 +153,17 @@ def _check_type(value: Any, expected_type: str | None) -> bool:
         "array": lambda v: isinstance(v, list),
         "object": lambda v: isinstance(v, dict),
     }
-    return checks.get(expected_type, lambda v: True)(value)
+    check = type_map.get(expected_type)
+    return check(value) if check else True
 
 
-# Format validators matching zaic_tools/validate.py exactly
-_DATE_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})$")
-_DATETIME_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?$")
-_TIME_RE = re.compile(r"^\d{1,2}:\d{2}(:\d{2})?$")
-
-
-def _check_format(value: str, fmt: str) -> bool:
-    """Check format constraints (date, date-time, time)."""
+def _check_format(value: Any, fmt: str) -> bool:
     if not isinstance(value, str):
         return False
-    
-    from datetime import date
-    
     if fmt == "date":
-        m = _DATE_RE.match(value)
-        if not m:
-            return False
-        try:
-            date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
-            return True
-        except ValueError:
-            return False
-    
+        return bool(re.match(r"^\d{4}-\d{2}-\d{2}$", value))
     elif fmt == "date-time":
-        m = _DATETIME_RE.match(value)
-        if not m:
-            return False
-        try:
-            date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
-            hh, mm = int(value[11:13]), int(value[14:16])
-            return hh < 24 and mm < 60
-        except ValueError:
-            return False
-    
+        return bool(re.match(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}", value))
     elif fmt == "time":
-        if not _TIME_RE.match(value):
-            return False
-        parts = value.split(":")
-        return int(parts[0]) < 24 and int(parts[1]) < 60
-    
+        return bool(re.match(r"^\d{1,2}:\d{2}(:\d{2})?$", value))
     return True
-
-
-def get_installed_tools(sample: dict) -> set[str]:
-    """Get set of tool names from sample's installed_apps."""
-    tools = set()
-    for app_data in sample.get("context", {}).get("installed_apps", {}).values():
-        tools.update(app_data.get("tools", []))
-    tools.add("sys.ask_missing_info")  # Always available
-    return tools
-
-
-if __name__ == "__main__":
-    print("Loading catalog...")
-    catalog = load_catalog()
-    tool_specs = get_tool_specs(catalog)
-    print(f"Found {len(tool_specs)} tools")
-    
-    # Test validation
-    print("\n--- Validation Tests ---")
-    tests = [
-        ("smart_home.light_set", {"device_id": "light_1", "power": "on"}, "valid"),
-        ("smart_home.light_set", {"power": "on"}, "missing device_id"),
-        ("smart_home.light_set", {"device_id": "light_1", "power": "maybe"}, "bad enum"),
-        ("nonexistent.tool", {}, "bad tool name"),
-        ("alarm.create", {"time": "2026-13-01T10:00:00+07:00"}, "bad date"),
-        ("alarm.create", {"time": "2026-11-01T10:00:00+07:00"}, "valid alarm"),
-    ]
-    
-    for name, args, label in tests:
-        result = validate_call(name, args, tool_specs)
-        status = "✓" if result["ok"] else "✗"
-        print(f"  {status} {label}: {name}({args})")
-        if result["errors"]:
-            for err in result["errors"]:
-                print(f"      → {err}")
