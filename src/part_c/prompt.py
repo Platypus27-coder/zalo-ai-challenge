@@ -227,6 +227,34 @@ def parse_agent_response(response: str) -> dict:
             }
         except json.JSONDecodeError:
             pass
+
+    # 5.5. Match function-call style: [Bước \d+:] app.tool_name({...})
+    fn_match = re.search(r'([a-z_]+\.[a-z_]+)\s*\(\s*(\{.*?\})\s*\)', cleaned, re.DOTALL)
+    if fn_match:
+        fn_name = fn_match.group(1).strip()
+        fn_args_str = fn_match.group(2).strip()
+        try:
+            fn_args = json.loads(fn_args_str)
+            if isinstance(fn_args, dict):
+                return {
+                    "action": "call",
+                    "name": fn_name,
+                    "arguments": fn_args,
+                }
+        except json.JSONDecodeError:
+            first_b = fn_args_str.find("{")
+            if first_b != -1:
+                for end_i in range(len(fn_args_str), first_b, -1):
+                    try:
+                        data = json.loads(fn_args_str[first_b:end_i])
+                        if isinstance(data, dict):
+                            return {
+                                "action": "call",
+                                "name": fn_name,
+                                "arguments": data,
+                            }
+                    except json.JSONDecodeError:
+                        continue
     
     # 6. Try parsing the entire cleaned text as JSON (dict or list)
     try:
