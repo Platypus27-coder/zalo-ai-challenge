@@ -138,11 +138,33 @@ def run_offline_pipeline(
 
     from src.part_a.runner import sanitize_sample
 
-    start_total = time.monotonic()
+    # Check for existing completed samples
+    completed_ids = set()
     results = []
+    if output_path.exists() and args.resume:
+        with open(output_path, "r", encoding="utf-8") as f:
+            for line_no, line in enumerate(f, start=1):
+                if line.strip():
+                    try:
+                        entry = json.loads(line)
+                        if "id" in entry and entry["id"] not in completed_ids:
+                            results.append(entry)
+                            completed_ids.add(entry["id"])
+                    except json.JSONDecodeError:
+                        print(f"  ⚠️ Ignored broken/partial line {line_no} from previous run in {output_path}")
+        if completed_ids:
+            with open(output_path, "w", encoding="utf-8") as f:
+                for r in results:
+                    f.write(json.dumps(r, ensure_ascii=False) + "\n")
+            print(f"  ⚡ Auto-Resume: Found {len(completed_ids)} completed samples in {output_path}. Resuming remaining {max(0, len(samples) - len(completed_ids))} samples...")
 
-    with open(output_path, "w", encoding="utf-8") as fout:
+    start_total = time.monotonic()
+    file_mode = "a" if len(completed_ids) > 0 else "w"
+
+    with open(output_path, file_mode, encoding="utf-8") as fout:
         for i, raw_sample in enumerate(samples):
+            if raw_sample["id"] in completed_ids:
+                continue
             sample_id = raw_sample["id"]
             sample_start = time.monotonic()
             deadline = sample_start + MAX_TIME_PER_SAMPLE
@@ -211,6 +233,8 @@ def main():
     parser.add_argument("--whisper-model", default=str(LOCAL_ASR_DIR))
     parser.add_argument("--llm-model", default=str(LOCAL_LLM_DIR))
     parser.add_argument("--max-samples", type=int, default=None)
+    parser.add_argument("--resume", action="store_true", default=True, help="Resume from existing output file (default: True)")
+    parser.add_argument("--no-resume", action="store_false", dest="resume", help="Overwrite existing output file")
     args = parser.parse_args()
 
     run_offline_pipeline(

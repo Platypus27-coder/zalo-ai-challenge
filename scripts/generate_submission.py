@@ -103,7 +103,7 @@ def main():
     results = []
     if output_path.exists() and args.resume:
         with open(output_path, "r", encoding="utf-8") as f:
-            for line in f:
+            for line_no, line in enumerate(f, start=1):
                 if line.strip():
                     try:
                         entry = json.loads(line)
@@ -111,8 +111,12 @@ def main():
                             results.append(entry)
                             completed_ids.add(entry["id"])
                     except json.JSONDecodeError:
-                        pass
+                        print(f"  ⚠️ Ignored broken/partial line {line_no} from previous run in {output_path}")
         if completed_ids:
+            # Re-write verified clean entries to guarantee valid JSONL without broken lines
+            with open(output_path, "w", encoding="utf-8") as f:
+                for r in results:
+                    f.write(json.dumps(r, ensure_ascii=False) + "\n")
             print(f"  ⚡ Auto-Resume: Found {len(completed_ids)} completed samples in {output_path}.")
             print(f"     Will skip them and process remaining {max(0, len(samples) - len(completed_ids))} samples...")
     
