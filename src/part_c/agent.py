@@ -145,20 +145,38 @@ class BaseAgent:
                 known_ids = ledger.get_known_ids()
                 arguments = self._normalize_arguments(arguments, known_ids)
                 
-                # Check loop prevention
-                if tracker.is_looping(name, arguments):
+                # Check loop prevention with tool_kind
+                tool_kind = self.all_tool_specs.get(name, {}).get("kind", "write")
+                if tracker.is_looping(name, arguments, tool_kind=tool_kind):
                     if self.verbose:
                         print(f"    Step {step}: Loop detected on {name}({arguments}) — breaking.")
                     break
-                
+
+                # Intercept hallucinated IDs for write tools before calling env
+                ID_PARAM_KEYS = ("device_id", "bill_id", "chat_id", "event_id", "alarm_id", "ride_id")
+                hallucinated_param = None
+                if tool_kind == "write":
+                    for pkey in ID_PARAM_KEYS:
+                        if pkey in arguments and isinstance(arguments[pkey], str):
+                            val = arguments[pkey]
+                            if val and val not in known_ids and val not in transcript and val not in str(context):
+                                hallucinated_param = (pkey, val)
+                                break
+
+                if hallucinated_param:
+                    pkey, val = hallucinated_param
+                    observations.append({
+                        "call": {"name": name, "arguments": arguments},
+                        "result": {"ok": False, "error": f"ID '{val}' ({pkey}) chưa từng xuất hiện. Bạn PHẢI gọi tool đọc/tìm kiếm (list/search/get_status) tương ứng để lấy ID thật trước!"}
+                    })
+                    continue
+
                 # Pre-call validation via environment
                 validation = env.validate(name, arguments)
                 
                 if validation.get("ok"):
                     # Execute tool call
                     result = env.call(name, arguments)
-                    
-                    tool_kind = self.all_tool_specs.get(name, {}).get("kind", "write")
                     tracker.record_call(name, arguments, result, tool_kind=tool_kind)
                     
                     observations.append({

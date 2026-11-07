@@ -42,9 +42,11 @@ class TaskTracker:
         self.raw_transcript = raw_transcript
         self.tasks: list[SubTask] = []
         self.completed_task_ids: set[str] = set()
-        self.executed_calls: list[tuple[str, str]] = []  # [(tool_name, canonical_args_json)]
+        self.executed_calls: list[tuple[str, str, str]] = []  # [(tool_name, canonical_args_json, tool_kind)]
         self.has_write_happened = False
         self.has_ask_happened = False
+        self.write_count = 0
+        self.seen_reads: dict[tuple[str, str], int] = {}
 
     def add_task(
         self,
@@ -70,12 +72,15 @@ class TaskTracker:
     def record_call(self, tool_name: str, arguments: dict, result: dict, tool_kind: str = "write"):
         """Record an executed tool call and update internal tracking states."""
         canon_args = json.dumps(arguments or {}, sort_keys=True, ensure_ascii=False)
-        self.executed_calls.append((tool_name, canon_args))
+        self.executed_calls.append((tool_name, canon_args, tool_kind))
 
         if tool_name == "sys.ask_missing_info":
             self.has_ask_happened = True
         elif tool_kind == "write":
             self.has_write_happened = True
+            self.write_count += 1
+        elif tool_kind == "read":
+            self.seen_reads[(tool_name, canon_args)] = self.write_count
 
     def mark_executed(self, task_id: str, tool_name: str, result: dict):
         """Record an execution step and update task status."""
@@ -95,13 +100,32 @@ class TaskTracker:
             return True
         return all(t.status == "done" for t in self.tasks)
 
-    def is_looping(self, tool_name: str, arguments: dict) -> bool:
-        """Detect degenerate looping: calling the exact same tool with exact same arguments >= 2 times.
-        
-        If the tool is a read tool that returned empty or error, repeating the exact same call is a loop.
+    def is_looping(self, tool_name: str, arguments: dict, tool_kind: str = "write") -> bool:
+        """Detect degenerate looping:
+        1. Calling the exact same WRITE tool with exact same arguments even once before -> loop (prevent duplicate writes)!
+        2. Calling the exact same READ tool with exact same arguments >= 2 times -> loop!
+        3. Alternating cycles (e.g. A -> B -> A -> B) -> loop!
         """
         canon_args = json.dumps(arguments or {}, sort_keys=True, ensure_ascii=False)
         fingerprint = (tool_name, canon_args)
         
-        count = sum(1 for call in self.executed_calls if call == fingerprint)
-        return count >= 2
+        # 1. Duplicate write call
+        if tool_kind == "write":
+            count = sum(1 for (name, args_str, kind) in self.executed_calls if (name, args_str) == fingerprint)
+            if count >= 1:
+                return True
+        else:
+            # Read tool: max 2 identical calls
+            count = sum(1 for (name, args_str, kind) in self.executed_calls if (name, args_str) == fingerprint)
+            if count >= 2:
+                return True
+
+        # 2. Cycle detection: check if last calls form an alternating cycle of period 2 or 3
+        # e.g. [A, B, A, B] or [A, B, C, A, B, C]
+        history = [call[0] for call in self.executed_calls] + [tool_name]
+        if len(history) >= 4 and history[-1] == history[-3] and history[-2] == history[-4]:
+            return True
+        if len(history) >= 6 and history[-1] == history[-4] and history[-2] == history[-5] and history[-3] == history[-6]:
+            return True
+
+        return False
