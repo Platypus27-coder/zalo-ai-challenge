@@ -11,6 +11,7 @@ outputs/checkpoints/
 outputs/submissions/*.jsonl
 outputs/transcripts/
 outputs/reports/
+outputs/sft_data/
 outputs/*.json
 !outputs/splits/*.json
 !outputs/transcripts_dev.json

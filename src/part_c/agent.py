@@ -275,6 +275,7 @@ class TransformersAgent(BaseAgent):
     def __init__(
         self,
         model_name: str = DEFAULT_LLM_MODEL,
+        adapter_path: Optional[str | Path] = None,
         catalog_path: Path = DEFAULT_CATALOG,
         device: str = "cuda",
         max_new_tokens: int = 256,
@@ -285,6 +286,7 @@ class TransformersAgent(BaseAgent):
     ):
         super().__init__(catalog_path=catalog_path, max_steps=max_steps, verbose=verbose)
         self.model_name = model_name
+        self.adapter_path = adapter_path
         self.device = device
         self.max_new_tokens = max_new_tokens
         self.load_in_4bit = load_in_4bit
@@ -356,6 +358,19 @@ class TransformersAgent(BaseAgent):
         )
         if device_map is None:
             self._model = self._model.to(self.device)
+
+        # Attach LoRA adapter if provided
+        if self.adapter_path:
+            adapter_p = Path(self.adapter_path)
+            if adapter_p.exists():
+                print(f"Loading LoRA adapter from {adapter_p}...")
+                try:
+                    from peft import PeftModel
+                    self._model = PeftModel.from_pretrained(self._model, str(adapter_p))
+                    print(f"✅ LoRA adapter loaded successfully: {adapter_p}")
+                except Exception as e:
+                    print(f"⚠️ Failed to load LoRA adapter: {e}")
+
         self._model.eval()
         
         elapsed = time.monotonic() - start
@@ -475,6 +490,7 @@ class VLLMAgent(BaseAgent):
 def create_agent(
     mode: str = "rule",
     model_name: str = DEFAULT_LLM_MODEL,
+    adapter_path: Optional[str | Path] = None,
     catalog_path: Path = DEFAULT_CATALOG,
     load_in_4bit: bool = False,
     load_in_8bit: bool = False,
@@ -485,6 +501,7 @@ def create_agent(
     Args:
         mode: "rule" (baseline), "transformers", "vllm"
         model_name: HuggingFace model repo or local path
+        adapter_path: Path to trained LoRA adapter directory
         catalog_path: Path to catalog JSON
         load_in_4bit: Quantize LLM to 4-bit (saves VRAM on Colab T4)
         load_in_8bit: Quantize LLM to 8-bit
@@ -495,6 +512,7 @@ def create_agent(
     elif mode == "transformers":
         return TransformersAgent(
             model_name=model_name,
+            adapter_path=adapter_path,
             catalog_path=catalog_path,
             load_in_4bit=load_in_4bit,
             load_in_8bit=load_in_8bit,

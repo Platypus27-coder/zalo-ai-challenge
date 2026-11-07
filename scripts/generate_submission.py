@@ -34,6 +34,8 @@ def main():
     parser.add_argument("--transcripts-file", default=None,
                         help="Path to precomputed transcripts JSON")
     parser.add_argument("--model-name", default="Qwen/Qwen3-4B-Instruct-2507")
+    parser.add_argument("--adapter-path", default=None,
+                        help="Path to trained LoRA adapter directory (e.g. from scripts/train_lora.py)")
     parser.add_argument("--asr-model", default="large-v3-turbo")
     parser.add_argument("--load-in-4bit", action="store_true",
                         help="Quantize LLM to 4-bit (bitsandbytes) to save VRAM on Colab T4")
@@ -150,6 +152,7 @@ def main():
         agent = create_agent(
             mode=args.agent_mode,
             model_name=args.model_name,
+            adapter_path=args.adapter_path,
             catalog_path=catalog_path,
             load_in_4bit=args.load_in_4bit,
             load_in_8bit=args.load_in_8bit,
