@@ -31,7 +31,7 @@ def main():
     parser.add_argument("--model-name", default="Qwen/Qwen3-4B-Instruct-2507")
     parser.add_argument("--data", default="outputs/sft_data/lifemate_agent_sft.jsonl")
     parser.add_argument("--output-dir", default="/content/drive/MyDrive/LifeMateAgent/adapters/qwen3_4b_lora")
-    parser.add_argument("--epochs", type=int, default=2)
+    parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--batch-size", type=int, default=1)
     parser.add_argument("--grad-accum", type=int, default=8)
     parser.add_argument("--lr", type=float, default=2e-4)
@@ -172,7 +172,7 @@ def main():
         fp16=True,
         logging_steps=25,
         save_strategy="epoch",
-        save_total_limit=2,
+        save_total_limit=3,
         report_to="none",
         optim="paged_adamw_8bit",
         gradient_checkpointing=True,
