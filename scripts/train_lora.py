@@ -89,9 +89,22 @@ def main():
     def format_and_tokenize(example):
         messages = example["messages"]
         # Apply Qwen ChatML template
-        text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=False)
-        enc = tokenizer(text, truncation=True, max_length=args.max_seq_len, padding=False)
-        enc["labels"] = list(enc["input_ids"])
+        prompt_messages = messages[:-1]
+        prompt_text = tokenizer.apply_chat_template(prompt_messages, tokenize=False, add_generation_prompt=True)
+        full_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=False)
+        
+        prompt_ids = tokenizer.encode(prompt_text, add_special_tokens=False)
+        enc = tokenizer(full_text, truncation=True, max_length=args.max_seq_len, padding=False)
+        
+        labels = list(enc["input_ids"])
+        prompt_len = min(len(prompt_ids), len(labels))
+        # Mask out prompt tokens with -100 (loss only on Assistant response)
+        for i in range(prompt_len):
+            labels[i] = -100
+        # Guard: Ensure at least one label token is active if truncation occurred
+        if all(x == -100 for x in labels):
+            labels[-1] = enc["input_ids"][-1]
+        enc["labels"] = labels
         return enc
 
     raw_dataset = Dataset.from_list(records)
