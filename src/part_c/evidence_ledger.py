@@ -33,6 +33,10 @@ ID_KEY_PATTERNS = {
     "message_id": "message",
     "chat_id": "chat",
     "room_id": "room",
+    "flight_id": "flight",
+    "beneficiary_id": "beneficiary",
+    "booking_id": "booking",
+    "order_id": "order",
 }
 
 

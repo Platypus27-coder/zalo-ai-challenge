@@ -153,7 +153,7 @@ class BaseAgent:
                     break
 
                 # Intercept hallucinated IDs for write tools before calling env
-                ID_PARAM_KEYS = ("device_id", "bill_id", "chat_id", "event_id", "alarm_id", "ride_id")
+                ID_PARAM_KEYS = ("device_id", "bill_id", "chat_id", "event_id", "alarm_id", "ride_id", "flight_id", "booking_id", "order_id")
                 hallucinated_param = None
                 if tool_kind == "write":
                     for pkey in ID_PARAM_KEYS:
