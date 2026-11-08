@@ -151,6 +151,10 @@ def main():
     model.print_trainable_parameters()
 
     # 5. Training Arguments
+    effective_bs = max(1, args.batch_size * args.grad_accum)
+    total_steps = (len(tokenized_dataset) // effective_bs) * args.epochs
+    warmup_steps = max(10, int(total_steps * 0.05))
+
     training_args = TrainingArguments(
         output_dir=str(output_dir / "checkpoints"),
         num_train_epochs=args.epochs,
@@ -158,7 +162,7 @@ def main():
         gradient_accumulation_steps=args.grad_accum,
         learning_rate=args.lr,
         lr_scheduler_type="cosine",
-        warmup_ratio=0.05,
+        warmup_steps=warmup_steps,
         fp16=True,
         logging_steps=25,
         save_strategy="epoch",
