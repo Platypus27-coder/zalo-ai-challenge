@@ -38,6 +38,14 @@ def main():
     parser.add_argument("--lora-r", type=int, default=16)
     parser.add_argument("--lora-alpha", type=int, default=32)
     parser.add_argument("--max-seq-len", type=int, default=2048)
+    parser.add_argument("--push-to-hub", action="store_true",
+                        help="Automatically upload trained adapter to Hugging Face Hub")
+    parser.add_argument("--hub-model-id", default=None,
+                        help="Hugging Face repo ID, e.g. 'username/lifemate-qwen3-4b-lora'")
+    parser.add_argument("--hub-token", default=None,
+                        help="Hugging Face API write token (optional if already logged in via huggingface-cli)")
+    parser.add_argument("--hub-private", action="store_true", default=True,
+                        help="Make the Hugging Face repository private (default: True)")
     args = parser.parse_args()
 
     data_path = Path(args.data)
@@ -176,6 +184,29 @@ def main():
     model.save_pretrained(str(output_dir))
     tokenizer.save_pretrained(str(output_dir))
     print(f"\n🎉 QLoRA training finished successfully! Adapter saved at: {output_dir}")
+
+    # 8. Push to Hugging Face Hub (Optional)
+    if args.push_to_hub or args.hub_model_id:
+        hub_id = args.hub_model_id
+        if not hub_id:
+            print("⚠️ --push-to-hub requested but --hub-model-id not provided. Skipping push.")
+        else:
+            print(f"\n7. Pushing LoRA adapter to Hugging Face Hub: {hub_id}...")
+            try:
+                model.push_to_hub(
+                    hub_id,
+                    token=args.hub_token,
+                    private=args.hub_private,
+                )
+                tokenizer.push_to_hub(
+                    hub_id,
+                    token=args.hub_token,
+                    private=args.hub_private,
+                )
+                print(f"🚀 Successfully uploaded to Hugging Face Hub: https://huggingface.co/{hub_id}")
+            except Exception as e:
+                print(f"⚠️ Failed to push to Hugging Face Hub: {e}")
+                print("   You can still upload later using: python scripts/push_to_hub.py")
 
 
 if __name__ == "__main__":

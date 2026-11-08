@@ -359,17 +359,17 @@ class TransformersAgent(BaseAgent):
         if device_map is None:
             self._model = self._model.to(self.device)
 
-        # Attach LoRA adapter if provided
+        # Attach LoRA adapter if provided (supports local directory or Hugging Face repo ID)
         if self.adapter_path:
-            adapter_p = Path(self.adapter_path)
-            if adapter_p.exists():
-                print(f"Loading LoRA adapter from {adapter_p}...")
-                try:
-                    from peft import PeftModel
-                    self._model = PeftModel.from_pretrained(self._model, str(adapter_p))
-                    print(f"✅ LoRA adapter loaded successfully: {adapter_p}")
-                except Exception as e:
-                    print(f"⚠️ Failed to load LoRA adapter: {e}")
+            adapter_str = str(self.adapter_path)
+            print(f"Loading LoRA adapter from '{adapter_str}'...")
+            try:
+                from peft import PeftModel
+                self._model = PeftModel.from_pretrained(self._model, adapter_str)
+                print(f"✅ LoRA adapter loaded successfully: {adapter_str}")
+            except Exception as e:
+                print(f"❌ Failed to load LoRA adapter from '{adapter_str}': {e}")
+                raise
 
         self._model.eval()
         
