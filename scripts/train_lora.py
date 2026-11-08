@@ -32,8 +32,8 @@ def main():
     parser.add_argument("--data", default="outputs/sft_data/lifemate_agent_sft.jsonl")
     parser.add_argument("--output-dir", default="/content/drive/MyDrive/LifeMateAgent/adapters/qwen3_4b_lora")
     parser.add_argument("--epochs", type=int, default=2)
-    parser.add_argument("--batch-size", type=int, default=2)
-    parser.add_argument("--grad-accum", type=int, default=4)
+    parser.add_argument("--batch-size", type=int, default=1)
+    parser.add_argument("--grad-accum", type=int, default=8)
     parser.add_argument("--lr", type=float, default=2e-4)
     parser.add_argument("--lora-r", type=int, default=16)
     parser.add_argument("--lora-alpha", type=int, default=32)
@@ -155,6 +155,12 @@ def main():
     total_steps = (len(tokenized_dataset) // effective_bs) * args.epochs
     warmup_steps = max(10, int(total_steps * 0.05))
 
+    import inspect
+    extra_training_args = {}
+    sig = inspect.signature(TrainingArguments.__init__).parameters
+    if "gradient_checkpointing_kwargs" in sig:
+        extra_training_args["gradient_checkpointing_kwargs"] = {"use_reentrant": False}
+
     training_args = TrainingArguments(
         output_dir=str(output_dir / "checkpoints"),
         num_train_epochs=args.epochs,
@@ -170,6 +176,7 @@ def main():
         report_to="none",
         optim="paged_adamw_8bit",
         gradient_checkpointing=True,
+        **extra_training_args,
     )
 
     trainer = Trainer(
