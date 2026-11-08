@@ -172,7 +172,7 @@ def main():
         fp16=True,
         logging_steps=25,
         save_strategy="epoch",
-        save_total_limit=1,
+        save_total_limit=2,
         report_to="none",
         optim="paged_adamw_8bit",
         gradient_checkpointing=True,
