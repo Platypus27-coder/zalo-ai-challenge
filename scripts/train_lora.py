@@ -38,6 +38,14 @@ def main():
     parser.add_argument("--lora-r", type=int, default=16)
     parser.add_argument("--lora-alpha", type=int, default=32)
     parser.add_argument("--max-seq-len", type=int, default=2048)
+    parser.add_argument("--precision", choices=["4bit", "fp16", "auto"], default="auto",
+                        help="Model precision: 'auto' (default: fp16 on Pascal/P100, 4bit on Ampere/Turing), 'fp16' (native fast float16), '4bit' (bitsandbytes QLoRA)")
+    parser.add_argument("--no-4bit", action="store_true",
+                        help="Force disable 4-bit quantization and use native float16")
+    parser.add_argument("--save-steps", type=int, default=200,
+                        help="Save checkpoint every N steps (default: 200). If 0, save per epoch.")
+    parser.add_argument("--resume", action="store_true",
+                        help="Resume training from latest checkpoint in output_dir/checkpoints if available")
     parser.add_argument("--push-to-hub", action="store_true",
                         help="Automatically upload trained adapter to Hugging Face Hub")
     parser.add_argument("--hub-model-id", default=None,
@@ -119,23 +127,51 @@ def main():
     print("   Tokenizing dataset with ChatML template...")
     tokenized_dataset = raw_dataset.map(format_and_tokenize, remove_columns=raw_dataset.column_names, num_proc=1)
 
-    # 3. Load Model in 4-bit NF4
-    print(f"\n3. Loading 4-bit Quantized Base Model: {args.model_name}...")
-    bnb_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_use_double_quant=True,
-        bnb_4bit_compute_dtype=torch.float16,
-    )
+    # Determine precision: 4-bit vs fp16
+    if args.no_4bit or args.precision == "fp16":
+        use_4bit = False
+    elif args.precision == "4bit":
+        use_4bit = True
+    else:  # auto
+        if torch.cuda.is_available():
+            major, _ = torch.cuda.get_device_capability()
+            # Pascal (SM 6.0, e.g. Tesla P100) or older lacks fast 4-bit tensor kernels in bitsandbytes
+            if major <= 6:
+                print("⚡ [Auto-Detect] Detected Pascal GPU (Compute Capability <= 6.x, e.g. Tesla P100).")
+                print("   bitsandbytes 4-bit NF4 kernels lack hardware acceleration on Pascal, causing ~70s/step slowdown.")
+                print("   Automatically switching to native FP16 (full speed ~0.8-1.5s/step, fits within 11.5 / 16 GB VRAM).")
+                use_4bit = False
+            else:
+                use_4bit = True
+        else:
+            use_4bit = False
 
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model_name,
-        quantization_config=bnb_config,
-        device_map="auto",
-        torch_dtype=torch.float16,
-        attn_implementation="sdpa",
-    )
-    model = prepare_model_for_kbit_training(model)
+    # 3. Load Model
+    if use_4bit:
+        print(f"\n3. Loading 4-bit Quantized Base Model: {args.model_name}...")
+        bnb_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_compute_dtype=torch.float16,
+        )
+        model = AutoModelForCausalLM.from_pretrained(
+            args.model_name,
+            quantization_config=bnb_config,
+            device_map="auto",
+            torch_dtype=torch.float16,
+            attn_implementation="sdpa",
+        )
+        model = prepare_model_for_kbit_training(model)
+    else:
+        print(f"\n3. Loading Base Model in Native FP16: {args.model_name}...")
+        model = AutoModelForCausalLM.from_pretrained(
+            args.model_name,
+            device_map="auto",
+            torch_dtype=torch.float16,
+            attn_implementation="sdpa",
+        )
+        model.enable_input_require_grads()
 
     # 4. Attach LoRA Adapter
     print(f"\n4. Attaching LoRA Adapter (r={args.lora_r}, alpha={args.lora_alpha})...")
@@ -161,6 +197,10 @@ def main():
     if "gradient_checkpointing_kwargs" in sig:
         extra_training_args["gradient_checkpointing_kwargs"] = {"use_reentrant": False}
 
+    save_strategy = "steps" if args.save_steps > 0 else "epoch"
+    save_steps = args.save_steps if args.save_steps > 0 else None
+    optim = "adamw_torch" if not use_4bit else "paged_adamw_8bit"
+
     training_args = TrainingArguments(
         output_dir=str(output_dir / "checkpoints"),
         num_train_epochs=args.epochs,
@@ -171,10 +211,11 @@ def main():
         warmup_steps=warmup_steps,
         fp16=True,
         logging_steps=25,
-        save_strategy="epoch",
+        save_strategy=save_strategy,
+        save_steps=save_steps,
         save_total_limit=3,
         report_to="none",
-        optim="paged_adamw_8bit",
+        optim=optim,
         gradient_checkpointing=True,
         **extra_training_args,
     )
@@ -187,8 +228,16 @@ def main():
     )
 
     # 6. Train
+    checkpoints_dir = output_dir / "checkpoints"
+    resume_checkpoint = None
+    if args.resume and checkpoints_dir.exists():
+        ckpts = sorted(list(checkpoints_dir.glob("checkpoint-*")), key=lambda p: int(p.name.split("-")[-1]) if p.name.split("-")[-1].isdigit() else 0)
+        if ckpts:
+            resume_checkpoint = str(ckpts[-1])
+            print(f"🔄 Resuming from latest checkpoint: {resume_checkpoint}")
+
     print("\n5. Training in progress on GPU...")
-    trainer.train()
+    trainer.train(resume_from_checkpoint=resume_checkpoint)
 
     # 7. Save Final Adapter
     print(f"\n6. Saving final LoRA adapter to {output_dir}...")
