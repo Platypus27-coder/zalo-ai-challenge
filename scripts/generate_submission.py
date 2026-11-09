@@ -54,8 +54,14 @@ def main():
     parser.add_argument("--no-resume", action="store_false", dest="resume",
                         help="Overwrite existing output file from scratch")
     parser.add_argument("--max-samples", type=int, default=None)
+    parser.add_argument("--hf-token", default=os.environ.get("HF_TOKEN"),
+                        help="Hugging Face token for private repo adapters")
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
+
+    if args.hf_token:
+        os.environ["HF_TOKEN"] = args.hf_token
+        os.environ["HUGGING_FACE_HUB_TOKEN"] = args.hf_token
     
     split = args.split
     

@@ -372,7 +372,8 @@ class TransformersAgent(BaseAgent):
                     pass
 
                 from peft import PeftModel
-                self._model = PeftModel.from_pretrained(self._model, adapter_str)
+                hf_token = os.environ.get("HF_TOKEN")
+                self._model = PeftModel.from_pretrained(self._model, adapter_str, token=hf_token)
                 print(f"✅ LoRA adapter loaded successfully: {adapter_str}")
             except Exception as e:
                 print(f"❌ Failed to load LoRA adapter from '{adapter_str}': {e}")
