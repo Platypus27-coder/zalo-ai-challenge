@@ -364,6 +364,13 @@ class TransformersAgent(BaseAgent):
             adapter_str = str(self.adapter_path)
             print(f"Loading LoRA adapter from '{adapter_str}'...")
             try:
+                # Bypass incompatible torchao version check in PEFT
+                try:
+                    import peft.import_utils
+                    peft.import_utils.is_torchao_available = lambda: False
+                except Exception:
+                    pass
+
                 from peft import PeftModel
                 self._model = PeftModel.from_pretrained(self._model, adapter_str)
                 print(f"✅ LoRA adapter loaded successfully: {adapter_str}")

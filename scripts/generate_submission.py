@@ -4,6 +4,13 @@ import os
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 """Generate submission.jsonl with real-time checkpointing and auto-resume."""
 
+# Bypass incompatible torchao version check in PEFT
+try:
+    import peft.import_utils
+    peft.import_utils.is_torchao_available = lambda: False
+except Exception:
+    pass
+
 import argparse
 import json
 import shutil
