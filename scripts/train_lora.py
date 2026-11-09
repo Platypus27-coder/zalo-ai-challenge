@@ -32,6 +32,8 @@ def main():
     parser.add_argument("--data", default="outputs/sft_data/lifemate_agent_sft.jsonl")
     parser.add_argument("--output-dir", default="/content/drive/MyDrive/LifeMateAgent/adapters/qwen3_4b_lora")
     parser.add_argument("--epochs", type=int, default=3)
+    parser.add_argument("--max-steps", type=int, default=-1,
+                        help="Maximum training steps to run (e.g. 250 for ~5.5h on T4). If > 0, overrides epochs.")
     parser.add_argument("--batch-size", type=int, default=1)
     parser.add_argument("--grad-accum", type=int, default=8)
     parser.add_argument("--lr", type=float, default=2e-4)
@@ -209,7 +211,16 @@ def main():
 
     # 5. Training Arguments
     effective_bs = max(1, args.batch_size * args.grad_accum)
-    total_steps = (len(tokenized_dataset) // effective_bs) * args.epochs
+    if args.max_steps > 0:
+        total_steps = args.max_steps
+        epochs = max(1, (total_steps * effective_bs) // len(tokenized_dataset) + 1)
+        save_steps = min(args.save_steps, 100) if args.save_steps > 0 else 100
+        print(f"🎯 Target Max Steps: {args.max_steps} (~{args.max_steps * 82 / 3600:.1f} hours on T4)")
+    else:
+        total_steps = (len(tokenized_dataset) // effective_bs) * args.epochs
+        epochs = args.epochs
+        save_steps = args.save_steps if args.save_steps > 0 else None
+
     warmup_steps = max(10, int(total_steps * 0.05))
 
     import inspect
@@ -218,13 +229,13 @@ def main():
     if "gradient_checkpointing_kwargs" in sig:
         extra_training_args["gradient_checkpointing_kwargs"] = {"use_reentrant": False}
 
-    save_strategy = "steps" if args.save_steps > 0 else "epoch"
-    save_steps = args.save_steps if args.save_steps > 0 else None
+    save_strategy = "steps" if save_steps else "epoch"
     optim = "adamw_torch" if not use_4bit else "paged_adamw_8bit"
 
     training_args = TrainingArguments(
         output_dir=str(output_dir / "checkpoints"),
-        num_train_epochs=args.epochs,
+        num_train_epochs=epochs,
+        max_steps=args.max_steps if args.max_steps > 0 else -1,
         per_device_train_batch_size=args.batch_size,
         gradient_accumulation_steps=args.grad_accum,
         learning_rate=args.lr,
