@@ -95,6 +95,11 @@ def main():
         help="Hugging Face API write token (optional if logged in via huggingface-cli)",
     )
     parser.add_argument(
+        "--submission-file",
+        default=None,
+        help="Optional path to submission.jsonl to also upload to the Hugging Face repository",
+    )
+    parser.add_argument(
         "--public",
         action="store_true",
         help="Make repo public (default: private)",
@@ -153,6 +158,22 @@ def main():
         repo_id=args.repo_id,
         token=args.token,
     )
+
+    # 4. Upload submission file if provided
+    if args.submission_file:
+        sub_p = Path(args.submission_file)
+        if sub_p.exists():
+            print(f"\n3. Uploading submission file {sub_p.name} to Hugging Face...")
+            try:
+                api.upload_file(
+                    path_or_fileobj=str(sub_p),
+                    path_in_repo=sub_p.name,
+                    repo_id=args.repo_id,
+                    token=args.token,
+                )
+                print(f"   ✅ Submission file uploaded: https://huggingface.co/{args.repo_id}/blob/main/{sub_p.name}")
+            except Exception as e:
+                print(f"   ⚠️ Could not upload submission file: {e}")
 
     print("\n" + "=" * 60)
     print("🎉 SUCCESS! Model adapter is now hosted on Hugging Face Hub:")
