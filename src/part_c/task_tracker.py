@@ -102,14 +102,15 @@ class TaskTracker:
 
     def is_looping(self, tool_name: str, arguments: dict, tool_kind: str = "write") -> bool:
         """Detect degenerate looping:
-        1. Calling the exact same WRITE tool with exact same arguments even once before -> loop (prevent duplicate writes)!
-        2. Calling the exact same READ tool with exact same arguments >= 2 times -> loop!
-        3. Alternating cycles (e.g. A -> B -> A -> B) -> loop!
+        1. Calling the exact same call (READ or WRITE) with exact same arguments even once before -> loop!
+        2. scene_run can only run once per session (prevents conflicting scene loops).
+        3. Device write tools never modify the same device twice with the same tool.
+        4. Alternating cycles (e.g. A -> B -> A -> B) -> loop!
         """
         canon_args = json.dumps(arguments or {}, sort_keys=True, ensure_ascii=False)
         fingerprint = (tool_name, canon_args)
         
-        # 1. Duplicate write call
+        # 1. Duplicate call
         if tool_kind == "write":
             count = sum(1 for (name, args_str, kind) in self.executed_calls if (name, args_str) == fingerprint)
             if count >= 1:
@@ -119,6 +120,23 @@ class TaskTracker:
             count = sum(1 for (name, args_str, kind) in self.executed_calls if (name, args_str) == fingerprint)
             if count >= 2:
                 return True
+
+        # 2. Scene run: running multiple scenes in one session is conflicting & invalid
+        if tool_name == "smart_home.scene_run":
+            if any(name == "smart_home.scene_run" for (name, _, _) in self.executed_calls):
+                return True
+
+        # 3. Device write guard: never modify the exact same device twice with the same tool
+        if tool_kind == "write" and isinstance(arguments, dict) and "device_id" in arguments:
+            dev_id = arguments["device_id"]
+            for (prev_name, prev_args_str, prev_kind) in self.executed_calls:
+                if prev_kind == "write" and prev_name == tool_name:
+                    try:
+                        prev_args = json.loads(prev_args_str)
+                        if prev_args.get("device_id") == dev_id:
+                            return True
+                    except Exception:
+                        pass
 
         # 2. Cycle detection: check if last calls form an alternating cycle of period 2 or 3
         # e.g. [A, B, A, B] or [A, B, C, A, B, C]

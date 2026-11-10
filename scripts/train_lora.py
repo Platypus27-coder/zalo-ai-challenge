@@ -39,7 +39,8 @@ def main():
     parser.add_argument("--lr", type=float, default=2e-4)
     parser.add_argument("--lora-r", type=int, default=16)
     parser.add_argument("--lora-alpha", type=int, default=32)
-    parser.add_argument("--max-seq-len", type=int, default=2048)
+    parser.add_argument("--max-seq-len", type=int, default=3584,
+                        help="Maximum sequence length (default: 3584, guarantees 0 truncation across all 5,086 SFT turns)")
     parser.add_argument("--precision", choices=["4bit", "fp16", "auto"], default="auto",
                         help="Model precision: 'auto' (default: fp16 on Pascal/P100, 4bit on Ampere/Turing), 'fp16' (native fast float16), '4bit' (bitsandbytes QLoRA)")
     parser.add_argument("--no-4bit", action="store_true",
