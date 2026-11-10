@@ -53,6 +53,8 @@ def main():
                         help="Resume from existing output file if present (default: True)")
     parser.add_argument("--no-resume", action="store_false", dest="resume",
                         help="Overwrite existing output file from scratch")
+    parser.add_argument("--max-steps", type=int, default=5,
+                        help="Maximum reasoning / tool calling steps per sample (default: 5)")
     parser.add_argument("--max-samples", type=int, default=None)
     parser.add_argument("--hf-token", default=os.environ.get("HF_TOKEN"),
                         help="Hugging Face token for private repo adapters")
@@ -167,6 +169,7 @@ def main():
             model_name=args.model_name,
             adapter_path=args.adapter_path,
             catalog_path=catalog_path,
+            max_steps=args.max_steps,
             load_in_4bit=args.load_in_4bit,
             load_in_8bit=args.load_in_8bit,
             verbose=args.verbose,

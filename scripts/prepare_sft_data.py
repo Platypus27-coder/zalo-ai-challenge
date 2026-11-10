@@ -46,18 +46,21 @@ def main():
     for app in catalog.get("apps", []):
         for tool in app.get("tools", []):
             all_tools[tool["name"]] = tool
-    all_tools["sys.ask_missing_info"] = {
-        "name": "sys.ask_missing_info",
-        "description": "Báo thiếu tham số bắt buộc không thể suy ra từ ngữ cảnh hay observation",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "tool_name": {"type": "string"},
-                "params": {"type": "array", "items": {"type": "string"}}
+    if "sys.ask_missing_info" not in all_tools:
+        all_tools["sys.ask_missing_info"] = {
+            "name": "sys.ask_missing_info",
+            "kind": "meta",
+            "description": "Báo các tham số bắt buộc còn thiếu của một tool",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "tool_name": {"type": "string"},
+                    "params": {"type": "array", "items": {"type": "string"}}
+                },
+                "required": ["tool_name", "params"]
             },
-            "required": ["tool_name", "params"]
+            "app": "sys"
         }
-    }
 
     print(f"Loading train samples from {train_jsonl}...")
     samples = []

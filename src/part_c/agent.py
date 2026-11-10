@@ -49,7 +49,7 @@ class BaseAgent:
     def __init__(
         self,
         catalog_path: Path = DEFAULT_CATALOG,
-        max_steps: int = 10,
+        max_steps: int = 5,
         max_repairs: int = 2,
         verbose: bool = False,
     ):
@@ -279,7 +279,7 @@ class TransformersAgent(BaseAgent):
         catalog_path: Path = DEFAULT_CATALOG,
         device: str = "cuda",
         max_new_tokens: int = 256,
-        max_steps: int = 10,
+        max_steps: int = 5,
         load_in_4bit: bool = False,
         load_in_8bit: bool = False,
         verbose: bool = False,
@@ -434,7 +434,7 @@ class VLLMAgent(BaseAgent):
         model_name: str = DEFAULT_LLM_MODEL,
         catalog_path: Path = DEFAULT_CATALOG,
         max_new_tokens: int = 512,
-        max_steps: int = 10,
+        max_steps: int = 5,
         verbose: bool = False,
     ):
         super().__init__(catalog_path=catalog_path, max_steps=max_steps, verbose=verbose)
@@ -500,6 +500,7 @@ def create_agent(
     model_name: str = DEFAULT_LLM_MODEL,
     adapter_path: Optional[str | Path] = None,
     catalog_path: Path = DEFAULT_CATALOG,
+    max_steps: int = 5,
     load_in_4bit: bool = False,
     load_in_8bit: bool = False,
     verbose: bool = False,
@@ -511,6 +512,7 @@ def create_agent(
         model_name: HuggingFace model repo or local path
         adapter_path: Path to trained LoRA adapter directory
         catalog_path: Path to catalog JSON
+        max_steps: Maximum reasoning / tool execution steps per sample
         load_in_4bit: Quantize LLM to 4-bit (saves VRAM on Colab T4)
         load_in_8bit: Quantize LLM to 8-bit
         verbose: Print debug logs
@@ -522,11 +524,12 @@ def create_agent(
             model_name=model_name,
             adapter_path=adapter_path,
             catalog_path=catalog_path,
+            max_steps=max_steps,
             load_in_4bit=load_in_4bit,
             load_in_8bit=load_in_8bit,
             verbose=verbose,
         )
     elif mode == "vllm":
-        return VLLMAgent(model_name=model_name, catalog_path=catalog_path, verbose=verbose)
+        return VLLMAgent(model_name=model_name, catalog_path=catalog_path, max_steps=max_steps, verbose=verbose)
     else:
         raise ValueError(f"Unknown agent mode: {mode}")
