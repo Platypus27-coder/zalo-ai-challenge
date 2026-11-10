@@ -141,9 +141,9 @@ class BaseAgent:
                     })
                     continue
 
-                # NFC normalize text arguments, but preserve exact IDs
+                # NFC normalize text arguments, auto-coerce types, preserve exact IDs
                 known_ids = ledger.get_known_ids()
-                arguments = self._normalize_arguments(arguments, known_ids)
+                arguments = self._coerce_and_normalize_arguments(name, arguments, known_ids)
                 
                 # Check loop prevention with tool_kind
                 tool_kind = self.all_tool_specs.get(name, {}).get("kind", "write")
@@ -232,10 +232,31 @@ class BaseAgent:
                     continue
                 break
     
-    def _normalize_arguments(self, arguments: dict, known_ids: set) -> dict:
-        """NFC normalize string values, preserving exact IDs from ledger."""
+    def _coerce_and_normalize_arguments(self, tool_name: str, arguments: dict, known_ids: set) -> dict:
+        """NFC normalize string values, auto-coerce types against schema, preserve exact IDs."""
+        spec = self.all_tool_specs.get(tool_name, {}).get("parameters", {}).get("properties", {})
         normalized = {}
         for key, value in arguments.items():
+            param_spec = spec.get(key, {})
+            expected_type = param_spec.get("type")
+
+            # Auto-coercion for numbers and booleans mistakenly passed as strings
+            if expected_type == "integer" and isinstance(value, str):
+                try:
+                    value = int(value.strip())
+                except (ValueError, TypeError):
+                    pass
+            elif expected_type == "number" and isinstance(value, str):
+                try:
+                    value = float(value.strip())
+                except (ValueError, TypeError):
+                    pass
+            elif expected_type == "boolean" and isinstance(value, str):
+                if value.lower() in ("true", "1", "yes", "on"):
+                    value = True
+                elif value.lower() in ("false", "0", "no", "off"):
+                    value = False
+
             if isinstance(value, str):
                 if value in known_ids:
                     normalized[key] = value
@@ -251,6 +272,10 @@ class BaseAgent:
             else:
                 normalized[key] = value
         return normalized
+
+    def _normalize_arguments(self, arguments: dict, known_ids: set) -> dict:
+        """Fallback recursive normalization."""
+        return self._coerce_and_normalize_arguments("", arguments, known_ids)
 
 
 class RuleBasedAgent(BaseAgent):
